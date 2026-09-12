@@ -1,0 +1,6 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>七年级数学题库审核</title><link rel="stylesheet" href="review.css"></head>
+<body><main><header><h1>七年级数学题库审核</h1><p id="storage-status">正在载入本地审核进度…</p><section id="stats" class="stats"></section></header>
+<section class="toolbar"><label>状态 <select id="status-filter"><option value="all">全部</option><option value="pending">pending</option><option value="needsReview" selected>needsReview</option><option value="approved">approved</option><option value="rejected">rejected</option></select></label><label>知识点 <select id="kp-filter"><option value="all">全部</option></select></label><label>题目页 <select id="page-filter"><option value="all">全部</option></select></label><label>题号 <input id="query" placeholder="Q0001 或原题号"></label><button id="reset-filter">清除筛选</button></section>
+<section class="layout"><aside><div id="list" aria-label="题目列表"></div></aside><article id="editor"></article></section>
+<footer><button id="backup">导出审核进度</button><button id="export">导出正式题库</button><button id="report">导出审核报告</button></footer></main><script src="initial-data.js"></script><script src="review.js"></script></body></html>
