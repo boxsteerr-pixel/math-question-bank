@@ -1,1 +1,1 @@
-{"type":"module","scripts":{"test":"node tests/test-core.js && node tests/scoring-coverage.js && node tests/adaptive-engine.js"}}
+{"type":"module","scripts":{"test":"node tests/test-core.js && node tests/scoring-coverage.js && node tests/adaptive-engine.js && node tests/pwa-safe-update.js"}}
