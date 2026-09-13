@@ -1,7 +1,8 @@
 /* IndexedDB migration contract: v1 created learning stores; v2 added questionHistory; v3 adds non-destructive migration checks. Normal releases must never delete, clear, or recreate this database. */
 const config=globalThis.MATH_PWA_VERSION||{dbVersion:3,questionBankVersion:'dev'};
 const DB='grade7MathCheckin';export const DB_VERSION=config.dbVersion;
-const definitions={questions:'id',dailyTasks:'date',answers:'key',wrongQuestions:'questionId',knowledgeStats:'questionId',questionHistory:'questionId',checkins:'date',settings:'key'};
+export const KEY_PATHS={questions:'id',dailyTasks:'date',answers:'key',wrongQuestions:'questionId',knowledgeStats:'questionId',questionHistory:'questionId',checkins:'date',settings:'key'};
+const definitions=KEY_PATHS;
 export const LEARNING_STORES=['dailyTasks','answers','wrongQuestions','knowledgeStats','questionHistory','checkins','settings'];
 const CRITICAL_STORES=['dailyTasks','answers','wrongQuestions','knowledgeStats','questionHistory','checkins'];let instance;
 const value=request=>new Promise((resolve,reject)=>{request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error)});
@@ -18,3 +19,6 @@ export async function importQuestions(){const response=await fetch('./data/quest
 export async function dataSafetyStatus(){const db=await openDB();return {counts:await countStores(db,CRITICAL_STORES),migration:await setting('migrationSafety',null),lastBackupAt:await setting('lastFullBackupAt',null),questionBankVersion:await setting('questionBankVersion',config.questionBankVersion)}}
 /* Explicit parent/developer test action only; updates and imports never call this. */
 export async function clearLearningData(){const db=await openDB();return Promise.all(['dailyTasks','answers','wrongQuestions','knowledgeStats','questionHistory','checkins'].map(store=>new Promise((resolve,reject)=>{const transaction=db.transaction(store,'readwrite');transaction.objectStore(store).clear();transaction.oncomplete=resolve;transaction.onerror=()=>reject(transaction.error)})))}
+
+export function replaceStoresAtomically(db,snapshot){return new Promise((resolve,reject)=>{let transaction;try{transaction=db.transaction(LEARNING_STORES,'readwrite');for(const store of LEARNING_STORES){const objectStore=transaction.objectStore(store);objectStore.clear();for(const item of snapshot[store])objectStore.put(item)}}catch(error){try{transaction?.abort()}catch{}reject(error);return}transaction.oncomplete=resolve;transaction.onerror=()=>reject(transaction.error||Error('恢复过程发生错误'));transaction.onabort=()=>reject(transaction.error||Error('恢复过程中止'))})}
+export async function restoreLearningData(snapshot){const db=await openDB();await replaceStoresAtomically(db,snapshot);return countStores(db,LEARNING_STORES)}
