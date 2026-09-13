@@ -4,7 +4,7 @@ import {initialAttemptPolicy} from '../js/attemptPolicy.js';
 function applyInitialAttempt(state,policy){
   const next=structuredClone(state);
   if(policy.recordsWrongQuestion)next.wrongQuestions.push({questionId:'Q-test'});
-  if(policy.countsForStatistics){next.stat.attempts++;if(policy.firstAttemptCorrect){next.stat.firstCorrect++;next.stat.consecutiveWrong=0}else{next.stat.consecutiveWrong++;next.stat.recentAccuracy-=10;next.stat.historicalWrong++}}
+  if(policy.countsForStatistics){next.stat.attempts++;if(policy.firstAttemptCorrect===true){next.stat.firstCorrect++;next.stat.consecutiveWrong=0}else{next.stat.consecutiveWrong++;next.stat.recentAccuracy-=10;next.stat.historicalWrong++}}
   return next;
 }
 

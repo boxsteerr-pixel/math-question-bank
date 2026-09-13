@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IndexedDB 恢复原子性验收</title>
+<style>
+body{margin:0;padding:2rem;font:16px/1.6 system-ui,"Microsoft YaHei",sans-serif;background:#f4f7fb;color:#17233b}main{max-width:760px;margin:auto;background:#fff;border-radius:18px;padding:2rem;box-shadow:0 10px 35px #18284a16}button{border:0;border-radius:10px;background:#2862bf;color:white;padding:.8rem 1.2rem;font-size:1rem;cursor:pointer}#output{margin-top:1rem;white-space:pre-wrap;padding:1rem;border-radius:10px;background:#eef3fb}.pass{color:#097a48}.fail{color:#bd2c25}</style>
+<main>
+  <h1>真实 IndexedDB 恢复回滚验收</h1>
+  <p>本页只创建名称带时间戳的独立测试数据库，不读取、清除或写入正式学习数据库。</p>
+  <button id="run">运行真实 IndexedDB 测试</button>
+  <div id="output">尚未运行。</div>
+</main>
+<script type="module">
+import {KEY_PATHS,LEARNING_STORES,replaceStoresAtomically} from '../js/db.js';
+
+const output=document.querySelector('#output');
+const testDbName=`math-question-bank-restore-browser-test-${Date.now()}`;
+const record=(store,id,extra={})=>({[KEY_PATHS[store]]:`${store}-${id}`,...extra});
+const snapshot=label=>Object.fromEntries(LEARNING_STORES.map(store=>[store,[record(store,`${label}-one`),record(store,`${label}-two`)]]));
+const text=value=>JSON.stringify(value);
+const openTestDb=()=>new Promise((resolve,reject)=>{
+  const request=indexedDB.open(testDbName,1);
+  request.onupgradeneeded=()=>{const db=request.result;for(const store of LEARNING_STORES){const objectStore=db.createObjectStore(store,{keyPath:KEY_PATHS[store]});if(store==='settings')objectStore.createIndex('uniqueProbe','uniqueProbe',{unique:true});}};
+  request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error);
+});
+const readStores=db=>Promise.all(LEARNING_STORES.map(store=>new Promise((resolve,reject)=>{const request=db.transaction(store,'readonly').objectStore(store).getAll();request.onsuccess=()=>resolve([store,request.result]);request.onerror=()=>reject(request.error)}))).then(Object.fromEntries);
+const deleteTestDb=db=>new Promise(resolve=>{db.close();const request=indexedDB.deleteDatabase(testDbName);request.onsuccess=request.onerror=request.onblocked=()=>resolve()});
+
+document.querySelector('#run').onclick=async()=>{
+  const button=document.querySelector('#run');button.disabled=true;output.className='';output.textContent=`正在使用独立数据库：${testDbName}`;
+  let db;
+  try{
+    db=await openTestDb();
+    const before=snapshot('before');
+    before.settings=before.settings.map((item,index)=>({...item,uniqueProbe:`before-${index}`}));
+    await replaceStoresAtomically(db,before);
+
+    const failing=snapshot('target');
+    failing.settings=[record('settings','duplicate-a',{uniqueProbe:'duplicate'}),record('settings','duplicate-b',{uniqueProbe:'duplicate'})];
+    let aborted=false;
+    try{await replaceStoresAtomically(db,failing)}catch(error){aborted=error?.name==='ConstraintError'||/constraint|abort|恢复/i.test(error?.message||'')}
+    const afterFailure=await readStores(db);
+    if(!aborted||text(afterFailure)!==text(before))throw Error('FAIL：检测到半恢复或事务未真实回滚');
+
+    const successful=snapshot('successful');
+    successful.settings=successful.settings.map((item,index)=>({...item,uniqueProbe:`successful-${index}`}));
+    await replaceStoresAtomically(db,successful);
+    const afterSuccess=await readStores(db);
+    const countsMatch=LEARNING_STORES.every(store=>afterSuccess[store].length===successful[store].length);
+    if(!countsMatch)throw Error('FAIL：正常恢复后 Store 数量与备份不一致');
+    output.className='pass';
+    output.textContent='PASS：真实 IndexedDB 事务已回滚\nPASS：正常完整恢复后各 Store 数量与备份一致\n正式学习数据库未被访问。';
+  }catch(error){output.className='fail';output.textContent=error.message||String(error)}finally{if(db)await deleteTestDb(db);button.disabled=false}
+};
+</script>
+</html>
