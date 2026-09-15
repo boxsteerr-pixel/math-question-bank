@@ -1,5 +1,7 @@
-const fs=require('fs'),path=require('path');
-const root=path.resolve(__dirname,'..');
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const pending=JSON.parse(fs.readFileSync(path.join(root,'data','questions_pending.json'),'utf8'));
 const source='七年级上学期_日常计算精选题库_含标准答案.pdf';
 const A=[
@@ -11,10 +13,12 @@ const A=[
 'a^2-5b^2','10x^2-9y^2','-2x^2+2y^2','-5a','5x^2-3x-3','-a^2-10ab+b^2','-3pr','-2x^3+y^3+4x^2y','2a^2b+ab^2','3a+b','-2x^2+5xy+2y^2','-3x+y^2','15xy-6x-9','-9a^2+5a-4','15','2-7a','-a^2b-ab','8m^2-8m-2','-5x^2+5y^2+12','-x+4y'
 ];
 if(A.length!==162)throw Error(`Expected 162 answers, received ${A.length}`);
-const corrections={Q0014:'+[+(-8.1)]',Q0028:'-{[-(-13/18)]}'};
+// Keep audited corrections keyed by question ID. Do not add new positional answer edits to A.
+const questionOverrides={Q0014:'+[+(-8.1)]'};
+const answerOverrides={Q0024:'6.8',Q0125:'2x-5y',Q0137:'-2a-2b'};
 function answerType(i,answer){if(i<=30)return 'number';if(i<=50)return 'number';if(i<=60)return 'conditional_expression';if(i===69)return 'number';if(i===70)return 'ordered_terms';if(i>=91&&i<=94)return 'fill_blank';if(i>=95&&i<=99)return 'multiple_blank';if(i>=100&&i<=111)return 'fill_blank';if(i===112)return 'expression';return 'expression'}
 function subPoint(q){if(q.knowledgePoint==='添括号')return '括号内填空';return q.subKnowledgePoint||''}
-const final=pending.map((p,i)=>{const n=i+1,page=n<=30?1:n<=60?2:n<=90?3:n<=112?4:n<=142?5:n<=152?6:7,answerPage=n<=30?8:n<=60?9:n<=90?10:n<=112?11:n<=142?12:13,answer=A[i];return {id:p.id,question:corrections[p.id]||p.question,displayQuestion:corrections[p.id]||p.question,answer,displayAnswer:Array.isArray(answer)?answer.join('；'):answer,chapter:'七年级上学期 日常计算',knowledgePoint:p.knowledgePoint,subKnowledgePoint:subPoint(p),difficulty:p.difficulty||2,source,questionPage:page,answerPage,sourceIndex:p.sourceIndex,status:'approved',tags:p.tags||[],answerType:answerType(n,answer),reviewNote:'已依据同一 PDF 中对应答案页、模块、题号及左右栏位置核对。',verifiedAnswer:'',answerCheck:'not_checked'};});
+const final=pending.map((p,i)=>{const n=i+1,page=n<=30?1:n<=60?2:n<=90?3:n<=112?4:n<=142?5:n<=152?6:7,answerPage=n<=30?8:n<=60?9:n<=90?10:n<=112?11:n<=142?12:13,answer=answerOverrides[p.id]??A[i],question=questionOverrides[p.id]??p.question;return {id:p.id,question,displayQuestion:question,answer,displayAnswer:Array.isArray(answer)?answer.join('；'):answer,chapter:'七年级上学期 日常计算',knowledgePoint:p.knowledgePoint,subKnowledgePoint:subPoint(p),difficulty:p.difficulty||2,source,questionPage:page,answerPage,sourceIndex:p.sourceIndex,status:'approved',tags:p.tags||[],answerType:answerType(n,answer),reviewNote:'已依据同一 PDF 中对应答案页、模块、题号及左右栏位置核对。',verifiedAnswer:'',answerCheck:'not_checked'};});
 fs.writeFileSync(path.join(root,'data','questions.json'),JSON.stringify(final,null,2)+'\n','utf8');
 fs.writeFileSync(path.join(root,'data','questions_needs_review.json'),'[]\n','utf8');
 fs.writeFileSync(path.join(root,'review','initial-data.js'),`window.INITIAL_QUESTIONS = ${JSON.stringify(final,null,2)};\n`,'utf8');

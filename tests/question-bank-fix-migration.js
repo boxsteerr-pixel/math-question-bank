@@ -1,0 +1,24 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import {applyQuestionBankFix,QUESTION_BANK_FIX_VERSION} from '../js/questionBankFix.js';
+
+const bank=JSON.parse(fs.readFileSync(new URL('../data/questions.json',import.meta.url),'utf8'));
+const answer=(date,questionId,firstAnswer,firstAttemptCorrect)=>({key:`${date}:${questionId}`,date,questionId,firstAnswer:[firstAnswer],firstAttemptCorrect,initialSubmitted:true,resolved:firstAttemptCorrect===true});
+const snapshot={questions:bank,answers:[answer('2026-09-01','Q0125','2x-5y',false),answer('2026-09-02','Q0137','-2a-2b',false),answer('2026-09-03','Q0024','6.8',false),answer('2026-09-04','Q0068','a-b+c',false),answer('2026-09-05','Q0028','13/18',false),answer('2026-09-06','Q0001','-1',true)],wrongQuestions:[{questionId:'Q0125',firstWrongDate:'2026-09-01',lastWrongDate:'2026-09-01',wrongCount:1,reviewStage:1,nextReviewDate:'2026-09-02',reviewCorrectStreak:0,mastered:false}],knowledgeStats:[{questionId:'整式加减综合',knowledgePoint:'整式加减综合',attempts:1,firstCorrect:0}],dailyTasks:[{date:'2026-09-02',items:[{questionId:'Q0125',sourceType:'wrong_review'}]}],checkins:[{date:'2026-09-01',firstCorrect:0,wrong:1,manual:0,corrected:0},{date:'2026-09-02',firstCorrect:0,wrong:1,manual:0,corrected:0},{date:'2026-09-03',firstCorrect:0,wrong:1,manual:0,corrected:0},{date:'2026-09-04',firstCorrect:0,wrong:1,manual:0,corrected:0},{date:'2026-09-05',firstCorrect:0,wrong:1,manual:0,corrected:0}]};
+const result=applyQuestionBankFix(snapshot),rows=new Map(result.snapshot.answers.map(row=>[row.questionId,row]));
+assert.equal(result.log.version,QUESTION_BANK_FIX_VERSION);
+assert.equal(rows.get('Q0125').firstAttemptCorrect,true);
+assert.equal(rows.get('Q0137').firstAttemptCorrect,true);
+assert.equal(rows.get('Q0024').firstAttemptCorrect,true);
+assert.equal(rows.get('Q0068').firstAttemptCorrect,false);
+assert.equal(rows.get('Q0068').legacyQuestionMismatch,true);
+assert.equal(rows.get('Q0028').firstAttemptCorrect,false);
+assert.deepEqual(rows.get('Q0001'),snapshot.answers.at(-1));
+assert.equal(result.snapshot.wrongQuestions.some(row=>row.questionId==='Q0125'),false);
+assert.equal(result.snapshot.wrongQuestions.some(row=>row.questionId==='Q0068'),false,'legacyQuestionMismatch 不得制造新的错题本记录');
+assert.equal(result.snapshot.dailyTasks[0].items[0].sourceType,'review');
+assert.equal(result.snapshot.checkins.find(row=>row.date==='2026-09-01').firstCorrect,1);
+assert.equal(result.log.fixedRecords,3);
+const repeated=applyQuestionBankFix(result.snapshot);
+assert.deepEqual(repeated.snapshot,result.snapshot);
+console.log('Question-bank fix migration scenarios passed.');

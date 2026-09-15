@@ -651,7 +651,7 @@
     "id": "Q0028",
     "page": 1,
     "sourceIndex": "一、相反数 第14题右栏",
-    "question": "-{-[ -( -13/18 ) ]}",
+    "question": "-{-[-(-13/18)]}",
     "chapter": "七年级上学期 日常计算",
     "knowledgePoint": "相反数",
     "subKnowledgePoint": "多重符号化简",
@@ -666,7 +666,7 @@
     ],
     "answer": "",
     "calculatedAnswer": "",
-    "displayQuestion": "-{-[ -( -13/18 ) ]}",
+    "displayQuestion": "-{-[-(-13/18)]}",
     "answerConfidence": "low",
     "calculationNote": "未能从题干中安全分离可计算表达式。",
     "sourceConfidence": "medium"
@@ -1581,7 +1581,7 @@
     "id": "Q0068",
     "page": 3,
     "sourceIndex": "一、带括号带系数 2.化简(4)",
-    "question": "化简：-[(-a+b)-c]",
+    "question": "化简：-[-(-a+b)-c]",
     "chapter": "七年级上学期 日常计算",
     "knowledgePoint": "去括号",
     "subKnowledgePoint": "多重符号化简",
@@ -1595,8 +1595,8 @@
       "整式"
     ],
     "answer": "",
-    "calculatedAnswer": "a-b+c",
-    "displayQuestion": "化简：-[(-a+b)-c]",
+    "calculatedAnswer": "-a+b+c",
+    "displayQuestion": "化简：-[-(-a+b)-c]",
     "answerConfidence": "high",
     "calculationNote": "使用有理系数多项式解析、括号展开与同类项合并计算；不是 PDF 官方答案。",
     "sourceConfidence": "high"
