@@ -6,7 +6,7 @@ import {FIXED_QUESTION_IDS,QUESTION_BANK_FIX_VERSION} from '../js/questionBankFi
 import {FACTORIZATION_POINTS,includeNewKnowledgePoints} from '../js/knowledgePoints.js';
 
 const bank=JSON.parse(fs.readFileSync(new URL('../data/questions.json',import.meta.url),'utf8'));
-const additions=bank.filter(question=>Number(question.id.slice(1))>=163);
+const additions=bank.filter(question=>Number(question.id.slice(1))>=163&&Number(question.id.slice(1))<=179);
 const pending=JSON.parse(fs.readFileSync(new URL('../data/questions_pending.json',import.meta.url),'utf8'));
 const points=[...new Set(additions.map(question=>question.knowledgePoint))];
 assert.equal(additions.length,17);

@@ -40,7 +40,7 @@ for(const question of auditable){
   assert.equal(result.correct,true,`${question.id}：题面独立计算结果必须与标准答案一致`);
 }
 
-const factorization=bank.filter(question=>number(question.id)>=163);
+const factorization=bank.filter(question=>number(question.id)>=163&&number(question.id)<=179);
 assert.equal(factorization.length,17,'因式分解正式新增题必须为 17 道');
 assert.equal(new Set(factorization.map(question=>question.question.normalize('NFKC').replace(/[\s·×*（）\[\]{}]/g,'').replace(/[−—]/g,'-'))).size,17,'新增题不得重复');
 const expectedKnowledgePoints={Q0163:'因式分解·提公因式法',Q0164:'因式分解·平方差公式',Q0165:'因式分解·完全平方公式',Q0166:'因式分解·综合方法',Q0167:'因式分解·综合方法',Q0168:'因式分解·综合方法',Q0169:'因式分解·综合方法',Q0170:'因式分解·综合方法',Q0171:'因式分解·综合方法',Q0172:'因式分解·综合方法',Q0173:'因式分解·综合方法',Q0174:'因式分解·综合方法',Q0175:'因式分解·综合方法',Q0176:'因式分解·综合方法',Q0177:'因式分解·综合方法',Q0178:'因式分解·综合方法',Q0179:'因式分解·综合方法'};
@@ -51,4 +51,13 @@ for(const question of factorization){
   assert.equal(score(question,[question.answer]).correct,true,`${question.id} 的标准答案必须可自动判定`);
 }
 
-console.log(`Question bank audit passed: ${auditable.length} existing auditable questions + ${factorization.length} factorization questions, 0 mismatches.`);
+const powerQuestions=bank.filter(question=>number(question.id)>=180&&number(question.id)<=199);
+assert.equal(powerQuestions.length,20,'幂的运算正式新增题必须为 20 道');
+assert.deepEqual(powerQuestions.map(question=>question.id),Array.from({length:20},(_,index)=>`Q${String(index+180).padStart(4,'0')}`),'幂的运算新增题 ID 必须连续');
+for(const question of powerQuestions){
+  assert.ok(question.question.trim(),`${question.id} 的题面不得为空`);
+  assert.ok(String(question.answer).trim(),`${question.id} 的标准答案不得为空`);
+  assert.equal(score(question,[question.answer]).correct,true,`${question.id} 的标准答案必须可自动判定`);
+}
+
+console.log(`Question bank audit passed: ${auditable.length} existing auditable questions + ${factorization.length} factorization questions + ${powerQuestions.length} power-operation questions, 0 mismatches.`);
