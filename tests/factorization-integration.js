@@ -6,6 +6,9 @@ import {FIXED_QUESTION_IDS,QUESTION_BANK_FIX_VERSION} from '../js/questionBankFi
 import {FACTORIZATION_POINTS,includeNewKnowledgePoints} from '../js/knowledgePoints.js';
 
 const bank=JSON.parse(fs.readFileSync(new URL('../data/questions.json',import.meta.url),'utf8'));
+const questionEngineSource=fs.readFileSync(new URL('../js/questionEngine.js',import.meta.url),'utf8');
+assert.match(questionEngineSource,/import \{all,get,put,setting,saveSetting\} from '\.\/db\.js';/,'每日任务生成必须从 db 模块导入统一的 settings 写入 API');
+assert.doesNotMatch(questionEngineSource,/globalThis\.saveSetting/,'每日任务生成不得依赖浏览器全局 saveSetting');
 const additions=bank.filter(question=>Number(question.id.slice(1))>=163&&Number(question.id.slice(1))<=179);
 const pending=JSON.parse(fs.readFileSync(new URL('../data/questions_pending.json',import.meta.url),'utf8'));
 const points=[...new Set(additions.map(question=>question.knowledgePoint))];

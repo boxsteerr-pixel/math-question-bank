@@ -1,4 +1,4 @@
-import {all,get,put,setting} from './db.js';
+import {all,get,put,setting,saveSetting} from './db.js';
 import {summarizeKnowledge} from './statistics.js';
 import {KNOWLEDGE_POINTS,includeNewKnowledgePoints} from './knowledgePoints.js';
 const hash=s=>[...s].reduce((a,c)=>(a*31+c.charCodeAt(0))>>>0,2166136261);
