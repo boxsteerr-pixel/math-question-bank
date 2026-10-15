@@ -1,0 +1,2306 @@
+{
+  "sources": [
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "sha256": "300b4b79c9655b81cd500d772f6fb09ecf73e30fd2e4fe8e7ee98531d7d2ae7a",
+      "formulaImageFiles": 361,
+      "numberedBlocks": 50,
+      "stablePagination": false,
+      "lastRenderedPageBreakCount": 0
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "sha256": "6c2287e48ac1f51d144f552828545575dfcf6f5f9010abdc87478961d0f78849",
+      "formulaImageFiles": 379,
+      "numberedBlocks": 36,
+      "stablePagination": false,
+      "lastRenderedPageBreakCount": 0
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "sha256": "3b426a9cd511707c27df469fdac92224215b786dfa4747f8882cabc91ddf8cf1",
+      "formulaImageFiles": 541,
+      "numberedBlocks": 26,
+      "stablePagination": false,
+      "lastRenderedPageBreakCount": 0
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "sha256": "8a0598a2b09b84a82b22bb56414b265e6759a0c2d32544ae84ff82b19505b808",
+      "formulaImageFiles": 503,
+      "numberedBlocks": 30,
+      "stablePagination": false,
+      "lastRenderedPageBreakCount": 0
+    }
+  ],
+  "blocks": [
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 4,
+      "originalLabel": "1.（2025年宝山区七上期中）下面式子从左边到右边的变形中是因式分解的是（   ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 14,
+      "originalLabel": "2.（2025年嘉定区七上期中） 下列从左到右变形，是因式分解的是（　　）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 25,
+      "originalLabel": "3.（2025年金山区七上期中） 下列等式中，从左到右的变形是因式分解的是（   ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 36,
+      "originalLabel": "4.（2025年闵行区七上期中） 下列从左边到右边的变形，属于因式分解的是（    ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 46,
+      "originalLabel": "5.（2025年宝山区七上期中）如果多项式[IMG:image23.png]加上一个单项式后，能够直接用完全平方公式进行因式分解，那么在下列单项式中，可以加上的是（   ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 54,
+      "originalLabel": "6.（2025年闵行区七上期中）如图，用4个相同的矩形与1个小正方形镶嵌成的正方形图案，已知这个正方形图案的面积为49，小正方形的面积为9，我们用x、y表示小矩形的两边长（[IMG:image31.png]）．请观察图案，指出以下关系式中不正确的个数有（   ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 75,
+      "originalLabel": "7.（2025年浦东新区七上期中） 下列各式中，从左到右的变形属于因式分解且正确的是（）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 86,
+      "originalLabel": "8.（2025年普陀区七上期中）下列等式中，从左到右的变形是因式分解的是（    ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 97,
+      "originalLabel": "9.（2025年普陀区七上期中）下列整式中，能用公式法进行因式分解的是（   ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 108,
+      "originalLabel": "10.（2025年普陀区七上期中）下列单项式中，与整式[IMG:image73.png]相加后不能组成某个整式的平方的是（    ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 120,
+      "originalLabel": "1.（2025年宝山区七上期中） [IMG:image84.png]和[IMG:image85.png]的最大公因式是________．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 125,
+      "originalLabel": "2.（2025年浦东新区七上期中） 关于x的整式[IMG:image87.png]是一个完全平方式，则[IMG:image88.png]______．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 137,
+      "originalLabel": "1.（2025年闵行区七上期中） 因式分解：[IMG:image95.png]__________．",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 145,
+      "originalLabel": "1.（2025年宝山区七上期中）因式分解：[IMG:image101.png]",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 155,
+      "originalLabel": "1.（2025年闵行区七上期中）下列各式中，能用平方差公式计算的是（    ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 167,
+      "originalLabel": "1.（2025年杨浦区七上期中） 如果整式[IMG:image113.png]是一个整式的平方，那么[IMG:image91.png]的值是_________．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 174,
+      "originalLabel": "2.（2025年浦东新区七上期中） 分解因式：[IMG:image117.png]______．",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 180,
+      "originalLabel": "3.（2025年浦东新区七上期中） 分解因式[IMG:image120.png]______．",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 188,
+      "originalLabel": "4.（2025年嘉定区七上期中） 因式分解：[IMG:image125.png]__________．",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 193,
+      "originalLabel": "5.（2025年金山区七上期中） 因式分解：3x3﹣12x=_____．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 201,
+      "originalLabel": "6.（2025年浦东新区七上期中） 已知[IMG:image128.png]，那么[IMG:image129.png]_____．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 212,
+      "originalLabel": "7.（2025年金山区七上期中） 在学习因式分解这一章节时，爱思考的小睿给聪明的小慧出了这样一道题：已知整式[IMG:image144.png]，请在（　　　）里添加一项只含字母a的单项式（[IMG:image145.png]除外），使得这个整式能因式分解，请写出两种添加的方法，并对该整式讲行因式分解．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 225,
+      "originalLabel": "1.（2025年金山区七上期中） 因式分解：[IMG:image152.png]．",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 234,
+      "originalLabel": "2.（2025年金山区七上期中） 因式分解：[IMG:image158.png]",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 242,
+      "originalLabel": "3.（2025年普陀区七上期中） 因式分解：[IMG:image164.png]．",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 248,
+      "originalLabel": "4.（2025年杨浦区七上期中） 已知[IMG:image169.png]，求[IMG:image170.png]的值．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 269,
+      "originalLabel": "1.（2025年杨浦区七上期中） 已知[IMG:image179.png]，[IMG:image180.png]，那么关于x的整式[IMG:image181.png]因式分解的结果是（    ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 279,
+      "originalLabel": "1.（2025年杨浦区七上期中） 因式分解：[IMG:image188.png]_______．",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 284,
+      "originalLabel": "2.（2025年宝山区七上期中）因式分解：[IMG:image192.png]__________．",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 290,
+      "originalLabel": "3.（2025年普陀区七上期中） 因式分解：[IMG:image197.png]_________．",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 296,
+      "originalLabel": "1.（2025年闵行区七上期中） 因式分解：[IMG:image202.png]",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 302,
+      "originalLabel": "2.（2025年普陀区七上期中） 因式分解:[IMG:image206.png]",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 307,
+      "originalLabel": "3.（2025年闵行区七上期中） 因式分解：[IMG:image208.png]",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 319,
+      "originalLabel": "1.（2025年杨浦区七上期中） 下列各式因式分解正确的是（    ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 330,
+      "originalLabel": "1.（2025年杨浦区七上期中） 因式分解：[IMG:image217.png]_________．",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 339,
+      "originalLabel": "2.（2025年宝山区七上期中）因式分解：[IMG:image224.png]______．",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 344,
+      "originalLabel": "3.（2025年宝山区七上期中）已知[IMG:image228.png]，则[IMG:image229.png]的值为____________",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 358,
+      "originalLabel": "4.（2025年嘉定区七上期中） 已知：[IMG:image241.png]，则[IMG:image242.png]______；",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 364,
+      "originalLabel": "5.（2025年嘉定区七上期中） [IMG:image247.png]，则[IMG:image248.png]___________．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 377,
+      "originalLabel": "6.（2025年嘉定区七上期中） 如果一个正整数能表示为两个连续正奇数的平方差，那么称这个正整数为“正巧数”．例如： [IMG:image259.png]，因此8，16，24都是“正巧数”． m、n为正整数，且[IMG:image260.png]，若 [IMG:image261.png]是“正巧数”，则[IMG:image262.png]的值为______________．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 384,
+      "originalLabel": "7.（2025年宝山区七上期中）已知[IMG:image268.png]，则[IMG:image269.png]的值为________．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 400,
+      "originalLabel": "1.（2025年嘉定区七上期中） 因式分解：",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "（1）",
+        "（2）"
+      ]
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 415,
+      "originalLabel": "2.（2025年闵行区七上期中） 因式分解：[IMG:image292.png]",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 423,
+      "originalLabel": "3.（2025年宝山区七上期中）因式分解：[IMG:image298.png]．",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 431,
+      "originalLabel": "4.（2025年宝山区七上期中）因式分解：m3（m﹣1）-4m（1﹣m）2",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 438,
+      "originalLabel": "5.（2025年宝山区七上期中） 分解因式：[IMG:image308.png]．",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 446,
+      "originalLabel": "6.（2025年杨浦区七上期中） 因式分解：[IMG:image313.png]．",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 453,
+      "originalLabel": "7.（2025年杨浦区七上期中） 以下是小明因式分解的过程：",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 468,
+      "originalLabel": "8.（2025年杨浦区七上期中） 先因式分解再求值：[IMG:image326.png]，其中[IMG:image327.png]．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s1",
+      "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+      "paragraphIndex": 479,
+      "originalLabel": "9.（2025年杨浦区七上期中） 阅读材料",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 16,
+      "originalLabel": "1．下列由左到右的变形是因式分解的是（     ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 26,
+      "originalLabel": "2．已知多项式[IMG:image11.png]能分解因式为[IMG:image12.png]，则[IMG:image13.png]的值为（     ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 51,
+      "originalLabel": "3．对多项式[IMG:image24.png]进行因式分解，应提取的公因式是（     ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 56,
+      "originalLabel": "4．下列多项式的分解因式，正确的是（    ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 69,
+      "originalLabel": "【典例1】下面各式从左到右的变形，属于正确的因式分解的是（     ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 78,
+      "originalLabel": "【变式1】下列等式从左到右的变形，属于因式分解的是（   ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 89,
+      "originalLabel": "【变式2】对于式子：①[IMG:image53.png]；②[IMG:image54.png]，从左到右的变形，下列说法正确的是（    ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 97,
+      "originalLabel": "【变式3】下列变形是因式分解的是（   ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 108,
+      "originalLabel": "【变式4】下面是小明的作业，请你帮忙解答：下列等式从左到右的变形，属于因式分解的有__________（填序号）．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 121,
+      "originalLabel": "【典例1】若多项式[IMG:image67.png]因式分解的结果为[IMG:image68.png]，则常数[IMG:image29.png]的值为______．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 127,
+      "originalLabel": "【变式1】将[IMG:image72.png]因式分解的结果为[IMG:image73.png]，那么“[IMG:image74.png]”表示的数是_______．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 137,
+      "originalLabel": "【变式2】已知整式[IMG:image81.png]分解因式的结果为[IMG:image82.png]，则[IMG:image83.png]______．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 143,
+      "originalLabel": "【变式3】若多项式[IMG:image88.png]可分解为[IMG:image89.png]，则[IMG:image90.png]的值为（     ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 153,
+      "originalLabel": "【变式4】分解因式[IMG:image98.png]时，嘉嘉看错了a的值，分解的结果是[IMG:image99.png]，琪琪看错了b的值，分解的结果是[IMG:image100.png]，求[IMG:image101.png]的值．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 162,
+      "originalLabel": "【典例1】多项式[IMG:image108.png]的公因式是（     ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 170,
+      "originalLabel": "【变式1】多项式[IMG:image114.png]与[IMG:image115.png]的公因式是（     ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 176,
+      "originalLabel": "【变式2】运用提公因式法将[IMG:image122.png]分解因式，应提取的最大公因式是（     ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 182,
+      "originalLabel": "【变式3】已知下列各组多项式：①[IMG:image128.png]和[IMG:image129.png]；②[IMG:image130.png]和[IMG:image131.png]；③[IMG:image132.png]和[IMG:image133.png]；④[IMG:image134.png]和[IMG:image135.png]．上述各组中有相同公因式的有（　　）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 191,
+      "originalLabel": "【变式4】多项式[IMG:image143.png]的公因式是（   ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 199,
+      "originalLabel": "【典例1】因式分解：[IMG:image152.png]______．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 204,
+      "originalLabel": "【变式1】因式分解：[IMG:image155.png]____________．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 208,
+      "originalLabel": "【变式2】因式分解：[IMG:image158.png]____________________．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 214,
+      "originalLabel": "【变式3】分解因式：[IMG:image163.png]____________．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 220,
+      "originalLabel": "【变式4】先因式分解，再求值：[IMG:image166.png]，其中[IMG:image167.png]．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 229,
+      "originalLabel": "【典例1】因式分解：[IMG:image173.png]____．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 235,
+      "originalLabel": "【典例2】已知[IMG:image178.png]，[IMG:image179.png]，则[IMG:image180.png]的值为_____．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 243,
+      "originalLabel": "【变式2】把多项式[IMG:image188.png]提取公因式[IMG:image175.png]后，余下的部分是 _____．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 252,
+      "originalLabel": "【变式3】分解因式：",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 266,
+      "originalLabel": "【变式4】",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 269,
+      "originalLabel": "1．下列各式由左边到右边的变形中，属于分解因式的是",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 281,
+      "originalLabel": "2．下列式子，从左边到右边的变形中，是因式分解的是（   ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 291,
+      "originalLabel": "3．多项式[IMG:image217.png]的公因式是（   ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 298,
+      "originalLabel": "4．把[IMG:image221.png]分解因式，结果正确的是（    ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 308,
+      "originalLabel": "5．单项式[IMG:image230.png]，[IMG:image231.png]，[IMG:image232.png]的公因式是（   ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 316,
+      "originalLabel": "6．[IMG:image239.png]与[IMG:image240.png]的公因式是_______．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 321,
+      "originalLabel": "7．分解因式：x2+3x=____________",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 328,
+      "originalLabel": "8．因式分解：[IMG:image242.png]______",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 336,
+      "originalLabel": "9．已知多项式[IMG:image248.png]分解因式为[IMG:image249.png]，[IMG:image250.png]________，[IMG:image251.png]________．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 343,
+      "originalLabel": "10．分解因式：",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "（1）",
+        "（2）"
+      ]
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 356,
+      "originalLabel": "11．分解因式：",
+      "auditStatus": "partially_reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "第11题（1）（2）（3）通过；（4）含变量指数，未证明对全部n分解到底，保持needs_manual_review",
+      "reviewedParts": [
+        "（1）",
+        "（2）",
+        "（3）"
+      ]
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 372,
+      "originalLabel": "12．已知[IMG:image276.png]，[IMG:image277.png]，求多项式[IMG:image278.png]的值．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 383,
+      "originalLabel": "1．下列等式，从左到右的变形，属于因式分解的是（    ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 393,
+      "originalLabel": "2．多项式[IMG:image293.png]（[IMG:image29.png]，[IMG:image30.png]均为大于1的整数）各项的公因式是（     ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 400,
+      "originalLabel": "3．若[IMG:image299.png]，[IMG:image300.png]，则[IMG:image301.png]的值为（　　）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 411,
+      "originalLabel": "4．已知[IMG:image307.png]，则[IMG:image308.png]的值是（）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 419,
+      "originalLabel": "5．小梅和小丽在因式分解关于x的多项式[IMG:image311.png]时，小梅获取的其中一个正确的因式为[IMG:image312.png]，小丽获取的另一个正确的因式为[IMG:image313.png]，则[IMG:image314.png]的值为（   ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 428,
+      "originalLabel": "6．单项式－12x12y3与8x10y6的公因式是________．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 433,
+      "originalLabel": "7．因式分解：[IMG:image321.png]_________.",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 439,
+      "originalLabel": "8．已知[IMG:image324.png]，则[IMG:image325.png]的值是______．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 445,
+      "originalLabel": "9．因式分解：[IMG:image330.png]_______．",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 455,
+      "originalLabel": "10．因式分解：",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "（1）",
+        "（2）"
+      ]
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 468,
+      "originalLabel": "11．因式分解：[IMG:image347.png]",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 477,
+      "originalLabel": "12．分解因式：[IMG:image353.png]",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 485,
+      "originalLabel": "13．求证：[IMG:image354.png]能被15整除．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s2",
+      "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 494,
+      "originalLabel": "14．先阅读下列因式分解的过程，再回答所提出的问题．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 14,
+      "originalLabel": "1．下列多项式中，能用平方差公式因式分解的是（     ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 22,
+      "originalLabel": "2．．因式分解。",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "（1）",
+        "（2）"
+      ]
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 41,
+      "originalLabel": "3．下列多项式能用完全平方公式分解因式的是（     ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 50,
+      "originalLabel": "4．将下列各式分解因式：",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 64,
+      "originalLabel": "【典例1】1．下列各式：①x2＋y2；②y2－x2；③－y2＋x2；④－x2－y2，其中能用平方差公式因式分解的有（     ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 72,
+      "originalLabel": "【变式1】下列多项式中不能因式分解的是（     ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 79,
+      "originalLabel": "【变式2】下列多项式能用完全平方公式分解因式的是（     ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 89,
+      "originalLabel": "【变式3】已知多项式[IMG:image58.png]与一个单项式的和能因式分解，则这个单项式不可能是（     ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 96,
+      "originalLabel": "【变式4】下列多项式中，不能用公式法因式分解的是（   ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 106,
+      "originalLabel": "【典例1】分解因式：[IMG:image76.png]=______．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 111,
+      "originalLabel": "【变式1】因式分解多项式[IMG:image79.png]___________．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 118,
+      "originalLabel": "【变式2】[IMG:image86.png](               )[IMG:image87.png]．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 122,
+      "originalLabel": "【变式3】因式分解：[IMG:image90.png]．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 131,
+      "originalLabel": "【变式4】因式分解：",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 146,
+      "originalLabel": "【典例1】分解因式：[IMG:image109.png]__________．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 150,
+      "originalLabel": "【变式1】因式分解：[IMG:image112.png]____________．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 153,
+      "originalLabel": "【变式2】若[IMG:image115.png]是完全平方式，则[IMG:image116.png]的值为____________．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 167,
+      "originalLabel": "【变式3】将下列各式分解因式：[IMG:image29.png]",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 174,
+      "originalLabel": "【变式4】因式分解：",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 192,
+      "originalLabel": "【典例1】因式分解",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 199,
+      "originalLabel": "【变式1】因式分解：",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 212,
+      "originalLabel": "【变式2】因式分解：",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 224,
+      "originalLabel": "【变式3】因式分解：[IMG:image170.png]．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 230,
+      "originalLabel": "【变式4】分解因式：",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 248,
+      "originalLabel": "【典例1】先因式分解，再求值：[IMG:image186.png]，其中[IMG:image187.png]．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 255,
+      "originalLabel": "【变式1】因式分解[IMG:image193.png]",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 262,
+      "originalLabel": "【变式2】把下列各式因式分解",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 289,
+      "originalLabel": "【变式3】分解因式：",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 301,
+      "originalLabel": "【变式4】先因式分解，再求值：[IMG:image226.png]，其中[IMG:image227.png]，[IMG:image228.png]．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 311,
+      "originalLabel": "【典例1】用简便方法计算：[IMG:image237.png]．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 317,
+      "originalLabel": "【典例2】若[IMG:image242.png]，[IMG:image243.png]，求[IMG:image244.png]的值．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 325,
+      "originalLabel": "【变式1】利用因式分解简便计算：[IMG:image250.png]．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 331,
+      "originalLabel": "【变式2】利用因式分解计算：",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 346,
+      "originalLabel": "【变式3】已知 [IMG:image265.png]，求代数式 [IMG:image266.png]的值．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 356,
+      "originalLabel": "【变式4】把下列各式因式分解或简便计算：",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 389,
+      "originalLabel": "1．下列多项式：①[IMG:image301.png]，②[IMG:image302.png]，③[IMG:image303.png]，④[IMG:image304.png]．其中有一个相同因式的多项式是（    ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 400,
+      "originalLabel": "2．已知多项式a2+b2+M可以运用平方差公式分解因式，则单项式M可以是（    ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 408,
+      "originalLabel": "3．利用因式分解可以知道[IMG:image309.png]能够被某个数整除，这个数是（   ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 418,
+      "originalLabel": "4．填空：",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 437,
+      "originalLabel": "5．因式分解：[IMG:image326.png]______．",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 443,
+      "originalLabel": "6．利用因式分解计算：[IMG:image330.png]_____．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 452,
+      "originalLabel": "7．分解因式：",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "（1）",
+        "（2）"
+      ]
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 467,
+      "originalLabel": "8．当[IMG:image346.png]为整数时，[IMG:image347.png]能被4整除吗？请说明理由．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 471,
+      "originalLabel": "9．分解因式：[IMG:image350.png]．",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 479,
+      "originalLabel": "10．某工地修建供暖设施，需要一种空心混凝土管道，它的规格是：内半径[IMG:image356.png]，外半径[IMG:image357.png]，每节长[IMG:image358.png]．求浇制一节这样的管道需要多少立方米的混凝土．（[IMG:image359.png]，结果保留一位小数）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 491,
+      "originalLabel": "1．已知M＝3x2－x＋3，N＝2x2＋3x－1，则M、N的大小关系是（    ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 503,
+      "originalLabel": "2．若[IMG:image368.png]，且[IMG:image369.png]，则[IMG:image370.png]的值为（    ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 511,
+      "originalLabel": "3．已知，[IMG:image378.png]，[IMG:image379.png]，则[IMG:image380.png]的值是（    ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 522,
+      "originalLabel": "4．定义：如果一个正整数能表示成两个正整数m，n的平方差，那么称这个正整数为“智慧数”．例如[IMG:image396.png]，[IMG:image397.png]就是一个“智慧数”，可以利用[IMG:image398.png]进行研究．下列结论：①所有的正奇数都是“智慧数”；②除4以外所有能被4整除的正整数都是“智慧数”；③被4除余2的正整数都不是“智慧数”．其中正确的结论有（     ）个．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 544,
+      "originalLabel": "5．下列多项式：①[IMG:image415.png]；②[IMG:image416.png]；③[IMG:image417.png]；④[IMG:image418.png]；⑤[IMG:image419.png]，其中能用公式法分解因式的是（   ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 555,
+      "originalLabel": "6．若[IMG:image423.png]，则[IMG:image424.png]__________．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 565,
+      "originalLabel": "7．（1）若[IMG:image431.png]，[IMG:image432.png]，则[IMG:image433.png]的值为__________．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 583,
+      "originalLabel": "8．小明抄在作业本上的式子[IMG:image445.png]（“[IMG:image446.png]”表示漏抄的指数），不小心漏抄了x的指数，他只知道该数为不大于5的正整数，并且能利用平方差公式分解因式，请你帮小明写出该整式分解因式的所有可能结果：______________．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 590,
+      "originalLabel": "9．利用平方差公式分解因式：",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 613,
+      "originalLabel": "10．把下列各式因式分解：",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 641,
+      "originalLabel": "11．甲、乙两人做数字游戏，甲每次选择一个正整数[IMG:image346.png]，然后乙根据[IMG:image346.png]的值计算代数式[IMG:image495.png]的值．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s3",
+      "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 673,
+      "originalLabel": "12．从边长为[IMG:image520.png]的正方形中剪掉一个边长为[IMG:image521.png]的正方形（如图1），然后将剩余部分拼成一个长方形（如图2）．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 18,
+      "originalLabel": "1．分解因式：[IMG:image6.png]_____．",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 22,
+      "originalLabel": "2．因式分解：[IMG:image9.png]=___________",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 35,
+      "originalLabel": "3．分解因式：[IMG:image14.png]______．",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 41,
+      "originalLabel": "4．因式分解：[IMG:image19.png]____________．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 52,
+      "originalLabel": "【典例1】分解因式：[IMG:image28.png]_____．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 56,
+      "originalLabel": "【变式1】因式分解：[IMG:image30.png]=___________",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 61,
+      "originalLabel": "【变式2】若多项式[IMG:image34.png]可以分解因式，则m的值可以是_______（只写出一个即可）．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 70,
+      "originalLabel": "【变式3】因式分解：[IMG:image46.png]_____．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 73,
+      "originalLabel": "【变式4】（1）[IMG:image50.png]__________；[IMG:image51.png]__________；[IMG:image52.png]__________．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 86,
+      "originalLabel": "【典例1】因式分解：[IMG:image65.png] _________ ．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 90,
+      "originalLabel": "【变式1】[IMG:image68.png]是多项式__________因式分解后的结果．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 94,
+      "originalLabel": "【变式2】分解因式[IMG:image71.png]______．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 98,
+      "originalLabel": "【变式3】分解因式：[IMG:image75.png]________．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 104,
+      "originalLabel": "【变式4】因式分解：",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 122,
+      "originalLabel": "【典例1】分解因式：[IMG:image14.png]______．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 128,
+      "originalLabel": "【变式1】分解因式：[IMG:image94.png]________．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 135,
+      "originalLabel": "【变式2】因式分解：[IMG:image99.png]___________．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 145,
+      "originalLabel": "【变式3】因式分解：[IMG:image107.png]________．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 153,
+      "originalLabel": "【变式4】因式分解：[IMG:image113.png]",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 162,
+      "originalLabel": "【典例1】因式分解：[IMG:image118.png]",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 168,
+      "originalLabel": "【变式1】分解因式：",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 198,
+      "originalLabel": "【变式2】因式分解：[IMG:image143.png]",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 206,
+      "originalLabel": "【变式3】因式分解：[IMG:image148.png]．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 213,
+      "originalLabel": "【变式4】阅读：分解因式[IMG:image153.png]．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 241,
+      "originalLabel": "【典例1】读下列因式分解的过程，再回答所提出的问题：",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 273,
+      "originalLabel": "【变式1】阅读材料：我们把多项式[IMG:image192.png]及[IMG:image193.png]这样的式子叫做完全平方式[IMG:image194.png]如果一个多项式不是完全平方式，我们常做如下变形：先添加一个适当的项，使式子中出现完全平方式，再减去这个项，使整个式子的值不变，这种方法叫做配方法，配方法是一种重要的解决问题的数学方法，不仅可以将一个看似不能分解的多项式分解因式，还能解决一些与非负数有关的问题或求代数式的最大值、最小值等．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 306,
+      "originalLabel": "【变式2】先阅读，再解答：由阅读材料：利用公式法，可以将一些形如[IMG:image221.png]的多项式变形为[IMG:image222.png]的形式，我们把这样的变形方法叫做多项式[IMG:image221.png]的配方法，运用多项式的配方法可以解决一些数学问题．比如运用多项式的配方法及平方差公式能对一些多项式进行因式分解．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 334,
+      "originalLabel": "【变式3】阅读材料，完成下列问题．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 364,
+      "originalLabel": "【变式4】【例题讲解】因式分解：[IMG:image287.png]．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 390,
+      "originalLabel": "1．下列各式从左到右因式分解正确的是（    ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 400,
+      "originalLabel": "2．下列算式中，计算结果为[IMG:image318.png]的是（    ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 407,
+      "originalLabel": "3．已知[IMG:image325.png]，[IMG:image326.png]，则多项式[IMG:image327.png]的值为（     ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 417,
+      "originalLabel": "4．多项式[IMG:image335.png]分解因式为[IMG:image336.png]，其中a，m，n为整数，则a的取值有（    ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 427,
+      "originalLabel": "5．对任意整数[IMG:image260.png]，[IMG:image353.png]都能（　　）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 438,
+      "originalLabel": "6．因式分解：",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "（1）",
+        "（2）"
+      ]
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 445,
+      "originalLabel": "7．因式分解",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "（1）",
+        "（2）",
+        "（3）",
+        "（4）"
+      ]
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 465,
+      "originalLabel": "8．因式分解：[IMG:image126.png]．",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 472,
+      "originalLabel": "9．用简便方法计算：",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 480,
+      "originalLabel": "10．如图，有若干张的边长为a的小正方形①、长为b宽为a的长方形②以及边长为b的大正方形③的三种纸片．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 497,
+      "originalLabel": "1．代数式[IMG:image398.png]分解因式的结果是（    ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 506,
+      "originalLabel": "2．用分组分解法将[IMG:image405.png]分解因式，下列分组不恰当的是（　　）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 527,
+      "originalLabel": "3．把多项式[IMG:image419.png]分解因式，得[IMG:image420.png]，则[IMG:image421.png]的值是（   ）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 536,
+      "originalLabel": "4．小明把多项式[IMG:image422.png]分解因式，有一个因式是[IMG:image423.png]，则[IMG:image260.png]的值为（　　）",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "unsupported",
+      "taskType": "multiple_choice",
+      "reason": "选择题不在本批输入型候选范围"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 545,
+      "originalLabel": "5．分解因式：[IMG:image107.png]__．",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 553,
+      "originalLabel": "6．填空：",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 568,
+      "originalLabel": "7．分解因式：x2﹣7xy﹣18y2＝___．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 574,
+      "originalLabel": "8．如图所示，若用2张1号正方形卡片，2张2号正方形卡片，5张3号长方形卡片拼成一个大的长方形，则这个大的长方形的长和宽可分别表示为_____，_____．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 583,
+      "originalLabel": "9．因式分解：[IMG:image448.png]．",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 592,
+      "originalLabel": "10．分解因式：[IMG:image457.png]",
+      "auditStatus": "reviewed",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "本批明确独立计算小题已审核；去重结果详见数学审核记录",
+      "reviewedParts": [
+        "完整题"
+      ]
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 598,
+      "originalLabel": "11．因式分解：[IMG:image461.png]",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    },
+    {
+      "sourceKey": "s4",
+      "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+      "paragraphIndex": 626,
+      "originalLabel": "12．如图，有足够多的边长为[IMG:image201.png]的小正方形（[IMG:image486.png]类），长为[IMG:image202.png]、宽为[IMG:image201.png]的长方形（[IMG:image487.png]类）及边长为[IMG:image202.png]的大正方形（[IMG:image488.png]类）． 发现利用图①中的三种材料各若干可以拼出一些长方形来解释某些等式，比如图②可以解释为[IMG:image489.png]．",
+      "auditStatus": "needs_manual_review",
+      "scoringSupport": "not_evaluated",
+      "taskType": "unclassified",
+      "reason": "未完成逐题完整视觉/独立复核，不进入安全pending"
+    }
+  ]
+}

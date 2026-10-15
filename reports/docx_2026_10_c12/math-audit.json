@@ -1,0 +1,1985 @@
+[
+  {
+    "s": "s1",
+    "block": 13,
+    "expression": "2(x-y)-3(y-x)^2",
+    "answer": "(x-y)(2-3x+3y)",
+    "method": "提取多项式公因式",
+    "kind": "common",
+    "factors": [
+      "x-y",
+      "2-3x+3y"
+    ],
+    "question": "因式分解：2(x-y)-3(y-x)^2．",
+    "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+    "questionParagraphIndex": 137,
+    "parentParagraphIndex": 137,
+    "answerParagraphIndex": 138,
+    "sourceIndex": "考点1：提取公因式法 / 一．填空题     / 原题1；OOXML段落137",
+    "factorCertificates": {
+      "x-y": "非恒定一次因子不可约",
+      "2-3x+3y": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(x-y)(2-3x+3y)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(2 - 3 * x + 3 * y)*(x - y)",
+      "(-(x - y))*(-(2 - 3 * x + 3 * y))"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s1-block-13.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-001"
+  },
+  {
+    "s": "s1",
+    "block": 14,
+    "expression": "4xy(x+y)^2-6x^2y(x+y)",
+    "answer": "2xy(x+y)(2y-x)",
+    "method": "提取单项式及多项式公因式",
+    "kind": "common",
+    "factors": [
+      "x",
+      "y",
+      "x+y",
+      "2y-x"
+    ],
+    "question": "因式分解：4xy(x+y)^2-6x^2y(x+y)．",
+    "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+    "questionParagraphIndex": 145,
+    "parentParagraphIndex": 145,
+    "answerParagraphIndex": 146,
+    "sourceIndex": "考点1：提取公因式法 / 二．解答题 / 原题1；OOXML段落145",
+    "factorCertificates": {
+      "x": "非恒定一次因子不可约",
+      "y": "非恒定一次因子不可约",
+      "x+y": "非恒定一次因子不可约",
+      "2y-x": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "2xy(x+y)(2y-x)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(2 * y - x)*(x + y)*(y)*(x)*(2)",
+      "(-(2))*(-(x))*(y)*(x + y)*(2 * y - x)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s1-block-14.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-002"
+  },
+  {
+    "s": "s1",
+    "block": 17,
+    "expression": "-2x^3+12x^2y-18xy^2",
+    "answer": "-2x(x-3y)^2",
+    "method": "先提公因式再完全平方",
+    "kind": "mixed",
+    "factors": [
+      "x",
+      "x-3y"
+    ],
+    "question": "因式分解：-2x^3+12x^2y-18xy^2．",
+    "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+    "questionParagraphIndex": 174,
+    "parentParagraphIndex": 174,
+    "answerParagraphIndex": 175,
+    "sourceIndex": "考点2：公式法 / 二．填空题 / 原题2；OOXML段落174",
+    "factorCertificates": {
+      "x": "非恒定一次因子不可约",
+      "x-3y": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "-2x(x-3y)^2",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "((x - 3 * y) ^ 2)*(x)*(-2)",
+      "(-(-2))*(-(x))*((x - 3 * y) ^ 2)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s1-block-17.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-003"
+  },
+  {
+    "s": "s1",
+    "block": 18,
+    "expression": "4(a+2b)^2-25(a-b)^2",
+    "answer": "-3(7a-b)(a-3b)",
+    "method": "整体平方差直接应用与因子整理",
+    "kind": "difference",
+    "factors": [
+      "7a-b",
+      "a-3b"
+    ],
+    "question": "因式分解：4(a+2b)^2-25(a-b)^2．",
+    "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+    "questionParagraphIndex": 180,
+    "parentParagraphIndex": 180,
+    "answerParagraphIndex": 181,
+    "sourceIndex": "考点2：公式法 / 二．填空题 / 原题3；OOXML段落180",
+    "factorCertificates": {
+      "7a-b": "非恒定一次因子不可约",
+      "a-3b": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "-3(7a-b)(a-3b)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(a - 3 * b)*(7 * a - b)*(-3)",
+      "(-(-3))*(-(7 * a - b))*(a - 3 * b)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s1-block-18.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-004"
+  },
+  {
+    "s": "s1",
+    "block": 19,
+    "expression": "(y+1)^2-9",
+    "answer": "(y+4)(y-2)",
+    "method": "平方差直接应用",
+    "kind": "difference",
+    "factors": [
+      "y+4",
+      "y-2"
+    ],
+    "question": "因式分解：(y+1)^2-9．",
+    "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+    "questionParagraphIndex": 188,
+    "parentParagraphIndex": 188,
+    "answerParagraphIndex": 189,
+    "sourceIndex": "考点2：公式法 / 二．填空题 / 原题4；OOXML段落188",
+    "factorCertificates": {
+      "y+4": "非恒定一次因子不可约",
+      "y-2": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(y+4)(y-2)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(y - 2)*(y + 4)",
+      "(-(y + 4))*(-(y - 2))"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s1-block-19.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-005"
+  },
+  {
+    "s": "s1",
+    "block": 23,
+    "expression": "(a-2)x^4+16(2-a)",
+    "answer": "(a-2)(x^2+4)(x+2)(x-2)",
+    "method": "先提公因式再连续平方差",
+    "kind": "mixed",
+    "factors": [
+      "a-2",
+      "x^2+4",
+      "x+2",
+      "x-2"
+    ],
+    "question": "因式分解：(a-2)x^4+16(2-a)．",
+    "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+    "questionParagraphIndex": 225,
+    "parentParagraphIndex": 225,
+    "answerParagraphIndex": 226,
+    "sourceIndex": "考点2：公式法 / 三．解答题 / 原题1；OOXML段落225",
+    "factorCertificates": {
+      "a-2": "非恒定一次因子不可约",
+      "x^2+4": "二次判别式-16<0；实数/有理系数不可约",
+      "x+2": "非恒定一次因子不可约",
+      "x-2": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(a-2)(x^2+4)(x+2)(x-2)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(x - 2)*(x + 2)*(x ^ 2 + 4)*(a - 2)",
+      "(-(a - 2))*(-(x ^ 2 + 4))*(x + 2)*(x - 2)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s1-block-23.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-006"
+  },
+  {
+    "s": "s1",
+    "block": 24,
+    "expression": "m^4-18m^2+81",
+    "answer": "(m+3)^2(m-3)^2",
+    "method": "完全平方后再平方差",
+    "kind": "mixed",
+    "factors": [
+      "m+3",
+      "m-3"
+    ],
+    "question": "因式分解：m^4-18m^2+81．",
+    "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+    "questionParagraphIndex": 234,
+    "parentParagraphIndex": 234,
+    "answerParagraphIndex": 235,
+    "sourceIndex": "考点2：公式法 / 三．解答题 / 原题2；OOXML段落234",
+    "factorCertificates": {
+      "m+3": "非恒定一次因子不可约",
+      "m-3": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(m+3)^2(m-3)^2",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "((m - 3) ^ 2)*((m + 3) ^ 2)",
+      "(-((m + 3) ^ 2))*(-((m - 3) ^ 2))"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s1-block-24.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-007"
+  },
+  {
+    "s": "s1",
+    "block": 25,
+    "expression": "a^2(a-b)+4(b-a)",
+    "answer": "(a-b)(a+2)(a-2)",
+    "method": "先提公因式再平方差",
+    "kind": "mixed",
+    "factors": [
+      "a-b",
+      "a+2",
+      "a-2"
+    ],
+    "question": "因式分解：a^2(a-b)+4(b-a)．",
+    "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+    "questionParagraphIndex": 242,
+    "parentParagraphIndex": 242,
+    "answerParagraphIndex": 243,
+    "sourceIndex": "考点2：公式法 / 三．解答题 / 原题3；OOXML段落242",
+    "factorCertificates": {
+      "a-b": "非恒定一次因子不可约",
+      "a+2": "非恒定一次因子不可约",
+      "a-2": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(a-b)(a+2)(a-2)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(a - 2)*(a + 2)*(a - b)",
+      "(-(a - b))*(-(a + 2))*(a - 2)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s1-block-25.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-008"
+  },
+  {
+    "s": "s1",
+    "block": 28,
+    "expression": "x^2-14x-32",
+    "answer": "(x+2)(x-16)",
+    "method": "十字相乘分解二次三项式",
+    "kind": "mixed",
+    "factors": [
+      "x+2",
+      "x-16"
+    ],
+    "question": "因式分解：x^2-14x-32．",
+    "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+    "questionParagraphIndex": 279,
+    "parentParagraphIndex": 279,
+    "answerParagraphIndex": 280,
+    "sourceIndex": "考点3：十字相乘法 / 二．填空题 / 原题1；OOXML段落279",
+    "factorCertificates": {
+      "x+2": "非恒定一次因子不可约",
+      "x-16": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(x+2)(x-16)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(x - 16)*(x + 2)",
+      "(-(x + 2))*(-(x - 16))"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s1-block-28.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-009"
+  },
+  {
+    "s": "s1",
+    "block": 29,
+    "expression": "x^2+5xy-24y^2",
+    "answer": "(x+8y)(x-3y)",
+    "method": "十字相乘分解齐次二次式",
+    "kind": "mixed",
+    "factors": [
+      "x+8y",
+      "x-3y"
+    ],
+    "question": "因式分解：x^2+5xy-24y^2．",
+    "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+    "questionParagraphIndex": 284,
+    "parentParagraphIndex": 284,
+    "answerParagraphIndex": 285,
+    "sourceIndex": "考点3：十字相乘法 / 二．填空题 / 原题2；OOXML段落284",
+    "factorCertificates": {
+      "x+8y": "非恒定一次因子不可约",
+      "x-3y": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(x+8y)(x-3y)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(x - 3 * y)*(x + 8 * y)",
+      "(-(x + 8 * y))*(-(x - 3 * y))"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s1-block-29.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-010"
+  },
+  {
+    "s": "s1",
+    "block": 30,
+    "expression": "x^2-5xy+6y^2",
+    "answer": "(x-2y)(x-3y)",
+    "method": "十字相乘分解齐次二次式",
+    "kind": "mixed",
+    "factors": [
+      "x-2y",
+      "x-3y"
+    ],
+    "question": "因式分解：x^2-5xy+6y^2．",
+    "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+    "questionParagraphIndex": 290,
+    "parentParagraphIndex": 290,
+    "answerParagraphIndex": 291,
+    "sourceIndex": "考点3：十字相乘法 / 二．填空题 / 原题3；OOXML段落290",
+    "factorCertificates": {
+      "x-2y": "非恒定一次因子不可约",
+      "x-3y": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(x-2y)(x-3y)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(x - 3 * y)*(x - 2 * y)",
+      "(-(x - 2 * y))*(-(x - 3 * y))"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s1-block-30.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-011"
+  },
+  {
+    "s": "s1",
+    "block": 31,
+    "expression": "x^3+5x^2y-24xy^2",
+    "answer": "x(x-3y)(x+8y)",
+    "method": "先提公因式再十字相乘",
+    "kind": "mixed",
+    "factors": [
+      "x",
+      "x-3y",
+      "x+8y"
+    ],
+    "question": "因式分解：x^3+5x^2y-24xy^2．",
+    "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+    "questionParagraphIndex": 296,
+    "parentParagraphIndex": 296,
+    "answerParagraphIndex": 297,
+    "sourceIndex": "考点3：十字相乘法 / 三．解答题 / 原题1；OOXML段落296",
+    "factorCertificates": {
+      "x": "非恒定一次因子不可约",
+      "x-3y": "非恒定一次因子不可约",
+      "x+8y": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "x(x-3y)(x+8y)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(x + 8 * y)*(x - 3 * y)*(x)",
+      "(-(x))*(-(x - 3 * y))*(x + 8 * y)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s1-block-31.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-012"
+  },
+  {
+    "s": "s1",
+    "block": 33,
+    "expression": "(x^2-4x)^2+7(x^2-4x)+12",
+    "answer": "(x-1)(x-2)^2(x-3)",
+    "method": "换元后连续十字相乘",
+    "kind": "mixed",
+    "factors": [
+      "x-1",
+      "x-2",
+      "x-3"
+    ],
+    "question": "因式分解：(x^2-4x)^2+7(x^2-4x)+12．",
+    "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+    "questionParagraphIndex": 307,
+    "parentParagraphIndex": 307,
+    "answerParagraphIndex": 308,
+    "sourceIndex": "考点3：十字相乘法 / 三．解答题 / 原题3；OOXML段落307",
+    "factorCertificates": {
+      "x-1": "非恒定一次因子不可约",
+      "x-2": "非恒定一次因子不可约",
+      "x-3": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(x-1)(x-2)^2(x-3)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(x - 3)*((x - 2) ^ 2)*(x - 1)",
+      "(-(x - 1))*(-((x - 2) ^ 2))*(x - 3)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s1-block-33.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-013"
+  },
+  {
+    "s": "s1",
+    "block": 35,
+    "expression": "x(a-b)^2-y(b-a)^3",
+    "answer": "(a-b)^2(x+ya-yb)",
+    "method": "相反式变号后提公因式",
+    "kind": "common",
+    "factors": [
+      "a-b",
+      "x+ya-yb"
+    ],
+    "question": "因式分解：x(a-b)^2-y(b-a)^3．",
+    "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+    "questionParagraphIndex": 330,
+    "parentParagraphIndex": 330,
+    "answerParagraphIndex": 331,
+    "sourceIndex": "考点4：其他方法 / 二．填空题 / 原题1；OOXML段落330",
+    "factorCertificates": {
+      "a-b": "非恒定一次因子不可约",
+      "x+ya-yb": "关于x一次，系数互素；由Gauss引理不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(a-b)^2(x+ya-yb)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(x + y * a - y * b)*((a - b) ^ 2)",
+      "(-((a - b) ^ 2))*(-(x + y * a - y * b))"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s1-block-35.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-014"
+  },
+  {
+    "s": "s1",
+    "block": 36,
+    "expression": "3a-3ax^2",
+    "answer": "3a(1-x)(1+x)",
+    "method": "先提公因式再平方差",
+    "kind": "mixed",
+    "factors": [
+      "a",
+      "1-x",
+      "1+x"
+    ],
+    "question": "因式分解：3a-3ax^2．",
+    "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+    "questionParagraphIndex": 339,
+    "parentParagraphIndex": 339,
+    "answerParagraphIndex": 340,
+    "sourceIndex": "考点4：其他方法 / 二．填空题 / 原题2；OOXML段落339",
+    "factorCertificates": {
+      "a": "非恒定一次因子不可约",
+      "1-x": "非恒定一次因子不可约",
+      "1+x": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "3a(1-x)(1+x)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(1 + x)*(1 - x)*(a)*(3)",
+      "(-(3))*(-(a))*(1 - x)*(1 + x)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s1-block-36.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-015"
+  },
+  {
+    "s": "s1",
+    "block": 42,
+    "part": "（1）",
+    "questionP": 401,
+    "expression": "a^2(a-b)+4b^2(b-a)",
+    "answer": "(a-b)(a-2b)(a+2b)",
+    "method": "先提公因式再平方差",
+    "kind": "mixed",
+    "factors": [
+      "a-b",
+      "a-2b",
+      "a+2b"
+    ],
+    "question": "因式分解：a^2(a-b)+4b^2(b-a)．",
+    "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+    "questionParagraphIndex": 401,
+    "parentParagraphIndex": 400,
+    "answerParagraphIndex": 403,
+    "sourceIndex": "考点4：其他方法 / 三．解答题 / 原题1（1）；OOXML段落401",
+    "factorCertificates": {
+      "a-b": "非恒定一次因子不可约",
+      "a-2b": "非恒定一次因子不可约",
+      "a+2b": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(a-b)(a-2b)(a+2b)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(a + 2 * b)*(a - 2 * b)*(a - b)",
+      "(-(a - b))*(-(a - 2 * b))*(a + 2 * b)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s1-block-42.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-016"
+  },
+  {
+    "s": "s1",
+    "block": 42,
+    "part": "（2）",
+    "questionP": 402,
+    "expression": "81a^5b^5-ab",
+    "answer": "ab(9a^2b^2+1)(3ab-1)(3ab+1)",
+    "method": "先提公因式再连续平方差",
+    "kind": "mixed",
+    "factors": [
+      "a",
+      "b",
+      "9a^2b^2+1",
+      "3ab-1",
+      "3ab+1"
+    ],
+    "question": "因式分解：81a^5b^5-ab．",
+    "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+    "questionParagraphIndex": 402,
+    "parentParagraphIndex": 400,
+    "answerParagraphIndex": 403,
+    "sourceIndex": "考点4：其他方法 / 三．解答题 / 原题1（2）；OOXML段落402",
+    "factorCertificates": {
+      "a": "非恒定一次因子不可约",
+      "b": "非恒定一次因子不可约",
+      "9a^2b^2+1": "视为Q(b)[a]上的二次式，判别式-36b²不是有理函数平方；系数本原，不可约",
+      "3ab-1": "关于b一次，系数互素；由Gauss引理不可约",
+      "3ab+1": "关于b一次，系数互素；由Gauss引理不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "ab(9a^2b^2+1)(3ab-1)(3ab+1)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(3 * a * b + 1)*(3 * a * b - 1)*(9 * a ^ 2 * b ^ 2 + 1)*(b)*(a)",
+      "(-(a))*(-(b))*(9 * a ^ 2 * b ^ 2 + 1)*(3 * a * b - 1)*(3 * a * b + 1)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s1-block-42.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-017"
+  },
+  {
+    "s": "s1",
+    "block": 43,
+    "expression": "9x^2-y^2+2y-1",
+    "answer": "(3x-y+1)(3x+y-1)",
+    "method": "分组完全平方后平方差",
+    "kind": "mixed",
+    "factors": [
+      "3x-y+1",
+      "3x+y-1"
+    ],
+    "question": "因式分解：9x^2-y^2+2y-1．",
+    "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+    "questionParagraphIndex": 415,
+    "parentParagraphIndex": 415,
+    "answerParagraphIndex": 416,
+    "sourceIndex": "考点4：其他方法 / 三．解答题 / 原题2；OOXML段落415",
+    "factorCertificates": {
+      "3x-y+1": "非恒定一次因子不可约",
+      "3x+y-1": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(3x-y+1)(3x+y-1)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(3 * x + y - 1)*(3 * x - y + 1)",
+      "(-(3 * x - y + 1))*(-(3 * x + y - 1))"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s1-block-43.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-018"
+  },
+  {
+    "s": "s1",
+    "block": 44,
+    "expression": "2xy-x^2+1-y^2",
+    "answer": "(1+x-y)(1-x+y)",
+    "method": "分组完全平方后平方差",
+    "kind": "mixed",
+    "factors": [
+      "1+x-y",
+      "1-x+y"
+    ],
+    "question": "因式分解：2xy-x^2+1-y^2．",
+    "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+    "questionParagraphIndex": 423,
+    "parentParagraphIndex": 423,
+    "answerParagraphIndex": 424,
+    "sourceIndex": "考点4：其他方法 / 三．解答题 / 原题3；OOXML段落423",
+    "factorCertificates": {
+      "1+x-y": "非恒定一次因子不可约",
+      "1-x+y": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(1+x-y)(1-x+y)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(1 - x + y)*(1 + x - y)",
+      "(-(1 + x - y))*(-(1 - x + y))"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s1-block-44.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-019"
+  },
+  {
+    "s": "s1",
+    "block": 46,
+    "expression": "(2x^2+4x)^2-4(2x^2+4x)-12",
+    "answer": "4(x+3)(x-1)(x+1)^2",
+    "method": "换元、提公因式及多步分解",
+    "kind": "mixed",
+    "factors": [
+      "x+3",
+      "x-1",
+      "x+1"
+    ],
+    "question": "因式分解：(2x^2+4x)^2-4(2x^2+4x)-12．",
+    "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+    "questionParagraphIndex": 438,
+    "parentParagraphIndex": 438,
+    "answerParagraphIndex": 439,
+    "sourceIndex": "考点4：其他方法 / 三．解答题 / 原题5；OOXML段落438",
+    "factorCertificates": {
+      "x+3": "非恒定一次因子不可约",
+      "x-1": "非恒定一次因子不可约",
+      "x+1": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "4(x+3)(x-1)(x+1)^2",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "((x + 1) ^ 2)*(x - 1)*(x + 3)*(4)",
+      "(-(4))*(-(x + 3))*(x - 1)*((x + 1) ^ 2)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s1-block-46.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-020"
+  },
+  {
+    "s": "s1",
+    "block": 47,
+    "expression": "x^2y^2-x^2-y^2+1",
+    "answer": "(x-1)(x+1)(y-1)(y+1)",
+    "method": "分组后连续平方差",
+    "kind": "mixed",
+    "factors": [
+      "x-1",
+      "x+1",
+      "y-1",
+      "y+1"
+    ],
+    "question": "因式分解：x^2y^2-x^2-y^2+1．",
+    "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+    "questionParagraphIndex": 446,
+    "parentParagraphIndex": 446,
+    "answerParagraphIndex": 447,
+    "sourceIndex": "考点4：其他方法 / 三．解答题 / 原题6；OOXML段落446",
+    "factorCertificates": {
+      "x-1": "非恒定一次因子不可约",
+      "x+1": "非恒定一次因子不可约",
+      "y-1": "非恒定一次因子不可约",
+      "y+1": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(x-1)(x+1)(y-1)(y+1)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(y + 1)*(y - 1)*(x + 1)*(x - 1)",
+      "(-(x - 1))*(-(x + 1))*(y - 1)*(y + 1)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s1-block-47.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-021"
+  },
+  {
+    "s": "s2",
+    "block": 18,
+    "expression": "ab(a-b)^2-b(a-b)",
+    "answer": "b(a-b)(a^2-ab-1)",
+    "method": "提取单项式及多项式公因式",
+    "kind": "common",
+    "factors": [
+      "b",
+      "a-b",
+      "a^2-ab-1"
+    ],
+    "question": "因式分解：ab(a-b)^2-b(a-b)．",
+    "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 328,
+    "parentParagraphIndex": 328,
+    "answerParagraphIndex": 329,
+    "sourceIndex": " /  / 原题8；OOXML段落328",
+    "factorCertificates": {
+      "b": "非恒定一次因子不可约",
+      "a-b": "非恒定一次因子不可约",
+      "a^2-ab-1": "关于b一次，系数互素；由Gauss引理不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "b(a-b)(a^2-ab-1)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(a ^ 2 - a * b - 1)*(a - b)*(b)",
+      "(-(b))*(-(a - b))*(a ^ 2 - a * b - 1)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s2-block-18.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-022"
+  },
+  {
+    "s": "s2",
+    "block": 20,
+    "part": "（1）",
+    "questionP": 344,
+    "expression": "6a^2m-3am",
+    "answer": "3am(2a-1)",
+    "method": "提取单项式公因式",
+    "kind": "common",
+    "factors": [
+      "a",
+      "m",
+      "2a-1"
+    ],
+    "question": "因式分解：6a^2m-3am．",
+    "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 344,
+    "parentParagraphIndex": 343,
+    "answerParagraphIndex": 346,
+    "sourceIndex": " /  / 原题10（1）；OOXML段落344",
+    "factorCertificates": {
+      "a": "非恒定一次因子不可约",
+      "m": "非恒定一次因子不可约",
+      "2a-1": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "3am(2a-1)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(2 * a - 1)*(m)*(a)*(3)",
+      "(-(3))*(-(a))*(m)*(2 * a - 1)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s2-block-20.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-023"
+  },
+  {
+    "s": "s2",
+    "block": 20,
+    "part": "（2）",
+    "questionP": 345,
+    "expression": "m(a-2)+n(2-a)",
+    "answer": "(a-2)(m-n)",
+    "method": "相反式变号后提多项式公因式",
+    "kind": "common",
+    "factors": [
+      "a-2",
+      "m-n"
+    ],
+    "question": "因式分解：m(a-2)+n(2-a)．",
+    "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 345,
+    "parentParagraphIndex": 343,
+    "answerParagraphIndex": 346,
+    "sourceIndex": " /  / 原题10（2）；OOXML段落345",
+    "factorCertificates": {
+      "a-2": "非恒定一次因子不可约",
+      "m-n": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(a-2)(m-n)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(m - n)*(a - 2)",
+      "(-(a - 2))*(-(m - n))"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s2-block-20.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-024"
+  },
+  {
+    "s": "s2",
+    "block": 21,
+    "part": "（1）",
+    "questionP": 357,
+    "expression": "-8a^3y+12a^2y^2-16ay^3",
+    "answer": "-4ay(2a^2-3ay+4y^2)",
+    "method": "提取单项式公因式",
+    "kind": "common",
+    "factors": [
+      "a",
+      "y",
+      "2a^2-3ay+4y^2"
+    ],
+    "question": "因式分解：-8a^3y+12a^2y^2-16ay^3．",
+    "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 357,
+    "parentParagraphIndex": 356,
+    "answerParagraphIndex": 361,
+    "sourceIndex": " /  / 原题11（1）；OOXML段落357",
+    "factorCertificates": {
+      "a": "非恒定一次因子不可约",
+      "y": "非恒定一次因子不可约",
+      "2a^2-3ay+4y^2": "齐次二次式判别式(9-32)y²=-23y²，不是有理函数平方"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "-4ay(2a^2-3ay+4y^2)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(2 * a ^ 2 - 3 * a * y + 4 * y ^ 2)*(y)*(a)*(-4)",
+      "(-(-4))*(-(a))*(y)*(2 * a ^ 2 - 3 * a * y + 4 * y ^ 2)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s2-block-21.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-025"
+  },
+  {
+    "s": "s2",
+    "block": 21,
+    "part": "（2）",
+    "questionP": 358,
+    "expression": "-25m^3n^4+10m^2n^3-5m^2n^2",
+    "answer": "-5m^2n^2(5mn^2-2n+1)",
+    "method": "提取单项式公因式",
+    "kind": "common",
+    "factors": [
+      "m",
+      "n",
+      "5mn^2-2n+1"
+    ],
+    "question": "因式分解：-25m^3n^4+10m^2n^3-5m^2n^2．",
+    "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 358,
+    "parentParagraphIndex": 356,
+    "answerParagraphIndex": 361,
+    "sourceIndex": " /  / 原题11（2）；OOXML段落358",
+    "factorCertificates": {
+      "m": "非恒定一次因子不可约",
+      "n": "非恒定一次因子不可约",
+      "5mn^2-2n+1": "关于m一次，系数互素；由Gauss引理不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "-5m^2n^2(5mn^2-2n+1)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(5 * m * n ^ 2 - 2 * n + 1)*(n ^ 2)*(m ^ 2)*(-5)",
+      "(-(-5))*(-(m ^ 2))*(n ^ 2)*(5 * m * n ^ 2 - 2 * n + 1)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s2-block-21.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-026"
+  },
+  {
+    "s": "s2",
+    "block": 21,
+    "part": "（3）",
+    "questionP": 359,
+    "expression": "a^2b^3c-2a^2b^2c-abc",
+    "answer": "abc(ab^2-2ab-1)",
+    "method": "提取单项式公因式",
+    "kind": "common",
+    "factors": [
+      "a",
+      "b",
+      "c",
+      "ab^2-2ab-1"
+    ],
+    "question": "因式分解：a^2b^3c-2a^2b^2c-abc．",
+    "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 359,
+    "parentParagraphIndex": 356,
+    "answerParagraphIndex": 361,
+    "sourceIndex": " /  / 原题11（3）；OOXML段落359",
+    "factorCertificates": {
+      "a": "非恒定一次因子不可约",
+      "b": "非恒定一次因子不可约",
+      "c": "非恒定一次因子不可约",
+      "ab^2-2ab-1": "关于a一次，系数互素；由Gauss引理不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "abc(ab^2-2ab-1)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(a * b ^ 2 - 2 * a * b - 1)*(c)*(b)*(a)",
+      "(-(a))*(-(b))*(c)*(a * b ^ 2 - 2 * a * b - 1)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s2-block-21.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-027"
+  },
+  {
+    "s": "s2",
+    "block": 29,
+    "expression": "(x+3)^2-(x+3)",
+    "answer": "(x+3)(x+2)",
+    "method": "提取多项式公因式",
+    "kind": "common",
+    "factors": [
+      "x+3",
+      "x+2"
+    ],
+    "question": "因式分解：(x+3)^2-(x+3)．",
+    "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 433,
+    "parentParagraphIndex": 433,
+    "answerParagraphIndex": 434,
+    "sourceIndex": " /  / 原题7；OOXML段落433",
+    "factorCertificates": {
+      "x+3": "非恒定一次因子不可约",
+      "x+2": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(x+3)(x+2)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(x + 2)*(x + 3)",
+      "(-(x + 3))*(-(x + 2))"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s2-block-29.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-028"
+  },
+  {
+    "s": "s2",
+    "block": 31,
+    "expression": "3a(x-y)^2-a(y-x)^3",
+    "answer": "a(x-y)^2(x-y+3)",
+    "method": "相反式变号后提公因式",
+    "kind": "common",
+    "factors": [
+      "a",
+      "x-y",
+      "x-y+3"
+    ],
+    "question": "因式分解：3a(x-y)^2-a(y-x)^3．",
+    "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 445,
+    "parentParagraphIndex": 445,
+    "answerParagraphIndex": 446,
+    "sourceIndex": " /  / 原题9；OOXML段落445",
+    "factorCertificates": {
+      "a": "非恒定一次因子不可约",
+      "x-y": "非恒定一次因子不可约",
+      "x-y+3": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "a(x-y)^2(x-y+3)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(x - y + 3)*((x - y) ^ 2)*(a)",
+      "(-(a))*(-((x - y) ^ 2))*(x - y + 3)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s2-block-31.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-029"
+  },
+  {
+    "s": "s2",
+    "block": 32,
+    "part": "（1）",
+    "questionP": 456,
+    "expression": "24a^3bc^2-8ab^2",
+    "answer": "8ab(3a^2c^2-b)",
+    "method": "提取单项式公因式",
+    "kind": "common",
+    "factors": [
+      "a",
+      "b",
+      "3a^2c^2-b"
+    ],
+    "question": "因式分解：24a^3bc^2-8ab^2．",
+    "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 456,
+    "parentParagraphIndex": 455,
+    "answerParagraphIndex": 458,
+    "sourceIndex": " /  / 原题10（1）；OOXML段落456",
+    "factorCertificates": {
+      "a": "非恒定一次因子不可约",
+      "b": "非恒定一次因子不可约",
+      "3a^2c^2-b": "关于b一次，系数互素；由Gauss引理不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "8ab(3a^2c^2-b)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(3 * a ^ 2 * c ^ 2 - b)*(b)*(a)*(8)",
+      "(-(8))*(-(a))*(b)*(3 * a ^ 2 * c ^ 2 - b)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s2-block-32.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-030"
+  },
+  {
+    "s": "s2",
+    "block": 32,
+    "part": "（2）",
+    "questionP": 457,
+    "expression": "(m+3n)(4m-n)-(m+3n)(m-7n)",
+    "answer": "3(m+3n)(m+2n)",
+    "method": "提取多项式公因式并整理",
+    "kind": "common",
+    "factors": [
+      "m+3n",
+      "m+2n"
+    ],
+    "question": "因式分解：(m+3n)(4m-n)-(m+3n)(m-7n)．",
+    "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 457,
+    "parentParagraphIndex": 455,
+    "answerParagraphIndex": 458,
+    "sourceIndex": " /  / 原题10（2）；OOXML段落457",
+    "factorCertificates": {
+      "m+3n": "非恒定一次因子不可约",
+      "m+2n": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "3(m+3n)(m+2n)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(m + 2 * n)*(m + 3 * n)*(3)",
+      "(-(3))*(-(m + 3 * n))*(m + 2 * n)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s2-block-32.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-031"
+  },
+  {
+    "s": "s2",
+    "block": 33,
+    "expression": "(a+b)(x-y)+(a-b)(y-x)",
+    "answer": "2b(x-y)",
+    "method": "相反式变号后提公因式",
+    "kind": "common",
+    "factors": [
+      "b",
+      "x-y"
+    ],
+    "question": "因式分解：(a+b)(x-y)+(a-b)(y-x)．",
+    "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 468,
+    "parentParagraphIndex": 468,
+    "answerParagraphIndex": 469,
+    "sourceIndex": " /  / 原题11；OOXML段落468",
+    "factorCertificates": {
+      "b": "非恒定一次因子不可约",
+      "x-y": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "2b(x-y)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(x - y)*(b)*(2)",
+      "(-(2))*(-(b))*(x - y)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s2-block-33.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-032"
+  },
+  {
+    "s": "s2",
+    "block": 34,
+    "expression": "6m^2+9mx-6xy-4my",
+    "answer": "(2m+3x)(3m-2y)",
+    "method": "分组提公因式",
+    "kind": "mixed",
+    "factors": [
+      "2m+3x",
+      "3m-2y"
+    ],
+    "question": "因式分解：6m^2+9mx-6xy-4my．",
+    "source": "专题12.1  因式分解的意义与提取公因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 477,
+    "parentParagraphIndex": 477,
+    "answerParagraphIndex": 478,
+    "sourceIndex": " /  / 原题12；OOXML段落477",
+    "factorCertificates": {
+      "2m+3x": "非恒定一次因子不可约",
+      "3m-2y": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(2m+3x)(3m-2y)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(3 * m - 2 * y)*(2 * m + 3 * x)",
+      "(-(2 * m + 3 * x))*(-(3 * m - 2 * y))"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s2-block-34.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-033"
+  },
+  {
+    "s": "s3",
+    "block": 2,
+    "part": "（1）",
+    "questionP": 23,
+    "expression": "4a^2-16",
+    "answer": "4(a-2)(a+2)",
+    "method": "先提公因式再平方差",
+    "kind": "mixed",
+    "factors": [
+      "a-2",
+      "a+2"
+    ],
+    "question": "因式分解：4a^2-16．",
+    "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 23,
+    "parentParagraphIndex": 22,
+    "answerParagraphIndex": 25,
+    "sourceIndex": " /  / 原题2（1）；OOXML段落23",
+    "factorCertificates": {
+      "a-2": "非恒定一次因子不可约",
+      "a+2": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "4(a-2)(a+2)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(a + 2)*(a - 2)*(4)",
+      "(-(4))*(-(a - 2))*(a + 2)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s3-block-02.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-034"
+  },
+  {
+    "s": "s3",
+    "block": 2,
+    "part": "（2）",
+    "questionP": 24,
+    "expression": "49(a-b)^2-16(a+b)^2",
+    "answer": "(11a-3b)(3a-11b)",
+    "method": "整体平方差直接应用",
+    "kind": "difference",
+    "factors": [
+      "11a-3b",
+      "3a-11b"
+    ],
+    "question": "因式分解：49(a-b)^2-16(a+b)^2．",
+    "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 24,
+    "parentParagraphIndex": 22,
+    "answerParagraphIndex": 25,
+    "sourceIndex": " /  / 原题2（2）；OOXML段落24",
+    "factorCertificates": {
+      "11a-3b": "非恒定一次因子不可约",
+      "3a-11b": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(11a-3b)(3a-11b)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(3 * a - 11 * b)*(11 * a - 3 * b)",
+      "(-(11 * a - 3 * b))*(-(3 * a - 11 * b))"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s3-block-02.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-035"
+  },
+  {
+    "s": "s3",
+    "block": 9,
+    "expression": "a^2-ab+1/4*b^2",
+    "answer": "(a-1/2*b)^2",
+    "method": "完全平方识别",
+    "kind": "square",
+    "factors": [
+      "a-1/2*b"
+    ],
+    "question": "因式分解：a^2-ab+1/4*b^2．",
+    "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 437,
+    "parentParagraphIndex": 437,
+    "answerParagraphIndex": 438,
+    "sourceIndex": " /  / 原题5；OOXML段落437",
+    "factorCertificates": {
+      "a-1/2*b": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(a-1/2*b)^2",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "((a - 1 / 2 * b) ^ 2)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s3-block-09.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-036"
+  },
+  {
+    "s": "s3",
+    "block": 11,
+    "part": "（1）",
+    "questionP": 453,
+    "expression": "25x^2-16y^2",
+    "answer": "(5x+4y)(5x-4y)",
+    "method": "平方差直接应用",
+    "kind": "difference",
+    "factors": [
+      "5x+4y",
+      "5x-4y"
+    ],
+    "question": "因式分解：25x^2-16y^2．",
+    "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 453,
+    "parentParagraphIndex": 452,
+    "answerParagraphIndex": 455,
+    "sourceIndex": " /  / 原题7（1）；OOXML段落453",
+    "factorCertificates": {
+      "5x+4y": "非恒定一次因子不可约",
+      "5x-4y": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(5x+4y)(5x-4y)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(5 * x - 4 * y)*(5 * x + 4 * y)",
+      "(-(5 * x + 4 * y))*(-(5 * x - 4 * y))"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s3-block-11.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-037"
+  },
+  {
+    "s": "s3",
+    "block": 11,
+    "part": "（2）",
+    "questionP": 454,
+    "expression": "(a-b)(x-y)-(b-a)(x+y)",
+    "answer": "2x(a-b)",
+    "method": "相反式变号后提公因式",
+    "kind": "common",
+    "factors": [
+      "x",
+      "a-b"
+    ],
+    "question": "因式分解：(a-b)(x-y)-(b-a)(x+y)．",
+    "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 454,
+    "parentParagraphIndex": 452,
+    "answerParagraphIndex": 455,
+    "sourceIndex": " /  / 原题7（2）；OOXML段落454",
+    "factorCertificates": {
+      "x": "非恒定一次因子不可约",
+      "a-b": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "2x(a-b)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(a - b)*(x)*(2)",
+      "(-(2))*(-(x))*(a - b)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s3-block-11.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-038"
+  },
+  {
+    "s": "s3",
+    "block": 13,
+    "expression": "a^4+4b^2c^2-a^2b^2-4a^2c^2",
+    "answer": "(a+b)(a-b)(a+2c)(a-2c)",
+    "method": "分组后连续平方差",
+    "kind": "mixed",
+    "factors": [
+      "a+b",
+      "a-b",
+      "a+2c",
+      "a-2c"
+    ],
+    "question": "因式分解：a^4+4b^2c^2-a^2b^2-4a^2c^2．",
+    "source": "专题12.2.1 公式法分解因式（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 471,
+    "parentParagraphIndex": 471,
+    "answerParagraphIndex": 472,
+    "sourceIndex": " /  / 原题9；OOXML段落471",
+    "factorCertificates": {
+      "a+b": "非恒定一次因子不可约",
+      "a-b": "非恒定一次因子不可约",
+      "a+2c": "非恒定一次因子不可约",
+      "a-2c": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(a+b)(a-b)(a+2c)(a-2c)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(a - 2 * c)*(a + 2 * c)*(a - b)*(a + b)",
+      "(-(a + b))*(-(a - b))*(a + 2 * c)*(a - 2 * c)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s3-block-13.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-039"
+  },
+  {
+    "s": "s4",
+    "block": 3,
+    "expression": "x^2-xy-12y^2",
+    "answer": "(x-4y)(x+3y)",
+    "method": "十字相乘分解齐次二次式",
+    "kind": "mixed",
+    "factors": [
+      "x-4y",
+      "x+3y"
+    ],
+    "question": "因式分解：x^2-xy-12y^2．",
+    "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 18,
+    "parentParagraphIndex": 18,
+    "answerParagraphIndex": 19,
+    "sourceIndex": " /  / 原题1；OOXML段落18",
+    "factorCertificates": {
+      "x-4y": "非恒定一次因子不可约",
+      "x+3y": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(x-4y)(x+3y)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(x + 3 * y)*(x - 4 * y)",
+      "(-(x - 4 * y))*(-(x + 3 * y))"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s4-block-03.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-040"
+  },
+  {
+    "s": "s4",
+    "block": 4,
+    "expression": "(a^2+3a)^2-9(a^2+3a)+20",
+    "answer": "(a+4)(a-1)(a^2+3a-5)",
+    "method": "换元后多步十字相乘",
+    "kind": "mixed",
+    "factors": [
+      "a+4",
+      "a-1",
+      "a^2+3a-5"
+    ],
+    "question": "因式分解：(a^2+3a)^2-9(a^2+3a)+20．",
+    "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 22,
+    "parentParagraphIndex": 22,
+    "answerParagraphIndex": 23,
+    "sourceIndex": " /  / 原题2；OOXML段落22",
+    "factorCertificates": {
+      "a+4": "非恒定一次因子不可约",
+      "a-1": "非恒定一次因子不可约",
+      "a^2+3a-5": "判别式29非有理数平方；按有理系数分解到底"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(a+4)(a-1)(a^2+3a-5)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(a ^ 2 + 3 * a - 5)*(a - 1)*(a + 4)",
+      "(-(a + 4))*(-(a - 1))*(a ^ 2 + 3 * a - 5)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s4-block-04.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-041"
+  },
+  {
+    "s": "s4",
+    "block": 7,
+    "expression": "x^2-y^2-3x-3y",
+    "answer": "(x+y)(x-y-3)",
+    "method": "分组平方差后提公因式",
+    "kind": "mixed",
+    "factors": [
+      "x+y",
+      "x-y-3"
+    ],
+    "question": "因式分解：x^2-y^2-3x-3y．",
+    "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 35,
+    "parentParagraphIndex": 35,
+    "answerParagraphIndex": 36,
+    "sourceIndex": " /  / 原题3；OOXML段落35",
+    "factorCertificates": {
+      "x+y": "非恒定一次因子不可约",
+      "x-y-3": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(x+y)(x-y-3)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(x - y - 3)*(x + y)",
+      "(-(x + y))*(-(x - y - 3))"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s4-block-07.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-042"
+  },
+  {
+    "s": "s4",
+    "block": 14,
+    "part": "（1）",
+    "questionP": 439,
+    "expression": "-3x^2+6xy-3y^2",
+    "answer": "-3(x-y)^2",
+    "method": "先提公因式再完全平方",
+    "kind": "mixed",
+    "factors": [
+      "x-y"
+    ],
+    "question": "因式分解：-3x^2+6xy-3y^2．",
+    "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 439,
+    "parentParagraphIndex": 438,
+    "answerParagraphIndex": 441,
+    "sourceIndex": " /  / 原题6（1）；OOXML段落439",
+    "factorCertificates": {
+      "x-y": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "-3(x-y)^2",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "((x - y) ^ 2)*(-3)",
+      "(-(-3))*(-((x - y) ^ 2))"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s4-block-14.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-043"
+  },
+  {
+    "s": "s4",
+    "block": 14,
+    "part": "（2）",
+    "questionP": 440,
+    "expression": "x^2-4x-12",
+    "answer": "(x-6)(x+2)",
+    "method": "十字相乘分解二次三项式",
+    "kind": "mixed",
+    "factors": [
+      "x-6",
+      "x+2"
+    ],
+    "question": "因式分解：x^2-4x-12．",
+    "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 440,
+    "parentParagraphIndex": 438,
+    "answerParagraphIndex": 441,
+    "sourceIndex": " /  / 原题6（2）；OOXML段落440",
+    "factorCertificates": {
+      "x-6": "非恒定一次因子不可约",
+      "x+2": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(x-6)(x+2)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(x + 2)*(x - 6)",
+      "(-(x - 6))*(-(x + 2))"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s4-block-14.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-044"
+  },
+  {
+    "s": "s4",
+    "block": 15,
+    "part": "（1）",
+    "questionP": 446,
+    "expression": "x^2-6x+9",
+    "answer": "(x-3)^2",
+    "method": "完全平方识别",
+    "kind": "square",
+    "factors": [
+      "x-3"
+    ],
+    "question": "因式分解：x^2-6x+9．",
+    "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 446,
+    "parentParagraphIndex": 445,
+    "answerParagraphIndex": 450,
+    "sourceIndex": " /  / 原题7（1）；OOXML段落446",
+    "factorCertificates": {
+      "x-3": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(x-3)^2",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "((x - 3) ^ 2)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s4-block-15.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-045"
+  },
+  {
+    "s": "s4",
+    "block": 15,
+    "part": "（2）",
+    "questionP": 447,
+    "expression": "25-16x^2",
+    "answer": "(5-4x)(5+4x)",
+    "method": "平方差直接应用",
+    "kind": "difference",
+    "factors": [
+      "5-4x",
+      "5+4x"
+    ],
+    "question": "因式分解：25-16x^2．",
+    "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 447,
+    "parentParagraphIndex": 445,
+    "answerParagraphIndex": 450,
+    "sourceIndex": " /  / 原题7（2）；OOXML段落447",
+    "factorCertificates": {
+      "5-4x": "非恒定一次因子不可约",
+      "5+4x": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(5-4x)(5+4x)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(5 + 4 * x)*(5 - 4 * x)",
+      "(-(5 - 4 * x))*(-(5 + 4 * x))"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s4-block-15.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-046"
+  },
+  {
+    "s": "s4",
+    "block": 15,
+    "part": "（3）",
+    "questionP": 448,
+    "expression": "ax+ay-bx-by",
+    "answer": "(a-b)(x+y)",
+    "method": "分组提公因式",
+    "kind": "mixed",
+    "factors": [
+      "a-b",
+      "x+y"
+    ],
+    "question": "因式分解：ax+ay-bx-by．",
+    "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 448,
+    "parentParagraphIndex": 445,
+    "answerParagraphIndex": 450,
+    "sourceIndex": " /  / 原题7（3）；OOXML段落448",
+    "factorCertificates": {
+      "a-b": "非恒定一次因子不可约",
+      "x+y": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(a-b)(x+y)",
+    "formalDuplicates": [
+      {
+        "id": "Q0177",
+        "method": "exact_polynomial_same_factorization_task"
+      }
+    ],
+    "pendingDuplicates": [
+      {
+        "id": "CAND-FS01-028",
+        "method": "exact_polynomial_same_factorization_task"
+      }
+    ],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(x + y)*(a - b)",
+      "(-(a - b))*(-(x + y))"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s4-block-15.png"
+  },
+  {
+    "s": "s4",
+    "block": 15,
+    "part": "（4）",
+    "questionP": 449,
+    "expression": "x^2-2x-24",
+    "answer": "(x-6)(x+4)",
+    "method": "十字相乘分解二次三项式",
+    "kind": "mixed",
+    "factors": [
+      "x-6",
+      "x+4"
+    ],
+    "question": "因式分解：x^2-2x-24．",
+    "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 449,
+    "parentParagraphIndex": 445,
+    "answerParagraphIndex": 450,
+    "sourceIndex": " /  / 原题7（4）；OOXML段落449",
+    "factorCertificates": {
+      "x-6": "非恒定一次因子不可约",
+      "x+4": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(x-6)(x+4)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(x + 4)*(x - 6)",
+      "(-(x - 6))*(-(x + 4))"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s4-block-15.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-047"
+  },
+  {
+    "s": "s4",
+    "block": 16,
+    "expression": "1-x^2+2xy-y^2",
+    "answer": "(1+x-y)(1-x+y)",
+    "method": "分组完全平方后平方差",
+    "kind": "mixed",
+    "factors": [
+      "1+x-y",
+      "1-x+y"
+    ],
+    "question": "因式分解：1-x^2+2xy-y^2．",
+    "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 465,
+    "parentParagraphIndex": 465,
+    "answerParagraphIndex": 466,
+    "sourceIndex": " /  / 原题8；OOXML段落465",
+    "factorCertificates": {
+      "1+x-y": "非恒定一次因子不可约",
+      "1-x+y": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(1+x-y)(1-x+y)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [
+      {
+        "source": "第12章因式分解期中专题复习一2026-2027学年上海沪教版五四制七年级第一学期（解析版）.docx",
+        "paragraphIndex": 423,
+        "method": "exact_polynomial_same_factorization_task"
+      }
+    ],
+    "equivalentInputs": [
+      "(1 - x + y)*(1 + x - y)",
+      "(-(1 + x - y))*(-(1 - x + y))"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s4-block-16.png"
+  },
+  {
+    "s": "s4",
+    "block": 23,
+    "expression": "2ac-6ad+bc-3bd",
+    "answer": "(2a+b)(c-3d)",
+    "method": "分组提公因式",
+    "kind": "mixed",
+    "factors": [
+      "2a+b",
+      "c-3d"
+    ],
+    "question": "因式分解：2ac-6ad+bc-3bd．",
+    "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 545,
+    "parentParagraphIndex": 545,
+    "answerParagraphIndex": 546,
+    "sourceIndex": " /  / 原题5；OOXML段落545",
+    "factorCertificates": {
+      "2a+b": "非恒定一次因子不可约",
+      "c-3d": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(2a+b)(c-3d)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(c - 3 * d)*(2 * a + b)",
+      "(-(2 * a + b))*(-(c - 3 * d))"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s4-block-23.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-048"
+  },
+  {
+    "s": "s4",
+    "block": 27,
+    "expression": "(x^2-3x)(x^2-3x-2)-8",
+    "answer": "(x-4)(x+1)(x-1)(x-2)",
+    "method": "换元后多步十字相乘",
+    "kind": "mixed",
+    "factors": [
+      "x-4",
+      "x+1",
+      "x-1",
+      "x-2"
+    ],
+    "question": "因式分解：(x^2-3x)(x^2-3x-2)-8．",
+    "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 583,
+    "parentParagraphIndex": 583,
+    "answerParagraphIndex": 584,
+    "sourceIndex": " /  / 原题9；OOXML段落583",
+    "factorCertificates": {
+      "x-4": "非恒定一次因子不可约",
+      "x+1": "非恒定一次因子不可约",
+      "x-1": "非恒定一次因子不可约",
+      "x-2": "非恒定一次因子不可约"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(x-4)(x+1)(x-1)(x-2)",
+    "formalDuplicates": [
+      {
+        "id": "Q0173",
+        "method": "exact_polynomial_same_factorization_task"
+      }
+    ],
+    "pendingDuplicates": [
+      {
+        "id": "CAND-FS01-024",
+        "method": "exact_polynomial_same_factorization_task"
+      }
+    ],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(x - 2)*(x - 1)*(x + 1)*(x - 4)",
+      "(-(x - 4))*(-(x + 1))*(x - 1)*(x - 2)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s4-block-27.png"
+  },
+  {
+    "s": "s4",
+    "block": 28,
+    "expression": "(x^2+x)^2-3(x^2+x)+2",
+    "answer": "(x-1)(x+2)(x^2+x-1)",
+    "method": "换元后多步十字相乘",
+    "kind": "mixed",
+    "factors": [
+      "x-1",
+      "x+2",
+      "x^2+x-1"
+    ],
+    "question": "因式分解：(x^2+x)^2-3(x^2+x)+2．",
+    "source": "专题12.2.2 十字相乘与分组分解（高效培优讲义）数学新教材沪教版七年级上册（解析版）.docx",
+    "questionParagraphIndex": 592,
+    "parentParagraphIndex": 592,
+    "answerParagraphIndex": 593,
+    "sourceIndex": " /  / 原题10；OOXML段落592",
+    "factorCertificates": {
+      "x-1": "非恒定一次因子不可约",
+      "x+2": "非恒定一次因子不可约",
+      "x^2+x-1": "判别式5非有理数平方；按有理系数分解到底"
+    },
+    "fullyFactored": true,
+    "auditStatus": "verified",
+    "independentVerification": "精确有理数稀疏多项式独立展开比较，逐因子不可约性检查通过（有理系数范围）",
+    "independentResult": "(x-1)(x+2)(x^2+x-1)",
+    "formalDuplicates": [],
+    "pendingDuplicates": [],
+    "batchDuplicates": [],
+    "equivalentInputs": [
+      "(x ^ 2 + x - 1)*(x + 2)*(x - 1)",
+      "(-(x - 1))*(-(x + 2))*(x ^ 2 + x - 1)"
+    ],
+    "scoringSupport": "auto",
+    "evidence": "evidence/s4-block-28.png",
+    "candidateId": "CAND-DOCX-2026-10-C12-049"
+  }
+]

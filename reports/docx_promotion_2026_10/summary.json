@@ -1,0 +1,76 @@
+{
+  "preflightPassed": 88,
+  "promoted": {
+    "C10": 10,
+    "C11": 29,
+    "C12": 49,
+    "total": 88
+  },
+  "formalCount": 287,
+  "idRange": "Q0001～Q0287",
+  "newIdRange": "Q0200～Q0287",
+  "old199Fingerprint": "08651b2f9d6dfcdfecf3524c954685d088fabd470976eff87ae4abd7d0c1f245",
+  "addedKnowledgePoints": {
+    "合并同类项": 3,
+    "整式加减综合": 7,
+    "同底数幂乘法": 1,
+    "幂的乘方": 1,
+    "幂的运算综合": 4,
+    "积的乘方": 4,
+    "同底数幂除法": 1,
+    "单项式乘法": 1,
+    "乘法公式": 9,
+    "多项式乘多项式": 5,
+    "因式分解·完全平方公式": 3,
+    "整式化简求值": 1,
+    "整式乘法综合": 1,
+    "因式分解·提公因式法": 15,
+    "因式分解·综合方法": 27,
+    "因式分解·平方差公式": 5
+  },
+  "allKnowledgePoints": {
+    "相反数": 30,
+    "绝对值": 30,
+    "去括号": 30,
+    "添括号": 22,
+    "合并同类项": 23,
+    "整式加减综合": 57,
+    "因式分解·提公因式法": 16,
+    "因式分解·平方差公式": 6,
+    "因式分解·完全平方公式": 4,
+    "因式分解·综合方法": 41,
+    "同底数幂乘法": 1,
+    "幂的乘方": 1,
+    "幂的运算综合": 4,
+    "积的乘方": 4,
+    "同底数幂除法": 1,
+    "单项式乘法": 1,
+    "乘法公式": 9,
+    "多项式乘多项式": 5,
+    "整式化简求值": 1,
+    "整式乘法综合": 1
+  },
+  "constraints": {
+    "old": 17,
+    "added": 50,
+    "total": 67
+  },
+  "pending": {
+    "retained": 280,
+    "statusDistribution": {
+      "needsReview": 162,
+      "deferred": 13,
+      "promoted": 105
+    },
+    "thisPromotion": 88,
+    "outsideAllowlist": 192,
+    "outsideStatusDistribution": {
+      "needsReview": 162,
+      "deferred": 13,
+      "promoted": 17
+    }
+  },
+  "scoringPolicyVersion": 2,
+  "questionBankFixVersion": 2,
+  "dbSchemaVersion": 3
+}

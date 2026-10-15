@@ -1,0 +1,35 @@
+{
+  "formalBank": {
+    "count": 199,
+    "idRange": "Q0001-Q0199",
+    "sha256": "4c2728905c9f073f50682bf134cae5025fc9a34fa8a11f9efa693e84cdcb2fe5",
+    "unchanged": true
+  },
+  "pending": {
+    "existingRecordsPreserved": 202,
+    "newRecords": 29,
+    "total": 231,
+    "candidateIdRange": "CAND-DOCX-2026-10-C11-001-CAND-DOCX-2026-10-C11-029",
+    "formalIdsAllocated": false
+  },
+  "independentExactMath": {"pass": 29, "fail": 0},
+  "currentScoringAndFormatter": {
+    "standardAnswersPass": 29,
+    "equivalentInputsPass": 31,
+    "incorrectAnswersRejected": 29,
+    "exponentFormatterPass": 29,
+    "deferredManualCheckEvidence": 8,
+    "totalChecks": 126,
+    "fail": 0
+  },
+  "existingReadOnlyRegression": {
+    "tests/test-core.js": "PASS",
+    "tests/question-bank-audit.js": "PASS"
+  },
+  "npmTest": "not_run: coverage suite rewrites a report outside the requested candidate-only change",
+  "indexedDBAccessed": false,
+  "pwaModified": false,
+  "gitStagedCommittedOrPushed": false,
+  "pageNumbersVerified": false,
+  "iPadVisualLayoutVerified": false
+}

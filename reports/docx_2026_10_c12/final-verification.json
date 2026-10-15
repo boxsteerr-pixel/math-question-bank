@@ -1,0 +1,40 @@
+{
+  "batchId": "docx-2026-10-c12",
+  "formalCount": 199,
+  "formalIdRange": "Q0001-Q0199",
+  "formalSha256": "4c2728905c9f073f50682bf134cae5025fc9a34fa8a11f9efa693e84cdcb2fe5",
+  "originalPendingCount": 231,
+  "originalPendingUnchanged": true,
+  "addedPendingCount": 49,
+  "finalPendingCount": 280,
+  "candidateRange": "CAND-DOCX-2026-10-C12-001-CAND-DOCX-2026-10-C12-049",
+  "independentVerification": "52/52 PASS: exact rational polynomial identity and irreducibility certificates",
+  "scoringAndEquivalentInputs": "52/52 PASS",
+  "fullyFactoredCoefficientDomain": "rational coefficients, consistent with middle-school factorization",
+  "readOnlyRegressionTests": {
+    "c12-pending-audit": "PASS",
+    "test-core": "PASS",
+    "question-bank-audit": "PASS",
+    "c11-classification": "PASS",
+    "adaptive-engine": "PASS",
+    "power-boost": "PASS",
+    "pwa-safe-update": "PASS"
+  },
+  "npmTestRunThisBatch": false,
+  "gitDiffCheck": "PASS",
+  "knowledgeConfigurationUnchangedThisBatch": true,
+  "questionEngineUnchangedThisBatch": true,
+  "dbSchemaUnchanged": true,
+  "questionBankFixVersion": 2,
+  "pwaUnchanged": true,
+  "indexedDbAccessed": false,
+  "promoted": false,
+  "committed": false,
+  "pushed": false,
+  "limitations": [
+    "DOCX page rendering unavailable: bundled LibreOffice soffice.exe not present; use original formula images and OOXML paragraph context, not guessed pagination.",
+    "Expression score accepts algebraically equivalent expanded input; it does not enforce fully-factored student answer form.",
+    "112 non-choice blocks and one remaining variable-exponent subquestion need later review; they are not safe candidates.",
+    "60 multiple-choice blocks registered separately, unsupported for current input-only daily practice."
+  ]
+}

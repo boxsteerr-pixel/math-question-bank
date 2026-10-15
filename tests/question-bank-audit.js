@@ -47,7 +47,8 @@ const expectedKnowledgePoints={Q0163:'因式分解·提公因式法',Q0164:'因�
 for(const question of factorization){
   assert.equal(question.answerType,'expression',`${question.id} 必须使用输入型 expression 判分`);
   assert.equal(question.knowledgePoint,expectedKnowledgePoints[question.id],`${question.id} 的知识点分类错误`);
-  assert.equal(score(question,[expressionFromQuestion(question)]).correct,true,`${question.id} 的题面与已分解到底的答案必须数学等价`);
+  assert.equal(score(question,[expressionFromQuestion(question)],{scoringPolicyVersion:1}).correct,true,`${question.id} 的题面与已分解到底的答案必须数学等价`);
+  assert.equal(score(question,[expressionFromQuestion(question)]).correct,false,`${question.id} 不能用未分解原式完成因式分解题`);
   assert.equal(score(question,[question.answer]).correct,true,`${question.id} 的标准答案必须可自动判定`);
 }
 

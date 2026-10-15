@@ -1,6 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {applyApprovedFactorizationConstraint} from './factorizationConstraintApprovals.js';
+import {applyDocxPromotions} from './docxPromotion.js';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const pending=JSON.parse(fs.readFileSync(path.join(root,'data','questions_pending.json'),'utf8'));
 const factorizationBatch=pending.filter(question=>question.batchId==='factorization-supplement-01');
@@ -29,7 +31,7 @@ const questionOverrides={Q0014:'+[+(-8.1)]'};
 const answerOverrides={Q0024:'6.8',Q0125:'2x-5y',Q0137:'-2a-2b'};
 function answerType(i,answer){if(i<=30)return 'number';if(i<=50)return 'number';if(i<=60)return 'conditional_expression';if(i===69)return 'number';if(i===70)return 'ordered_terms';if(i>=91&&i<=94)return 'fill_blank';if(i>=95&&i<=99)return 'multiple_blank';if(i>=100&&i<=111)return 'fill_blank';if(i===112)return 'expression';return 'expression'}
 function subPoint(q){if(q.knowledgePoint==='添括号')return '括号内填空';return q.subKnowledgePoint||''}
-const final=basePending.map((p,i)=>{const n=i+1,page=n<=30?1:n<=60?2:n<=90?3:n<=112?4:n<=142?5:n<=152?6:7,answerPage=n<=30?8:n<=60?9:n<=90?10:n<=112?11:n<=142?12:13,answer=answerOverrides[p.id]??A[i],question=questionOverrides[p.id]??p.question;return {id:p.id,question,displayQuestion:question,answer,displayAnswer:Array.isArray(answer)?answer.join('；'):answer,chapter:'七年级上学期 日常计算',knowledgePoint:p.knowledgePoint,subKnowledgePoint:subPoint(p),difficulty:p.difficulty||2,source,questionPage:page,answerPage,sourceIndex:p.sourceIndex,status:'approved',tags:p.tags||[],answerType:answerType(n,answer),reviewNote:'已依据同一 PDF 中对应答案页、模块、题号及左右栏位置核对。',verifiedAnswer:'',answerCheck:'not_checked'};});
+let final=basePending.map((p,i)=>{const n=i+1,page=n<=30?1:n<=60?2:n<=90?3:n<=112?4:n<=142?5:n<=152?6:7,answerPage=n<=30?8:n<=60?9:n<=90?10:n<=112?11:n<=142?12:13,answer=answerOverrides[p.id]??A[i],question=questionOverrides[p.id]??p.question;return {id:p.id,question,displayQuestion:question,answer,displayAnswer:Array.isArray(answer)?answer.join('；'):answer,chapter:'七年级上学期 日常计算',knowledgePoint:p.knowledgePoint,subKnowledgePoint:subPoint(p),difficulty:p.difficulty||2,source,questionPage:page,answerPage,sourceIndex:p.sourceIndex,status:'approved',tags:p.tags||[],answerType:answerType(n,answer),reviewNote:'已依据同一 PDF 中对应答案页、模块、题号及左右栏位置核对。',verifiedAnswer:'',answerCheck:'not_checked'};});
 // New questions are selected by immutable candidate IDs, never by pending-array position.
 const factorizationPromotions=Object.freeze({
   Q0176:{finalId:'Q0163',knowledgePoint:'因式分解·提公因式法',subKnowledgePoint:'提公因式法'},
@@ -59,6 +61,17 @@ for(const [candidateId,promotion] of Object.entries(factorizationPromotions)){
   final.push({id:promotion.finalId,question:candidate.question,displayQuestion:candidate.displayQuestion||candidate.question,answer:candidate.answer,displayAnswer:candidate.displayAnswer||candidate.answer,chapter:candidate.chapter,knowledgePoint:promotion.knowledgePoint,subKnowledgePoint:promotion.subKnowledgePoint,difficulty:candidate.difficulty||2,source:candidate.source,questionPage:candidate.questionPage,answerPage:candidate.answerPage,sourceIndex:candidate.sourceIndex,status:'approved',tags:candidate.tags||[],answerType:'expression',reviewNote:`由候选题 ${candidateId} 提升；学生版题面、教师版答案及独立复核一致。`,verifiedAnswer:candidate.calculatedAnswer,answerCheck:'verified'});
 }
 if(final.length!==179||new Set(final.map(question=>question.id)).size!==179)throw Error('Expected 179 unique final questions');
+// Later additions (currently Q0180-Q0199 power questions) have no source in
+// this legacy builder. Preserve them byte-for-field; never drop them on rebuild.
+const existingFinal=JSON.parse(fs.readFileSync(path.join(root,'data','questions.json'),'utf8'));
+const laterQuestions=existingFinal.filter(question=>Number(question.id.slice(1))>179&&Number(question.id.slice(1))<=199);
+for(const [index,question] of laterQuestions.entries())if(question.id!==`Q${String(180+index).padStart(4,'0')}`)throw Error('Later formal questions must remain continuous');
+for(let index=162;index<179;index++)final[index]=applyApprovedFactorizationConstraint(final[index]);
+final.push(...laterQuestions);
+if(final.length!==179+laterQuestions.length||new Set(final.map(question=>question.id)).size!==final.length)throw Error('Formal bank rebuild produced duplicate or missing IDs');
+const manifest=JSON.parse(fs.readFileSync(path.join(root,'data','docx-promotion-2026-10.json'),'utf8'));
+final=applyDocxPromotions(final,pending,manifest);
+if(existingFinal.length!==199&&JSON.stringify(existingFinal)!==JSON.stringify(final))throw Error('Existing promoted bank differs from approved rebuild; stop for review');
 for(const candidateId of deferredCandidateIds){const candidate=pendingByOriginalCandidateId.get(candidateId);if(!candidate)throw Error(`Missing deferred candidate ${candidateId}`);candidate.status='deferred';candidate.deferredReason='multiple_choice_not_enabled_in_daily_practice';}
 for(const [candidateId,promotion] of Object.entries(factorizationPromotions)){const candidate=pendingByOriginalCandidateId.get(candidateId);candidate.status='promoted';candidate.finalId=promotion.finalId;}
 fs.writeFileSync(path.join(root,'data','questions.json'),JSON.stringify(final,null,2)+'\n','utf8');

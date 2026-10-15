@@ -1,0 +1,25 @@
+{
+  "formalCount": 199,
+  "existingPendingCount": 202,
+  "reviewedSafeCandidates": 29,
+  "formalDuplicates": [],
+  "pendingDuplicates": [],
+  "internalDuplicates": [],
+  "algebraicallyEqualResultsNotDuplicateQuestions": [
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-024",
+      "question": "2025^2-2026×2024",
+      "sameResultFormalIds": ["Q0002", "Q0066"],
+      "sameResultExistingPendingIds": ["Q0002", "Q0066"],
+      "reason": "结果均为1，但题面结构、计算过程和考查方法不同，不是同一道题。"
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-025",
+      "question": "2025^2-2024 1/2×2025 1/2",
+      "sameResultFormalIds": ["Q0015"],
+      "sameResultExistingPendingIds": ["Q0015"],
+      "reason": "结果均为1/4，但原题是带分数乘法公式计算，旧题是相反数运算，非重复题。"
+    }
+  ],
+  "method": "字符标准化、括号和乘号归一、交换律结构比较、精确多项式复核及题意核对；不只按最终答案去重。"
+}

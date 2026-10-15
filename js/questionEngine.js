@@ -1,6 +1,7 @@
 import {all,get,put,setting,saveSetting} from './db.js';
 import {summarizeKnowledge} from './statistics.js';
 import {KNOWLEDGE_POINTS,includeNewKnowledgePoints} from './knowledgePoints.js';
+import {freezeTaskScoringPolicy} from './scoringPolicy.js';
 const hash=s=>[...s].reduce((a,c)=>(a*31+c.charCodeAt(0))>>>0,2166136261);
 const daysAgo=(date,then)=>then?Math.max(0,Math.round((new Date(`${date}T00:00:00`)-new Date(`${then}T00:00:00`))/86400000)):9999;
 export const POWER_BOOST_DAYS=14;
@@ -27,15 +28,16 @@ export function buildAdaptiveTask({date,questions,enabled,checkins=[],stats=[],w
   }else{
     const due=wrongQuestions.filter(w=>!w.mastered&&w.nextReviewDate&&w.nextReviewDate<=date).map(w=>({w,q:bank.find(q=>q.id===w.questionId)})).filter(x=>x.q).sort((a,b)=>a.w.nextReviewDate.localeCompare(b.w.nextReviewDate)||b.w.wrongCount-a.wrongCount||b.w.lastWrongDate.localeCompare(a.w.lastWrongDate));
     for(const {w,q} of due.slice(0,2))add(items,q,'wrong_review',`wrong_review: reviewStage=${w.reviewStage}, due=${w.nextReviewDate}`,used);
-    const ranked=states.filter(s=>s.state!=='insufficient_data').sort((a,b)=>b.weaknessScore-a.weaknessScore),weak=ranked.filter(s=>['priority_weak','weak'].includes(s.state)),focus=weak.length?weak:ranked.length?ranked:states,cap=focus.length===1?4:3;
+    const sampled=states.filter(s=>s.attempts>0),sampledPoints=new Set(sampled.map(s=>s.knowledgePoint)),reviewBank=bank.filter(q=>sampledPoints.has(q.knowledgePoint));
+    const ranked=sampled.filter(s=>s.state!=='insufficient_data').sort((a,b)=>b.weaknessScore-a.weaknessScore),weak=ranked.filter(s=>['priority_weak','weak'].includes(s.state)),focus=weak.length?weak:ranked,cap=focus.length===1?4:3;
     selectAcross(items,bank,focus,items.length+5,'weakness',date,historyMap,used,s=>`${s.state}: ${s.knowledgePoint} recentAccuracy=${Math.round(s.recentAccuracy)}%`,cap);
-    if(items.filter(x=>x.sourceType==='weakness').length<5)selectAcross(items,bank,states,items.length+(5-items.filter(x=>x.sourceType==='weakness').length),'weakness',date,historyMap,used,s=>`relative_lowest: ${s.knowledgePoint} recentAccuracy=${Math.round(s.recentAccuracy)}%`,cap);
-    const reviewCount=3+(2-due.slice(0,2).length),reviewStart=items.length,duePower=due.filter(item=>POWER_BOOST_IDS.has(item.q.id)).length,boostCount=powerBoost?Math.min(reviewCount,Math.max(0,3-Math.min(3,duePower))):0;
-    selectPowerBoost(items,bank,boostCount,date,historyMap,used,answers);
-    const exposed=reviewCount>(items.length-reviewStart)?unseenExposure(items,bank,states,date,historyMap,used):null;
-    normalFill(items,bank,exposed?states.filter(state=>state.attempts>0):states,reviewCount-(items.length-reviewStart),date,historyMap,used);
+    if(items.filter(x=>x.sourceType==='weakness').length<5)selectAcross(items,bank,ranked,items.length+(5-items.filter(x=>x.sourceType==='weakness').length),'weakness',date,historyMap,used,s=>`relative_lowest: ${s.knowledgePoint} recentAccuracy=${Math.round(s.recentAccuracy)}%`,cap);
+    const reviewCount=10-items.length,reviewStart=items.length,duePower=due.filter(item=>POWER_BOOST_IDS.has(item.q.id)).length,boostCount=powerBoost?Math.min(reviewCount,Math.max(0,3-Math.min(3,duePower))):0;
+    selectPowerBoost(items,reviewBank,boostCount,date,historyMap,used,answers);
+    if(reviewCount>(items.length-reviewStart))unseenExposure(items,bank,states,date,historyMap,used);
+    normalFill(items,reviewBank,sampled,reviewCount-(items.length-reviewStart),date,historyMap,used);
   }
-if(items.length<10){const fallback=ordered(bank.filter(q=>!used.has(q.id)),date,historyMap,'fallback');for(const q of fallback){if(items.length===10)break;add(items,q,'review',`normal_review: fallback ${q.knowledgePoint}`,used)}}return {date,questionIds:items.map(x=>x.questionId),items,createdAt:Date.now(),mode:diagnostic?'diagnosticPhase':'adaptive_5_3_2',selectionReason:Object.fromEntries(items.map(x=>[x.questionId,x.selectionReason]))}}
+if(items.length<10){const sampledPoints=new Set(states.filter(s=>s.attempts>0).map(s=>s.knowledgePoint)),fallback=ordered(bank.filter(q=>!used.has(q.id)&&(diagnostic||sampledPoints.has(q.knowledgePoint))),date,historyMap,'fallback');for(const q of fallback){if(items.length===10)break;add(items,q,'review',`normal_review: fallback ${q.knowledgePoint}`,used)}}return freezeTaskScoringPolicy({date,questionIds:items.map(x=>x.questionId),items,createdAt:Date.now(),mode:diagnostic?'diagnosticPhase':'adaptive_5_3_2',selectionReason:Object.fromEntries(items.map(x=>[x.questionId,x.selectionReason]))},bank)}
 async function recordHistory(items,date){for(const item of items){const old=await get('questionHistory',item.questionId)||{questionId:item.questionId,shownCount:0,lastShownDate:null};old.shownCount++;old.lastShownDate=date;await put('questionHistory',old)}}
 export async function getOrCreateToday(){const date=today(),existing=await get('dailyTasks',date);if(existing)return existing;const [questions,enabled,checkins,stats,wrongs,history,answers,startSetting]=await Promise.all([all('questions'),enabledPoints(),all('checkins'),all('knowledgeStats'),all('wrongQuestions'),all('questionHistory'),all('answers'),setting('powerBoostStartCheckinCount',null)]);const startCheckinCount=Number.isInteger(startSetting)?startSetting:checkins.length;if(!Number.isInteger(startSetting))await saveSetting('powerBoostStartCheckinCount',startCheckinCount);const task=buildAdaptiveTask({date,questions,enabled,checkins,stats,wrongQuestions:wrongs,history,answers,powerBoost:powerBoostActive(checkins.length,startCheckinCount)});await put('dailyTasks',task);await recordHistory(task.items,date);return task}
 export async function questionsFor(task){const q=await all('questions'),m=new Map(q.map(x=>[x.id,x]));return task.questionIds.map(id=>{const item=m.get(id);return Array.isArray(item.answer)?{...item,answerType:'multiple_blank'}:item;});}

@@ -1,4 +1,4 @@
-import {score} from './scoring.js';
+import {score,scoreForFrozenPolicy} from './scoring.js';
 
 export const QUESTION_BANK_FIX_VERSION=2;
 export const FIXED_QUESTION_IDS=new Set(['Q0024','Q0028','Q0068','Q0125','Q0137']);
@@ -47,7 +47,7 @@ export function applyQuestionBankFix(snapshot){
     const entry={date:record.date,questionId:record.questionId,oldFirstAnswer:firstAnswer(record),oldFirstAttemptCorrect,newCalculatedCorrect:null,actionsTaken:[]};
     if(record.questionId==='Q0028'){entry.actionsTaken.push('题面已更新；按规则不重判历史结果');log.push(entry);continue}
     if(record.questionId==='Q0068'&&score({answerType:'expression',answer:legacyQ0068Answer},firstAnswer(record)).correct){record.legacyQuestionMismatch=true;entry.actionsTaken.push('标记 legacyQuestionMismatch；保留原历史判定');log.push(entry);continue}
-    const question=questions.get(record.questionId),verdict=firstAnswer(record).length?score(question,firstAnswer(record)):{correct:false};
+    const question=questions.get(record.questionId),verdict=firstAnswer(record).length?scoreForFrozenPolicy(question,firstAnswer(record),record):{correct:false};
     entry.newCalculatedCorrect=verdict.manualCheck?null:verdict.correct===true;
     if(record.firstAttemptCorrect===false&&entry.newCalculatedCorrect===true){record.firstAttemptCorrect=true;record.resolved=true;record.manualCheck=false;record.firstWrongRecorded=false;record.corrected=false;record.feedback=null;changedDates.add(record.date);changedQuestionIds.add(record.questionId);affectedPoints.add(question.knowledgePoint);entry.actionsTaken.push('首次作答改为正确；取消由误判产生的错误状态');}
     else entry.actionsTaken.push('无需修改');

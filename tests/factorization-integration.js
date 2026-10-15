@@ -56,3 +56,4 @@ assert.ok(reviewTask.items.some(item=>item.questionId==='Q0163'&&item.sourceType
 assert.equal(QUESTION_BANK_FIX_VERSION,2,'新增题不得提高既有题库修复 migration 版本');
 for(const question of additions)assert.equal(FIXED_QUESTION_IDS.has(question.id),false,`${question.id} 是新增题，不得触发旧题强制同步 migration`);
 console.log('Factorization integration scenarios passed.');
+await import('./c11-classification.js');

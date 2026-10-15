@@ -1,0 +1,43 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+import {score} from '../js/scoring.js';
+import {formatMath} from '../js/formatMath.js';
+import {KNOWLEDGE_POINTS} from '../js/knowledgePoints.js';
+import {QUESTION_BANK_FIX_VERSION} from '../js/questionBankFix.js';
+import {beforePhaseBConstraint} from './helpers/phase-b-baseline.js';
+import {beforePromotionLifecycle} from './helpers/promotion-baseline.js';
+const read=path=>fs.readFileSync(new URL('../'+path,import.meta.url));
+const json=path=>JSON.parse(read(path));
+const digest=value=>crypto.createHash('sha256').update(value).digest('hex');
+const bank=json('data/questions.json').slice(0,199),pending=json('data/questions_pending.json').map(beforePromotionLifecycle);
+assert.equal(bank.length,199);
+assert.deepEqual(bank.map(q=>q.id),Array.from({length:199},(_,i)=>`Q${String(i+1).padStart(4,'0')}`));
+assert.equal(digest(JSON.stringify(bank.map(beforePhaseBConstraint))),'70b6b1c95ae2cf4aebac88eb3b4e38b166ea25ef6a0651bca80688923570663f');
+assert.equal(digest(JSON.stringify(pending.slice(0,231).map(beforePhaseBConstraint))),'89bf44c5a331f14f73f7e0278207f5b7210700fc80aa570f1894245e1082810e','原231条pending除授权约束字段外必须逐字段不变');
+assert.equal(QUESTION_BANK_FIX_VERSION,2);
+const candidates=pending.filter(q=>q.batchId==='docx-2026-10-c12');
+assert.equal(candidates.length,49);
+assert.deepEqual(candidates.map(beforePhaseBConstraint),json('reports/docx_2026_10_c12/candidates.json'));
+assert.deepEqual(candidates.map(q=>q.candidateId),Array.from({length:49},(_,i)=>`CAND-DOCX-2026-10-C12-${String(i+1).padStart(3,'0')}`));
+assert.equal(new Set(pending.filter(q=>q.candidateId).map(q=>q.candidateId)).size,pending.filter(q=>q.candidateId).length);
+const audited=json('reports/docx_2026_10_c12/math-audit.json');
+assert.equal(audited.length,52);
+for(const q of candidates){
+  assert.ok(!Object.hasOwn(q,'id'));assert.ok(!Object.hasOwn(q,'finalId'));
+  assert.ok(KNOWLEDGE_POINTS.includes(q.knowledgePoint));assert.equal(q.auditStatus,'verified');assert.equal(q.scoringSupport,'auto');
+  assert.equal(q.fullyFactored,true);assert.equal(q.answerType,'expression');
+  assert.equal(q.questionPage,null);assert.equal(q.answerPage,null);assert.equal(q.pageStatus,'unstable_docx_pagination');
+  assert.ok(q.source&&q.sourceIndex&&Number.isInteger(q.sourceParagraphIndex)&&Number.isInteger(q.answerParagraphIndex));
+  const record=audited.find(r=>r.candidateId===q.candidateId);assert.ok(record);
+  assert.equal(record.question,q.question);assert.equal(record.answer,q.answer);assert.equal(record.source,q.source);
+  assert.ok(record.fullyFactored&&record.factorCertificates);
+  assert.equal(Object.keys(record.factorCertificates).length,record.factors.length);
+  for(const key of ['formalDuplicates','pendingDuplicates','batchDuplicates'])assert.deepEqual(record[key],[]);
+  assert.ok(fs.existsSync(new URL('../reports/docx_2026_10_c12/'+record.evidence,import.meta.url)));
+  for(const input of [q.answer,...record.equivalentInputs]){const result=score(q,[input]);assert.equal(result.correct,true,q.candidateId+':'+input);assert.ok(!result.manualCheck);}
+  const wrong=score(q,[`(${q.answer})+1`]);assert.equal(wrong.correct,false);assert.ok(!wrong.manualCheck);
+  assert.ok(!formatMath(q.question).includes('^'));assert.ok(!formatMath(q.answer).includes('^'));
+}
+assert.deepEqual(candidates.reduce((m,q)=>(m[q.knowledgePoint]=(m[q.knowledgePoint]||0)+1,m),{}),{'因式分解·提公因式法':15,'因式分解·综合方法':27,'因式分解·平方差公式':5,'因式分解·完全平方公式':2});
+console.log('C12 pending audit PASS: 49 safe candidates; 52 independently verified source units; formal 199 and previous pending 231 frozen.');

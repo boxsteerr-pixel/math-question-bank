@@ -1,0 +1,28 @@
+{
+  "rawBlocks": 153,
+  "multipleChoiceOutsideScope": 60,
+  "identifiedLabelsTotal": 213,
+  "reviewedBlocks": 41,
+  "visualConfirmedSubquestions": 52,
+  "verified": 52,
+  "verifiedAuto": 52,
+  "formalDuplicateUnits": 2,
+  "pendingDuplicateUnits": 2,
+  "internalDuplicateUnits": 1,
+  "uniqueExcludedDuplicates": 3,
+  "conflict": 0,
+  "needsManualReviewUnits": 113,
+  "notFullyReviewedNonChoiceBlocks": 112,
+  "partialBlockRemainingSubquestions": 1,
+  "manualAmongTested": 0,
+  "unsupportedAmongTested": 0,
+  "fullyFactoredPass": 52,
+  "fullyFactoredDeferredUnits": 113,
+  "addedPending": 49,
+  "knowledgePointDistribution": {
+    "因式分解·提公因式法": 15,
+    "因式分解·综合方法": 27,
+    "因式分解·平方差公式": 5,
+    "因式分解·完全平方公式": 2
+  }
+}

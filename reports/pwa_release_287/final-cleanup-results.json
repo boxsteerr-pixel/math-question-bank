@@ -1,0 +1,26 @@
+{
+  "formalCount": 287,
+  "continuousUnique": true,
+  "fullyFactored": 67,
+  "questionsSha256": "db05ba0abe078dda83dc0c7e677d61a1a0580b50151aa6c1ec1e31be6e9c3520",
+  "businessFilesFrozen": true,
+  "approvedDisplayChanges": {
+    "question-preview.html": {
+      "before": "75f03295a66872a5c8f9ff82fea7a05160e695ffe80252ed62fc503d494e318d",
+      "after": "f7569a3af07aa01c420379ceba9eb86ba9939a097405fc2481f0bb90a4c6618e"
+    },
+    "js/questionPreview.js": {
+      "before": "63ad541051b6155670161ffa5f878bde91c058e6bbdba9bc7abe005f510ba4b7",
+      "after": "c030b359a2f28e1f0f068e915d7a8a340eaf707ad8cd0e3ca3bb595966652f00"
+    }
+  },
+  "cache": "grade7-math-v30",
+  "app": "0.4.8",
+  "questionBank": "2026.10.287",
+  "dbSchema": 3,
+  "questionBankFixVersion": 2,
+  "npmTest": "18/18 PASS",
+  "pwaTest": "3/3 PASS",
+  "iPadHardware": "PENDING",
+  "commitPush": "NOT EXECUTED"
+}

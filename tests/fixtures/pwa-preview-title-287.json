@@ -1,0 +1,13 @@
+{
+  "scope": "Display-only dynamic preview title; preserve original release freeze hashes for all other files",
+  "files": {
+    "question-preview.html": {
+      "before": "75f03295a66872a5c8f9ff82fea7a05160e695ffe80252ed62fc503d494e318d",
+      "after": "f7569a3af07aa01c420379ceba9eb86ba9939a097405fc2481f0bb90a4c6618e"
+    },
+    "js/questionPreview.js": {
+      "before": "63ad541051b6155670161ffa5f878bde91c058e6bbdba9bc7abe005f510ba4b7",
+      "after": "c030b359a2f28e1f0f068e915d7a8a340eaf707ad8cd0e3ca3bb595966652f00"
+    }
+  }
+}

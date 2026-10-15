@@ -1,0 +1,98 @@
+{
+  "frozenFiles": {
+    "data/questions.json": {
+      "sha256": "db05ba0abe078dda83dc0c7e677d61a1a0580b50151aa6c1ec1e31be6e9c3520",
+      "unchanged": true
+    },
+    "data/questions_pending.json": {
+      "sha256": "ac84cc8646f977ceefbebb62af1754ea3a18388b18d84b99d9762f6f18a8c85e",
+      "unchanged": true
+    },
+    "index.html": {
+      "sha256": "ac17680659ddaefb045a8f6292a70cea3605f082f177449afc2af265b52e6066",
+      "unchanged": true
+    },
+    "manifest.json": {
+      "sha256": "9a08f0bc12d79cd55710f5d20ae24745a727bfb81342e8cf04f07c6bdff7098c",
+      "unchanged": true
+    },
+    "css/style.css": {
+      "sha256": "d151fdeb357dc489fcc13428829bd227034ec8ce6f5590915c100187eedaa8fb",
+      "unchanged": true
+    },
+    "js/app.js": {
+      "sha256": "1943e9aba2f27007dd9b752cf54b813cc3954ba6893bf8867b4bcae45ebefc95",
+      "unchanged": true
+    },
+    "js/attemptPolicy.js": {
+      "sha256": "c1a81491be2834af4379f378eaeb3da54cbace91e7cbf90542af2e20ab1e0331",
+      "unchanged": true
+    },
+    "js/backup.js": {
+      "sha256": "5724243876328b77201c5b39602f8af8227461cf83b935da7e9a31a35ba7088c",
+      "unchanged": true
+    },
+    "js/db.js": {
+      "sha256": "5f3798111b052048e874b2a739c1c6a1409f5f414e40f31437c7e8d4a5f05324",
+      "unchanged": true
+    },
+    "js/factorizedForm.js": {
+      "sha256": "ab945b9f2ae8bfd0733b80eded6c73a5d088cfa028638db2def5599518087f03",
+      "unchanged": true
+    },
+    "js/formatMath.js": {
+      "sha256": "316678253a81b182b8cc84aebd95155b072883f5e0f35ab0c721b8e7c7530880",
+      "unchanged": true
+    },
+    "js/knowledgePoints.js": {
+      "sha256": "ba254f1ed20201d1bce01977aeccb74713acd8b64dfd8d3331c3ae1b338ff1c2",
+      "unchanged": true
+    },
+    "js/parentDashboard.js": {
+      "sha256": "44d3111eace9c0011756c041d469d5fb1e4f52aea572284f9592f3286c853c24",
+      "unchanged": true
+    },
+    "js/questionBankFix.js": {
+      "sha256": "dfdec08d259125d6b05ff2bf4a81e67890de226c5028614cf7494cb4b4b730be",
+      "unchanged": true
+    },
+    "js/questionEngine.js": {
+      "sha256": "6277dcc47da8e8f72e86fa83382644e0719dc1069a91e2161f17f6ad524561ca",
+      "unchanged": true
+    },
+    "js/questionPreview.js": {
+      "sha256": "63ad541051b6155670161ffa5f878bde91c058e6bbdba9bc7abe005f510ba4b7",
+      "unchanged": true
+    },
+    "js/scoring.js": {
+      "sha256": "2627ee304ce4e360dcef7e2aaf66293f203894878ff1e5e7f479ec2d9f39952d",
+      "unchanged": true
+    },
+    "js/scoringPolicy.js": {
+      "sha256": "b17f94dc2733a5cf49fe82112df94fe18fd7006ab0abde8c906f3f53cc11f1ba",
+      "unchanged": true
+    },
+    "js/statistics.js": {
+      "sha256": "1edc12341e6bf928ac29b7b7250502c837afe5f7789587491d660f12d2a84cdc",
+      "unchanged": true
+    },
+    "js/updateManager.js": {
+      "sha256": "a01c941b1e756dd6c45fd5cd2ee158860e8a319d2383871f3a2c84c066360294",
+      "unchanged": true
+    },
+    "js/wrongQuestions.js": {
+      "sha256": "27c6c7b83bda12c675047a8a5ca677bfabd777ea6b12d055193d9dd883128bd3",
+      "unchanged": true
+    }
+  },
+  "releaseFiles": {
+    "service-worker.js": {
+      "before": "fc52c4499758e0100d16218b6c960047442444e9a0090aca6f873ffa21487346",
+      "after": "23e46c4db07ad7411b628cff5b60c818e48ba19bf473a1065fd9b81e6b0b76db"
+    },
+    "js/version.js": {
+      "before": "dd74f322f08ade5d699d8ff6a213cf68c674177a5bdf2b817676b532c715d285",
+      "after": "2b2eb1a668565937f25f9b3951aefa25c90a952445292734233bc4018b230b78"
+    }
+  }
+}

@@ -1,0 +1,1446 @@
+[
+  {
+    "sourceKey": "s1",
+    "block": 13,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(2 - 3 * x + 3 * y)*(x - y)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(x - y))*(-(2 - 3 * x + 3 * y))",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s1",
+    "block": 14,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(2 * y - x)*(x + y)*(y)*(x)*(2)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(2))*(-(x))*(y)*(x + y)*(2 * y - x)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s1",
+    "block": 17,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "((x - 3 * y) ^ 2)*(x)*(-2)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(-2))*(-(x))*((x - 3 * y) ^ 2)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s1",
+    "block": 18,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(a - 3 * b)*(7 * a - b)*(-3)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(-3))*(-(7 * a - b))*(a - 3 * b)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s1",
+    "block": 19,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(y - 2)*(y + 4)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(y + 4))*(-(y - 2))",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s1",
+    "block": 23,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(x - 2)*(x + 2)*(x ^ 2 + 4)*(a - 2)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(a - 2))*(-(x ^ 2 + 4))*(x + 2)*(x - 2)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s1",
+    "block": 24,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "((m - 3) ^ 2)*((m + 3) ^ 2)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-((m + 3) ^ 2))*(-((m - 3) ^ 2))",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s1",
+    "block": 25,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(a - 2)*(a + 2)*(a - b)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(a - b))*(-(a + 2))*(a - 2)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s1",
+    "block": 28,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(x - 16)*(x + 2)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(x + 2))*(-(x - 16))",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s1",
+    "block": 29,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(x - 3 * y)*(x + 8 * y)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(x + 8 * y))*(-(x - 3 * y))",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s1",
+    "block": 30,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(x - 3 * y)*(x - 2 * y)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(x - 2 * y))*(-(x - 3 * y))",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s1",
+    "block": 31,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(x + 8 * y)*(x - 3 * y)*(x)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(x))*(-(x - 3 * y))*(x + 8 * y)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s1",
+    "block": 33,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(x - 3)*((x - 2) ^ 2)*(x - 1)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(x - 1))*(-((x - 2) ^ 2))*(x - 3)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s1",
+    "block": 35,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(x + y * a - y * b)*((a - b) ^ 2)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-((a - b) ^ 2))*(-(x + y * a - y * b))",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s1",
+    "block": 36,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(1 + x)*(1 - x)*(a)*(3)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(3))*(-(a))*(1 - x)*(1 + x)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s1",
+    "block": 42,
+    "part": "（1）",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(a + 2 * b)*(a - 2 * b)*(a - b)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(a - b))*(-(a - 2 * b))*(a + 2 * b)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s1",
+    "block": 42,
+    "part": "（2）",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(3 * a * b + 1)*(3 * a * b - 1)*(9 * a ^ 2 * b ^ 2 + 1)*(b)*(a)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(a))*(-(b))*(9 * a ^ 2 * b ^ 2 + 1)*(3 * a * b - 1)*(3 * a * b + 1)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s1",
+    "block": 43,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(3 * x + y - 1)*(3 * x - y + 1)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(3 * x - y + 1))*(-(3 * x + y - 1))",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s1",
+    "block": 44,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(1 - x + y)*(1 + x - y)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(1 + x - y))*(-(1 - x + y))",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s1",
+    "block": 46,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "((x + 1) ^ 2)*(x - 1)*(x + 3)*(4)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(4))*(-(x + 3))*(x - 1)*((x + 1) ^ 2)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s1",
+    "block": 47,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(y + 1)*(y - 1)*(x + 1)*(x - 1)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(x - 1))*(-(x + 1))*(y - 1)*(y + 1)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s2",
+    "block": 18,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(a ^ 2 - a * b - 1)*(a - b)*(b)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(b))*(-(a - b))*(a ^ 2 - a * b - 1)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s2",
+    "block": 20,
+    "part": "（1）",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(2 * a - 1)*(m)*(a)*(3)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(3))*(-(a))*(m)*(2 * a - 1)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s2",
+    "block": 20,
+    "part": "（2）",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(m - n)*(a - 2)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(a - 2))*(-(m - n))",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s2",
+    "block": 21,
+    "part": "（1）",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(2 * a ^ 2 - 3 * a * y + 4 * y ^ 2)*(y)*(a)*(-4)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(-4))*(-(a))*(y)*(2 * a ^ 2 - 3 * a * y + 4 * y ^ 2)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s2",
+    "block": 21,
+    "part": "（2）",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(5 * m * n ^ 2 - 2 * n + 1)*(n ^ 2)*(m ^ 2)*(-5)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(-5))*(-(m ^ 2))*(n ^ 2)*(5 * m * n ^ 2 - 2 * n + 1)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s2",
+    "block": 21,
+    "part": "（3）",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(a * b ^ 2 - 2 * a * b - 1)*(c)*(b)*(a)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(a))*(-(b))*(c)*(a * b ^ 2 - 2 * a * b - 1)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s2",
+    "block": 29,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(x + 2)*(x + 3)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(x + 3))*(-(x + 2))",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s2",
+    "block": 31,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(x - y + 3)*((x - y) ^ 2)*(a)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(a))*(-((x - y) ^ 2))*(x - y + 3)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s2",
+    "block": 32,
+    "part": "（1）",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(3 * a ^ 2 * c ^ 2 - b)*(b)*(a)*(8)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(8))*(-(a))*(b)*(3 * a ^ 2 * c ^ 2 - b)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s2",
+    "block": 32,
+    "part": "（2）",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(m + 2 * n)*(m + 3 * n)*(3)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(3))*(-(m + 3 * n))*(m + 2 * n)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s2",
+    "block": 33,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(x - y)*(b)*(2)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(2))*(-(b))*(x - y)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s2",
+    "block": 34,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(3 * m - 2 * y)*(2 * m + 3 * x)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(2 * m + 3 * x))*(-(3 * m - 2 * y))",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s3",
+    "block": 2,
+    "part": "（1）",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(a + 2)*(a - 2)*(4)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(4))*(-(a - 2))*(a + 2)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s3",
+    "block": 2,
+    "part": "（2）",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(3 * a - 11 * b)*(11 * a - 3 * b)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(11 * a - 3 * b))*(-(3 * a - 11 * b))",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s3",
+    "block": 9,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "((a - 1 / 2 * b) ^ 2)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s3",
+    "block": 11,
+    "part": "（1）",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(5 * x - 4 * y)*(5 * x + 4 * y)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(5 * x + 4 * y))*(-(5 * x - 4 * y))",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s3",
+    "block": 11,
+    "part": "（2）",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(a - b)*(x)*(2)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(2))*(-(x))*(a - b)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s3",
+    "block": 13,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(a - 2 * c)*(a + 2 * c)*(a - b)*(a + b)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(a + b))*(-(a - b))*(a + 2 * c)*(a - 2 * c)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s4",
+    "block": 3,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(x + 3 * y)*(x - 4 * y)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(x - 4 * y))*(-(x + 3 * y))",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s4",
+    "block": 4,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(a ^ 2 + 3 * a - 5)*(a - 1)*(a + 4)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(a + 4))*(-(a - 1))*(a ^ 2 + 3 * a - 5)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s4",
+    "block": 7,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(x - y - 3)*(x + y)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(x + y))*(-(x - y - 3))",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s4",
+    "block": 14,
+    "part": "（1）",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "((x - y) ^ 2)*(-3)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(-3))*(-((x - y) ^ 2))",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s4",
+    "block": 14,
+    "part": "（2）",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(x + 2)*(x - 6)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(x - 6))*(-(x + 2))",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s4",
+    "block": 15,
+    "part": "（1）",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "((x - 3) ^ 2)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s4",
+    "block": 15,
+    "part": "（2）",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(5 + 4 * x)*(5 - 4 * x)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(5 - 4 * x))*(-(5 + 4 * x))",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s4",
+    "block": 15,
+    "part": "（3）",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(x + y)*(a - b)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(a - b))*(-(x + y))",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s4",
+    "block": 15,
+    "part": "（4）",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(x + 4)*(x - 6)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(x - 6))*(-(x + 4))",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s4",
+    "block": 16,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(1 - x + y)*(1 + x - y)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(1 + x - y))*(-(1 - x + y))",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s4",
+    "block": 23,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(c - 3 * d)*(2 * a + b)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(2 * a + b))*(-(c - 3 * d))",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s4",
+    "block": 27,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(x - 2)*(x - 1)*(x + 1)*(x - 4)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(x - 4))*(-(x + 1))*(x - 1)*(x - 2)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  },
+  {
+    "sourceKey": "s4",
+    "block": 28,
+    "part": "",
+    "scoringSupport": "auto",
+    "standard": {
+      "correct": true
+    },
+    "alternatives": [
+      {
+        "input": "(x ^ 2 + x - 1)*(x + 2)*(x - 1)",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "input": "(-(x - 1))*(-(x + 2))*(x ^ 2 + x - 1)",
+        "result": {
+          "correct": true
+        }
+      }
+    ],
+    "wrong": {
+      "correct": false
+    },
+    "displayPass": true,
+    "expandedInputAccepted": true
+  }
+]

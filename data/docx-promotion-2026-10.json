@@ -1,0 +1,1505 @@
+{
+  "manifestVersion": 1,
+  "promotionId": "docx-2026-10-c10-c12",
+  "baselineCount": 199,
+  "baselineFingerprint": "08651b2f9d6dfcdfecf3524c954685d088fabd470976eff87ae4abd7d0c1f245",
+  "unpromotedPendingFingerprint": "782f749e0c16ed1cb81586d81c45515277a07e364e7bc682c432e2a2ed608bdb",
+  "entries": [
+    {
+      "candidateId": "CAND-DOCX-2026-10-C10-001",
+      "batchId": "docx-computation-supplement-2026-10-batch-a",
+      "formalId": "Q0200",
+      "questionFingerprint": "8001a5649d41aa0fddfc4406b2203438c80d49cfda0028fd6c3953f4cf219d5f",
+      "answerFingerprint": "3d6585f85f2a14f1b795e3906dddf3d73b6b7a2f812a1dd0de0c6a00c6efa327",
+      "candidateFingerprint": "8a25903677d8200763302e2d3eff922d9d827fd024e2f7a19d13c9b7300fddae",
+      "knowledgePoint": "合并同类项",
+      "answerType": "expression",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C10-002",
+      "batchId": "docx-computation-supplement-2026-10-batch-a",
+      "formalId": "Q0201",
+      "questionFingerprint": "f96f3b0ea148466053b40e04212b260e0c3c50785aca12413d67d1584a2f4700",
+      "answerFingerprint": "0db1789f0dd41581c9d018134171571cd936da96fbc89c7cf9c886a142b56161",
+      "candidateFingerprint": "121cb4837ff75727b8eca6969737523eee930662987895f871b2e66a141be93b",
+      "knowledgePoint": "整式加减综合",
+      "answerType": "expression",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C10-003",
+      "batchId": "docx-computation-supplement-2026-10-batch-a",
+      "formalId": "Q0202",
+      "questionFingerprint": "2a71eb20e3f149d4b75ae61c361fdfb74b42fd7bb040131b84501502cd579f79",
+      "answerFingerprint": "4369b869fe1ccac48c3bdf5ea7cc62d9138faa5b4292ae91fdbb2ff7a3e2b8fd",
+      "candidateFingerprint": "ec029a596151aef9706052ca0cbeb86f1bead44a93e092760e8478d884f0267d",
+      "knowledgePoint": "合并同类项",
+      "answerType": "number",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C10-004",
+      "batchId": "docx-computation-supplement-2026-10-batch-a",
+      "formalId": "Q0203",
+      "questionFingerprint": "3febcf76f4698fa35de0231da56ff72a82ae0f533942f9a9daadb7f5cf860d25",
+      "answerFingerprint": "98089e6d36f78e9766c9ea34d5acb3611f3a92cd81c5eb102095d924ffc7d08b",
+      "candidateFingerprint": "a1826517b2892f903565fef2e85eec6e4409e8fce221703fd76194b72721cf33",
+      "knowledgePoint": "合并同类项",
+      "answerType": "expression",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C10-005",
+      "batchId": "docx-computation-supplement-2026-10-batch-a",
+      "formalId": "Q0204",
+      "questionFingerprint": "268df2b6f08de53c3c879bb97820a8cb60bf37c9e81705db7a81152f8e4103e9",
+      "answerFingerprint": "cf91b664acaea8aef5b800bd7c621993b4ef4c859739096b6e180afdcc8aa52a",
+      "candidateFingerprint": "9215fa23b9121a03546cd1906c54de9dd1a575cfd8fd29b29d8f7c11ce7f4608",
+      "knowledgePoint": "整式加减综合",
+      "answerType": "expression",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C10-006",
+      "batchId": "docx-computation-supplement-2026-10-batch-a",
+      "formalId": "Q0205",
+      "questionFingerprint": "4072f3376938ad7a5534646db6b52fad28fbc12daa5a018ccebf4ba1679733c7",
+      "answerFingerprint": "369a984425089b5623c49149f0d6612bd45f2ea4312961ed6926c0f275ea06c2",
+      "candidateFingerprint": "5ae39cd8845c67b64200f797d019c699dfdef4630910c3859a04768f724b64fa",
+      "knowledgePoint": "整式加减综合",
+      "answerType": "expression",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C10-007",
+      "batchId": "docx-computation-supplement-2026-10-batch-a",
+      "formalId": "Q0206",
+      "questionFingerprint": "5177f973fc10da474963e5c8ebed2ed744711f7faec840ae614bf71c09e0c7cd",
+      "answerFingerprint": "afb6adf0304b6db6bb7e2a7d281866aa82aba2ba698faa8ef7621f9445cc0163",
+      "candidateFingerprint": "1460b39b4e4e1d164397e86738daf62a13b9bb370ba4e0282857b715fe22172c",
+      "knowledgePoint": "整式加减综合",
+      "answerType": "expression",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C10-008",
+      "batchId": "docx-computation-supplement-2026-10-batch-a",
+      "formalId": "Q0207",
+      "questionFingerprint": "93f8d2c06078da18bafa9a687f39fcf51ba3df19a95d0c0493b4417682c30af3",
+      "answerFingerprint": "54a732d62900c042327a4942bd4e8fe9514abb2578db452e5da880fd4e8ecf11",
+      "candidateFingerprint": "8f53be09b639ed0fcbf8fb452f148f23a6b5df38f4c8a2054826eacf7b4d933c",
+      "knowledgePoint": "整式加减综合",
+      "answerType": "expression",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C10-009",
+      "batchId": "docx-computation-supplement-2026-10-batch-a",
+      "formalId": "Q0208",
+      "questionFingerprint": "2c78615173df5e1809b1f7010bb20d17d7659a86b58c53ec0e2ae64d7203cdf7",
+      "answerFingerprint": "9ac51c82702fc306b941265a0b530ba07dc269656191893fe0f0fd61d56135b9",
+      "candidateFingerprint": "0784ba2d1e9c85822e42579a2ee212a5c270d6e1aa73c9d0517f538f745545bb",
+      "knowledgePoint": "整式加减综合",
+      "answerType": "expression",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C10-010",
+      "batchId": "docx-computation-supplement-2026-10-batch-a",
+      "formalId": "Q0209",
+      "questionFingerprint": "32d440c597860a578c9ce540d1d0f552d8d708870679a5e53387aeb0c052a8bb",
+      "answerFingerprint": "13b718d3b9fac107e9e173e7fd59c893058ac69ce239617e9a73dbc9ea8e409c",
+      "candidateFingerprint": "b30da4e8beb2a0dc224525eb476df9ff2419e38d194b93220841a883a722bf03",
+      "knowledgePoint": "整式加减综合",
+      "answerType": "number",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-001",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0210",
+      "questionFingerprint": "8d129a9a8cb657b8cba389c12f1f88403a3d29c08ca63075772d319ab1a275de",
+      "answerFingerprint": "6a9b938ee3476002cefe7d9d0fce4df3bd2a46276d66d2f3d25064f2fa82025b",
+      "candidateFingerprint": "58c2b2f9f838d80ee255f16d57c6b7423f87bc140bd41d30329e5e65d2af7447",
+      "knowledgePoint": "同底数幂乘法",
+      "answerType": "expression",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-002",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0211",
+      "questionFingerprint": "51379e38525a7cada6eee221c78b99de13b3b789531220545bd18864651115fd",
+      "answerFingerprint": "26f561362d182dd62c22be9f31ed6208a0a7fc4753b3029c5d94dcba59db05e5",
+      "candidateFingerprint": "73ec42a0ad707110fb43a9052c39258527c94b990911a59c8514242001cd61bc",
+      "knowledgePoint": "幂的乘方",
+      "answerType": "expression",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-003",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0212",
+      "questionFingerprint": "600b0909051b621b619dbccb9a0193a07473151c8b352d1fe36d298ddf716045",
+      "answerFingerprint": "642cff1eea7efc1f7c548695d2a2591db41047ca4f0db5e87891117b0601579e",
+      "candidateFingerprint": "115c4188984bceffa6cedcd1abe9d2b7ae2a59aa3209ca1a2bbf73fcd363e96b",
+      "knowledgePoint": "幂的运算综合",
+      "answerType": "number",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-004",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0213",
+      "questionFingerprint": "f138236aa98f26d3f6775be7f2bfbc1498a2b92c0837d532933a3259154e9480",
+      "answerFingerprint": "4018e973d50ee1028f23bf0337d2aa160f8711f0ddc3f93087ea3360d333f199",
+      "candidateFingerprint": "0bd8b90c81a67af1ad864109a26dc81bdecfd84b5781061426a85c31fcc97293",
+      "knowledgePoint": "幂的运算综合",
+      "answerType": "expression",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-005",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0214",
+      "questionFingerprint": "8ad34740185d9e53cd2fdd538d93b2ad7d7d0cd584b1a1129869daad87ea0112",
+      "answerFingerprint": "39f2309124f503213b11c6c935441dd69ad2809cbc25d5cef3b12b140b497df1",
+      "candidateFingerprint": "d2a4719866d8575f45b3cdd3724ee71407072e9aba6b2a451992474cad497da7",
+      "knowledgePoint": "幂的运算综合",
+      "answerType": "expression",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-006",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0215",
+      "questionFingerprint": "6f68070d7a27f503d1fdbf61194f35261c62e356ebd1169d68bb95d9f6d25139",
+      "answerFingerprint": "049248b04060d487559e62b1f1507d042c53d49427c548b94631d7d82e6178cf",
+      "candidateFingerprint": "e29cdf82ec57c3439e53d3ea5c78494d04d5e8a13335a8c750c66702da3d70fc",
+      "knowledgePoint": "积的乘方",
+      "answerType": "expression",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-007",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0216",
+      "questionFingerprint": "704d27aae2b619eddf8ff0c943d193cb4415ad25113286fc7f1526f6e0519754",
+      "answerFingerprint": "b611eb5d6a8536af485a7a26e0fed2046fae203d5fc6c1ae281e0a248e3ad17d",
+      "candidateFingerprint": "e824008a03d1bf6f251d7f1b7e8436e50a84fdbc881fa3d88afecdd12ceca1f4",
+      "knowledgePoint": "积的乘方",
+      "answerType": "number",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-008",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0217",
+      "questionFingerprint": "e7ef1b994ef97749de9d5f090e063c9f8aa036feeab1c6e8b61748cdd59a7292",
+      "answerFingerprint": "a28515131ca0d5d6ea0a1f82c451ca85c36c7d41851b42bcacb98b4b94fa90e6",
+      "candidateFingerprint": "e31667ba2183b2be87672f8d934b34ef6ce8978b08812aa18f24e05ed5ff7947",
+      "knowledgePoint": "积的乘方",
+      "answerType": "expression",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-009",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0218",
+      "questionFingerprint": "75f00aee0737a3d3c67af59d15a6495656c537d088ed03b3523025734b954577",
+      "answerFingerprint": "0613c415af54b83bb1c52e396e642e3cebfc5b1deb06e748d93976d7bcef8059",
+      "candidateFingerprint": "6b8d56debf8a085494eb80cd6b2c2d0351be690bf6b0e7506dad6cf2d19c0d9d",
+      "knowledgePoint": "积的乘方",
+      "answerType": "number",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-010",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0219",
+      "questionFingerprint": "0324aa66ad6a4499c1fe96859f9e2a02f87371c751a5f994f9e050aa2ae371a5",
+      "answerFingerprint": "04e1466969b335c7a95ad831ca006410211318d0feb4578f5bbcb70e255ad6c5",
+      "candidateFingerprint": "98e4af1446f14e684777e407f57cd52b9ab6939b84c8e15ea1d4e537637d7058",
+      "knowledgePoint": "幂的运算综合",
+      "answerType": "number",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-011",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0220",
+      "questionFingerprint": "7bedf7dfc887dec3e489ec7e37c2580970fb1d0be31a55c77c52f5e8c60e4f82",
+      "answerFingerprint": "17eed2c0e7c9788d0b46fafdf328b3e955aa0a22132c16cde72aa4f32dcd5282",
+      "candidateFingerprint": "b6fb78f623eb2659966402875b7a1609fed54b40c4dc527244b30973a081039d",
+      "knowledgePoint": "同底数幂除法",
+      "answerType": "number",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-012",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0221",
+      "questionFingerprint": "91a1039013cd1927496c886c01ee2505a7ba35404d31d5f69bc37e2c334360d4",
+      "answerFingerprint": "d8fa6d35ffe585167a8a096c001ef3bafda5f34ac825bfcfb5daef7d080585c9",
+      "candidateFingerprint": "17cf9154c58613aed8f67615ef1ebf49b998243e3789018501cff487bb3cac57",
+      "knowledgePoint": "单项式乘法",
+      "answerType": "expression",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-013",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0222",
+      "questionFingerprint": "7b980be4b295efddd7b24c28ad0753307195437dfd71a630c5ae690596d76d45",
+      "answerFingerprint": "d0311b9f758dbff81c8c055ead674b8fb735d9d7ad3ff0ec199b3b939a99b832",
+      "candidateFingerprint": "8a28ae4fe9a7b52f795ddb7cae4cd922f6a09d7aab62febe059966dfb02f4810",
+      "knowledgePoint": "乘法公式",
+      "answerType": "expression",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-014",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0223",
+      "questionFingerprint": "047f254facce4cf665fcdef76a78b50dc8a1e858a205e698dd17ee7bd9ae565f",
+      "answerFingerprint": "ba214d3b6c5ee406571d14fba069da5ae875c2030b8d8be4022d86919f49260c",
+      "candidateFingerprint": "1d6e20f01eca615afa0bd03ff638e9fa233ab299fe167476c5d48f4df220676b",
+      "knowledgePoint": "乘法公式",
+      "answerType": "expression",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-015",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0224",
+      "questionFingerprint": "d45c9da8462516aba2a4ae0bad2a8b3ddc37fc07d6249213078b5d074b329194",
+      "answerFingerprint": "b784af9867e609a4241d51672557e7e89e5ba7e37d1f8258c7478d10da8005f7",
+      "candidateFingerprint": "8a8c11b605b6bec249f237c44647a9a0314b0516ec657286459e39b8d1c2e9d1",
+      "knowledgePoint": "多项式乘多项式",
+      "answerType": "number",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-016",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0225",
+      "questionFingerprint": "9ba908ebe2a5532964d96c6c5216dba097fe4c952b482b974d94e5020936a3b7",
+      "answerFingerprint": "6b54ef0f2b5a5ef8e655f3ee42f1630f4f098d1007decc5ca13855879dd63657",
+      "candidateFingerprint": "1eafae5b2aafe4fd8ad18ac8e634954c4bb7062decf7018d21df41828cf5141a",
+      "knowledgePoint": "多项式乘多项式",
+      "answerType": "number",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-017",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0226",
+      "questionFingerprint": "6d4106f0cab65c48fc64e7aed25c0e40b5ec9c8cc92a0ba49a5fde904f991d31",
+      "answerFingerprint": "986b79d4b69dffb1d19836f47b27073d95bf55201b3385aceb7e0687a21d8667",
+      "candidateFingerprint": "7a4f363200071dd482c57b123517fd02465d5237aa66f77fa1c8243484ba8edc",
+      "knowledgePoint": "多项式乘多项式",
+      "answerType": "number",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-018",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0227",
+      "questionFingerprint": "b196085b38522a0241f38ed2050f5747fdd6a6d29e8dc0232ed58b0aec789964",
+      "answerFingerprint": "b611eb5d6a8536af485a7a26e0fed2046fae203d5fc6c1ae281e0a248e3ad17d",
+      "candidateFingerprint": "b5deaf02f3532df1c9f9fec513d5733d7e4236506b56f1a6b8bc48d1f898ba77",
+      "knowledgePoint": "多项式乘多项式",
+      "answerType": "number",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-019",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0228",
+      "questionFingerprint": "8207170b7115a195f596dfe45b1ea940fde601eb5b6a01cd1ccc0364ebde9add",
+      "answerFingerprint": "e8bd8e5c43971c5fa55e077c86f17e09593f9e88266bddeb76a9dc375b04e100",
+      "candidateFingerprint": "2fe0a886bc3bba5ddb29a90df9f4fd578399c5581e60abc675ce5b9edba6a326",
+      "knowledgePoint": "因式分解·完全平方公式",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-020",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0229",
+      "questionFingerprint": "e3c45fce782de96140da518ef61d91581dc18c59204fcd23907134272294ab9f",
+      "answerFingerprint": "91b9941c2ef959a94059cc9b79e0ff97995adb20aa865b6cfdfe8eade63a34ec",
+      "candidateFingerprint": "e07e9ece994f17f6068d460c8f4a251cb88f32e2afc8e415f1d3248c498b1258",
+      "knowledgePoint": "乘法公式",
+      "answerType": "expression",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-021",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0230",
+      "questionFingerprint": "77b60acb71f903020c11beb5673207a9d3ae81192019498b70d62545f5ad56db",
+      "answerFingerprint": "4e6aadcf4c124f42743e162c561e319590e228e0f261cf34b04294c39699f7aa",
+      "candidateFingerprint": "6a84440299b216186f14ffa8adf01600e9462582eb837d4492123ee41aaa959b",
+      "knowledgePoint": "多项式乘多项式",
+      "answerType": "multiple_blank",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-022",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0231",
+      "questionFingerprint": "3c47d9377ae825757bd0b679a67084d5628c6af0f52c97c171ff9f42e05d3376",
+      "answerFingerprint": "199ca7b8a8fd85fc22965dc9d4bbda340b57045314e2669384679d98c1bdd1d1",
+      "candidateFingerprint": "eaa69235dc0973d3f291b721fc2f4f9ca3b0ba40cfb1449f0f0d6723909cf623",
+      "knowledgePoint": "整式化简求值",
+      "answerType": "number",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-023",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0232",
+      "questionFingerprint": "dc723ae969ccd088f0e84b2c149891762f40c03b3bee320090f1fafcb1eb2ad7",
+      "answerFingerprint": "2c43c22fd3cbdb35f326424eded21d02bf2dd5b5d17da6e8c7e230c95424e1ca",
+      "candidateFingerprint": "14f7fd335355cfc72f9d6ad267b75bc4f0f0be8e7157eca9a482dbf3bc6c6da9",
+      "knowledgePoint": "乘法公式",
+      "answerType": "expression",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-024",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0233",
+      "questionFingerprint": "96401ef732f34eb2bee9f22b6c23eadacefce315b4f1a51a9113239f768bce57",
+      "answerFingerprint": "391552c099c101b131feaf24c5795a6a15bc8ec82015424e0d2b4274a369a0bf",
+      "candidateFingerprint": "6bec60f68ebb7711c650c240237509355b5a1d30b85d4203034c4295432f8eda",
+      "knowledgePoint": "乘法公式",
+      "answerType": "number",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-025",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0234",
+      "questionFingerprint": "1429bfa10238b377235a4fe413e94e0aee1dd743639eafd5b9f7f9777cf80888",
+      "answerFingerprint": "c42680a2f2c764f223a25255526860d596479d0f149e153662d562affff87b57",
+      "candidateFingerprint": "5ac82816352165266e3820c1032df090903084516179eeb4d3c9aea69ad5389e",
+      "knowledgePoint": "乘法公式",
+      "answerType": "number",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-026",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0235",
+      "questionFingerprint": "315824d5ba58cfee3053bb657aa29a97c37ea29b4dba55b0fa8fe3d4f8e7fac3",
+      "answerFingerprint": "22c12af692e20f549c0760b2d3def753322877dc298956538b455db24200e5ff",
+      "candidateFingerprint": "7c6f220d9a0867e937ce12c6a35a6aa16b8bc0cf159e9ff37a6c2b3411a434af",
+      "knowledgePoint": "乘法公式",
+      "answerType": "expression",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-027",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0236",
+      "questionFingerprint": "75762b4c6123ec6c104250bf99f9de6702a870d94d62ace648c7a1cbc1d8946d",
+      "answerFingerprint": "9245e5bad2d1bb2889106daea7964a3a105ab64fca9c2219cabb2e8060603f33",
+      "candidateFingerprint": "8584d1f8bda8700d929f18a1abd555e853a1c8d98768ddb47073db61ec7fec00",
+      "knowledgePoint": "乘法公式",
+      "answerType": "expression",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-028",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0237",
+      "questionFingerprint": "69c54b15198ad9fbf755ea8e35f3f0c459baf17b570973b346c7ff3973567d1d",
+      "answerFingerprint": "31b453c740ca305b055a195b681bcf9569d2402a3c8e2d158dd559a9c85e4f3d",
+      "candidateFingerprint": "246317243a7503688b10f7e6f7c1d3ffe9078eb84effd45c0c2cc1faa879f0c9",
+      "knowledgePoint": "乘法公式",
+      "answerType": "expression",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C11-029",
+      "batchId": "docx-2026-10-c11",
+      "formalId": "Q0238",
+      "questionFingerprint": "3bad90534ec045d3cf771d7db5b2b8b3853423a90faa397b0b3f647e71c2e1e4",
+      "answerFingerprint": "0fbd1c844ccce30987a50b3dcb31347756161b38f8748e6badb403615c8022e5",
+      "candidateFingerprint": "f922656f97ed438ed388e46118f53342d646e70c6d79588dd6caf742ba320b16",
+      "knowledgePoint": "整式乘法综合",
+      "answerType": "expression",
+      "answerConstraint": null,
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-001",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0239",
+      "questionFingerprint": "edac567baca10b6e1b6ea832728cf25142752f497091bf0222601db62d29bc71",
+      "answerFingerprint": "6a71ab476757173fc7f76d32ea2455254d6cd2c2270c0728a8a253a71ca32f40",
+      "candidateFingerprint": "51b8e88c8c0585d3992a77e50b69d8c3bd0cd14aa2e3c232ab1f2873a443c069",
+      "knowledgePoint": "因式分解·提公因式法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-002",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0240",
+      "questionFingerprint": "018695dfc333a2f950c145e17a6afe373675a0d9821904e06594931b0ee7f79a",
+      "answerFingerprint": "64db8d124cf7a26031c528bc53029ce5e7e89f15516b9e89061c26b5135124e7",
+      "candidateFingerprint": "0cc70a4a51d44d9144517e173b84697ebaf455e4b83501541a3cbc2a6d1a1b88",
+      "knowledgePoint": "因式分解·提公因式法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-003",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0241",
+      "questionFingerprint": "f4b41fd67f4c50fe4b85ca0bfdf484f956157b10b7c5c58cfcd45081761bee6d",
+      "answerFingerprint": "18ac4e2bac700049aa05fdd29927e28e4f433c488ef15c3921a2383d49aa8814",
+      "candidateFingerprint": "9223fa5fc84cd5eff5ccaf7ab3061c6d2cf26712a19f32540b2a3dd4e87c110a",
+      "knowledgePoint": "因式分解·综合方法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-004",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0242",
+      "questionFingerprint": "3051567620b3c3b209efc134a4d0ea0c69f3b5f69241a075ef1c8962f38df02b",
+      "answerFingerprint": "c7bae2d82e6ae18106488d601f76fc404e296a1b9ae75703d2742365a0cd9275",
+      "candidateFingerprint": "74e3c6925e3e225cfeb533fdee2b0e206e18e8788351b18197ca27ef755bbf47",
+      "knowledgePoint": "因式分解·平方差公式",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-005",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0243",
+      "questionFingerprint": "65360985bdc9fbe59e2725649432ff8c4cc1c8291cd780e187cea723e7769e56",
+      "answerFingerprint": "b5c91d1c68224aa8e2dce17129f02066bbb9be1ec96f58f1068354dc3ac55033",
+      "candidateFingerprint": "20f589b53a24f335ab4be9e879b3062d9d1e4b165d4efae454319784b6450842",
+      "knowledgePoint": "因式分解·平方差公式",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-006",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0244",
+      "questionFingerprint": "ee8f803d5097cb0b388355f92b58adbd7b5fef0208892d13e8be8b445769adfc",
+      "answerFingerprint": "0ef1b96d9b2ec608e34d4ed27405ad2af4e469069ac6885eadf0f9bdf0b33438",
+      "candidateFingerprint": "afdee4b739f418ee8ddb8754f18d9f9614350f9b9a0ab81ef11a27c9e9d8fceb",
+      "knowledgePoint": "因式分解·综合方法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-007",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0245",
+      "questionFingerprint": "4139a234dae8f563c7f6f5dc146771f453c9aac48d0f3eb7ad8f3d3deb913bfb",
+      "answerFingerprint": "c5fe1bb069630e84b80a7dc7200644273886a77da6c2fca735abda428e4337e4",
+      "candidateFingerprint": "eb629891d3c3a6691a416d7283ea570151cdd7168cda56546577aab8c559e3c7",
+      "knowledgePoint": "因式分解·综合方法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-008",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0246",
+      "questionFingerprint": "39de4df23fcc18db99b44e7b41ec7e646e20a03925b0390e7c308d37422e01e2",
+      "answerFingerprint": "58fa187359ba8ca8740772b966cc406dcb6196f8d6748595a83cec48b417ead7",
+      "candidateFingerprint": "f205444a46497088f4c1b23cac06c41e160ad9bc91e6df889dfd1ef334888be7",
+      "knowledgePoint": "因式分解·综合方法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-009",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0247",
+      "questionFingerprint": "acde92157014c883d2a46b551c5bb9012cb7eb8e7e112b94774121400994153e",
+      "answerFingerprint": "acff7fd4be167bd556b5e7b90235f6d3e77c4df73b1ba3693bd0408ac312b90d",
+      "candidateFingerprint": "fd108c01b650b585b9ee92ac62d10f47dfe51ec9bcfd2a304e1ee9c9e69331b5",
+      "knowledgePoint": "因式分解·综合方法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-010",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0248",
+      "questionFingerprint": "e601fde7a02f3ae413d8005fca5cdf722623790d5194a0d75f7d7c830d2b266d",
+      "answerFingerprint": "c3ae2da2221c4c81751d1639a1b7e3ebfa1f4678839c653dfbbf1340dbb74fca",
+      "candidateFingerprint": "2cd732e55a861534a464899a423632bb62fddfff689221d6dc5fc895429bdb2c",
+      "knowledgePoint": "因式分解·综合方法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-011",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0249",
+      "questionFingerprint": "5f864c77a31e8a6ef00cca733460041682db5feff7c5d454354e900482c1aa2f",
+      "answerFingerprint": "68c68018137c39534adf27b83b53165a06e9d13deebae747de09c7bb8e4238ca",
+      "candidateFingerprint": "0bb3ce35c70214fda0e930bd57d79c248888831620cfe5e2b323d489decfb8e8",
+      "knowledgePoint": "因式分解·综合方法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-012",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0250",
+      "questionFingerprint": "b4100098579d37949317e421ca8c6f4ac6ae3dd54ba692cc985e62b87e92c509",
+      "answerFingerprint": "bb80d152f8a16377258d76bc0e729a74e974d68449723f02e146c6a612504827",
+      "candidateFingerprint": "254ccd3d4f5186c4d5db740d5041814545ffb633738692822a804f5ab04d20c1",
+      "knowledgePoint": "因式分解·综合方法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-013",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0251",
+      "questionFingerprint": "91a19dfb4e3271faba96eeec99dc695019fe9b65b1310a89e35377586f1fd1fb",
+      "answerFingerprint": "020fefbfdc307c745aa666fd25df6509f8538ae2bc51aaefd929d84b22ec0f00",
+      "candidateFingerprint": "022e30cfa64510ea7002f9657b5a2d43d8a9dc01ef078ffd0484bfaadbf3f6b2",
+      "knowledgePoint": "因式分解·综合方法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-014",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0252",
+      "questionFingerprint": "e3dcd37f98be58e8fea118348a30a3b21b35e406b802f76654c970058b1ddb10",
+      "answerFingerprint": "daea8bbb306002ea5a5edc8fccffe8cdd60ab848193ba34453f47e67cd578946",
+      "candidateFingerprint": "0f1898b445dc84c387e558f337c365c07a9e1542196809d48b5046b8955c106c",
+      "knowledgePoint": "因式分解·提公因式法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-015",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0253",
+      "questionFingerprint": "35e2944127c75999efda6f53731fb766198bd68656cb7780b11e76a9ed611ba0",
+      "answerFingerprint": "db194ec7fa47a4366a2dff3e6aebfe5d7a81094f5e3ddb41e0830f37a3583591",
+      "candidateFingerprint": "866c46740deb0648677c1e72021b991572ab3b8a2338664c7d39e6912c66571a",
+      "knowledgePoint": "因式分解·综合方法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-016",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0254",
+      "questionFingerprint": "711ff411440c6a82c9457189beb34766acad2c2222cb481759ae81875422f56e",
+      "answerFingerprint": "906abc82e8d61cd1b63a94c1b38f82987d95bccb755980f4fa83c81cd622a6fb",
+      "candidateFingerprint": "c2bb3a84d9c488f9064215881057c97f0583f487f1b3593d50741961411b0263",
+      "knowledgePoint": "因式分解·综合方法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-017",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0255",
+      "questionFingerprint": "a0ad2f9aff828d47d8ac32f7061d1484029f288ba9ec3cebfc25518db1d48920",
+      "answerFingerprint": "32d0d4b379d09cbe9f3e1059c5ef360aab73cb0f668297a05da37cbfe9286f3a",
+      "candidateFingerprint": "b7f6e68161b44c745aa55e52bf4b958eb28841907abf475c4b5c8878eb3d2b51",
+      "knowledgePoint": "因式分解·综合方法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-018",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0256",
+      "questionFingerprint": "92947d663d89edf78d8a1753c2c686929c84f89ccfc48817396742d4f4a20c8a",
+      "answerFingerprint": "4290f2ca625f505a328e345d2aa278a98672f83288fd08b6af14c5cd56c38553",
+      "candidateFingerprint": "728cb9cd8b740a9adf254fd546c17b5d0e36542d7c91daaee50a0e4e79789dad",
+      "knowledgePoint": "因式分解·综合方法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-019",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0257",
+      "questionFingerprint": "cb81427b2b3c4b90ee00a9252165e7ee7522ff27416372f8b3b682a187f5bb9f",
+      "answerFingerprint": "4197747d60254072becb5b64ab7fc08600c52a960fd26b16755c2aa50191a9b8",
+      "candidateFingerprint": "c3e3f416c92cf1569c54a4a26374f6ca447d3b1d15b5ef2b59700e351926d2e8",
+      "knowledgePoint": "因式分解·综合方法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-020",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0258",
+      "questionFingerprint": "c807432332eae9b8f447e1b4e6322e3c8fc955a71433a9fcaa9833bdbfd7e388",
+      "answerFingerprint": "d99a95f583a29a7b393dd5da74ab0c443fea57a528bc6fb874da5ec20bf7e879",
+      "candidateFingerprint": "2e8dc6f0e10bf2485f275af9bf812c8a139d905bcfdce2dd7fa93c6fe75be6f3",
+      "knowledgePoint": "因式分解·综合方法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-021",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0259",
+      "questionFingerprint": "5b4e88bf2d77609b7c58779f8f6487f562a00d357315c34b9976b35063acbdf3",
+      "answerFingerprint": "016c3d9d7805dc2c5bb8cf0c05135c9175e8f3eea1dd914b19705b9ccd9ea394",
+      "candidateFingerprint": "02b2b5d0745f581b6bba1fb1601042ab571c5e9f16bba558796d324643093818",
+      "knowledgePoint": "因式分解·综合方法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-022",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0260",
+      "questionFingerprint": "987bf6b360e35d5e755fb8f8e69c5fd514516dd463d43fda174fe60d6cd9c385",
+      "answerFingerprint": "90fb0acb56da42456f65cdcda8e2e55a5bc8edd69e89c42dbad2e35749185016",
+      "candidateFingerprint": "cb017a16a7c295dfb778d882b5067634945d40d137b4bf8742f70dec32a10c98",
+      "knowledgePoint": "因式分解·提公因式法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-023",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0261",
+      "questionFingerprint": "5f5e99f73df6e9913cadd8f93dd7e3e6e439db6d48ef35a92158116a0d12e740",
+      "answerFingerprint": "a2321bfdb78a7f608a34e7e60ce956d208ca7d604624eaa0ff0851adfd71a1cc",
+      "candidateFingerprint": "723b06015dfd5c8caa938f04bec4a9f77596943289e6fe3f09b1783f6e326f98",
+      "knowledgePoint": "因式分解·提公因式法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-024",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0262",
+      "questionFingerprint": "8c6159b1d9adc16f39c379eab112f006b32132c28d2836edbe6556f353605d78",
+      "answerFingerprint": "aee82b046b418388917a213ec596f4a26968b120c3406321d41638ca647df989",
+      "candidateFingerprint": "80a8cffeaf4c70149cabc1275fc6faddaa18045c6a9e01b49994eb8c7e1f4a21",
+      "knowledgePoint": "因式分解·提公因式法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-025",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0263",
+      "questionFingerprint": "ae8407af0ffc852661b4cc4180212fda5f1fe1ce064f674c492007d772769224",
+      "answerFingerprint": "3a15da2d513728cf960317fd0697a1ee7567f9ae10f3ad90db583ad572505158",
+      "candidateFingerprint": "e00a32053a1c8db9dbb58042356e9b72e65c619dc31d553791e4dcf39cdbcd95",
+      "knowledgePoint": "因式分解·提公因式法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-026",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0264",
+      "questionFingerprint": "e417649adf06552bd4b759d87acb5dd2bf8368612722be9af9a861a166a42250",
+      "answerFingerprint": "8d231e1ab4560ee8d4ec2b88b657a36d181a0e5ed346b59871aae6f07e40dcc6",
+      "candidateFingerprint": "6087ff0a4a1660b5da0daa461437dcae9f53f099581442207b146c643225798c",
+      "knowledgePoint": "因式分解·提公因式法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-027",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0265",
+      "questionFingerprint": "12772ff678d1f181542b4c37da55df7235f5603fb277013a241e7dfdbc7a9465",
+      "answerFingerprint": "ab191c0220b5e0ae105f47b93f6f80cf5cf82ddf2b3eec078fd96c8a8ccc328c",
+      "candidateFingerprint": "e07c57204bcdcc9193cdc519890815733059fd5074e3b54d010668dfd9fbeae2",
+      "knowledgePoint": "因式分解·提公因式法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-028",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0266",
+      "questionFingerprint": "b330cd9d1d092287fbe43937866c8069f27a34c88548aa35ae53296e67cd5aa4",
+      "answerFingerprint": "c5972e63a07b5bb0bca9ac21013bc88988b23ff4cac5fcd6bf7caf3fd94c4411",
+      "candidateFingerprint": "fef845bff25bddd5ef4839a4ff1651e0931879e8b3f554c2502cc5c47fb2381a",
+      "knowledgePoint": "因式分解·提公因式法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-029",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0267",
+      "questionFingerprint": "83b58a30df924c6d3a5c8d1cbda1c4721933fdb506ccaff9fc73409725c447ac",
+      "answerFingerprint": "7c5d6b4e74ee2ac554eb026a59d1b160d8c4e000761b45ce4812928019708bb0",
+      "candidateFingerprint": "c5cc4aea75da27fbc62a91c7fccf50c0a9fb81366878efeb91a77dfd2fff7154",
+      "knowledgePoint": "因式分解·提公因式法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-030",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0268",
+      "questionFingerprint": "9e60d0329824bff9c51c32aea7b56dc2449d5bf7e6a7515c75e57a2d4c0c19d1",
+      "answerFingerprint": "bb74523d6b6b371b876cbae136d0e70dc958fa8ec1ca67604dd6b946d91be176",
+      "candidateFingerprint": "1e3fcfe4282e30a7c57db4c37a940764ae77f018bf904ceba2bd6b13adad123f",
+      "knowledgePoint": "因式分解·提公因式法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-031",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0269",
+      "questionFingerprint": "19a6f5b44d2cf0c733c9aeb7bbde9b3f83538d5747efe368ee41c74c92bdc25a",
+      "answerFingerprint": "44b3fc7f8bd7b24252d90d0b3058d56ffb0fed03d9c925e1eef78a213c1d194b",
+      "candidateFingerprint": "ec428d63b94ed2d711908d59b8191b0d0b735ba750d93ff6e6461ffe34bbc2e3",
+      "knowledgePoint": "因式分解·提公因式法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-032",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0270",
+      "questionFingerprint": "7efffc3b5a9e93f14b58723788a408c6b165e349ef2a9f87c2689f57d5c2f781",
+      "answerFingerprint": "de98e2b53b1719a4e7dc7eeb4835299455c7cdcd72293df161c9068824ab07eb",
+      "candidateFingerprint": "cbb47172a300b451575fc6626dab11497c9922863afc7de4fa351916d7c3a221",
+      "knowledgePoint": "因式分解·提公因式法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-033",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0271",
+      "questionFingerprint": "704e3639b9c0d72af540f67f28f592f3a87a66cdd1662721a6230e5d91bfd013",
+      "answerFingerprint": "119cb227717a8358cc95aa211ae1c071c7d3d13a32a7d3f5941d0b0a3695345e",
+      "candidateFingerprint": "1ef87ab26bf0599836ddbe46b384eb8ddaa55d702da2750722689d1a02aa676f",
+      "knowledgePoint": "因式分解·综合方法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-034",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0272",
+      "questionFingerprint": "ab76633fd72f3d8a3e5de2585c111b6203f281a3453837e06a6d4add70d7f99e",
+      "answerFingerprint": "1207aa1b9fd4faa6752a75ae3772661826af45e31dbe83eb0713dd59a90a1d8a",
+      "candidateFingerprint": "9002c09c08df0312302f9cdddb5dcc0751d26af6cd9bf56bd613271f35da823c",
+      "knowledgePoint": "因式分解·综合方法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-035",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0273",
+      "questionFingerprint": "1a2b279d3531697e6946b1a745179472f41c3a215cc650a6761286dad040a43b",
+      "answerFingerprint": "c165853b57f9b176c877101af14e503117100d7e0c3854ece810a173101de563",
+      "candidateFingerprint": "2f62504fcb8d78be0413a04ceaaded01d7482395192ac779529a43f24f8a6772",
+      "knowledgePoint": "因式分解·平方差公式",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-036",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0274",
+      "questionFingerprint": "4a559422d7327ef190fa9efdd69d5b6c82a144d24a0b64898a32b0919a32d8a5",
+      "answerFingerprint": "9dcfb2390c31c2cbd207b29857d06a3f824ba9bfba7d60dae142d79538739411",
+      "candidateFingerprint": "16519eb706e9276aa0f000a7a8de779d70b35d51a188d6538a09634b082d8641",
+      "knowledgePoint": "因式分解·完全平方公式",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-037",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0275",
+      "questionFingerprint": "b3b32748c7536620488f885cb76015f5adee31ae1f62964a77a64ccbe846f5d3",
+      "answerFingerprint": "9b51ebf43d097fa103cd5573bf6294964bfd08eda0ab428ed28d752d533ba122",
+      "candidateFingerprint": "0fd507ca74ed263efe5191e8cbafcf1914d129f5b88fcfcef3c1a91a15b27ef1",
+      "knowledgePoint": "因式分解·平方差公式",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-038",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0276",
+      "questionFingerprint": "9c0b30a7b12748a72fd751cf7bc18e72ad1e8ec181b0a6f297813938e1f8192e",
+      "answerFingerprint": "6d42219d368e0e34df63eb2270d7c2d8dc036489d8a488b5d7dcac308386b49b",
+      "candidateFingerprint": "23ff8ed69eb65fa8f459ba4029373258ec5b7d1931da2281d9fe3a881902c32a",
+      "knowledgePoint": "因式分解·提公因式法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-039",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0277",
+      "questionFingerprint": "4d01fea62492c22b078fbf132fccee104855c0b15b5c23c80aca9235a6c72895",
+      "answerFingerprint": "6e551d78db96a26641a28192d809c98df8bb2a7135538b6a8a4f2496301ac5ad",
+      "candidateFingerprint": "d5ab08bc5422d36feaf1ae1c678383ffd732716ef26d4c71026a3805ca7bb683",
+      "knowledgePoint": "因式分解·综合方法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-040",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0278",
+      "questionFingerprint": "8cc6ad0658ab605b3a75dd77bdccfeef84118b814fb239b57dcdcb3f71e7a069",
+      "answerFingerprint": "786a2f245e0bcdfe225eb8b39d62c367bdf0cdd8c2ede706bcd6db81566d7a35",
+      "candidateFingerprint": "2c4fb4149abed9543c07d760c9d922d8be18d4671e906751253e21744c2ded0f",
+      "knowledgePoint": "因式分解·综合方法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-041",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0279",
+      "questionFingerprint": "5a157bfdd470c153a21772a9c79fe2ba379eb216519c1e6d3c0c381962c0e939",
+      "answerFingerprint": "1ead62ea4bcf5e00e99ef595d795f93a52257ef3c792a22d8d15d2bac2437cf9",
+      "candidateFingerprint": "1b164a984699d1f356baec66fb95370000fd95f5c1071675c88877da502fb1e1",
+      "knowledgePoint": "因式分解·综合方法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-042",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0280",
+      "questionFingerprint": "3e99bd07e9d0c71dc265540f96f5c1b3399871d8ee4aeb8d20fc454be45641ed",
+      "answerFingerprint": "dc1d695033acb3f3a60ad7afddc762fadb976700a158053ac4fa9bd716fa70a4",
+      "candidateFingerprint": "c76549d8ceceba63d08e91d52fe462e24ee21a6a3887dc1d2811dd3b1dd41d78",
+      "knowledgePoint": "因式分解·综合方法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-043",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0281",
+      "questionFingerprint": "f3cc63a5aab6107dba215027cef8bee10ca158f02ffabe5b2af13cb268b00466",
+      "answerFingerprint": "64634359122862c55d92e9b81718c8f66a09e203ee9cde0ca562034066528b3c",
+      "candidateFingerprint": "e39a129fa5182fef76f4f418f0f64ce399618f87ca08be221430e2947be0f5a9",
+      "knowledgePoint": "因式分解·综合方法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-044",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0282",
+      "questionFingerprint": "62a82fb11b3b1e4c3ed1bb2b79d0f79a0983c7f631cf0123c94bd78e7b54f118",
+      "answerFingerprint": "6e3d246535026537064b73f0b48845341cf597027ad34aa5aeb147b4ed75ec59",
+      "candidateFingerprint": "9448fb409cac46a75639bf37d2f7d0b29aca27a0459b4a9bfe6bcf73b13ac0d8",
+      "knowledgePoint": "因式分解·综合方法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-045",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0283",
+      "questionFingerprint": "cc54a4a06cc1ac3a876cb125fde0b3fcf32e80d5656dadd801d289bfcf09cfdd",
+      "answerFingerprint": "83b522d220ada2c8f62addc49b521da4270e738eee29a9056a58be563d777ed6",
+      "candidateFingerprint": "4c4d939ef86f8f38477307d86492f78be914d0ae17c04fb5f44c2913f740f588",
+      "knowledgePoint": "因式分解·完全平方公式",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-046",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0284",
+      "questionFingerprint": "dfb7ceabb7e9099899656128684e7edbeec3087f18f9a5980e70b0fe8bd3fd40",
+      "answerFingerprint": "f94126ae49e51ae6b4fe32a3bc02f268bc490063a99ea0c238891b2ecac48c6c",
+      "candidateFingerprint": "6f4cb3b318981f60cc2ca684bf67191f75daacf44dd3d556c3d4625e287eff96",
+      "knowledgePoint": "因式分解·平方差公式",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-047",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0285",
+      "questionFingerprint": "8157b49ebeff560b6b8710d6fb7b3007615838be709c8b8645cb55bbd3cf0c4d",
+      "answerFingerprint": "ad27d36e5167ae1d23723dd4823c9564652f8632ffd757d1dac2a0841bb1e9ff",
+      "candidateFingerprint": "4d547a485f78d9698455e9edecb536f49af009d60fee71c53aa41d18766add19",
+      "knowledgePoint": "因式分解·综合方法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-048",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0286",
+      "questionFingerprint": "5741ea7f29f83696cc49a85e39559671ab2f72e705eb4fd3caf3fc9d02b17e3d",
+      "answerFingerprint": "25800eb89e9a69ee24d3362a3ff01d3f9c1b76e3e527fb404f338aa8f7aa0fee",
+      "candidateFingerprint": "d988cbc6f078af5cb8614fb758af3c5ddc40c19679a17917cccf13ddf7657585",
+      "knowledgePoint": "因式分解·综合方法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    },
+    {
+      "candidateId": "CAND-DOCX-2026-10-C12-049",
+      "batchId": "docx-2026-10-c12",
+      "formalId": "Q0287",
+      "questionFingerprint": "538bbe3c13938206d4a3ae0a0ce267800971c2502cbf13385f1a84f2f7d1bc90",
+      "answerFingerprint": "a20a2c417ff35f25b2cbf0097e4551dcc1b654b2f1235575b2c0576d14cf8540",
+      "candidateFingerprint": "c77ca272d652eed314ceb41c895a22710978d019b4502c77990dfe90360e44ac",
+      "knowledgePoint": "因式分解·综合方法",
+      "answerType": "expression",
+      "answerConstraint": "fully_factored",
+      "standardResult": {
+        "correct": true
+      },
+      "formalDuplicates": [],
+      "selectedDuplicates": [],
+      "otherPendingDuplicates": []
+    }
+  ]
+}
