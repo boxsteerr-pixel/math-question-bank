@@ -1,0 +1,533 @@
+[
+  {
+    "sourceKey": "s1",
+    "sourceIndex": "1",
+    "sourceParagraphIndex": 21,
+    "question": "1．（3分）下列运算错误的是（　　）\nA．a^(2)+a^(2)＝2a^(2) B．（a^(2)）^(2)＝a^(4) C．a^(2)•a^(2)＝a^(4) D．a^(8)÷a^(4)＝a^(2)",
+    "answer": "【答案】D",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "概念、几何、应用、探究或证明，不作为独立计算题"
+  },
+  {
+    "sourceKey": "s1",
+    "sourceIndex": "3",
+    "sourceParagraphIndex": 40,
+    "question": "3．（3分）下列不能用平方差公式分解因式的是（　　）\nA．﹣x^(2)﹣y^(2) B．x^(2)﹣y^(2) C．﹣x^(2)+y^(2) D．4m^(2)﹣25n^(2)",
+    "answer": "【答案】A",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "概念、几何、应用、探究或证明，不作为独立计算题"
+  },
+  {
+    "sourceKey": "s1",
+    "sourceIndex": "6",
+    "sourceParagraphIndex": 71,
+    "question": "6．（3分）数形结合是数学解题中常用的思想方法，可以使某些抽象的数学问题直观化、简洁化，能够变抽象思维为形象思维，有助于把握数学问题的本质．在学习整式运算乘法公式的过程中，每个公式的推导，教材都安排了运用图形面积加以验证．我们加以推广，下列图形阴影部分的面积能够直观地解释（x﹣1）^(2)＝x^(2)﹣2x+1的是（　　）\nA．[IMG:image1.png] B．[IMG:image2.png] \nC．[IMG:image3.png] D．[IMG:image4.png]",
+    "answer": "【答案】A",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "概念、几何、应用、探究或证明，不作为独立计算题"
+  },
+  {
+    "sourceKey": "s1",
+    "sourceIndex": "7",
+    "sourceParagraphIndex": 80,
+    "question": "7．（2分）用代数式表示“a的平方与b的2倍的差”：a^(2)﹣2b ．",
+    "answer": "【答案】a^(2)﹣2b．",
+    "decision": "REJECT_TOO_SIMPLE",
+    "reason": "单步定义/基础识别，训练增益不足"
+  },
+  {
+    "sourceKey": "s1",
+    "sourceIndex": "8",
+    "sourceParagraphIndex": 86,
+    "question": "8．（2分）单项式﹣πx^(2)的系数为　﹣π　 ．",
+    "answer": "【答案】﹣π．",
+    "decision": "REJECT_TOO_SIMPLE",
+    "reason": "单步定义/基础识别，训练增益不足"
+  },
+  {
+    "sourceKey": "s1",
+    "sourceIndex": "9",
+    "sourceParagraphIndex": 92,
+    "question": "9．（2分）若3a^(n)^(+)^(1)b^(2)与a^(3)b^(m)^(+)^(3)的差仍是单项式，则m+n＝　1　 ．",
+    "answer": "【答案】1．",
+    "decision": "REJECT_TOO_SIMPLE",
+    "reason": "单步定义/基础识别，训练增益不足"
+  },
+  {
+    "sourceKey": "s1",
+    "sourceIndex": "10",
+    "sourceParagraphIndex": 100,
+    "question": "10．（2分）把多项式6+4x^(2)﹣3x﹣x^(3)按字母x降幂排列为　﹣x^(3)+4x^(2)﹣3x+6　 ．",
+    "answer": "【答案】﹣x^(3)+4x^(2)﹣3x+6．",
+    "decision": "REJECT_TOO_SIMPLE",
+    "reason": "单步定义/基础识别，训练增益不足"
+  },
+  {
+    "sourceKey": "s1",
+    "sourceIndex": "11",
+    "sourceParagraphIndex": 106,
+    "question": "11．（2分）计算：（8a^(3)b﹣3a^(2)）÷（﹣2a）^(2)＝　2ab-((3)/(4))　 ．",
+    "answer": "【答案】2ab-((3)/(4))．",
+    "decision": "REJECT_SCHEMA_UNSUITABLE",
+    "reason": "现有主知识点/答案集合/证明约束不适合，不扩大系统能力"
+  },
+  {
+    "sourceKey": "s1",
+    "sourceIndex": "13",
+    "sourceParagraphIndex": 125,
+    "question": "13．（2分）比大小：（﹣1）^(2)　＞　 ﹣1^(2)．",
+    "answer": "【答案】＞．",
+    "decision": "REJECT_TOO_SIMPLE",
+    "reason": "单步定义/基础识别，训练增益不足"
+  },
+  {
+    "sourceKey": "s1",
+    "sourceIndex": "16",
+    "sourceParagraphIndex": 144,
+    "question": "16．（2分）小明在计算（x+3）（x﹣■）时，不小心将第二个括号中的常数染黑了，小亮告诉他结果中的一次项系数为﹣4，则被染黑的常数为 　7　 ．",
+    "answer": "【答案】7．",
+    "decision": "REJECT_TOO_SIMPLE",
+    "reason": "单步定义/基础识别，训练增益不足"
+  },
+  {
+    "sourceKey": "s1",
+    "sourceIndex": "18",
+    "sourceParagraphIndex": 161,
+    "question": "18．（2分）如图，大正方形与小正方形的面积之差是16，则阴影部分的面积是 　8　 ．\n[IMG:image5.png]",
+    "answer": "【答案】8．",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "概念、几何、应用、探究或证明，不作为独立计算题"
+  },
+  {
+    "sourceKey": "s2",
+    "sourceIndex": "1",
+    "sourceParagraphIndex": 21,
+    "question": "1．（3分）下列运算正确的是（　　）\nA．m^(2)•m^(3)＝m^(5) B．m^(6)÷m^(2)＝m^(3) C．2m+3n＝5mn D．（m^(2)）^(3)＝m^(5)",
+    "answer": "【答案】A",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "概念、几何、应用、探究或证明，不作为独立计算题"
+  },
+  {
+    "sourceKey": "s2",
+    "sourceIndex": "3",
+    "sourceParagraphIndex": 42,
+    "question": "3．（3分）因式分解：4x^(2)﹣y^(2)＝（2x+y）•A，则代数式A等于（　　）\nA．x+y B．x﹣y C．2x+y D．2x﹣y",
+    "answer": "【答案】D",
+    "decision": "REJECT_TOO_SIMPLE",
+    "reason": "单步定义/基础识别，训练增益不足"
+  },
+  {
+    "sourceKey": "s2",
+    "sourceIndex": "6",
+    "sourceParagraphIndex": 77,
+    "question": "6．（3分）如图是利用割补法求图形面积的示意图，下列公式中与之相对应的是（　　）\n[IMG:image1.png]\nA．（a+b）^(2)＝a^(2)+2ab+b^(2) B．（a+b）（a﹣b）＝a^(2)﹣b^(2) \nC．（ab）^(2)＝a^(2)b D．（a﹣b）^(2)＝a^(2)﹣2ab+b^(2)",
+    "answer": "【答案】A",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "概念、几何、应用、探究或证明，不作为独立计算题"
+  },
+  {
+    "sourceKey": "s2",
+    "sourceIndex": "7",
+    "sourceParagraphIndex": 88,
+    "question": "7．（2分）为了增强学生体质，加强体育锻炼，学校组织了春季运动会；某班有47名同学分成三组进行列队表演，第一组有（3m+4n+2）人，第二组比第一组的一半多6人，求第三组的人数为　38-((9)/(2))m﹣6n （用含m，n的式子表示）．",
+    "answer": "【答案】38-((9)/(2))m﹣6n．",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "概念、几何、应用、探究或证明，不作为独立计算题"
+  },
+  {
+    "sourceKey": "s2",
+    "sourceIndex": "8",
+    "sourceParagraphIndex": 97,
+    "question": "8．（2分）单项式((1)/(2))(x)^(2)y的次数是 　3　 ．",
+    "answer": "【答案】3．",
+    "decision": "REJECT_TOO_SIMPLE",
+    "reason": "单步定义/基础识别，训练增益不足"
+  },
+  {
+    "sourceKey": "s2",
+    "sourceIndex": "9",
+    "sourceParagraphIndex": 103,
+    "question": "9．（2分）若3a^(m)^(+)^(2)b^(4)与﹣2a^(5)b^(n)^(﹣1)的和仍是一个单项式，则m+n＝　8　 ．",
+    "answer": "【答案】8",
+    "decision": "REJECT_TOO_SIMPLE",
+    "reason": "单步定义/基础识别，训练增益不足"
+  },
+  {
+    "sourceKey": "s2",
+    "sourceIndex": "10",
+    "sourceParagraphIndex": 111,
+    "question": "10．（2分）将代数式x^(3)+xy^(2)﹣y^(3)+2x^(2)y按y的降幂排列为：　﹣y^(3)+xy^(2)+2x^(2)y+x^(3) ．",
+    "answer": "【答案】﹣y^(3)+xy^(2)+2x^(2)y+x^(3)．",
+    "decision": "REJECT_TOO_SIMPLE",
+    "reason": "单步定义/基础识别，训练增益不足"
+  },
+  {
+    "sourceKey": "s2",
+    "sourceIndex": "13",
+    "sourceParagraphIndex": 132,
+    "question": "13．（2分）比较大小：﹣1^(2)　＜　 -((2)/(3))（填“＞”，“＜”或“＝”）．",
+    "answer": "【答案】＜．",
+    "decision": "REJECT_TOO_SIMPLE",
+    "reason": "单步定义/基础识别，训练增益不足"
+  },
+  {
+    "sourceKey": "s2",
+    "sourceIndex": "16",
+    "sourceParagraphIndex": 155,
+    "question": "16．（2分）小明在计算（x+3）（x﹣■）时，不小心将第二个括号中的常数染黑了，小亮告诉他结果中的一次项系数为﹣4，则被染黑的常数为 　7　 ．",
+    "answer": "【答案】7．",
+    "decision": "REJECT_TOO_SIMPLE",
+    "reason": "单步定义/基础识别，训练增益不足"
+  },
+  {
+    "sourceKey": "s2",
+    "sourceIndex": "18",
+    "sourceParagraphIndex": 172,
+    "question": "18．（2分）如图，大正方形与小正方形的面积之差是16，则阴影部分的面积是 　8　 ．\n[IMG:image2.png]",
+    "answer": "【答案】8．",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "概念、几何、应用、探究或证明，不作为独立计算题"
+  },
+  {
+    "sourceKey": "s2",
+    "sourceIndex": "23",
+    "sourceParagraphIndex": 215,
+    "question": "23．（5分）当x等于什么值时，代数式6+((x)/(3))与((5-2x)/(2))的值相等．",
+    "answer": "【答案】x=-((21)/(8))．",
+    "decision": "REJECT_SCHEMA_UNSUITABLE",
+    "reason": "现有主知识点/答案集合/证明约束不适合，不扩大系统能力"
+  },
+  {
+    "sourceKey": "s2",
+    "sourceIndex": "26",
+    "sourceParagraphIndex": 278,
+    "question": "26．（13分）【阅读理解】\n如果一个正整数能表示成a^(2)﹣b^(2)（a、b是正整数）的形式，那么称这个正整数为“方差数”．\n小明采用举例的方式，有序地列出了一些“方差数”，想从中寻找规律：\n2^(2)﹣1^(2)＝3，\n3^(2)﹣1^(2)＝8，3^(2)﹣2^(2)＝5，\n4^(2)﹣1^(2)＝15；4^(2)﹣2^(2)＝12；4^(2)﹣3^(2)＝7，\n…\n小杰采用不同的方法，找到一类“方差数”，试图发现“方差数”更本质的特征：\n设m为正整数且m≥1，因为（m+1）^(2)﹣m^(2)＝m^(2)+2m+1﹣m^(2)＝2m+1，\n所以2m+1这样的数都是“方差数”，即所有奇数（1除外）都是“方差数”．\n【尝试运用】\n（1）填空：①16　是　 “方差数”（填“是”或“不是”）；\n②因为2025＝（　1013　 ）^(2)﹣（　1012　 ）^(2)，所以2025是“方差数”；\n（2）已知M＝x^(2)﹣y^(2)+8x﹣6y+k（x、y是正整数且x≥y，k是常数），请写出k的值，使得不论x、y取何值，M都是“方差数”，并说明理由；\n【深入探究】\n（3）你能像小杰一样找到一类“方差数”吗？如果能，试描述你找到的这类“方差数”的特征，并说明理由；\n（4）请写出40到50之间的所有“方差数”（不包含40和50）．",
+    "answer": "【答案】（1）①是 ②1013，1012；\n（2）7；\n（3）所有4的倍数（4除外）都是“方差数”；\n（4）41，43，44，45，47，48，49．",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "概念、几何、应用、探究或证明，不作为独立计算题"
+  },
+  {
+    "sourceKey": "s3",
+    "sourceIndex": "1",
+    "sourceParagraphIndex": 21,
+    "question": "1．（3分）下列说法正确的是（　　）\nA．πxy^(2)的系数是1 \nB．x^(2)+3x﹣4的常数项为﹣4 \nC．((x-y)/(2))是单项式 \nD．2x﹣3xy是一次二项式",
+    "answer": "【答案】B",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "概念、几何、应用、探究或证明，不作为独立计算题"
+  },
+  {
+    "sourceKey": "s3",
+    "sourceIndex": "2",
+    "sourceParagraphIndex": 34,
+    "question": "2．（3分）下列运算正确的是（　　）\nA．5m+n＝5mn B．4m﹣n＝3 \nC．3m^(2)+2m^(3)＝5m^(5) D．﹣m^(2)n+2m^(2)n＝m^(2)n",
+    "answer": "【答案】D．",
+    "decision": "REJECT_TOO_SIMPLE",
+    "reason": "单步定义/基础识别，训练增益不足"
+  },
+  {
+    "sourceKey": "s3",
+    "sourceIndex": "3",
+    "sourceParagraphIndex": 45,
+    "question": "3．（3分）下列说法正确的是（　　）\nA．-((xy)/(3))的系数是﹣3 \nB．2x^(3)﹣8x^(2)+x是三次三项式 \nC．((x+y)/(5))是单项式 \nD．x^(2)+x﹣1的常数项为1",
+    "answer": "【答案】B",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "概念、几何、应用、探究或证明，不作为独立计算题"
+  },
+  {
+    "sourceKey": "s3",
+    "sourceIndex": "4",
+    "sourceParagraphIndex": 58,
+    "question": "4．（3分）下列计算中，能用平方差公式计算的有（　　）个\n①（x+3）（x﹣2）；\n②（﹣1﹣3x）（1+3x）；\n③（b+a^(2)）（a^(2)﹣b）；\n④（3x+2）（2x﹣3）；\n⑤（﹣x+y）（x﹣y）；\n⑥（x﹣y）（y﹣x）；\n⑦（x+y）（x﹣2y）；\n⑧（x+y）（﹣x+y）；\n⑨（2x+1）（2x﹣1）；\n⑩（﹣x﹣y）（x﹣y）．\nA．3 B．4 C．5 D．6",
+    "answer": "【答案】B",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "概念、几何、应用、探究或证明，不作为独立计算题"
+  },
+  {
+    "sourceKey": "s3",
+    "sourceIndex": "5",
+    "sourceParagraphIndex": 75,
+    "question": "5．（3分）下列由左边到右边的变形，属于分解因式的是（　　）\nA．x^(2)+3x+5＝x（x+3）+5 B．（y+1）^(2)＝y^(2)+2y+1 \nC．x^(2)﹣y^(2)＝（x+y）（x﹣y） D．（m+n）（m﹣n）＝m^(2)﹣n^(2)",
+    "answer": "【答案】C",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "概念、几何、应用、探究或证明，不作为独立计算题"
+  },
+  {
+    "sourceKey": "s3",
+    "sourceIndex": "6",
+    "sourceParagraphIndex": 90,
+    "question": "6．（3分）如图，将大正方形通过剪、割、拼后分解成新的图形，利用等面积法可证明某些乘法公式，在给出的4幅拼法中，其中能够验证平方差公式（a+b）（a﹣b）＝a^(2)﹣b^(2)的有（　　）\n[IMG:image1.png]\nA．①② B．①③ C．①②③ D．①②④",
+    "answer": "【答案】C",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "概念、几何、应用、探究或证明，不作为独立计算题"
+  },
+  {
+    "sourceKey": "s3",
+    "sourceIndex": "7",
+    "sourceParagraphIndex": 102,
+    "question": "7．（2分）单项式﹣πx^(2)的系数为　﹣π　 ．",
+    "answer": "【答案】﹣π．",
+    "decision": "REJECT_TOO_SIMPLE",
+    "reason": "单步定义/基础识别，训练增益不足"
+  },
+  {
+    "sourceKey": "s3",
+    "sourceIndex": "8",
+    "sourceParagraphIndex": 108,
+    "question": "8．（2分）化简5a﹣5（a+1）的结果是　﹣5　 ．",
+    "answer": "【答案】﹣5．",
+    "decision": "REJECT_TOO_SIMPLE",
+    "reason": "单步定义/基础识别，训练增益不足"
+  },
+  {
+    "sourceKey": "s3",
+    "sourceIndex": "11",
+    "sourceParagraphIndex": 135,
+    "question": "11．（2分）计算：（8a^(3)b﹣4a^(2)）÷（2a）^(2)＝　2ab﹣1　 ．",
+    "answer": "【答案】2ab﹣1．",
+    "decision": "REJECT_SCHEMA_UNSUITABLE",
+    "reason": "现有主知识点/答案集合/证明约束不适合，不扩大系统能力"
+  },
+  {
+    "sourceKey": "s3",
+    "sourceIndex": "14",
+    "sourceParagraphIndex": 155,
+    "question": "14．（2分）将代数式x^(3)+xy^(2)﹣y^(3)+2x^(2)y按y的降幂排列为：　﹣y^(3)+xy^(2)+2x^(2)y+x^(3) ．",
+    "answer": "【答案】﹣y^(3)+xy^(2)+2x^(2)y+x^(3)．",
+    "decision": "REJECT_TOO_SIMPLE",
+    "reason": "单步定义/基础识别，训练增益不足"
+  },
+  {
+    "sourceKey": "s3",
+    "sourceIndex": "15",
+    "sourceParagraphIndex": 161,
+    "question": "15．（2分）若3a^(n)^(+)^(1)b^(2)与a^(3)b^(m)^(+)^(3)的差仍是单项式，则m+n＝　1　 ．",
+    "answer": "【答案】1．",
+    "decision": "REJECT_TOO_SIMPLE",
+    "reason": "单步定义/基础识别，训练增益不足"
+  },
+  {
+    "sourceKey": "s3",
+    "sourceIndex": "16",
+    "sourceParagraphIndex": 169,
+    "question": "16．（2分）若x^(2)+2（m﹣1）x+16是完全平方式，则m的值为 　5或﹣3　 ．",
+    "answer": "【答案】5或﹣3．",
+    "decision": "REJECT_SCHEMA_UNSUITABLE",
+    "reason": "现有主知识点/答案集合/证明约束不适合，不扩大系统能力"
+  },
+  {
+    "sourceKey": "s3",
+    "sourceIndex": "22",
+    "sourceParagraphIndex": 220,
+    "question": "22．（4分）计算：（12xy^(2)﹣8x^(2)y）÷4xy．",
+    "answer": "【答案】3y﹣2x．",
+    "decision": "REJECT_SCHEMA_UNSUITABLE",
+    "reason": "现有主知识点/答案集合/证明约束不适合，不扩大系统能力"
+  },
+  {
+    "sourceKey": "s3",
+    "sourceIndex": "24",
+    "sourceParagraphIndex": 232,
+    "question": "24．（4分）计算：（8a^(3)b﹣4ab^(2)+2ab）÷2ab．",
+    "answer": "【答案】4a^(2)﹣2b+1．",
+    "decision": "REJECT_SCHEMA_UNSUITABLE",
+    "reason": "现有主知识点/答案集合/证明约束不适合，不扩大系统能力"
+  },
+  {
+    "sourceKey": "s3",
+    "sourceIndex": "27",
+    "sourceParagraphIndex": 262,
+    "question": "27．（10分）如图，和谐广场有一块长为（4a+2b）米、宽（3a+b）米的长方形空地，角上有两块边长均为（a﹣b）米的小正方形空地，现要将阴影部分进行绿化．（单位：米）\n（1）用含有a，b的式子表示绿化的总面积（结果写成最简形式）；\n（2）若a＝30，b＝10，求出绿化的总面积．\n[IMG:image2.png]",
+    "answer": "【答案】（1）绿化的总面积为（10a^(2)+14ab）平方米；\n（2）绿化的总面积为13200平方米．",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "概念、几何、应用、探究或证明，不作为独立计算题"
+  },
+  {
+    "sourceKey": "s4",
+    "sourceIndex": "1",
+    "sourceParagraphIndex": 9,
+    "question": "1．式子[IMG:image1.png]，[IMG:image2.png]，[IMG:image3.png]，[IMG:image4.png]，[IMG:image5.png]中，整式有（    ）\nA．[IMG:image6.png]个 B．[IMG:image7.png]个 C．[IMG:image8.png]个 D．[IMG:image9.png]个",
+    "answer": "【答案】B",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "概念、几何、应用、探究或证明，不作为独立计算题"
+  },
+  {
+    "sourceKey": "s4",
+    "sourceIndex": "2",
+    "sourceParagraphIndex": 17,
+    "question": "2．下列从左到右的变形属于因式分解的是（    ）\nA．[IMG:image12.png] B．[IMG:image13.png]\nC．[IMG:image14.png] D．[IMG:image15.png]",
+    "answer": "【答案】A",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "概念、几何、应用、探究或证明，不作为独立计算题"
+  },
+  {
+    "sourceKey": "s4",
+    "sourceIndex": "3",
+    "sourceParagraphIndex": 28,
+    "question": "3．如果[IMG:image16.png]表示的式子为（    ）\nA．[IMG:image17.png] B．[IMG:image18.png] C．[IMG:image19.png] D．[IMG:image20.png]",
+    "answer": "【答案】A",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "概念、几何、应用、探究或证明，不作为独立计算题"
+  },
+  {
+    "sourceKey": "s4",
+    "sourceIndex": "4",
+    "sourceParagraphIndex": 39,
+    "question": "4．若[IMG:image26.png]，[IMG:image27.png]是正整数，且满足[IMG:image28.png]，则[IMG:image26.png]与[IMG:image27.png]的关系正确的是（    ）\nA．[IMG:image29.png] B．[IMG:image30.png] C．[IMG:image31.png] D．[IMG:image32.png]",
+    "answer": "【答案】B",
+    "decision": "REJECT_SCHEMA_UNSUITABLE",
+    "reason": "现有主知识点/答案集合/证明约束不适合，不扩大系统能力"
+  },
+  {
+    "sourceKey": "s4",
+    "sourceIndex": "5",
+    "sourceParagraphIndex": 46,
+    "question": "5．多项式[IMG:image36.png]加上一个单项式后，使它成为一个整式的完全平方，那么加上的单项式可以是①[IMG:image37.png]，②[IMG:image38.png]，③[IMG:image39.png]，④[IMG:image40.png]中的（   ）\nA．② B．①③ C．②④ D．①②③④",
+    "answer": "【答案】C",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "概念、几何、应用、探究或证明，不作为独立计算题"
+  },
+  {
+    "sourceKey": "s4",
+    "sourceIndex": "6",
+    "sourceParagraphIndex": 57,
+    "question": "6．已知正实数[IMG:image26.png]，[IMG:image27.png]，[IMG:image47.png]，[IMG:image48.png]，满足[IMG:image49.png]，[IMG:image50.png]，若图1中阴影部分的面积为[IMG:image51.png]，则图2中阴影面积为（     ）\n[IMG:image52.png]\nA．[IMG:image53.png] B．[IMG:image51.png] C．[IMG:image54.png] D．[IMG:image55.png]",
+    "answer": "【答案】A",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "概念、几何、应用、探究或证明，不作为独立计算题"
+  },
+  {
+    "sourceKey": "s4",
+    "sourceIndex": "7",
+    "sourceParagraphIndex": 77,
+    "question": "7．[IMG:image76.png]与[IMG:image77.png]的最大公因式是___________．",
+    "answer": "【答案】[IMG:image78.png]",
+    "decision": "REJECT_TOO_SIMPLE",
+    "reason": "单步定义/基础识别，训练增益不足"
+  },
+  {
+    "sourceKey": "s4",
+    "sourceIndex": "8",
+    "sourceParagraphIndex": 83,
+    "question": "8．计算[IMG:image79.png]__________．",
+    "answer": "【答案】[IMG:image80.png]",
+    "decision": "REJECT_TOO_SIMPLE",
+    "reason": "单步定义/基础识别，训练增益不足"
+  },
+  {
+    "sourceKey": "s4",
+    "sourceIndex": "9",
+    "sourceParagraphIndex": 89,
+    "question": "9．若[IMG:image82.png]与[IMG:image83.png]是同类项，则[IMG:image84.png]的值为_________________．",
+    "answer": "【答案】[IMG:image85.png]",
+    "decision": "REJECT_TOO_SIMPLE",
+    "reason": "单步定义/基础识别，训练增益不足"
+  },
+  {
+    "sourceKey": "s4",
+    "sourceIndex": "11",
+    "sourceParagraphIndex": 105,
+    "question": "11．比较大小：[IMG:image96.png]______[IMG:image97.png]．（填“[IMG:image98.png]”或“[IMG:image99.png]”）",
+    "answer": "【答案】[IMG:image99.png]",
+    "decision": "REJECT_TOO_SIMPLE",
+    "reason": "单步定义/基础识别，训练增益不足"
+  },
+  {
+    "sourceKey": "s4",
+    "sourceIndex": "15",
+    "sourceParagraphIndex": 132,
+    "question": "15．如果多项式[IMG:image121.png]是一个完全平方式，则[IMG:image122.png]的值是______．",
+    "answer": "【答案】1或[IMG:image123.png]",
+    "decision": "REJECT_SCHEMA_UNSUITABLE",
+    "reason": "现有主知识点/答案集合/证明约束不适合，不扩大系统能力"
+  },
+  {
+    "sourceKey": "s4",
+    "sourceIndex": "18",
+    "sourceParagraphIndex": 163,
+    "question": "18．分解因式：[IMG:image153.png]，[IMG:image154.png]，[IMG:image155.png]．\n（1）观察上述三个多项式的系数，有[IMG:image156.png]，[IMG:image157.png]，[IMG:image158.png]，于是小金猜测：若多项式[IMG:image159.png]是完全平方式，那么系数[IMG:image26.png]、[IMG:image27.png]、[IMG:image160.png]之间一定存在某种关系．请你用等式表示小金的猜想：______；\n（2）若多项式[IMG:image161.png]和[IMG:image162.png]都是完全平方式，利用（1）中的规律求[IMG:image163.png]______．",
+    "answer": "【答案】     [IMG:image164.png]     [IMG:image165.png]",
+    "decision": "REJECT_SCHEMA_UNSUITABLE",
+    "reason": "现有主知识点/答案集合/证明约束不适合，不扩大系统能力"
+  },
+  {
+    "sourceKey": "s4",
+    "sourceIndex": "23",
+    "sourceParagraphIndex": 234,
+    "question": "23．观察下列各式：\n[IMG:image211.png]①\n[IMG:image212.png]②\n[IMG:image213.png]③    \n……，\n探索以上式子的规律：\n(1)第5个等式是 ；\n(2)试写出第n个等式，并用所学知识说明第n个等式成立．",
+    "answer": "【答案】(1)\n[IMG:image214.png]\n(2)\n解：由题意得，第n个等式为[IMG:image215.png]，\n理由：左边\n[IMG:image216.png]\n[IMG:image217.png]\n[IMG:image218.png]，\n右边[IMG:image219.png]，\n[IMG:image64.png]左边[IMG:image95.png]右边，\n[IMG:image220.png]．",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "概念、几何、应用、探究或证明，不作为独立计算题"
+  },
+  {
+    "sourceKey": "s1",
+    "sourceIndex": "27(2)",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "等体积证明"
+  },
+  {
+    "sourceKey": "s1",
+    "sourceIndex": "28(1)",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "图形推导公式"
+  },
+  {
+    "sourceKey": "s1",
+    "sourceIndex": "28(3)",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "几何面积"
+  },
+  {
+    "sourceKey": "s2",
+    "sourceIndex": "25(2)",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "方程约束求多变量"
+  },
+  {
+    "sourceKey": "s2",
+    "sourceIndex": "25(3)",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "最值及取值条件"
+  },
+  {
+    "sourceKey": "s2",
+    "sourceIndex": "25(4)",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "几何面积"
+  },
+  {
+    "sourceKey": "s3",
+    "sourceIndex": "28(1)",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "图形推导公式"
+  },
+  {
+    "sourceKey": "s3",
+    "sourceIndex": "28(3)",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "几何面积"
+  },
+  {
+    "sourceKey": "s4",
+    "sourceIndex": "24(3)",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "几何面积"
+  },
+  {
+    "sourceKey": "s4",
+    "sourceIndex": "25(1)",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "图形推导公式"
+  },
+  {
+    "sourceKey": "s4",
+    "sourceIndex": "25(2)",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "依赖几何长度和大小关系，不能删条件改成纯代数题"
+  },
+  {
+    "sourceKey": "s4",
+    "sourceIndex": "25(4)",
+    "decision": "REJECT_NOT_CALCULATION",
+    "reason": "几何面积"
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "sourceFiles": 4,
+  "originalMainQuestions": 107,
+  "candidatesExtracted": 131,
+  "computationalCandidates": 68,
+  "accepted": 63,
+  "decisionCounts": {
+    "ACCEPT": 63,
+    "REJECT_DUPLICATE": 5,
+    "REJECT_NOT_CALCULATION": 33,
+    "REJECT_TOO_SIMPLE": 21,
+    "REJECT_SCHEMA_UNSUITABLE": 9
+  },
+  "sourceUnclear": 0,
+  "oldCount": 287,
+  "newCount": 350,
+  "firstId": "Q0288",
+  "lastId": "Q0350",
+  "fullyFactoredAdditions": 17
+}

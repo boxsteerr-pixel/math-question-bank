@@ -24,12 +24,12 @@ const formal=read('data/questions.json'),pending=read('data/questions_pending.js
 const audit=read('reports/fully_factored_phase_b/audit.json');
 const formalIds=Array.from({length:17},(_,i)=>`Q${String(163+i).padStart(4,'0')}`);
 const pendingIds=['CAND-DOCX-2026-10-C11-019',...Array.from({length:49},(_,i)=>`CAND-DOCX-2026-10-C12-${String(i+1).padStart(3,'0')}`)];
-assert.equal(formal.length,287);assert.equal(pending.length,280);
-assert.deepEqual(formal.map(q=>q.id),Array.from({length:287},(_,i)=>`Q${String(i+1).padStart(4,'0')}`));
+assert.equal(formal.length,350);assert.equal(pending.length,280);
+assert.deepEqual(formal.map(q=>q.id),Array.from({length:350},(_,i)=>`Q${String(i+1).padStart(4,'0')}`));
 assert.equal(digest(formal.slice(0,199).map(beforePhaseBConstraint)),'70b6b1c95ae2cf4aebac88eb3b4e38b166ea25ef6a0651bca80688923570663f','所有既有字段保持阶段B前状态');
 assert.equal(digest(pending.map(beforePromotionLifecycle).map(beforePhaseBConstraint)),'9a4d8553b4be435f7239ca229cfb2d49c501df8f7fd83b797c0369cd2e34f94d');
 assert.deepEqual(formal.slice(0,199).filter(q=>q.answerConstraint!=null).map(q=>q.id),formalIds);
-assert.equal(formal.filter(q=>q.answerConstraint==='fully_factored').length,67);
+assert.equal(formal.slice(0,287).filter(q=>q.answerConstraint==='fully_factored').length,67);
 assert.deepEqual(pending.filter(q=>q.answerConstraint!=null).map(q=>q.candidateId),pendingIds);
 assert.deepEqual(Object.keys(FACTORIZATION_CONSTRAINT_APPROVALS),formalIds);
 assert.equal(audit.length,67);

@@ -3,6 +3,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {applyApprovedFactorizationConstraint} from './factorizationConstraintApprovals.js';
 import {applyDocxPromotions} from './docxPromotion.js';
+import {applyMidtermPromotion} from './midtermPromotion.js';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const pending=JSON.parse(fs.readFileSync(path.join(root,'data','questions_pending.json'),'utf8'));
 const factorizationBatch=pending.filter(question=>question.batchId==='factorization-supplement-01');
@@ -71,6 +72,8 @@ final.push(...laterQuestions);
 if(final.length!==179+laterQuestions.length||new Set(final.map(question=>question.id)).size!==final.length)throw Error('Formal bank rebuild produced duplicate or missing IDs');
 const manifest=JSON.parse(fs.readFileSync(path.join(root,'data','docx-promotion-2026-10.json'),'utf8'));
 final=applyDocxPromotions(final,pending,manifest);
+const midterm=JSON.parse(fs.readFileSync(path.join(root,'data','midterm-promotion-2026-10.json'),'utf8'));
+final=applyMidtermPromotion(final,midterm);
 if(existingFinal.length!==199&&JSON.stringify(existingFinal)!==JSON.stringify(final))throw Error('Existing promoted bank differs from approved rebuild; stop for review');
 for(const candidateId of deferredCandidateIds){const candidate=pendingByOriginalCandidateId.get(candidateId);if(!candidate)throw Error(`Missing deferred candidate ${candidateId}`);candidate.status='deferred';candidate.deferredReason='multiple_choice_not_enabled_in_daily_practice';}
 for(const [candidateId,promotion] of Object.entries(factorizationPromotions)){const candidate=pendingByOriginalCandidateId.get(candidateId);candidate.status='promoted';candidate.finalId=promotion.finalId;}

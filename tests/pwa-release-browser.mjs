@@ -16,15 +16,15 @@ try{playwright=require('playwright')}catch{playwright=require(path.join(process.
 const executablePath=process.env.PWA_TEST_BROWSER||['C:/Program Files/Google/Chrome/Application/chrome.exe','C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe'].find(p=>fs.existsSync(p));
 assert.ok(executablePath,'需本机Chrome/Edge，禁止跳过浏览器验收');
 const read=p=>fs.readFileSync(path.join(root,p));
-const baseline=JSON.parse(read('tests/fixtures/pwa-release-287-baseline.json'));
-// Pin the actual released v29 baseline. HEAD becomes v30 after this release,
+const baseline=JSON.parse(read('tests/fixtures/pwa-release-350-baseline.json'));
+// Pin the actual released v30 baseline. HEAD becomes v31 after this release,
 // and must never silently redefine the old-device fixture.
-const legacyRef='c15841705153c149fa8f57fd1e9748f1dd50dbe5';
+const legacyRef='8f5fb1110f0bd9fcff23447ca2e5c2561af6bc86';
 const tracked=new Set(execFileSync('git',['ls-tree','-r','--name-only',legacyRef],{cwd:root,encoding:'utf8'}).split(/\r?\n/));
 const oldFiles=new Map;
-for(const name of new Set([...Object.keys(baseline.frozenFiles),'js/version.js','service-worker.js','parent.html','question-preview.html','icons/app-icon.svg']))if(tracked.has(name))oldFiles.set(name,execFileSync('git',['show',`${legacyRef}:${name}`],{cwd:root,maxBuffer:8*1024*1024}));
-assert.equal(crypto.createHash('sha256').update(oldFiles.get('service-worker.js')).digest('hex'),baseline.releaseBefore['service-worker.js'],'旧SW必须是真实v29快照');
-assert.equal(JSON.parse(oldFiles.get('data/questions.json')).length,199);
+for(const name of new Set([...Object.keys(baseline.frozenFiles),'data/questions.json','js/version.js','service-worker.js','parent.html','question-preview.html','icons/app-icon.svg']))if(tracked.has(name))oldFiles.set(name,execFileSync('git',['show',`${legacyRef}:${name}`],{cwd:root,maxBuffer:8*1024*1024}));
+assert.equal(crypto.createHash('sha256').update(oldFiles.get('service-worker.js')).digest('hex'),baseline.releaseBefore['service-worker.js'],'旧SW必须是真实v30快照');
+assert.equal(JSON.parse(oldFiles.get('data/questions.json')).length,287);
 let stage='old';const requests=[];
 const server=http.createServer((req,res)=>{
   const name=decodeURIComponent(new URL(req.url,'http://127.0.0.1').pathname).slice(1)||'index.html';
@@ -38,7 +38,7 @@ const server=http.createServer((req,res)=>{
 });
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const origin=`http://127.0.0.1:${server.address().port}`;
-let browser;const errors=[];const report={environment:'isolated Chromium; real IndexedDB and Cache Storage; not iPad hardware',origin,oldCache:'grade7-math-v29',newCache:'grade7-math-v30'};
+let browser;const errors=[];const report={environment:'isolated Chromium; real IndexedDB and Cache Storage; not iPad hardware',origin,oldCache:'grade7-math-v30',newCache:'grade7-math-v31'};
 const track=page=>page.on('pageerror',error=>errors.push(error.message));
 async function snapshot(page){return page.evaluate(async()=>{
   const db=await import('/js/db.js'),out={};for(const store of ['dailyTasks','answers','wrongQuestions','knowledgeStats','checkins','questionHistory','settings'])out[store]=await db.all(store);return out;
@@ -65,12 +65,12 @@ try{
     return {date,yesterday,task};
   });
   await page.goto(origin+'/');await page.locator('#start').waitFor();
-  assert.equal(await page.evaluate(()=>globalThis.MATH_PWA_VERSION.cacheVersion),'grade7-math-v29');
-  const before=await snapshot(page);assert.equal(await page.evaluate(async()=>(await(await import('/js/db.js')).all('questions')).length),199);
+  assert.equal(await page.evaluate(()=>globalThis.MATH_PWA_VERSION.cacheVersion),'grade7-math-v30');
+  const before=await snapshot(page);assert.equal(await page.evaluate(async()=>(await(await import('/js/db.js')).all('questions')).length),287);
   stage='new';
   await page.evaluate(async()=>{const registration=await navigator.serviceWorker.getRegistration();await registration.update()});
-  await page.waitForFunction(()=>globalThis.MATH_PWA_VERSION?.cacheVersion==='grade7-math-v30'&&Boolean(document.querySelector('#start')),{},{timeout:30000});
-  await page.waitForFunction(async()=>!(await caches.keys()).includes('grade7-math-v29'));
+  await page.waitForFunction(()=>globalThis.MATH_PWA_VERSION?.cacheVersion==='grade7-math-v31'&&Boolean(document.querySelector('#start')),{},{timeout:30000});
+  await page.waitForFunction(async()=>!(await caches.keys()).includes('grade7-math-v30'));
   const after=await snapshot(page);
   for(const store of ['dailyTasks','answers','wrongQuestions','knowledgeStats','checkins','questionHistory'])assert.deepEqual(after[store],before[store],'升级必须保留 '+store);
   const stableSettings=rows=>rows.filter(r=>r.key!=='questionBankVersion');
@@ -79,34 +79,34 @@ try{
   const runtime=await page.evaluate(async()=>{
     const db=await import('/js/db.js'),qs=await db.all('questions');return {count:qs.length,ids:qs.map(q=>q.id),constraints:qs.filter(q=>q.answerConstraint==='fully_factored').length,schema:db.DB_VERSION,fix:await db.setting('questionBankFixVersion',0),keys:await caches.keys()};
   });
-  assert.equal(runtime.count,287);assert.equal(runtime.constraints,67);assert.equal(runtime.schema,3);assert.equal(runtime.fix,2);
-  assert.deepEqual(runtime.ids,Array.from({length:287},(_,i)=>`Q${String(i+1).padStart(4,'0')}`));
-  assert.ok(runtime.keys.includes('another-project-static-v1'));assert.ok(!runtime.keys.includes('grade7-math-v1'));assert.ok(!runtime.keys.includes('grade7-math-v29'));
+  assert.equal(runtime.count,350);assert.equal(runtime.constraints,84);assert.equal(runtime.schema,3);assert.equal(runtime.fix,2);
+  assert.deepEqual(runtime.ids,Array.from({length:350},(_,i)=>`Q${String(i+1).padStart(4,'0')}`));
+  assert.ok(runtime.keys.includes('another-project-static-v1'));assert.ok(!runtime.keys.includes('grade7-math-v1'));assert.ok(!runtime.keys.includes('grade7-math-v30'));
   const preview=await context.newPage();track(preview);await preview.goto(origin+'/question-preview.html');
-  await preview.waitForFunction(()=>document.querySelector('#preview-title')?.textContent==='287 题显示预览');
-  assert.match(await preview.locator('#summary').textContent(),/已加载 287 题/);assert.equal(await preview.locator('article.preview').count(),287);
+  await preview.waitForFunction(()=>document.querySelector('#preview-title')?.textContent==='350 题显示预览');
+  assert.match(await preview.locator('#summary').textContent(),/已加载 350 题/);assert.equal(await preview.locator('article.preview').count(),350);
   await preview.close();
   for(const asset of releaseAssets){
     const name=asset==='./'?'index.html':asset.slice(2);
-    const text=await page.evaluate(async asset=>{const response=await(await caches.open('grade7-math-v30')).match(asset);return response?response.text():null},asset);
+    const text=await page.evaluate(async asset=>{const response=await(await caches.open('grade7-math-v31')).match(asset);return response?response.text():null},asset);
     assert.equal(text,read(name).toString(),asset+'必须缓存当前文件，不能混用旧资源');
   }
   Object.assign(report,{runtimeLoad:runtime,sameDayTaskPreserved:true,oldLearningStoresPreserved:true,localStoragePreserved:true,precacheEntries:releaseAssets.length});
-  // A separate no-SW UI fixture proves the heading isn't hard-coded to 287.
+  // A separate no-SW UI fixture proves the heading isn't hard-coded to 350.
   const titleContext=await browser.newContext({serviceWorkers:'block'}),titlePage=await titleContext.newPage();track(titlePage);
   await titlePage.route('**/data/questions.json',route=>route.fulfill({contentType:'application/json',body:JSON.stringify(JSON.parse(read('data/questions.json')).slice(0,3))}));
   await titlePage.goto(origin+'/question-preview.html');
   await titlePage.waitForFunction(()=>document.querySelector('#preview-title')?.textContent==='3 题显示预览');
   assert.match(await titlePage.locator('#summary').textContent(),/已加载 3 题/);await titleContext.close();
-  report.previewTitle={runtimeCount:287,syntheticCount:3,dynamic:true};
+  report.previewTitle={runtimeCount:350,syntheticCount:3,dynamic:true};
   // Close the online page, turn networking off, and reopen the PWA. No API mocks.
   await page.close();await context.setOffline(true);page=await context.newPage();track(page);
   await page.goto(origin+'/',{waitUntil:'load'});await page.locator('#start').waitFor();
-  assert.equal(await page.evaluate(()=>globalThis.MATH_PWA_VERSION.cacheVersion),'grade7-math-v30');
-  assert.equal(await page.evaluate(async()=>(await(await import('/js/db.js')).all('questions')).length),287);
+  assert.equal(await page.evaluate(()=>globalThis.MATH_PWA_VERSION.cacheVersion),'grade7-math-v31');
+  assert.equal(await page.evaluate(async()=>(await(await import('/js/db.js')).all('questions')).length),350);
   assert.deepEqual((await snapshot(page)).dailyTasks,before.dailyTasks,'离线重开不能换题');
   const offlinePreview=await context.newPage();track(offlinePreview);await offlinePreview.goto(origin+'/question-preview.html');
-  await offlinePreview.waitForFunction(()=>document.querySelector('#preview-title')?.textContent==='287 题显示预览');await offlinePreview.close();report.previewTitle.offlineCount=287;
+  await offlinePreview.waitForFunction(()=>document.querySelector('#preview-title')?.textContent==='350 题显示预览');await offlinePreview.close();report.previewTitle.offlineCount=350;
   const reviews=JSON.parse(read('reports/fully_factored_phase_b/audit.json'));
   const representativeIds=['Q0163','Q0164','Q0165','Q0167'];
   const payload=representativeIds.map(id=>{
@@ -134,7 +134,7 @@ try{
   const saved=await page.evaluate(async date=>{const db=await import('/js/db.js');return db.get('answers',date+':Q0163')},seed.date);
   assert.equal(saved.draftSaved,true);assert.deepEqual(saved.currentInputs,['-3ma(a^2-2a+4)']);assert.equal(saved.scoringPolicyVersion,1);
   for(const store of ['wrongQuestions','knowledgeStats','checkins'])assert.deepEqual((await snapshot(page))[store],before[store]);
-  report.offline={reopened:true,questions:287,newModulesLoaded:true,existingTaskContinued:true,scoringPassed:true,confirmationAndDraftPersisted:true};
+  report.offline={reopened:true,questions:350,newModulesLoaded:true,existingTaskContinued:true,scoringPassed:true,confirmationAndDraftPersisted:true};
   // Next day uses the real task creation and persistence path while still offline.
   await page.clock.install({time:new Date(Date.now()+86400000)});
   const newTask=await page.evaluate(async()=>{const engine=await import('/js/questionEngine.js');return engine.getOrCreateToday()});
@@ -151,7 +151,7 @@ try{
     const zero=newPoints.map(knowledgePoint=>({knowledgePoint,attempts:0}));if(zero.some(s=>weaknessScore(s)!==0))throw Error('0样本被视为薄弱');
     const base={date:'2026-10-20',questions,enabled:KNOWLEDGE_POINTS,stats:[...oldPoints.map(mature),...zero],checkins:Array.from({length:5},(_,i)=>({date:`2026-10-0${i+1}`})),wrongQuestions:['Q0001','Q0002'].map(questionId=>afterWrong({questionId},'2026-10-19'))};
     const task=engine.buildAdaptiveTask(base),exposure=task.items.filter(i=>i.selectionReason==='unseen_knowledge_exposure');
-    if(task.items.length!==10||exposure.length!==1||exposure[0].sourceType!=='review'||task.items.some(i=>i.sourceType==='weakness'&&newPoints.includes(i.targetKnowledgePoint))||task.items.filter(i=>i.sourceType==='wrong_review').length!==2)throw Error('真实287题零样本回归');
+    if(task.items.length!==10||exposure.length!==1||exposure[0].sourceType!=='review'||task.items.some(i=>i.sourceType==='weakness'&&newPoints.includes(i.targetKnowledgePoint))||task.items.filter(i=>i.sourceType==='wrong_review').length!==2)throw Error('真实350题零样本回归');
     const narrow=engine.buildAdaptiveTask({...base,enabled:['相反数',...newPoints],stats:[mature('相反数'),...zero]});
     if(narrow.items.length!==10||narrow.items.filter(i=>i.sourceType==='weakness').length!==4||narrow.items.filter(i=>i.sourceType==='review').length!==4)throw Error('weakness不足时补位错误');
     const point=exposure[0].targetKnowledgePoint,next=engine.buildAdaptiveTask({...base,stats:[...base.stats.filter(s=>s.knowledgePoint!==point),{knowledgePoint:point,attempts:1,firstCorrect:1,last20Attempts:[true],recentAccuracy:100}]});
@@ -164,6 +164,6 @@ try{
   assert.deepEqual(history.dailyTasks.find(t=>t.date===seed.date).questionIds,seed.task.questionIds);
   assert.ok(!Object.hasOwn(history.dailyTasks.find(t=>t.date===seed.date),'scoringPolicyVersion'));
   assert.deepEqual(errors,[],'不能存在JS运行时错误');report.pageErrors=errors;report.result='PASS';
-  const folder=path.join(root,'reports/pwa_release_287');fs.mkdirSync(folder,{recursive:true});fs.writeFileSync(path.join(folder,'browser-results.json'),JSON.stringify(report,null,2)+'\n');
-  console.log('PWA browser release PASS: real v29->v30 update; importQuestions/merge yields287; old learning data + task preserved; offline reopened/scored/saved; policy-v2 and real-bank unseen regression.');
+  const folder=path.join(root,'reports/pwa_release_350');fs.mkdirSync(folder,{recursive:true});fs.writeFileSync(path.join(folder,'browser-results.json'),JSON.stringify(report,null,2)+'\n');
+  console.log('PWA browser release PASS: real v30->v31 update; importQuestions/merge yields350; old learning data + task preserved; offline reopened/scored/saved; policy-v2 and real-bank unseen regression.');
 }finally{if(browser)await browser.close();await new Promise(resolve=>server.close(resolve));}
