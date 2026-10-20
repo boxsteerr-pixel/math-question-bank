@@ -166,5 +166,3 @@ for i,r in enumerate(rows):
 
 print(json.dumps({'candidates':len(rows),'independentPass':len(rows),'accepted':len(accepted),'duplicate':len(rows)-len(accepted)},ensure_ascii=False))
 for r in rows:print(r['candidateId'],r['sourceKey'],r['sourceIndex'],r['decision'],r['duplicates'])
-
-
