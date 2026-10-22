@@ -8,7 +8,7 @@ export const POWER_BOOST_DAYS=14;
 const POWER_BOOST_IDS=new Set(Array.from({length:20},(_,index)=>`Q${String(index+180).padStart(4,'0')}`));
 const POWER_BOOST_HIGH_IDS=new Set(['Q0183','Q0184','Q0186','Q0189','Q0190','Q0191','Q0192','Q0194','Q0197','Q0198']);
 export const powerBoostActive=(checkinCount,startCheckinCount)=>Number.isInteger(startCheckinCount)&&checkinCount>=startCheckinCount&&checkinCount-startCheckinCount<POWER_BOOST_DAYS;
-export function powerBoostStatus(questionId,answers=[]){let streak=0;for(const record of answers.filter(item=>item.questionId===questionId).slice().sort((a,b)=>String(a.date||'').localeCompare(String(b.date||'')))){if(record.firstAttemptCorrect===true)streak++;else if(record.firstAttemptCorrect===false)streak=0}return streak>=3?'excluded':streak>=2?'normal':'priority'}
+export function powerBoostStatus(questionId,answers=[]){let streak=0;for(const record of answers.filter(item=>item.questionId===questionId).slice().sort((a,b)=>String(a.submittedOn||a.date||'').localeCompare(String(b.submittedOn||b.date||''))||(a.submittedAt||0)-(b.submittedAt||0))){if(record.firstAttemptCorrect===true)streak++;else if(record.firstAttemptCorrect===false)streak=0}return streak>=3?'excluded':streak>=2?'normal':'priority'}
 export const today=()=>new Date().toLocaleDateString('en-CA');
 export async function enabledPoints(){return includeNewKnowledgePoints(await setting('enabledKnowledgePoints',KNOWLEDGE_POINTS))}
 function ordered(pool,date,history,seed){return pool.slice().sort((a,b)=>{const ah=history.get(a.id),bh=history.get(b.id),au=ah?0:1,bu=bh?0:1;if(au!==bu)return bu-au;const ad=daysAgo(date,ah?.lastShownDate),bd=daysAgo(date,bh?.lastShownDate);if(ad!==bd)return bd-ad;const ac=ah?.shownCount||0,bc=bh?.shownCount||0;if(ac!==bc)return ac-bc;return (hash(`${a.id}:${seed}`)%997)-(hash(`${b.id}:${seed}`)%997)})}
@@ -38,6 +38,41 @@ export function buildAdaptiveTask({date,questions,enabled,checkins=[],stats=[],w
     normalFill(items,reviewBank,sampled,reviewCount-(items.length-reviewStart),date,historyMap,used);
   }
 if(items.length<10){const sampledPoints=new Set(states.filter(s=>s.attempts>0).map(s=>s.knowledgePoint)),fallback=ordered(bank.filter(q=>!used.has(q.id)&&(diagnostic||sampledPoints.has(q.knowledgePoint))),date,historyMap,'fallback');for(const q of fallback){if(items.length===10)break;add(items,q,'review',`normal_review: fallback ${q.knowledgePoint}`,used)}}return freezeTaskScoringPolicy({date,questionIds:items.map(x=>x.questionId),items,createdAt:Date.now(),mode:diagnostic?'diagnosticPhase':'adaptive_5_3_2',selectionReason:Object.fromEntries(items.map(x=>[x.questionId,x.selectionReason]))},bank)}
-async function recordHistory(items,date){for(const item of items){const old=await get('questionHistory',item.questionId)||{questionId:item.questionId,shownCount:0,lastShownDate:null};old.shownCount++;old.lastShownDate=date;await put('questionHistory',old)}}
-export async function getOrCreateToday(){const date=today(),existing=await get('dailyTasks',date);if(existing)return existing;const [questions,enabled,checkins,stats,wrongs,history,answers,startSetting]=await Promise.all([all('questions'),enabledPoints(),all('checkins'),all('knowledgeStats'),all('wrongQuestions'),all('questionHistory'),all('answers'),setting('powerBoostStartCheckinCount',null)]);const startCheckinCount=Number.isInteger(startSetting)?startSetting:checkins.length;if(!Number.isInteger(startSetting))await saveSetting('powerBoostStartCheckinCount',startCheckinCount);const task=buildAdaptiveTask({date,questions,enabled,checkins,stats,wrongQuestions:wrongs,history,answers,powerBoost:powerBoostActive(checkins.length,startCheckinCount)});await put('dailyTasks',task);await recordHistory(task.items,date);return task}
+async function recordHistory(items,date){for(const item of items){const old=await get('questionHistory',item.questionId)||{questionId:item.questionId,shownCount:0,lastShownDate:null};old.shownCount++;old.lastShownDate=old.lastShownDate&&old.lastShownDate>date?old.lastShownDate:date;await put('questionHistory',old)}}
+export async function getOrCreateDailyTask(date){const existing=await get('dailyTasks',date);if(existing)return existing;const [questions,enabled,checkins,stats,wrongs,history,answers,startSetting]=await Promise.all([all('questions'),enabledPoints(),all('checkins'),all('knowledgeStats'),all('wrongQuestions'),all('questionHistory'),all('answers'),setting('powerBoostStartCheckinCount',null)]);const startCheckinCount=Number.isInteger(startSetting)?startSetting:checkins.length;if(!Number.isInteger(startSetting))await saveSetting('powerBoostStartCheckinCount',startCheckinCount);const task=buildAdaptiveTask({date,questions,enabled,checkins,stats,wrongQuestions:wrongs,history,answers,powerBoost:powerBoostActive(checkins.length,startCheckinCount)});await put('dailyTasks',task);await recordHistory(task.items,date);return task}
+export const getOrCreateToday=()=>getOrCreateDailyTask(today());
+export const CARRYOVER_START_SETTING='unfinishedPracticeStartDate';
+export function nextCalendarDate(date){const [y,m,d]=date.split('-').map(Number);return new Date(Date.UTC(y,m-1,d+1)).toISOString().slice(0,10)}
+const validDate=date=>typeof date==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(date)&&Number.isFinite(Date.parse(date+'T00:00:00Z'))&&new Date(date+'T00:00:00Z').toISOString().slice(0,10)===date;
+const initiallySubmitted=r=>Boolean(r?.initialSubmitted||r?.resolved||r?.firstAttemptCorrect!==undefined||r?.firstAnswer!==undefined);
+// Keep the original daily batches and answer keys (date:questionId). Flattening
+// dates into one questionIds array would overwrite repeated questions and lose
+// frozen scoring policies. Only the outstanding count is accumulated.
+export function summarizeDailyWorkload(date,startDate,tasks,answers){
+  const byKey=new Map(answers.map(r=>[r.key||`${r.date}:${r.questionId}`,r]));
+  const batches=tasks.filter(t=>t.date>=startDate&&t.date<=date).slice().sort((a,b)=>a.date.localeCompare(b.date)).map(task=>{
+    const records=task.questionIds.map(id=>byKey.get(`${task.date}:${id}`));
+    const submitted=['review','correction','complete'].includes(task.phase)||records.length>0&&records.every(initiallySubmitted);
+    const remainingIndices=records.flatMap((r,i)=>!r?.draftSaved&&!initiallySubmitted(r)?[i]:[]);
+    return {task,date:task.date,total:task.questionIds.length,remaining:submitted?0:remainingIndices.length,remainingIndices,submitted,needsSubmission:!submitted,isOverdue:task.date<date,corrections:records.filter(r=>initiallySubmitted(r)&&(r.firstAttemptCorrect===null||r.firstAttemptCorrect===false&&!r.resolved)).length};
+  });
+  const pending=batches.filter(b=>b.needsSubmission);
+  return {date,startDate,batches,remaining:pending.reduce((n,b)=>n+b.remaining,0),carryRemaining:pending.filter(b=>b.isOverdue).reduce((n,b)=>n+b.remaining,0),newRemaining:pending.filter(b=>!b.isOverdue).reduce((n,b)=>n+b.remaining,0),needsSubmission:pending.length>0};
+}
+let workloadInFlight;
+export async function getDailyWorkload(date=today()){
+  if(!validDate(date))throw Error('无效任务日期');
+  if(workloadInFlight?.date===date)return workloadInFlight.promise;
+  const promise=(async()=>{
+    let start=await setting(CARRYOVER_START_SETTING,null);
+    if(!validDate(start)){start=date;await saveSetting(CARRYOVER_START_SETTING,start)}
+    // A device-clock rollback must neither reset activation nor invent arrears.
+    if(start>date)throw Error('设备日期早于规则启用日期，请检查设备日期设置');
+    const from=start,existing=await all('dailyTasks'),known=new Set(existing.map(t=>t.date));
+    const receipts=await all('checkins'),completed=new Set(receipts.flatMap(c=>Array.isArray(c.taskDates)?c.taskDates:[c.date]));
+    for(let cursor=from;cursor<=date;cursor=nextCalendarDate(cursor))if(!known.has(cursor)&&!completed.has(cursor)){const task=await getOrCreateDailyTask(cursor);if(task.questionIds.length!==10)throw Error('当日学习范围内不足10题，请检查学习范围');existing.push(task);known.add(cursor)}
+    return summarizeDailyWorkload(date,from,existing,await all('answers'));
+  })();
+  workloadInFlight={date,promise};try{return await promise}finally{if(workloadInFlight?.promise===promise)workloadInFlight=null}
+}
 export async function questionsFor(task){const q=await all('questions'),m=new Map(q.map(x=>[x.id,x]));return task.questionIds.map(id=>{const item=m.get(id);return Array.isArray(item.answer)?{...item,answerType:'multiple_blank'}:item;});}

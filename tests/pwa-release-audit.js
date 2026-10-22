@@ -6,10 +6,11 @@ import assert from 'node:assert/strict';
 import {fileURLToPath} from 'node:url';
 import '../js/version.js';
 const root=fileURLToPath(new URL('../',import.meta.url)),read=p=>fs.readFileSync(path.join(root,p),'utf8');
-const baseline=JSON.parse(read('tests/fixtures/pwa-release-350-baseline.json'));
+const baseline=JSON.parse(read('tests/fixtures/pwa-carryover-350-baseline.json'));
+const behaviorApproval=JSON.parse(read('tests/fixtures/carryover-production-approval.json'));
 const displayApproval=JSON.parse(read('tests/fixtures/pwa-preview-title-287.json'));
 for(const [file,hash] of Object.entries(baseline.frozenFiles)){
-  const approval=displayApproval.files[file];if(approval)assert.equal(approval.after,hash,'显示修正必须明确绑定原冻结hash');
+  const approval=behaviorApproval.files[file]||displayApproval.files[file];if(approval)assert.equal(behaviorApproval.files[file]?approval.before:approval.after,hash,'显示修正必须明确绑定原冻结hash');
   assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root,file))).digest('hex'),approval?.after??hash,'除获准显示修正外，发布不能改变冻结文件 '+file);
 }
 for(const [file,approval] of Object.entries(displayApproval.files))assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root,file))).digest('hex'),approval.after);
@@ -17,7 +18,7 @@ assert.match(read('question-preview.html'),/id="preview-title">题库显示预�
 assert.doesNotMatch(read('question-preview.html'),/(162|179|199|287)\s*题/);
 assert.match(read('js/questionPreview.js'),/querySelector\('#preview-title'\)\.textContent=`\$\{bank\.length\} 题显示预览`/);
 const config=globalThis.MATH_PWA_VERSION;
-assert.equal(config.cacheVersion,'grade7-math-v31');assert.equal(config.appVersion,'0.4.9');assert.equal(config.dbVersion,3);
+assert.equal(config.cacheVersion,'grade7-math-v32');assert.equal(config.appVersion,'0.5.0');assert.equal(config.dbVersion,3);
 assert.equal(Number(config.cacheVersion.split('-v')[1]),Number(baseline.baselineCache.split('-v')[1])+1);
 const worker=read('service-worker.js'),self={MATH_PWA_VERSION:config,addEventListener(){}};
 const context={self,importScripts:p=>assert.equal(p,'./js/version.js')};
@@ -45,4 +46,4 @@ assert.match(worker,/key\.startsWith\(CACHE_PREFIX\)&&key!==CACHE/);
 assert.match(worker,/self\.skipWaiting\(\)/);assert.match(worker,/self\.clients\.claim\(\)/);
 assert.match(read('js/updateManager.js'),/updateViaCache:'none'/);
 const bank=JSON.parse(read('data/questions.json'));assert.equal(bank.length,350);assert.equal(bank.filter(q=>q.answerConstraint==='fully_factored').length,84);
-console.log(`PWA release static PASS: v30 -> v31; ${releaseAssets.length} static entries; ${graph.size} dependency-graph nodes cached; business hashes unchanged; approved dynamic-title hashes verified.`);
+console.log(`PWA release static PASS: v31 -> v32; ${releaseAssets.length} static entries; ${graph.size} dependency-graph nodes cached; business hashes unchanged; approved dynamic-title hashes verified.`);
