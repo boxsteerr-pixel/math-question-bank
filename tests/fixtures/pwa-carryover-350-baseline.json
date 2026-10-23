@@ -1,6 +1,6 @@
 {
-  "baselineCache": "grade7-math-v31",
-  "baselineAppVersion": "0.4.9",
+  "baselineCache": "grade7-math-v32",
+  "baselineAppVersion": "0.5.0",
   "baselineQuestionBankVersion": "2026.10.350",
   "formalCount": 350,
   "pendingCount": 280,
@@ -12,7 +12,7 @@
     "index.html": "ac17680659ddaefb045a8f6292a70cea3605f082f177449afc2af265b52e6066",
     "manifest.json": "9a08f0bc12d79cd55710f5d20ae24745a727bfb81342e8cf04f07c6bdff7098c",
     "css/style.css": "d151fdeb357dc489fcc13428829bd227034ec8ce6f5590915c100187eedaa8fb",
-    "js/app.js": "1943e9aba2f27007dd9b752cf54b813cc3954ba6893bf8867b4bcae45ebefc95",
+    "js/app.js": "8c6693db080848ff04a84461b6f0861ecb298fa6099ee3f11e3db7d90bab51bf",
     "js/attemptPolicy.js": "c1a81491be2834af4379f378eaeb3da54cbace91e7cbf90542af2e20ab1e0331",
     "js/backup.js": "5724243876328b77201c5b39602f8af8227461cf83b935da7e9a31a35ba7088c",
     "js/db.js": "5f3798111b052048e874b2a739c1c6a1409f5f414e40f31437c7e8d4a5f05324",
@@ -21,7 +21,7 @@
     "js/knowledgePoints.js": "ba254f1ed20201d1bce01977aeccb74713acd8b64dfd8d3331c3ae1b338ff1c2",
     "js/parentDashboard.js": "44d3111eace9c0011756c041d469d5fb1e4f52aea572284f9592f3286c853c24",
     "js/questionBankFix.js": "dfdec08d259125d6b05ff2bf4a81e67890de226c5028614cf7494cb4b4b730be",
-    "js/questionEngine.js": "6277dcc47da8e8f72e86fa83382644e0719dc1069a91e2161f17f6ad524561ca",
+    "js/questionEngine.js": "6a173ca55ad5048322d32fcfc92809777ce8b7798f8e9288892f0ed1d2e71784",
     "js/questionPreview.js": "c030b359a2f28e1f0f068e915d7a8a340eaf707ad8cd0e3ca3bb595966652f00",
     "js/scoring.js": "2627ee304ce4e360dcef7e2aaf66293f203894878ff1e5e7f479ec2d9f39952d",
     "js/scoringPolicy.js": "b17f94dc2733a5cf49fe82112df94fe18fd7006ab0abde8c906f3f53cc11f1ba",
@@ -31,7 +31,7 @@
   },
   "releaseBefore": {
     "service-worker.js": "23e46c4db07ad7411b628cff5b60c818e48ba19bf473a1065fd9b81e6b0b76db",
-    "js/version.js": "9573c2e87ab982a08379df6cd049f939dd97679e36d9f6b19964fce387fd8b12"
+    "js/version.js": "5a3d43b422b77d27c0f88a1df7dd1420352ab6a1c182583d7f3a5f14a35e8c45"
   },
-  "oldFormalFileSha256": "db05ba0abe078dda83dc0c7e677d61a1a0580b50151aa6c1ec1e31be6e9c3520"
+  "oldFormalFileSha256": "38fe81e4c889ea2d8db8046f6451ef5bec8194db7b1807d970841ed1d31c0532"
 }

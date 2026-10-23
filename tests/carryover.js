@@ -65,7 +65,7 @@ const appDeps={...dependencies,'./questionEngine.js':Object.fromEntries(Object.k
   './scoring.js':scoring,'./attemptPolicy.js':attempts,'./formatMath.js':format,
   './statistics.js':{...statistics,updateKnowledge:async(q,date,correct)=>effects.stats.push({id:q.id,date,correct})},
   './wrongQuestions.js':{recordWrong:async(id,date)=>effects.wrong.push({id,date}),recordReviewCorrect:async id=>effects.review.push(id)},'./updateManager.js':{initPwaUpdates(){}}};
-const app=new vm.SourceTextModule(read('js/app.js').replace(/boot\(\);\s*$/,'')+'\nexport {home,openBatch,finalSubmit,writeCheckin};',{context});await app.link(s=>synthetic(appDeps[s]));await app.evaluate();
+const app=new vm.SourceTextModule(read('js/app.js').replace(/boot\(\);\s*$/,'')+'\nexport {home,openBatch,finalSubmit,writeCheckin,refreshHomeForNewDay,initDailyRollover};',{context});await app.link(s=>synthetic(appDeps[s]));await app.evaluate();
 reset();work=await readWorkload();const first=work.batches[0].task;await drafts(first,4);const oldDrafts=await db.all('answers');
 setDate('2026-10-23');await app.namespace.home();assert.match(elements.get('#app').innerHTML,/id="workload-remaining">16 题/);
 await app.namespace.openBatch('2026-10-22');assert.match(elements.get('#app').innerHTML,/本组第 5 \/ 10/,'跳过已暂存4题');
@@ -86,5 +86,22 @@ assert.equal(engine.powerBoostStatus('Q0184',[
   {questionId:'Q0184',date:'2026-10-23',submittedOn:'2026-10-24',submittedAt:300,firstAttemptCorrect:true},
   {questionId:'Q0184',date:'2026-10-24',submittedOn:'2026-10-24',submittedAt:100,firstAttemptCorrect:false}
 ]),'normal','补做按实际提交顺序计算幂强化掌握程度，不按原任务日期倒序');
+// An overnight home refreshes without reloading; unfinished answer screens do not.
+reset();await app.namespace.home();setDate('2026-10-23');await app.namespace.refreshHomeForNewDay();
+assert.match(elements.get('#app').innerHTML,/id="workload-remaining">20 题/);
+const midnightTasks=await db.all('dailyTasks');await app.namespace.refreshHomeForNewDay();assert.deepEqual(await db.all('dailyTasks'),midnightTasks);
+await app.namespace.openBatch('2026-10-22');const answerScreen=elements.get('#app').innerHTML;
+setDate('2026-10-24');await app.namespace.refreshHomeForNewDay();assert.equal(elements.get('#app').innerHTML,answerScreen,'跨日不重绘答题页，不丢未暂存输入');
+reset();work=await readWorkload();await drafts(work.batches[0].task,4);await app.namespace.home();setDate('2026-10-23');await app.namespace.refreshHomeForNewDay();
+assert.match(elements.get('#app').innerHTML,/id="workload-remaining">16 题/);
+// Even before focus/visibility/timer delivery, Start recomputes today's target.
+reset();work=await readWorkload();await drafts(work.batches[0].task,10);await app.namespace.openBatch('2026-10-22');await app.namespace.finalSubmit();await app.namespace.home();
+setDate('2026-10-23');await elements.get('#start').onclick();assert.match(elements.get('#app').innerHTML,/本组第 1 \/ 10 题 · 2026-10-23/);
+assert.equal(get('checkins','2026-10-23'),undefined,'开始新任务不伪造打卡');
+const listeners=new Map,intervals=[];context.document.addEventListener=(event,fn)=>listeners.set(event,fn);context.addEventListener=(event,fn)=>listeners.set(event,fn);context.setInterval=(fn,ms)=>{intervals.push({fn,ms});return intervals.length};
+await app.namespace.home();app.namespace.initDailyRollover();app.namespace.initDailyRollover();assert.equal(intervals.length,1);assert.equal(intervals[0].ms,30000);
+for(const event of ['focus','pageshow','visibilitychange'])assert.equal(typeof listeners.get(event),'function');
+setDate('2026-10-24');context.document.hidden=true;await app.namespace.refreshHomeForNewDay();assert.match(elements.get('#app').innerHTML,/id="workload-remaining">10 题/);
+context.document.hidden=false;await app.namespace.refreshHomeForNewDay();assert.match(elements.get('#app').innerHTML,/id="workload-remaining">20 题/);
 assert.equal(DB_VERSION,3);assert.equal(QUESTION_BANK_FIX_VERSION,2);
 console.log('Carryover PASS: 10/20/30, partial4=>16, unopened dates, frozen batches/answers/policies, no pre-activation arrears, repeat question keys, same-day stability, calendar/DST, real app resume/submission and one actual check-in day.');

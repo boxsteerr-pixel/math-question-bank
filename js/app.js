@@ -10,6 +10,7 @@ import {initPwaUpdates} from './updateManager.js';
 import {initialAttemptPolicy,currentFirstCorrect as firstAttemptState,summarizeFirstAttempts,nextAttemptCount} from './attemptPolicy.js';
 
 const app=document.querySelector('#app');let task,questions,date,workload,activeMathInput=null,lastMathSelection=0,timerId,actionBusy=false;
+let homeDate=null,rolloverTimer=null;
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const qAnswer=q=>Array.isArray(q.answer)?q.answer.join('；'):q.answer;
 /* Display-only compatibility recheck for records created before harmless format normalization. It never rewrites history or statistics. */
@@ -23,7 +24,7 @@ const isFinalStage=()=>['review','correction','complete'].includes(task.phase);
 const duration=ms=>{const s=Math.max(0,Math.floor(ms/1000)),m=Math.floor(s/60);return `${String(m).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`};
 const previousDate=date=>new Date(Date.UTC(...date.split('-').map((value,index)=>Number(value)-(index===1?1:0)))-86400000).toISOString().slice(0,10);
 const checkinStreak=(checkins,from=today())=>{const dates=new Set(checkins.map(item=>item.date));let cursor=from,total=0;while(dates.has(cursor)){total++;cursor=previousDate(cursor)}return total};
-function shell(html){clearInterval(timerId);timerId=null;app.innerHTML=`<div class="shell">${html}</div>`}
+function shell(html){homeDate=null;clearInterval(timerId);timerId=null;app.innerHTML=`<div class="shell">${html}</div>`}
 async function saveTask(){await put('dailyTasks',task)}
 function startTimer(){const el=document.querySelector('#timer');if(!el||!task.startedAt||task.endedAt)return;const update=()=>el.textContent=`用时 ${duration(Date.now()-task.startedAt)}`;update();timerId=setInterval(update,1000)}
 function inputsFor(q,old){const count=q.answerType==='multiple_blank'?(Array.isArray(q.answer)?q.answer.length:1):1;return Array.from({length:count},(_,i)=>`<input data-answer="${i}" inputmode="text" autocomplete="off" value="${esc(old?.currentInputs?.[i]||'')}" placeholder="答案${count>1?` ${i+1}`:''}">`).join('')}
@@ -32,12 +33,27 @@ const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 async function settledValues(){const inputs=[...document.querySelectorAll('[data-answer]')],deadline=Date.now()+900;while(Date.now()<deadline){const composing=inputs.some(input=>input.dataset.composing==='true'),latest=Math.max(0,...inputs.map(input=>Number(input.dataset.lastInputAt||0)));if(!composing&&Date.now()-latest>=120)break;await wait(25)}await wait(16);return inputs.map(input=>input.value.trim())}
 function setActionDisabled(disabled){document.querySelectorAll('button').forEach(button=>button.disabled=disabled)}
 async function once(action){if(actionBusy)return;actionBusy=true;setActionDisabled(true);try{return await action()}finally{actionBusy=false;setActionDisabled(false)}}
+const workloadTarget=work=>work.batches.find(b=>b.needsSubmission)||work.batches.find(b=>b.corrections)||work.batches.at(-1);
+async function startLatestBatch(){const current=await getDailyWorkload(),target=workloadTarget(current);return target?openBatch(target.date):home()}
+async function refreshHomeForNewDay(){
+  // Never replace an answer/settings/confirmation screen: unsaved input stays intact.
+  if(!homeDate||homeDate===today()||document.hidden||actionBusy)return;
+  return once(home);
+}
+function initDailyRollover(){
+  if(rolloverTimer!==null)return;
+  const check=()=>refreshHomeForNewDay().catch(error=>console.warn('跨日任务刷新失败，可稍后重试。',error));
+  document.addEventListener('visibilitychange',check);
+  globalThis.addEventListener?.('focus',check);globalThis.addEventListener?.('pageshow',check);
+  rolloverTimer=setInterval(check,30000);
+}
 
 async function home(){
   workload=await getDailyWorkload();const checkins=await all('checkins'),pending=workload.batches.filter(b=>b.needsSubmission),target=pending[0]||workload.batches.find(b=>b.corrections)||workload.batches.at(-1);
   const label=pending.length?(target.remaining?`继续训练（待做${workload.remaining}题）`:'提交已暂存答案'):target?.corrections?'继续订正':'查看今日结果';
   shell(`<section class="card"><p class="eyebrow">七年级数学</p><h1 class="title">每日计算打卡</h1><p class="subtle">${today()} · 每天新增10题，未做题顺延</p><div class="home-grid"><div class="metric">连续打卡<b>${checkinStreak(checkins)} 天</b></div><div class="metric">今日待做<b id="workload-remaining">${workload.remaining} 题</b></div><div class="metric">待提交组数<b>${pending.length} 组</b></div></div><p class="focus">历史补做 ${workload.carryRemaining} 题 ＋ 当天剩余 ${workload.newRemaining} 题</p><p class="subtle">已确认暂存的答案保留，不要求重做；仍需完成每组统一提交，才会判分。全部待提交组提交后，记为今天打卡，不补造过去的打卡记录。</p><button class="primary-wide" id="start">${label}</button><section class="answer-list">${workload.batches.map(b=>`<article class="answer-key"><b>${b.isOverdue?'补做':'当天'} · ${b.date}</b><p class="small">${b.needsSubmission?(b.remaining?`待做 ${b.remaining} 题，已暂存 ${b.total-b.remaining} 题`:'答案已暂存，待统一提交'):b.corrections?`已提交，待订正/确认 ${b.corrections} 题`:'已提交'}（本组 ${b.total} 题）</p><button class="secondary" data-batch="${b.date}">${b.needsSubmission?'继续本组':'查看结果/订正'}</button></article>`).join('')}</section><div class="actions"><button class="secondary" id="settings">学习范围设置</button><button class="secondary" id="parent">家长统计</button></div></section>`);
-  document.querySelector('#start').onclick=()=>once(()=>target?openBatch(target.date):home());
+  homeDate=workload.date;
+  document.querySelector('#start').onclick=()=>once(startLatestBatch);
   document.querySelectorAll('[data-batch]').forEach(button=>button.onclick=()=>once(()=>openBatch(button.dataset.batch)));
   document.querySelector('#settings').onclick=settingsPage;document.querySelector('#parent').onclick=()=>location.href='./parent.html';
 }
@@ -92,4 +108,4 @@ async function correctionSubmit(q,r,values){r.correctionInputs=values;const verd
 async function finalize(){const rs=await answers();if(rs.some(needsCorrection))return correctionPage();await writeCheckin(rs);task.phase='complete';await saveTask();return resultPage()}
 async function resultPage(){const rs=await answers(),states=rs.map(r=>currentFirstCorrect(questions.find(q=>q.id===r.questionId),r)),summary=summarizeFirstAttempts(states),corrected=rs.filter(x=>x.corrected).length,firstWrong=rs.filter(r=>currentFirstCorrect(questions.find(q=>q.id===r.questionId),r)===false),manualPending=summary.pending,correctionPending=rs.filter(needsCorrection).length,accuracy=summary.accuracy===null?'暂无可统计数据':`${Math.round(summary.accuracy*100)}%`;const weak={},sources={weakness:0,review:0,wrong_review:0};for(const r of firstWrong){const q=questions.find(x=>x.id===r.questionId);weak[q.knowledgePoint]=(weak[q.knowledgePoint]||0)+1}for(const item of(task.items||[]))sources[item.sourceType]=(sources[item.sourceType]||0)+1;shell(`<section class="card result"><p class="eyebrow">本组完成 · ${date}</p><h1 class="title">10 / 10</h1><p class="subtle">总用时：${task.startedAt&&task.endedAt?duration(task.endedAt-task.startedAt):'—'}</p><div class="home-grid"><div class="metric">首次正确<b>${summary.correct} / ${summary.determined}</b></div><div class="metric">首次正确率<b>${accuracy}</b></div><div class="metric">已订正<b>${corrected} 题</b></div></div>${manualPending?`<p class="focus">待确认 ${manualPending} 题</p>`:''}${firstWrong.length?`<section class="answer-key"><b>首次作答需要复习：${firstWrong.length} 题</b>${firstWrong.map(r=>{const q=questions.find(x=>x.id===r.questionId),number=questions.indexOf(q)+1,yourAnswer=(r.firstAnswer||[]).filter(Boolean).join('；')||'不会 / 未作答';return `<div class="small">第 ${number} 题 · ${esc(q.knowledgePoint)} · ${r.corrected?'已订正':'待订正'}<br><span class="wrong-answer">你的首次答案：${formatMath(yourAnswer)}</span><br><span class="standard-answer">标准答案：${formatMath(qAnswer(q))}</span></div>`}).join('')}</section>`:'<p class="focus">本次没有已判定的首次错误。</p>'}<p class="subtle">今日训练构成：弱项强化 ${sources.weakness||0} 题 · 普通复习 ${sources.review||0} 题 · 错题回炉 ${sources.wrong_review||0} 题</p><p class="focus">今天需要多复习：${esc(Object.keys(weak).join('、')||'今天的基础很扎实')}</p><div class="actions">${correctionPending?'<button id="correct">继续订正/确认</button>':''}<button class="secondary" id="details">查看逐题结果</button><button class="secondary" id="back">返回任务汇总 / 继续下一组</button></div></section>`);document.querySelector('#correct')?.addEventListener('click',correctionPage);document.querySelector('#details').onclick=reviewPage;document.querySelector('#back').onclick=home}
 async function settingsPage(){const enabled=await enabledPoints(),points=KNOWLEDGE_POINTS;shell(`<section class="card"><p class="eyebrow">学习范围</p><h1 class="title">已学习的知识点</h1><p class="subtle">只影响未来日期的新任务。</p><div class="answer-area">${points.map(p=>`<label><input type="checkbox" value="${p}" ${enabled.includes(p)?'checked':''}> ${p}</label>`).join('')}</div><div class="actions"><button id="save-settings">保存设置</button><button class="secondary" id="cancel">返回</button></div></section>`);document.querySelector('#save-settings').onclick=async()=>{const v=[...document.querySelectorAll('input:checked')].map(x=>x.value);if(v.length){await saveSetting('enabledKnowledgePoints',v);home()}};document.querySelector('#cancel').onclick=home}
-async function boot(){try{await openDB();const imported=await importQuestions({deferFixedQuestionSync:true});await runQuestionBankFixMigration(imported.incoming||[]);date=today();workload=await getDailyWorkload();task=await getOrCreateToday();questions=await questionsFor(task);if(questions.length!==10)throw Error('今日任务生成失败');await restoreSubmittedCheckin();await home();initPwaUpdates()}catch(e){shell(`<section class="card"><h1>暂时无法启动</h1><p>${esc(e.message)}</p></section>`);console.error(e)}}boot();
+async function boot(){try{await openDB();const imported=await importQuestions({deferFixedQuestionSync:true});await runQuestionBankFixMigration(imported.incoming||[]);date=today();workload=await getDailyWorkload();task=await getOrCreateToday();questions=await questionsFor(task);if(questions.length!==10)throw Error('今日任务生成失败');await restoreSubmittedCheckin();await home();initDailyRollover();initPwaUpdates()}catch(e){shell(`<section class="card"><h1>暂时无法启动</h1><p>${esc(e.message)}</p></section>`);console.error(e)}}boot();

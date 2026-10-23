@@ -2,11 +2,11 @@
   "scope": "Only daily unfinished-workload orchestration and batch UI; selection, scoring, bank, schema and historical data remain unchanged",
   "files": {
     "js/app.js": {
-      "before": "1943e9aba2f27007dd9b752cf54b813cc3954ba6893bf8867b4bcae45ebefc95",
-      "after": "8c6693db080848ff04a84461b6f0861ecb298fa6099ee3f11e3db7d90bab51bf"
+      "before": "8c6693db080848ff04a84461b6f0861ecb298fa6099ee3f11e3db7d90bab51bf",
+      "after": "00a4800a61f07f999802fe1375d9c312feaf3d5831d9c0cfe49e3b7d0efb6d1a"
     },
     "js/questionEngine.js": {
-      "before": "6277dcc47da8e8f72e86fa83382644e0719dc1069a91e2161f17f6ad524561ca",
+      "before": "6a173ca55ad5048322d32fcfc92809777ce8b7798f8e9288892f0ed1d2e71784",
       "after": "6a173ca55ad5048322d32fcfc92809777ce8b7798f8e9288892f0ed1d2e71784"
     }
   }

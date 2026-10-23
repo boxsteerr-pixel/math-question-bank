@@ -18,7 +18,7 @@ assert.match(read('question-preview.html'),/id="preview-title">题库显示预�
 assert.doesNotMatch(read('question-preview.html'),/(162|179|199|287)\s*题/);
 assert.match(read('js/questionPreview.js'),/querySelector\('#preview-title'\)\.textContent=`\$\{bank\.length\} 题显示预览`/);
 const config=globalThis.MATH_PWA_VERSION;
-assert.equal(config.cacheVersion,'grade7-math-v32');assert.equal(config.appVersion,'0.5.0');assert.equal(config.dbVersion,3);
+assert.equal(config.cacheVersion,'grade7-math-v33');assert.equal(config.appVersion,'0.5.1');assert.equal(config.dbVersion,3);
 assert.equal(Number(config.cacheVersion.split('-v')[1]),Number(baseline.baselineCache.split('-v')[1])+1);
 const worker=read('service-worker.js'),self={MATH_PWA_VERSION:config,addEventListener(){}};
 const context={self,importScripts:p=>assert.equal(p,'./js/version.js')};
@@ -46,4 +46,4 @@ assert.match(worker,/key\.startsWith\(CACHE_PREFIX\)&&key!==CACHE/);
 assert.match(worker,/self\.skipWaiting\(\)/);assert.match(worker,/self\.clients\.claim\(\)/);
 assert.match(read('js/updateManager.js'),/updateViaCache:'none'/);
 const bank=JSON.parse(read('data/questions.json'));assert.equal(bank.length,350);assert.equal(bank.filter(q=>q.answerConstraint==='fully_factored').length,84);
-console.log(`PWA release static PASS: v31 -> v32; ${releaseAssets.length} static entries; ${graph.size} dependency-graph nodes cached; business hashes unchanged; approved dynamic-title hashes verified.`);
+console.log(`PWA release static PASS: v32 -> v33; ${releaseAssets.length} static entries; ${graph.size} dependency-graph nodes cached; business hashes unchanged; approved dynamic-title hashes verified.`);

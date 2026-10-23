@@ -17,13 +17,13 @@ const executablePath=process.env.PWA_TEST_BROWSER||['C:/Program Files/Google/Chr
 assert.ok(executablePath,'需本机Chrome/Edge，禁止跳过浏览器验收');
 const read=p=>fs.readFileSync(path.join(root,p));
 const baseline=JSON.parse(read('tests/fixtures/pwa-carryover-350-baseline.json'));
-// Pin the actual released v31 baseline. HEAD becomes v32 after this release,
+// Pin the actual released v32 baseline. HEAD becomes v33 after this release,
 // and must never silently redefine the old-device fixture.
-const legacyRef='d0db34bbf9c9dd4fd2d80c00c4536d93a9beedc3';
+const legacyRef='4eb49ab1bfa71ab877a420f431f13959b14d45cc';
 const tracked=new Set(execFileSync('git',['ls-tree','-r','--name-only',legacyRef],{cwd:root,encoding:'utf8'}).split(/\r?\n/));
 const oldFiles=new Map;
 for(const name of new Set([...Object.keys(baseline.frozenFiles),'data/questions.json','js/version.js','service-worker.js','parent.html','question-preview.html','icons/app-icon.svg']))if(tracked.has(name))oldFiles.set(name,execFileSync('git',['show',`${legacyRef}:${name}`],{cwd:root,maxBuffer:8*1024*1024}));
-assert.equal(crypto.createHash('sha256').update(oldFiles.get('service-worker.js')).digest('hex'),baseline.releaseBefore['service-worker.js'],'旧SW必须是真实v31快照');
+assert.equal(crypto.createHash('sha256').update(oldFiles.get('service-worker.js')).digest('hex'),baseline.releaseBefore['service-worker.js'],'旧SW必须是真实v32快照');
 assert.equal(JSON.parse(oldFiles.get('data/questions.json')).length,350);
 let stage='old';const requests=[];
 const server=http.createServer((req,res)=>{
@@ -38,7 +38,7 @@ const server=http.createServer((req,res)=>{
 });
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const origin=`http://127.0.0.1:${server.address().port}`;
-let browser;const errors=[];const report={environment:'isolated Chromium; real IndexedDB and Cache Storage; not iPad hardware',origin,oldCache:'grade7-math-v31',newCache:'grade7-math-v32'};
+let browser;const errors=[];const report={environment:'isolated Chromium; real IndexedDB and Cache Storage; not iPad hardware',origin,oldCache:'grade7-math-v32',newCache:'grade7-math-v33'};
 const track=page=>page.on('pageerror',error=>errors.push(error.message));
 async function snapshot(page){return page.evaluate(async()=>{
   const db=await import('/js/db.js'),out={};for(const store of ['dailyTasks','answers','wrongQuestions','knowledgeStats','checkins','questionHistory','settings'])out[store]=await db.all(store);return out;
@@ -65,12 +65,12 @@ try{
     return {date,yesterday,task};
   });
   await page.goto(origin+'/');await page.locator('#start').waitFor();
-  assert.equal(await page.evaluate(()=>globalThis.MATH_PWA_VERSION.cacheVersion),'grade7-math-v31');
+  assert.equal(await page.evaluate(()=>globalThis.MATH_PWA_VERSION.cacheVersion),'grade7-math-v32');
   const before=await snapshot(page);assert.equal(await page.evaluate(async()=>(await(await import('/js/db.js')).all('questions')).length),350);
   stage='new';
   await page.evaluate(async()=>{const registration=await navigator.serviceWorker.getRegistration();await registration.update()});
-  await page.waitForFunction(()=>globalThis.MATH_PWA_VERSION?.cacheVersion==='grade7-math-v32'&&Boolean(document.querySelector('#start')),{},{timeout:30000});
-  await page.waitForFunction(async()=>!(await caches.keys()).includes('grade7-math-v31'));
+  await page.waitForFunction(()=>globalThis.MATH_PWA_VERSION?.cacheVersion==='grade7-math-v33'&&Boolean(document.querySelector('#start')),{},{timeout:30000});
+  await page.waitForFunction(async()=>!(await caches.keys()).includes('grade7-math-v32'));
   const after=await snapshot(page);
   for(const store of ['dailyTasks','answers','wrongQuestions','knowledgeStats','checkins','questionHistory'])assert.deepEqual(after[store],before[store],'升级必须保留 '+store);
   assert.equal(after.settings.find(r=>r.key==='unfinishedPracticeStartDate')?.value,seed.date);
@@ -82,14 +82,14 @@ try{
   });
   assert.equal(runtime.count,350);assert.equal(runtime.constraints,84);assert.equal(runtime.schema,3);assert.equal(runtime.fix,2);
   assert.deepEqual(runtime.ids,Array.from({length:350},(_,i)=>`Q${String(i+1).padStart(4,'0')}`));
-  assert.ok(runtime.keys.includes('another-project-static-v1'));assert.ok(!runtime.keys.includes('grade7-math-v1'));assert.ok(!runtime.keys.includes('grade7-math-v31'));
+  assert.ok(runtime.keys.includes('another-project-static-v1'));assert.ok(!runtime.keys.includes('grade7-math-v1'));assert.ok(!runtime.keys.includes('grade7-math-v32'));
   const preview=await context.newPage();track(preview);await preview.goto(origin+'/question-preview.html');
   await preview.waitForFunction(()=>document.querySelector('#preview-title')?.textContent==='350 题显示预览');
   assert.match(await preview.locator('#summary').textContent(),/已加载 350 题/);assert.equal(await preview.locator('article.preview').count(),350);
   await preview.close();
   for(const asset of releaseAssets){
     const name=asset==='./'?'index.html':asset.slice(2);
-    const text=await page.evaluate(async asset=>{const response=await(await caches.open('grade7-math-v32')).match(asset);return response?response.text():null},asset);
+    const text=await page.evaluate(async asset=>{const response=await(await caches.open('grade7-math-v33')).match(asset);return response?response.text():null},asset);
     assert.equal(text,read(name).toString(),asset+'必须缓存当前文件，不能混用旧资源');
   }
   Object.assign(report,{runtimeLoad:runtime,sameDayTaskPreserved:true,oldLearningStoresPreserved:true,localStoragePreserved:true,precacheEntries:releaseAssets.length});
@@ -103,7 +103,7 @@ try{
   // Close the online page, turn networking off, and reopen the PWA. No API mocks.
   await page.close();await context.setOffline(true);page=await context.newPage();track(page);
   await page.goto(origin+'/',{waitUntil:'load'});await page.locator('#start').waitFor();
-  assert.equal(await page.evaluate(()=>globalThis.MATH_PWA_VERSION.cacheVersion),'grade7-math-v32');
+  assert.equal(await page.evaluate(()=>globalThis.MATH_PWA_VERSION.cacheVersion),'grade7-math-v33');
   assert.equal(await page.evaluate(async()=>(await(await import('/js/db.js')).all('questions')).length),350);
   assert.deepEqual((await snapshot(page)).dailyTasks,before.dailyTasks,'离线重开不能换题');
   const offlinePreview=await context.newPage();track(offlinePreview);await offlinePreview.goto(origin+'/question-preview.html');
@@ -177,7 +177,10 @@ try{
     for(const q of questions.slice(0,4))await db.put('answers',{key:task.date+':'+q.id,date:task.date,questionId:q.id,draftSaved:true,currentInputs:Array.isArray(q.answer)?q.answer:[q.answer],...freezeAttemptScoringPolicy(task,q.id)});
     return {task,drafts:await db.all('answers'),nextAnswer:questions[4].answer};
   });
-  await carryPage.clock.setSystemTime(new Date('2026-10-23T19:00:00Z'));await carryPage.goto(origin+'/');
+  await carryPage.goto(origin+'/');
+  await carryPage.waitForFunction(()=>document.querySelector('#workload-remaining')?.textContent==='6 题');
+  await carryPage.clock.setSystemTime(new Date('2026-10-23T19:00:00Z'));
+  await carryPage.evaluate(()=>window.dispatchEvent(new Event('focus')));
   await carryPage.waitForFunction(()=>document.querySelector('#workload-remaining')?.textContent==='16 题');
   await carryPage.locator('#start').click();await carryPage.waitForFunction(()=>document.querySelector('[data-go="4"]')?.getAttribute('aria-current')==='step');
   const retained=await carryPage.evaluate(async()=>{
@@ -189,15 +192,23 @@ try{
   await carryPage.locator('#next').click();await carryPage.locator('.confirm-overlay #confirm').click();
   await carryPage.waitForFunction(()=>document.querySelector('[data-go="5"]')?.getAttribute('aria-current')==='step');
   assert.equal(await carryPage.evaluate(async()=>(await(await import('/js/questionEngine.js')).getDailyWorkload()).remaining),15);
-  await carryPage.clock.setSystemTime(new Date('2026-10-24T19:00:00Z'));await carryPage.reload();
+  await carryPage.locator('[data-answer="0"]').fill('尚未暂存的答案');
+  await carryPage.clock.setSystemTime(new Date('2026-10-24T19:00:00Z'));
+  await carryPage.evaluate(()=>{window.dispatchEvent(new Event('focus'));document.dispatchEvent(new Event('visibilitychange'))});
+  await carryPage.clock.runFor(30001);
+  assert.equal(await carryPage.locator('[data-answer="0"]').inputValue(),'尚未暂存的答案','跨日恢复不得重绘输入页');
+  await carryPage.reload();
   await carryPage.waitForFunction(()=>document.querySelector('#workload-remaining')?.textContent==='25 题');
   const carried=await carryPage.evaluate(async()=>{
     const db=await import('/js/db.js');return {tasks:(await db.all('dailyTasks')).map(t=>({date:t.date,count:t.questionIds.length})),answers:(await db.all('answers')).length,checkins:(await db.all('checkins')).length};
   });
   assert.deepEqual(carried.tasks,[{date:'2026-10-22',count:10},{date:'2026-10-23',count:10},{date:'2026-10-24',count:10}]);assert.equal(carried.answers,5);assert.equal(carried.checkins,0);
-  report.carryoverUI={partialFourThenSixPlusTen:true,resumesAtQuestionFive:true,retainedDraftsAndPolicy:true,confirmationBeforeNext:true,thirdDayRemaining25AfterFiveDrafts:true,noFakeCheckin:true};
+  await carryPage.clock.setSystemTime(new Date('2026-10-25T19:00:00Z'));
+  await carryPage.clock.runFor(30001);
+  await carryPage.waitForFunction(()=>document.querySelector('#workload-remaining')?.textContent==='35 题');
+  report.carryoverUI={partialFourThenSixPlusTen:true,resumesAtQuestionFive:true,retainedDraftsAndPolicy:true,confirmationBeforeNext:true,thirdDayRemaining25AfterFiveDrafts:true,noFakeCheckin:true,overnightFocusRefresh:true,timerRolloverRefresh:true,unsavedInputSurvivesRollover:true};
   await carryContext.close();
   assert.deepEqual(errors,[],'不能存在JS运行时错误');report.pageErrors=errors;report.result='PASS';
   const folder=path.join(root,'reports/pwa_carryover_350');fs.mkdirSync(folder,{recursive:true});fs.writeFileSync(path.join(folder,'browser-results.json'),JSON.stringify(report,null,2)+'\n');
-  console.log('PWA browser release PASS: real v31->v32 update; importQuestions/merge yields350; old learning data + task preserved; offline reopened/scored/saved; policy-v2 and real-bank unseen regression.');
+  console.log('PWA browser release PASS: real v32->v33 update; importQuestions/merge yields350; old learning data + task preserved; offline reopened/scored/saved; policy-v2 and real-bank unseen regression.');
 }finally{if(browser)await browser.close();await new Promise(resolve=>server.close(resolve));}
