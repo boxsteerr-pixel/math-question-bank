@@ -14,6 +14,30 @@ export function openDB(){if(instance)return instance;instance=new Promise((resol
 async function tx(store,mode,fn){const db=await openDB();return new Promise((resolve,reject)=>{const transaction=db.transaction(store,mode),result=fn(transaction.objectStore(store));transaction.oncomplete=()=>resolve(result?.result);transaction.onerror=()=>reject(transaction.error)})}
 export const get=(store,key)=>tx(store,'readonly',objectStore=>objectStore.get(key));export const put=(store,item)=>tx(store,'readwrite',objectStore=>objectStore.put(item));export const all=store=>tx(store,'readonly',objectStore=>objectStore.getAll());export const setMany=(store,items)=>tx(store,'readwrite',objectStore=>{items.forEach(item=>objectStore.put(item))});
 export const setting=async(key,fallback)=>((await get('settings',key))?.value??fallback);export const saveSetting=(key,value)=>put('settings',{key,value});
+// A single settings transaction prevents competing tabs from overwriting one another.
+// The marker is retained in normal learning-data backups along with the setting.
+export async function ensurePolynomialDivisionScope(defaultPoints){
+  const db=await openDB();
+  return new Promise((resolve,reject)=>{
+    const transaction=db.transaction('settings','readwrite'),store=transaction.objectStore('settings');
+    const marker=store.get('integratedPolynomialMulDivScopeIntroduced'),selection=store.get('enabledKnowledgePoints');
+    let result;
+    selection.onsuccess=()=>{
+      const saved=selection.result?.value;
+      if(saved!==undefined&&!Array.isArray(saved)){transaction.abort();return}
+      result=saved===undefined?[...defaultPoints]:[...saved];
+      // IndexedDB executes requests in order, so marker's result is available here.
+      if(marker.result?.value!==true){
+        if(!result.includes('整式乘除综合'))result.push('整式乘除综合');
+        if(saved!==undefined)store.put({key:'enabledKnowledgePoints',value:result});
+        store.put({key:'integratedPolynomialMulDivScopeIntroduced',value:true});
+      }
+    };
+    transaction.oncomplete=()=>resolve(result);
+    transaction.onerror=()=>reject(transaction.error||Error('无法更新学习范围'));
+    transaction.onabort=()=>reject(transaction.error||Error('学习范围格式异常，已保留原设置'));
+  });
+}
 export const questionSignature=question=>JSON.stringify({question:question.question,answer:question.answer,answerType:question.answerType});
 export function mergeQuestionRecord(existing,incoming,warn=console.warn){if(!existing)return {record:incoming,changed:true};if(questionSignature(existing)!==questionSignature(incoming)){if(FIXED_QUESTION_IDS.has(incoming.id))return {record:incoming,changed:true,forced:true};warn(`题库保护：${incoming.id} 的核心题面或答案发生变化，已保留设备中的旧题记录。新题请使用新的 question.id。`);return {record:existing,changed:false,warning:true}}return {record:{...existing,...incoming},changed:true}}
 export async function importQuestions({deferFixedQuestionSync=false}={}){const response=await fetch('./data/questions.json');if(!response.ok)throw Error('无法读取正式题库');const incoming=await response.json();if(!Array.isArray(incoming)||!incoming.length)throw Error('正式题库为空或格式错误');if(new Set(incoming.map(question=>question.id)).size!==incoming.length)throw Error('正式题库存在重复 question.id');const defer=deferFixedQuestionSync&&(await setting('questionBankFixVersion',0))<QUESTION_BANK_FIX_VERSION;for(const question of incoming){if(!question?.id)throw Error('正式题库存在缺少 question.id 的题目');const existing=await get('questions',question.id);if(defer&&FIXED_QUESTION_IDS.has(question.id)&&existing&&questionSignature(existing)!==questionSignature(question))continue;const merged=mergeQuestionRecord(existing,question);if(merged.changed)await put('questions',merged.record)}await saveSetting('questionBankVersion',config.questionBankVersion);return defer?{questions:await all('questions'),incoming}:all('questions')}

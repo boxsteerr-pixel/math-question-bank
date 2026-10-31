@@ -18,11 +18,12 @@ export const KNOWLEDGE_POINTS=Object.freeze([
   '多项式乘多项式',
   '乘法公式',
   '整式乘法综合',
+  '整式乘除综合',
   '整式化简求值'
 ]);
 
 export const FACTORIZATION_POINTS=Object.freeze(KNOWLEDGE_POINTS.filter(point=>point.startsWith('因式分解·')));
 
-// Existing devices may have saved the pre-factorization six-item selection.
-// Add only newly introduced points; never remove a parent-selected point.
-export const includeNewKnowledgePoints=selected=>[...new Set([...(selected||[]),...FACTORIZATION_POINTS])];
+// Historical selections are authoritative. An absent setting is initialized
+// from KNOWLEDGE_POINTS by the caller; explicit selections are never expanded.
+export const includeNewKnowledgePoints=selected=>[...new Set(selected||[])];

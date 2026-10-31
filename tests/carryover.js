@@ -1,3 +1,4 @@
+import {release} from './helpers/current-bank.js';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
@@ -10,7 +11,7 @@ import * as format from '../js/formatMath.js';
 import {KEY_PATHS,DB_VERSION} from '../js/db.js';
 import {QUESTION_BANK_FIX_VERSION} from '../js/questionBankFix.js';
 const read=p=>fs.readFileSync(new URL('../'+p,import.meta.url),'utf8');
-const bank=JSON.parse(read('data/questions.json'));assert.equal(bank.length,350);
+const bank=JSON.parse(read('data/questions.json'));assert.equal(bank.length,release.expectedCount);
 const selectorBaseline=JSON.parse(read('tests/fixtures/carryover-selector-baseline.json'));
 const engineSource=read('js/questionEngine.js').replace(/\r\n/g,'\n');
 assert.equal(engineSource.slice(engineSource.indexOf('export function buildAdaptiveTask('),engineSource.indexOf('\nasync function recordHistory(')),selectorBaseline.selector,'每日基础10题的选题算法逐字冻结');
@@ -22,6 +23,8 @@ const key=(store,row)=>row[KEY_PATHS[store]],get=(store,k)=>structuredClone(stat
 const seed=(store,rows)=>state.set(store,new Map(rows.map(r=>[key(store,r),structuredClone(r)])));
 const put=async(store,row)=>{if(!state.has(store))state.set(store,new Map);state.get(store).set(key(store,row),structuredClone(row));writes.push({store,row:structuredClone(row)})};
 const db={all:async store=>structuredClone([...(state.get(store)?.values()||[])]),get:async(s,k)=>get(s,k),put,setting:async(k,f)=>get('settings',k)?.value??f,saveSetting:(k,value)=>put('settings',{key:k,value})};
+// The independent browser suite covers the migration transaction itself.
+db.ensurePolynomialDivisionScope=async fallback=>db.setting('enabledKnowledgePoints',fallback);
 const context=vm.createContext({console,Date:TestDate,Math,structuredClone});
 const synthetic=exports=>new vm.SyntheticModule(Object.keys(exports),function(){for(const[k,v]of Object.entries(exports))this.setExport(k,v)},{context});
 const dependencies={'./db.js':db,'./statistics.js':statistics,'./knowledgePoints.js':points,'./scoringPolicy.js':policy};

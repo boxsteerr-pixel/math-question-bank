@@ -1,4 +1,4 @@
-import {all,get,put,setting,saveSetting} from './db.js';
+import {all,get,put,setting,saveSetting,ensurePolynomialDivisionScope} from './db.js';
 import {summarizeKnowledge} from './statistics.js';
 import {KNOWLEDGE_POINTS,includeNewKnowledgePoints} from './knowledgePoints.js';
 import {freezeTaskScoringPolicy} from './scoringPolicy.js';
@@ -10,7 +10,7 @@ const POWER_BOOST_HIGH_IDS=new Set(['Q0183','Q0184','Q0186','Q0189','Q0190','Q01
 export const powerBoostActive=(checkinCount,startCheckinCount)=>Number.isInteger(startCheckinCount)&&checkinCount>=startCheckinCount&&checkinCount-startCheckinCount<POWER_BOOST_DAYS;
 export function powerBoostStatus(questionId,answers=[]){let streak=0;for(const record of answers.filter(item=>item.questionId===questionId).slice().sort((a,b)=>String(a.submittedOn||a.date||'').localeCompare(String(b.submittedOn||b.date||''))||(a.submittedAt||0)-(b.submittedAt||0))){if(record.firstAttemptCorrect===true)streak++;else if(record.firstAttemptCorrect===false)streak=0}return streak>=3?'excluded':streak>=2?'normal':'priority'}
 export const today=()=>new Date().toLocaleDateString('en-CA');
-export async function enabledPoints(){return includeNewKnowledgePoints(await setting('enabledKnowledgePoints',KNOWLEDGE_POINTS))}
+export async function enabledPoints(){return includeNewKnowledgePoints(await ensurePolynomialDivisionScope(KNOWLEDGE_POINTS))}
 function ordered(pool,date,history,seed){return pool.slice().sort((a,b)=>{const ah=history.get(a.id),bh=history.get(b.id),au=ah?0:1,bu=bh?0:1;if(au!==bu)return bu-au;const ad=daysAgo(date,ah?.lastShownDate),bd=daysAgo(date,bh?.lastShownDate);if(ad!==bd)return bd-ad;const ac=ah?.shownCount||0,bc=bh?.shownCount||0;if(ac!==bc)return ac-bc;return (hash(`${a.id}:${seed}`)%997)-(hash(`${b.id}:${seed}`)%997)})}
 function choose(pool,used,date,history,seed){return ordered(pool.filter(q=>!used.has(q.id)),date,history,seed)[0]}
 function add(out,q,sourceType,reason,used){if(!q)return false;out.push({questionId:q.id,sourceType,targetKnowledgePoint:q.knowledgePoint,selectionReason:reason});used.add(q.id);return true}

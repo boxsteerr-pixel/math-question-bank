@@ -6,7 +6,7 @@ import {execFileSync} from 'node:child_process';
 export function verifyIsolatedBuild(root,expectedFormal,expectedPending){
   const isolated=fs.mkdtempSync(path.join(os.tmpdir(),'math-docx-promotion-'));
   for(const dir of ['tools','data','review','js'])fs.mkdirSync(path.join(isolated,dir));
-  const files=['tools/build-final-bank.js','tools/factorizationConstraintApprovals.js','tools/docxPromotion.js','tools/midtermPromotion.js','data/midterm-promotion-2026-10.json','data/docx-promotion-2026-10.json','data/questions.json','data/questions_pending.json',...fs.readdirSync(path.join(root,'js')).filter(f=>f.endsWith('.js')).map(f=>'js/'+f)];
+  const files=['tools/build-final-bank.js','tools/factorizationConstraintApprovals.js','tools/docxPromotion.js','tools/midtermPromotion.js','tools/pdfIntegerPromotion.js','tools/workMidtermPromotion.js','data/work-midterm-promotion-20261030.json','data/pdf-integer-promotion-20261023.json','data/midterm-promotion-2026-10.json','data/docx-promotion-2026-10.json','data/questions.json','data/questions_pending.json',...fs.readdirSync(path.join(root,'js')).filter(f=>f.endsWith('.js')).map(f=>'js/'+f)];
   for(const name of files)fs.copyFileSync(path.join(root,name),path.join(isolated,name));
   fs.writeFileSync(path.join(isolated,'package.json'),JSON.stringify({type:'module'}));
   for(let run=0;run<2;run++){

@@ -1,3 +1,4 @@
+import './helpers/current-bank.js';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -15,7 +16,7 @@ import {applyMidtermPromotion,fingerprint} from '../tools/midtermPromotion.js';
 import {factorizationVariants} from './helpers/factorization-variants.js';
 const root=fileURLToPath(new URL('../',import.meta.url));
 const read=p=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));
-const manifest=read('data/midterm-promotion-2026-10.json'),bank=read('data/questions.json');
+const manifest=read('data/midterm-promotion-2026-10.json'),bank=read('data/questions.json').slice(0,350); // Preserve this historical 287->350 promotion audit.
 const rows=read('reports/midterm_20261019/candidates.json'),accepted=rows.filter(r=>r.decision==='ACCEPT');
 const old=bank.slice(0,287),additions=bank.slice(287),allowedFields=new Set(old.flatMap(q=>Object.keys(q))),skills=new Set(old.map(q=>q.subKnowledgePoint));
 assert.equal(bank.length,350);assert.equal(additions.length,63);assert.equal(accepted.length,63);

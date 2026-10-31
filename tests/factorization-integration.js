@@ -7,7 +7,7 @@ import {FACTORIZATION_POINTS,includeNewKnowledgePoints} from '../js/knowledgePoi
 
 const bank=JSON.parse(fs.readFileSync(new URL('../data/questions.json',import.meta.url),'utf8'));
 const questionEngineSource=fs.readFileSync(new URL('../js/questionEngine.js',import.meta.url),'utf8');
-assert.match(questionEngineSource,/import \{all,get,put,setting,saveSetting\} from '\.\/db\.js';/,'每日任务生成必须从 db 模块导入统一的 settings 写入 API');
+assert.match(questionEngineSource,/import \{all,get,put,setting,saveSetting,ensurePolynomialDivisionScope\} from '\.\/db\.js';/,'每日任务生成必须从 db 模块导入统一的 settings 写入 API 和范围迁移');
 assert.doesNotMatch(questionEngineSource,/globalThis\.saveSetting/,'每日任务生成不得依赖浏览器全局 saveSetting');
 const additions=bank.filter(question=>Number(question.id.slice(1))>=163&&Number(question.id.slice(1))<=179);
 const pending=JSON.parse(fs.readFileSync(new URL('../data/questions_pending.json',import.meta.url),'utf8'));
@@ -21,7 +21,7 @@ assert.deepEqual(batch.filter(question=>question.status==='promoted').map(questi
 assert.ok(batch.filter(question=>question.status==='promoted').every(question=>question.finalId!==question.proposedId),'promotion 不得直接复用过期 proposedId');
 assert.deepEqual(points,['因式分解·提公因式法','因式分解·平方差公式','因式分解·完全平方公式','因式分解·综合方法']);
 assert.deepEqual(FACTORIZATION_POINTS,points);
-assert.ok(FACTORIZATION_POINTS.every(point=>includeNewKnowledgePoints(['相反数','绝对值','去括号','添括号','合并同类项','整式加减综合']).includes(point)),'旧设备的既有学习范围必须自动纳入新知识点');
+assert.deepEqual(includeNewKnowledgePoints(['相反数','绝对值']),['相反数','绝对值'],'明确保存的范围不得自动补入因式分解');
 
 const stats=points.map(knowledgePoint=>({knowledgePoint,attempts:0,firstCorrect:0,last20Attempts:[],recentAccuracy:0,consecutiveWrong:0,historicalWrong:0}));
 const diagnosticTask=buildAdaptiveTask({date:'2026-10-01',questions:additions,enabled:points,checkins:[],stats,wrongQuestions:[],history:[]});

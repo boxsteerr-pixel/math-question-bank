@@ -11,10 +11,10 @@ import {beforePhaseBConstraint} from './helpers/phase-b-baseline.js';
 
 const expectedNewPoints=['同底数幂乘法','同底数幂除法','幂的乘方','积的乘方','幂的运算综合','单项式乘法','多项式乘多项式','乘法公式','整式乘法综合','整式化简求值'];
 const originalPoints=['相反数','绝对值','去括号','添括号','合并同类项','整式加减综合','因式分解·提公因式法','因式分解·平方差公式','因式分解·完全平方公式','因式分解·综合方法'];
-assert.deepEqual(KNOWLEDGE_POINTS,[...originalPoints,...expectedNewPoints]);
-assert.equal(new Set(KNOWLEDGE_POINTS).size,20);
+assert.deepEqual(KNOWLEDGE_POINTS.filter(point=>point!=='整式乘除综合'),[...originalPoints,...expectedNewPoints]);
+assert.equal(new Set(KNOWLEDGE_POINTS).size,21);
 assert.deepEqual(FACTORIZATION_POINTS,originalPoints.slice(6));
-assert.ok(!KNOWLEDGE_POINTS.includes('整式乘除综合'));
+assert.equal(KNOWLEDGE_POINTS.filter(point=>point==='整式乘除综合').length,1);
 for(const label of ['平方差公式（乘法）','完全平方公式（乘法）','待定系数','系数约束','整体平方差'])assert.ok(!KNOWLEDGE_POINTS.includes(label));
 
 const formalBytes=fs.readFileSync(new URL('../data/questions.json',import.meta.url));

@@ -1,0 +1,25 @@
+{
+  "reason": "approved one-time learning range migration",
+  "files": {
+    "js/db.js": {
+      "before": "5f3798111b052048e874b2a739c1c6a1409f5f414e40f31437c7e8d4a5f05324",
+      "after": "2f464c2b243e5851672bf7df6a6490cffca70ea1bb27cbf99f55c69c6e0dda65"
+    },
+    "js/knowledgePoints.js": {
+      "before": "ba254f1ed20201d1bce01977aeccb74713acd8b64dfd8d3331c3ae1b338ff1c2",
+      "after": "4e235030cd27754adfb295ce80a25c8ebffba638dbbb81212446a2494d2c25fe"
+    },
+    "js/questionEngine.js": {
+      "before": "6a173ca55ad5048322d32fcfc92809777ce8b7798f8e9288892f0ed1d2e71784",
+      "after": "5e0c2aad0acc1e8a9104b69eadebd2f0f5196d5d4d0e1f437cb32a617cf66efc"
+    },
+    "js/parentDashboard.js": {
+      "before": "44d3111eace9c0011756c041d469d5fb1e4f52aea572284f9592f3286c853c24",
+      "after": "1b085c234306f5f3d18aa2647e0495f127d4e807ea2de871ce1c209c7f27d2c6"
+    },
+    "js/app.js": {
+      "before": "00a4800a61f07f999802fe1375d9c312feaf3d5831d9c0cfe49e3b7d0efb6d1a",
+      "after": "be64ff12975ced9d21079f370e001f73ae5b62c90abf22bfdf7c7fff90a85ac5"
+    }
+  }
+}

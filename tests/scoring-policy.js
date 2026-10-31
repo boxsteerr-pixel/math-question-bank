@@ -38,6 +38,8 @@ assert.equal(questionForFrozenPolicy(q,{scoringPolicyVersion:null}).manualCheck,
 const state=new Map, writes=[];
 const read=(store,key)=>structuredClone(state.get(store)?.get(key));
 const db={all:async store=>structuredClone([...(state.get(store)?.values()||[])]),get:async(store,key)=>read(store,key),put:async(store,row)=>{writes.push({store,row:structuredClone(row)});if(!state.has(store))state.set(store,new Map);const key={dailyTasks:'date',answers:'key',checkins:'date',settings:'key',questions:'id'}[store]||'questionId';state.get(store).set(row[key],structuredClone(row));},setting:async(key,fallback)=>read('settings',key)?.value??fallback,saveSetting:async(key,value)=>{writes.push({store:'settings',key});if(!state.has('settings'))state.set('settings',new Map);state.get('settings').set(key,{key,value});}};
+// Range migration has separate real-IndexedDB coverage; this fixture isolates scoring policy.
+db.ensurePolynomialDivisionScope=async fallback=>db.setting('enabledKnowledgePoints',fallback);
 const context=vm.createContext({console,Date,Math,structuredClone});
 const synthetic=exports=>new vm.SyntheticModule(Object.keys(exports),function(){for(const[name,value]of Object.entries(exports))this.setExport(name,value)},{context});
 const dependencies={'./db.js':db,'./statistics.js':statistics,'./knowledgePoints.js':points,'./scoringPolicy.js':scoringPolicy};
