@@ -4,6 +4,7 @@ const config=globalThis.MATH_PWA_VERSION||{dbVersion:3,questionBankVersion:'dev'
 const DB='grade7MathCheckin';export const DB_VERSION=config.dbVersion;
 export const KEY_PATHS={questions:'id',dailyTasks:'date',answers:'key',wrongQuestions:'questionId',knowledgeStats:'questionId',questionHistory:'questionId',checkins:'date',settings:'key'};
 const definitions=KEY_PATHS;
+export const LEARNING_SESSION_LOCK='grade7-math-learning-session';
 export const LEARNING_STORES=['dailyTasks','answers','wrongQuestions','knowledgeStats','questionHistory','checkins','settings'];
 const CRITICAL_STORES=['dailyTasks','answers','wrongQuestions','knowledgeStats','questionHistory','checkins'];let instance;
 const value=request=>new Promise((resolve,reject)=>{request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error)});
@@ -14,30 +15,6 @@ export function openDB(){if(instance)return instance;instance=new Promise((resol
 async function tx(store,mode,fn){const db=await openDB();return new Promise((resolve,reject)=>{const transaction=db.transaction(store,mode),result=fn(transaction.objectStore(store));transaction.oncomplete=()=>resolve(result?.result);transaction.onerror=()=>reject(transaction.error)})}
 export const get=(store,key)=>tx(store,'readonly',objectStore=>objectStore.get(key));export const put=(store,item)=>tx(store,'readwrite',objectStore=>objectStore.put(item));export const all=store=>tx(store,'readonly',objectStore=>objectStore.getAll());export const setMany=(store,items)=>tx(store,'readwrite',objectStore=>{items.forEach(item=>objectStore.put(item))});
 export const setting=async(key,fallback)=>((await get('settings',key))?.value??fallback);export const saveSetting=(key,value)=>put('settings',{key,value});
-// A single settings transaction prevents competing tabs from overwriting one another.
-// The marker is retained in normal learning-data backups along with the setting.
-export async function ensurePolynomialDivisionScope(defaultPoints){
-  const db=await openDB();
-  return new Promise((resolve,reject)=>{
-    const transaction=db.transaction('settings','readwrite'),store=transaction.objectStore('settings');
-    const marker=store.get('integratedPolynomialMulDivScopeIntroduced'),selection=store.get('enabledKnowledgePoints');
-    let result;
-    selection.onsuccess=()=>{
-      const saved=selection.result?.value;
-      if(saved!==undefined&&!Array.isArray(saved)){transaction.abort();return}
-      result=saved===undefined?[...defaultPoints]:[...saved];
-      // IndexedDB executes requests in order, so marker's result is available here.
-      if(marker.result?.value!==true){
-        if(!result.includes('整式乘除综合'))result.push('整式乘除综合');
-        if(saved!==undefined)store.put({key:'enabledKnowledgePoints',value:result});
-        store.put({key:'integratedPolynomialMulDivScopeIntroduced',value:true});
-      }
-    };
-    transaction.oncomplete=()=>resolve(result);
-    transaction.onerror=()=>reject(transaction.error||Error('无法更新学习范围'));
-    transaction.onabort=()=>reject(transaction.error||Error('学习范围格式异常，已保留原设置'));
-  });
-}
 export const questionSignature=question=>JSON.stringify({question:question.question,answer:question.answer,answerType:question.answerType});
 export function mergeQuestionRecord(existing,incoming,warn=console.warn){if(!existing)return {record:incoming,changed:true};if(questionSignature(existing)!==questionSignature(incoming)){if(FIXED_QUESTION_IDS.has(incoming.id))return {record:incoming,changed:true,forced:true};warn(`题库保护：${incoming.id} 的核心题面或答案发生变化，已保留设备中的旧题记录。新题请使用新的 question.id。`);return {record:existing,changed:false,warning:true}}return {record:{...existing,...incoming},changed:true}}
 export async function importQuestions({deferFixedQuestionSync=false}={}){const response=await fetch('./data/questions.json');if(!response.ok)throw Error('无法读取正式题库');const incoming=await response.json();if(!Array.isArray(incoming)||!incoming.length)throw Error('正式题库为空或格式错误');if(new Set(incoming.map(question=>question.id)).size!==incoming.length)throw Error('正式题库存在重复 question.id');const defer=deferFixedQuestionSync&&(await setting('questionBankFixVersion',0))<QUESTION_BANK_FIX_VERSION;for(const question of incoming){if(!question?.id)throw Error('正式题库存在缺少 question.id 的题目');const existing=await get('questions',question.id);if(defer&&FIXED_QUESTION_IDS.has(question.id)&&existing&&questionSignature(existing)!==questionSignature(question))continue;const merged=mergeQuestionRecord(existing,question);if(merged.changed)await put('questions',merged.record)}await saveSetting('questionBankVersion',config.questionBankVersion);return defer?{questions:await all('questions'),incoming}:all('questions')}
@@ -46,7 +23,84 @@ const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 export async function runQuestionBankFixMigration(incomingQuestions=[]){const done=await setting('questionBankFixVersion',0);if(done>=QUESTION_BANK_FIX_VERSION)return {alreadyComplete:true,log:await setting('questionBankFixLog',null)};const snapshot=Object.fromEntries(await Promise.all(FIX_STORES.filter(store=>store!=='settings').map(async store=>[store,await all(store)]))),backup={backupVersion:1,createdAt:new Date().toISOString(),appVersion:config.appVersion||'dev',reason:`questionBankFixVersion:${QUESTION_BANK_FIX_VERSION}`,stores:structuredClone(snapshot)},incoming=new Map(incomingQuestions.map(question=>[question.id,question])),working=structuredClone(snapshot);working.questions=working.questions.map(question=>FIXED_QUESTION_IDS.has(question.id)&&incoming.has(question.id)?incoming.get(question.id):question);const result=applyQuestionBankFix(working),db=await openDB();await new Promise((resolve,reject)=>{const transaction=db.transaction(FIX_STORES,'readwrite');for(const store of FIX_STORES.filter(name=>name!=='settings')){const oldRows=new Map(snapshot[store].map(row=>[row[KEY_PATHS[store]],row])),newRows=new Map(result.snapshot[store].map(row=>[row[KEY_PATHS[store]],row])),objectStore=transaction.objectStore(store);for(const [key,row] of newRows)if(!same(oldRows.get(key),row))objectStore.put(row);for(const key of oldRows.keys())if(!newRows.has(key))objectStore.delete(key)}transaction.objectStore('settings').put({key:'questionBankFixBackupV2',value:backup});transaction.objectStore('settings').put({key:'questionBankFixLog',value:result.log});transaction.objectStore('settings').put({key:'questionBankFixVersion',value:QUESTION_BANK_FIX_VERSION});transaction.oncomplete=resolve;transaction.onerror=()=>reject(transaction.error||Error('题库修复迁移失败'));transaction.onabort=()=>reject(transaction.error||Error('题库修复迁移中止'))});return {alreadyComplete:false,log:result.log}}
 export async function dataSafetyStatus(){const db=await openDB();return {counts:await countStores(db,CRITICAL_STORES),migration:await setting('migrationSafety',null),lastBackupAt:await setting('lastFullBackupAt',null),questionBankVersion:await setting('questionBankVersion',config.questionBankVersion)}}
 /* Explicit parent/developer test action only; updates and imports never call this. */
-export async function clearLearningData(){const db=await openDB();return Promise.all(['dailyTasks','answers','wrongQuestions','knowledgeStats','questionHistory','checkins'].map(store=>new Promise((resolve,reject)=>{const transaction=db.transaction(store,'readwrite');transaction.objectStore(store).clear();transaction.oncomplete=resolve;transaction.onerror=()=>reject(transaction.error)})))}
+export function equalBackupValue(left,right){
+  if(Object.is(left,right))return true;
+  if(!left||!right||typeof left!=='object'||typeof right!=='object')return false;
+  if(Array.isArray(left)!==Array.isArray(right)||Object.getPrototypeOf(left)!==Object.getPrototypeOf(right))return false;
+  if(left instanceof Date)return left.getTime()===right.getTime();
+  if(!Array.isArray(left)&&Object.getPrototypeOf(left)!==Object.prototype&&Object.getPrototypeOf(left)!==null)return false;
+  if(Array.isArray(left)&&left.length!==right.length)return false;
+  const keys=Object.keys(left);
+  return keys.length===Object.keys(right).length&&keys.every(key=>Object.hasOwn(right,key)&&equalBackupValue(left[key],right[key]));
+}
 
-export function replaceStoresAtomically(db,snapshot){return new Promise((resolve,reject)=>{let transaction;try{transaction=db.transaction(LEARNING_STORES,'readwrite');for(const store of LEARNING_STORES){const objectStore=transaction.objectStore(store);objectStore.clear();for(const item of snapshot[store])objectStore.put(item)}}catch(error){try{transaction?.abort()}catch{}reject(error);return}transaction.oncomplete=resolve;transaction.onerror=()=>reject(transaction.error||Error('恢复过程发生错误'));transaction.onabort=()=>reject(transaction.error||Error('恢复过程中止'))})}
-export async function restoreLearningData(snapshot){const db=await openDB();await replaceStoresAtomically(db,snapshot);return countStores(db,LEARNING_STORES)}
+function verifyLearningRows(expected,actual,message){
+  for(const name of LEARNING_STORES){
+    const keyPath=KEY_PATHS[name],rows=new Map(actual[name].map(row=>[row[keyPath],row]));
+    if(rows.size!==expected[name].length||expected[name].some(row=>!equalBackupValue(row,rows.get(row[keyPath])))){
+      throw Error(`${message}：${name} 内容不一致`);
+    }
+  }
+}
+
+// Keep the final callback inside an IndexedDB request event so it can queue writes or abort.
+function readLearningStores(transaction,onRead){
+  const stores={};
+  let remaining=LEARNING_STORES.length;
+  for(const name of LEARNING_STORES){
+    const request=transaction.objectStore(name).getAll();
+    request.onsuccess=()=>{
+      stores[name]=request.result;
+      if(--remaining===0)onRead(stores);
+    };
+  }
+}
+
+export async function readLearningData(){
+  const db=await openDB();
+  return new Promise((resolve,reject)=>{
+    const transaction=db.transaction(LEARNING_STORES,'readonly');
+    let stores;
+    transaction.oncomplete=()=>resolve(stores);
+    transaction.onabort=()=>reject(transaction.error||Error('读取学习数据中止'));
+    readLearningStores(transaction,result=>{stores=result});
+  });
+}
+
+export function replaceStoresAtomically(db,snapshot,expectedOriginal){
+  return new Promise((resolve,reject)=>{
+    const transaction=db.transaction(LEARNING_STORES,'readwrite');
+    let failure;
+    transaction.oncomplete=resolve;
+    transaction.onabort=()=>reject(failure||transaction.error||Error('恢复过程中止'));
+    const attempt=operation=>{
+      try{operation()}
+      catch(error){failure=error;transaction.abort()}
+    };
+    const replace=()=>{
+      for(const name of LEARNING_STORES){
+        const store=transaction.objectStore(name);
+        store.clear();
+        for(const item of snapshot[name])store.add(item);
+      }
+      readLearningStores(transaction,actual=>attempt(()=>verifyLearningRows(snapshot,actual,'提交前恢复校验失败')));
+    };
+    attempt(()=>{
+      if(!expectedOriginal){replace();return}
+      readLearningStores(transaction,actual=>attempt(()=>{
+        verifyLearningRows(expectedOriginal,actual,'生成快照后学习数据发生变化，请重新确认恢复');
+        replace();
+      }));
+    });
+  });
+}
+
+export async function restoreLearningData(snapshot,expectedOriginal){
+  const db=await openDB();
+  await replaceStoresAtomically(db,snapshot,expectedOriginal);
+  try{
+    verifyLearningRows(snapshot,await readLearningData(),'恢复后校验失败');
+  }catch(error){
+    throw Error(`${error.message}。恢复事务已提交，请检查学习数据或使用本机恢复前快照回退。`,{cause:error});
+  }
+}

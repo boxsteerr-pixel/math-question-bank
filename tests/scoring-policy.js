@@ -1,3 +1,4 @@
+import {connectLearningTransaction} from './helpers/learning-transaction.js';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
@@ -39,7 +40,7 @@ const state=new Map, writes=[];
 const read=(store,key)=>structuredClone(state.get(store)?.get(key));
 const db={all:async store=>structuredClone([...(state.get(store)?.values()||[])]),get:async(store,key)=>read(store,key),put:async(store,row)=>{writes.push({store,row:structuredClone(row)});if(!state.has(store))state.set(store,new Map);const key={dailyTasks:'date',answers:'key',checkins:'date',settings:'key',questions:'id'}[store]||'questionId';state.get(store).set(row[key],structuredClone(row));},setting:async(key,fallback)=>read('settings',key)?.value??fallback,saveSetting:async(key,value)=>{writes.push({store:'settings',key});if(!state.has('settings'))state.set('settings',new Map);state.get('settings').set(key,{key,value});}};
 // Range migration has separate real-IndexedDB coverage; this fixture isolates scoring policy.
-db.ensurePolynomialDivisionScope=async fallback=>db.setting('enabledKnowledgePoints',fallback);
+connectLearningTransaction(db,(store,key)=>state.get(store)?.delete(key));
 const context=vm.createContext({console,Date,Math,structuredClone});
 const synthetic=exports=>new vm.SyntheticModule(Object.keys(exports),function(){for(const[name,value]of Object.entries(exports))this.setExport(name,value)},{context});
 const dependencies={'./db.js':db,'./statistics.js':statistics,'./knowledgePoints.js':points,'./scoringPolicy.js':scoringPolicy};
@@ -47,11 +48,12 @@ const source=fs.readFileSync(new URL('../js/questionEngine.js',import.meta.url),
 const module=new vm.SourceTextModule(source,{context});
 await module.link(specifier=>synthetic(dependencies[specifier]));await module.evaluate();
 const engine=module.namespace,today=engine.today();
-const savedOld={...oldTask,date:today};state.set('dailyTasks',new Map([[today,structuredClone(savedOld)]]));
-assert.deepEqual(await engine.getOrCreateToday(),savedOld);assert.equal(writes.length,0,'已有任务不得重写/升级策略');
-state.get('dailyTasks').clear();
 const bank=Array.from({length:12},(_,i)=>({...q,id:`ISO-${i}`}));
 state.set('questions',new Map(bank.map(item=>[item.id,item])));
+const savedOld={date:today,questionIds:bank.slice(0,10).map(item=>item.id)};
+state.set('dailyTasks',new Map([[today,structuredClone(savedOld)]]));
+assert.deepEqual(await engine.getOrCreateToday(),savedOld);assert.equal(writes.length,0,'已有完整任务不得重写/升级策略');
+state.get('dailyTasks').clear();
 const generated=await engine.getOrCreateToday();assert.equal(generated.questionIds.length,10);assert.equal(generated.scoringPolicyVersion,2);
 assert.ok(Object.values(generated.scoringQuestionPolicies).every(x=>x.answerConstraint==='fully_factored'));
 const writeCount=writes.length;assert.deepEqual(await engine.getOrCreateToday(),structuredClone(generated));assert.equal(writes.length,writeCount,'同日重开不生成新题/新策略');
@@ -65,7 +67,7 @@ assert.match(app,/newAttempt\(q,\{currentInputs/);
 const elements=new Map;context.document={querySelector:key=>{if(!elements.has(key))elements.set(key,{innerHTML:'',addEventListener(){}});return elements.get(key)},querySelectorAll:()=>[]};context.clearInterval=()=>{};context.setInterval=()=>0;
 const effects={stats:[],wrong:[],review:[]};
 const appDeps={...dependencies,'./scoring.js':scoring,'./attemptPolicy.js':attemptPolicy,'./formatMath.js':formatMath,'./questionEngine.js':Object.fromEntries(Object.keys(engine).map(k=>[k,engine[k]])),
-  './db.js':{...db,openDB:async()=>{},importQuestions:async()=>{},runQuestionBankFixMigration:async()=>{}},
+  './db.js':{...db,LEARNING_SESSION_LOCK:'isolated-scoring',openDB:async()=>{},importQuestions:async()=>{},runQuestionBankFixMigration:async()=>{}},
   './statistics.js':{...statistics,updateKnowledge:async(q,date,correct)=>effects.stats.push(correct)},
   './wrongQuestions.js':{recordWrong:async()=>effects.wrong.push(true),recordReviewCorrect:async()=>effects.review.push(true)},
   './updateManager.js':{initPwaUpdates(){}}};

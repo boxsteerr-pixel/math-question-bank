@@ -17,27 +17,34 @@ const executablePath=process.env.PWA_TEST_BROWSER||['C:/Program Files/Google/Chr
 assert.ok(executablePath,'需本机Chrome/Edge，禁止跳过浏览器验收');
 const read=p=>fs.readFileSync(path.join(root,p));
 const baseline=JSON.parse(read('tests/fixtures/pwa-release-368-baseline.json'));
-// Pin the actual released v33/350 snapshot, never mutable HEAD.
-const legacyRef=baseline.legacyRef,bankCount=baseline.expectedCount;
+// Pin the actual v34 release; the candidate is always read from the worktree.
+const safety=JSON.parse(read('tests/fixtures/pwa-stability-approved-changes.json'));
+const legacyRef=safety.baselineRef,bankCount=baseline.expectedCount;
 const tracked=new Set(execFileSync('git',['ls-tree','-r','--name-only',legacyRef],{cwd:root,encoding:'utf8'}).split(/\r?\n/));
 const oldFiles=new Map;
 for(const name of new Set([...Object.keys(baseline.frozenFiles),'data/questions.json','js/version.js','service-worker.js','parent.html','question-preview.html','icons/app-icon.svg']))if(tracked.has(name))oldFiles.set(name,execFileSync('git',['show',`${legacyRef}:${name}`],{cwd:root,maxBuffer:8*1024*1024}));
-assert.equal(crypto.createHash('sha256').update(oldFiles.get('service-worker.js')).digest('hex'),baseline.releaseBefore['service-worker.js'],'旧SW必须是真实v33快照');
-assert.equal(JSON.parse(oldFiles.get('data/questions.json')).length,baseline.formalCount);
+assert.equal(crypto.createHash('sha256').update(oldFiles.get('service-worker.js')).digest('hex'),safety.files['service-worker.js'].before,'旧 SW 必须是真实 v34 快照');
+assert.equal(JSON.parse(oldFiles.get('data/questions.json')).length,bankCount);
 let stage='old';const requests=[];
 const server=http.createServer((req,res)=>{
   const name=decodeURIComponent(new URL(req.url,'http://127.0.0.1').pathname).slice(1)||'index.html';
   requests.push({stage,name});
   if(name==='__setup__.html'){res.setHeader('Content-Type','text/html');res.end('<!doctype html><script src="/js/version.js"></script><p>Isolated PWA fixture</p>');return;}
   if(name.includes('..')||name.includes('\\')){res.writeHead(400);res.end();return;}
-  const file=path.join(root,name),content=stage==='old'?oldFiles.get(name):fs.existsSync(file)&&fs.statSync(file).isFile()?fs.readFileSync(file):null;
+  const file=path.join(root,name);
+  let content=stage==='old'?oldFiles.get(name):fs.existsSync(file)&&fs.statSync(file).isFile()?fs.readFileSync(file):null;
+  if(stage==='broken'&&name==='js/app.js'){res.writeHead(503);res.end('simulated release download failure');return;}
+  if(['broken','forward','correction'].includes(stage)&&name==='js/version.js'){
+    const next=stage==='correction'?['0.5.5','grade7-math-v37']:['0.5.4','grade7-math-v36'];
+    content=String(content).replace(safety.appVersion,next[0]).replace(safety.cache,next[1]);
+  }
   if(!content){res.writeHead(404);res.end('not found');return;}
   res.setHeader('Cache-Control','no-store');res.setHeader('Service-Worker-Allowed','/');
   res.setHeader('Content-Type',({'.js':'text/javascript','.json':'application/json','.css':'text/css','.svg':'image/svg+xml','.html':'text/html'})[path.extname(name)]||'text/plain');res.end(content);
 });
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const origin=`http://127.0.0.1:${server.address().port}`;
-let browser;const errors=[];const report={environment:'isolated Chromium; real IndexedDB and Cache Storage; not iPad hardware',origin,oldCache:'grade7-math-v33',newCache:'grade7-math-v34'};
+let browser;const errors=[];const report={environment:'isolated Chromium; real IndexedDB and Cache Storage; not iPad hardware',origin,oldCache:safety.previousCache,newCache:safety.cache};
 const track=page=>page.on('pageerror',error=>errors.push(error.message));
 async function snapshot(page){return page.evaluate(async()=>{
   const db=await import('/js/db.js'),out={};for(const store of ['dailyTasks','answers','wrongQuestions','knowledgeStats','checkins','questionHistory','settings'])out[store]=await db.all(store);return out;
@@ -59,7 +66,7 @@ try{
     await db.put('knowledgeStats',{questionId:'合并同类项',knowledgePoint:'合并同类项',attempts:5,firstCorrect:3,last20Attempts:[true,false,true,false,true],recentAccuracy:60,consecutiveWrong:0});
     await db.put('checkins',{date:yesterday,firstCorrect:7,wrong:3,accuracy:70});
     await db.put('questionHistory',{questionId:'Q0001',shownCount:1,lastShownDate:yesterday});
-    for(const [key,value] of [['questionBankFixVersion',2],['powerBoostStartCheckinCount',0],['parentPin','fixture-only-pin'],['enabledKnowledgePoints',['相反数','绝对值']]])await db.saveSetting(key,value);
+    for(const [key,value] of [['questionBankFixVersion',2],['powerBoostStartCheckinCount',0],['parentPin','fixture-only-pin'],['enabledKnowledgePoints',['相反数','绝对值']],['integratedPolynomialMulDivScopeIntroduced',true]])await db.saveSetting(key,value);
     localStorage.setItem('fixture-learning-sentinel','preserve');
     await(await caches.open('grade7-math-v1')).put('/old-sentinel',new Response('old'));
     await(await caches.open('another-project-static-v1')).put('/other-sentinel',new Response('preserve'));
@@ -67,21 +74,45 @@ try{
     return {date,yesterday,task};
   });
   await page.goto(origin+'/');await page.locator('#start').waitFor();
-  assert.equal(await page.evaluate(()=>globalThis.MATH_PWA_VERSION.cacheVersion),'grade7-math-v33');
-  const before=await snapshot(page);assert.equal(await page.evaluate(async()=>(await(await import('/js/db.js')).all('questions')).length),baseline.formalCount);
+  assert.equal(await page.evaluate(()=>globalThis.MATH_PWA_VERSION.cacheVersion),safety.previousCache);
+  const before=await snapshot(page);assert.equal(await page.evaluate(async()=>(await(await import('/js/db.js')).all('questions')).length),bankCount);
   const beforeQuestions=await page.evaluate(async()=>(await(await import('/js/db.js')).all('questions')));
+  const oldPractice=await context.newPage();track(oldPractice);
+  await oldPractice.goto(origin+'/');await oldPractice.locator('#start').click();
+  await oldPractice.locator('[data-answer="0"]').fill('更新检查中的输入');
   stage='new';
   await page.evaluate(async()=>{const registration=await navigator.serviceWorker.getRegistration();await registration.update()});
-  await page.waitForFunction(()=>globalThis.MATH_PWA_VERSION?.cacheVersion==='grade7-math-v34'&&Boolean(document.querySelector('#start')),{},{timeout:30000});
-  await page.waitForFunction(async()=>!(await caches.keys()).includes('grade7-math-v33'));
+  await oldPractice.locator('#app-update button').click();
+  assert.equal(await oldPractice.locator('[data-answer="0"]').inputValue(),'更新检查中的输入');
+  assert.equal(await oldPractice.evaluate(()=>globalThis.MATH_PWA_VERSION.cacheVersion),safety.previousCache);
+  assert.equal(await page.evaluate(()=>Boolean(navigator.serviceWorker.controller)),true);
+  await oldPractice.locator('[data-answer="0"]').fill('');
+  await oldPractice.close();await page.close();
+  // v34 has no safe activation handshake. Its last client must release control.
+  await new Promise(resolve=>setTimeout(resolve,800));
+  page=await context.newPage();track(page);await page.goto(origin+'/');
+  await page.waitForFunction(cache=>globalThis.MATH_PWA_VERSION?.cacheVersion===cache&&Boolean(document.querySelector('#start')),safety.cache,{timeout:30000});
+  assert.ok(await page.evaluate(cache=>caches.has(cache),safety.previousCache));
   const after=await snapshot(page);
   for(const store of ['dailyTasks','answers','wrongQuestions','knowledgeStats','checkins','questionHistory'])assert.deepEqual(after[store],before[store],'升级必须保留 '+store);
   assert.equal(after.settings.find(r=>r.key==='unfinishedPracticeStartDate')?.value,seed.date);
   const stableSettings=rows=>rows.filter(r=>!['questionBankVersion','unfinishedPracticeStartDate','integratedPolynomialMulDivScopeIntroduced','enabledKnowledgePoints'].includes(r.key));
   assert.deepEqual(stableSettings(after.settings),stableSettings(before.settings));
-  assert.deepEqual(after.settings.find(r=>r.key==='enabledKnowledgePoints').value,['相反数','绝对值','整式乘除综合']);
-  assert.equal(after.settings.find(r=>r.key==='integratedPolynomialMulDivScopeIntroduced').value,true);
-  const rangePage=await context.newPage();await rangePage.goto(origin+'/parent.html');await rangePage.locator('input[value="整式乘除综合"]').waitFor();await rangePage.locator('input[value="整式乘除综合"]').uncheck();const rangeDialog=rangePage.waitForEvent('dialog').then(dialog=>dialog.accept());await Promise.all([rangeDialog,rangePage.locator('#save').click()]);await rangePage.close();const rangeReopen=await context.newPage();await rangeReopen.goto(origin+'/parent.html');await rangeReopen.locator('input[value="整式乘除综合"]').waitFor();assert.equal(await rangeReopen.locator('input[value="整式乘除综合"]').isChecked(),false);await rangeReopen.reload();assert.equal(await rangeReopen.locator('input[value="整式乘除综合"]').isChecked(),false);await rangeReopen.close();
+  assert.deepEqual(after.settings.find(r=>r.key==='enabledKnowledgePoints').value,['相反数','绝对值']);
+  assert.deepEqual(after.settings.find(r=>r.key==='integratedPolynomialMulDivScopeIntroduced'),before.settings.find(r=>r.key==='integratedPolynomialMulDivScopeIntroduced'));
+  const rangePage=await context.newPage();track(rangePage);await rangePage.goto(origin+'/parent.html');
+  await rangePage.locator('input[value="相反数"]').uncheck();
+  await rangePage.locator('input[value="绝对值"]').uncheck();
+  await rangePage.locator('input[value="幂的乘方"]').check();
+  assert.match(await rangePage.locator('#parent-scope-status').textContent(),/可用 1 道正式题.*还差 9 道/);
+  assert.equal(await rangePage.locator('#save').isDisabled(),true);
+  await rangePage.close();
+  const rangeReopen=await context.newPage();await rangeReopen.goto(origin+'/parent.html');
+  assert.equal(await rangeReopen.locator('input[value="整式乘除综合"]').isChecked(),false);
+  assert.equal(await rangeReopen.locator('input[value="绝对值"]').isChecked(),true);
+  const backupDownload=rangeReopen.waitForEvent('download');await rangeReopen.locator('#export').click();
+  assert.match((await backupDownload).suggestedFilename(),/^math-learning-backup-/);
+  await rangeReopen.close();
   assert.equal(await page.evaluate(()=>localStorage.getItem('fixture-learning-sentinel')),'preserve');
   const runtime=await page.evaluate(async()=>{
     const db=await import('/js/db.js'),qs=await db.all('questions');return {count:qs.length,ids:qs.map(q=>q.id),constraints:qs.filter(q=>q.answerConstraint==='fully_factored').length,schema:db.DB_VERSION,fix:await db.setting('questionBankFixVersion',0),keys:await caches.keys()};
@@ -89,8 +120,8 @@ try{
   assert.equal(runtime.count,bankCount);assert.equal(runtime.constraints,baseline.expectedFullyFactored);assert.equal(runtime.schema,3);assert.equal(runtime.fix,2);
   assert.deepEqual(runtime.ids,Array.from({length:bankCount},(_,i)=>`Q${String(i+1).padStart(4,'0')}`));
   const currentQuestions=await page.evaluate(async()=>(await(await import('/js/db.js')).all('questions')));
-  assert.deepEqual(currentQuestions.slice(0,baseline.formalCount),beforeQuestions,'旧350条questions也逐字段不变');
-  const newIds=Array.from({length:bankCount-baseline.formalCount},(_,i)=>'Q'+String(baseline.formalCount+i+1).padStart(4,'0'));
+  assert.deepEqual(currentQuestions.slice(0,bankCount),beforeQuestions,'旧350条questions也逐字段不变');
+  const newIds=Array.from({length:bankCount-bankCount},(_,i)=>'Q'+String(bankCount+i+1).padStart(4,'0'));
   const upgraded=await page.evaluate(async ids=>{
     const db=await import('/js/db.js'),{score}=await import('/js/scoring.js');
     for(const id of ids){const q=await db.get('questions',id);if(!q||!score(q,Array.isArray(q.answer)?q.answer:[q.answer]).correct)throw Error('新增题不可读/不可判 '+id);}
@@ -108,14 +139,17 @@ try{
   },newIds);
   assert.equal(fresh.count,bankCount);assert.equal(fresh.taskCount,10);assert.equal(fresh.same,true);assert.equal(fresh.answers,0);assert.equal(fresh.checkins,0);
   report.newUser={...fresh,newQuestionsReadableAndScorable:true};await freshContext.close();
-  assert.ok(runtime.keys.includes('another-project-static-v1'));assert.ok(!runtime.keys.includes('grade7-math-v1'));assert.ok(!runtime.keys.includes('grade7-math-v33'));
+  assert.ok(runtime.keys.includes('another-project-static-v1'));assert.ok(!runtime.keys.includes('grade7-math-v1'));assert.ok(runtime.keys.includes(safety.previousCache));
+  const beforePreview=await snapshot(page);
   const preview=await context.newPage();track(preview);await preview.goto(origin+'/question-preview.html');
   await preview.waitForFunction(count=>document.querySelector('#preview-title')?.textContent===`${count} 题显示预览`,bankCount);
   assert.ok((await preview.locator('#summary').textContent()).includes(`已加载 ${bankCount} 题`));assert.equal(await preview.locator('article.preview').count(),bankCount);
+  assert.equal(await preview.locator('#clear').count(),0);
   await preview.close();
+  assert.deepEqual(await snapshot(page),beforePreview,'浏览题库后每个学习表的完整数据必须不变');
   for(const asset of releaseAssets){
     const name=asset==='./'?'index.html':asset.slice(2);
-    const text=await page.evaluate(async asset=>{const response=await(await caches.open('grade7-math-v34')).match(asset);return response?response.text():null},asset);
+    const text=await page.evaluate(async ({asset,cache})=>{const response=await(await caches.open(cache)).match(asset);return response?response.text():null},{asset,cache:safety.cache});
     assert.equal(text,read(name).toString(),asset+'必须缓存当前文件，不能混用旧资源');
   }
   Object.assign(report,{runtimeLoad:runtime,sameDayTaskPreserved:true,oldLearningStoresPreserved:true,localStoragePreserved:true,precacheEntries:releaseAssets.length});
@@ -127,9 +161,9 @@ try{
   assert.match(await titlePage.locator('#summary').textContent(),/已加载 3 题/);await titleContext.close();
   report.previewTitle={runtimeCount:bankCount,syntheticCount:3,dynamic:true};
   // Close the online page, turn networking off, and reopen the PWA. No API mocks.
-  await page.close();await context.setOffline(true);page=await context.newPage();track(page);
+  await context.setOffline(true);await page.close();page=await context.newPage();track(page);
   await page.goto(origin+'/',{waitUntil:'load'});await page.locator('#start').waitFor();
-  assert.equal(await page.evaluate(()=>globalThis.MATH_PWA_VERSION.cacheVersion),'grade7-math-v34');
+  assert.equal(await page.evaluate(()=>globalThis.MATH_PWA_VERSION.cacheVersion),safety.cache);
   assert.equal(await page.evaluate(async()=>(await(await import('/js/db.js')).all('questions')).length),bankCount);
   const preservedRange=await page.evaluate(async()=>{const db=await import('/js/db.js'),engine=await import('/js/questionEngine.js');return {enabled:await engine.enabledPoints(),saved:await db.setting('enabledKnowledgePoints'),done:await db.setting('integratedPolynomialMulDivScopeIntroduced',false)}});
   assert.deepEqual(preservedRange.enabled,['相反数','绝对值']);assert.deepEqual(preservedRange.saved,preservedRange.enabled);assert.equal(preservedRange.done,true);
@@ -238,7 +272,133 @@ try{
   await carryPage.waitForFunction(()=>document.querySelector('#workload-remaining')?.textContent==='35 题');
   report.carryoverUI={partialFourThenSixPlusTen:true,resumesAtQuestionFive:true,retainedDraftsAndPolicy:true,confirmationBeforeNext:true,thirdDayRemaining25AfterFiveDrafts:true,noFakeCheckin:true,overnightFocusRefresh:true,timerRolloverRefresh:true,unsavedInputSurvivesRollover:true};
   await carryContext.close();
+  const scopeContext=await browser.newContext({serviceWorkers:'block'});
+  const scopePage=await scopeContext.newPage();track(scopePage);
+  await scopePage.goto(origin+'/');await scopePage.locator('#start').waitFor();
+  await scopePage.evaluate(async()=>{
+    const db=await import('/js/db.js'),engine=await import('/js/questionEngine.js'),date=engine.today();
+    const task=await db.get('dailyTasks',date);
+    await db.put('dailyTasks',{...task,questionIds:task.questionIds.slice(0,1)});
+    await db.saveSetting('enabledKnowledgePoints',['幂的乘方']);
+  });
+  await scopePage.reload();await scopePage.locator('#adjust-scope').click();
+  assert.match(await scopePage.locator('#scope-status').textContent(),/可用 1 道正式题.*还差 9 道/);
+  assert.equal(await scopePage.locator('#save-settings').isDisabled(),true);
+  await scopePage.locator('input[value="相反数"]').check();
+  assert.match(await scopePage.locator('#scope-status').textContent(),/满足每日 10 题要求/);
+  await scopePage.locator('#save-settings').click();await scopePage.locator('#start').waitFor();
+  const repair=await scopePage.evaluate(async()=>{
+    const db=await import('/js/db.js'),engine=await import('/js/questionEngine.js'),date=engine.today();
+    const task=await db.get('dailyTasks',date);
+    const questionId=task.questionIds[0];
+    await db.put('dailyTasks',{...task,questionIds:[questionId]});
+    await db.put('answers',{key:date+':'+questionId,date,questionId,draftSaved:true,currentInputs:['历史草稿']});
+    return {count:task.questionIds.length,saved:await engine.enabledPoints()};
+  });
+  assert.deepEqual(repair,{count:10,saved:['相反数','幂的乘方']});
+  const protectedBefore=await snapshot(scopePage);
+  await scopePage.reload();await scopePage.locator('#open-backup').waitFor();
+  assert.match(await scopePage.locator('#protected-task-warning').textContent(),/人工核查/);
+  assert.deepEqual(await snapshot(scopePage),protectedBefore);
+  await scopePage.locator('#open-backup').click();await scopePage.locator('#export').waitFor();
+  await scopeContext.close();
+  report.scopeRecovery={insufficientRangeBlocked:true,explicitSelectionPreserved:true,unusedTaskRepaired:true,protectedDraftPreserved:true};
+
+  // Verify the actual parent UI using a fresh device with a valid generated task.
+  stage='new';
+  const updateContext=await browser.newContext({serviceWorkers:'allow'});
+  let main=await updateContext.newPage();track(main);
+  await main.goto(origin+'/');await main.locator('#start').waitFor();
+  await main.evaluate(()=>navigator.serviceWorker.ready.then(()=>true));
+  await main.reload();await main.locator('#start').waitFor();
+  const parent=await updateContext.newPage();track(parent);
+  await parent.goto(origin+'/parent.html');
+  const downloadEvent=parent.waitForEvent('download');await parent.locator('#export').click();
+  const downloaded=await downloadEvent;
+  const backupData=JSON.parse(fs.readFileSync(await downloaded.path(),'utf8'));
+  await parent.locator('#export').waitFor();
+  await main.evaluate(async()=>{const db=await import('/js/db.js');await db.saveSetting('browser-regression-marker','before restore')});
+  const beforeRestore=await snapshot(main);
+  const backupUpload={name:'fixture-backup.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(backupData))};
+  const blockedRestore=parent.waitForEvent('dialog').then(dialog=>{assert.match(dialog.message(),/关闭其他数学打卡练习页/);return dialog.accept()});
+  await parent.locator('#backup-file').setInputFiles(backupUpload);
+  await parent.locator('#confirm-restore').click();await blockedRestore;
+  assert.deepEqual(await snapshot(main),beforeRestore);
+  await main.close();
+  const recoveryDialog=parent.waitForEvent('dialog').then(dialog=>{assert.match(dialog.message(),/已恢复并核验/);return dialog.accept()});
+  await parent.locator('#backup-file').setInputFiles(backupUpload);
+  await parent.locator('#confirm-restore').click();await recoveryDialog;
+  await parent.locator('#restore-point').waitFor();
+  assert.deepEqual(await snapshot(parent),backupData.stores);
+  const rollbackDialog=parent.waitForEvent('dialog').then(dialog=>{assert.match(dialog.message(),/已恢复并核验/);return dialog.accept()});
+  await parent.locator('#restore-point').click();await parent.locator('#confirm-restore').click();await rollbackDialog;
+  await parent.locator('#export-point').waitFor();
+  assert.deepEqual(await snapshot(parent),beforeRestore);
+  main=await updateContext.newPage();track(main);
+  await main.goto(origin+'/');await main.locator('#start').waitFor();
+  await parent.close();
+  report.nativeBackup={export:true,restore:true,rollbackExactContents:true,activePracticeTabBlocksRestore:true};
+
+  // Real update: failed precache, two active tabs, then a safe explicit update.
+  const busy=await updateContext.newPage();track(busy);
+  await busy.goto(origin+'/');await busy.locator('#start').click();
+  await busy.locator('[data-answer="0"]').fill('双标签页的未暂存输入');
+  stage='broken';
+  await main.evaluate(async()=>{
+    const registration=await navigator.serviceWorker.getRegistration();
+    const failure=new Promise(resolve=>registration.addEventListener('updatefound',()=>{
+      const worker=registration.installing;
+      worker.addEventListener('statechange',()=>{if(worker.state==='redundant')resolve()});
+    },{once:true}));
+    await registration.update();await failure;
+  });
+  assert.equal(await main.evaluate(()=>globalThis.MATH_PWA_VERSION.cacheVersion),safety.cache);
+  assert.equal(await busy.locator('[data-answer="0"]').inputValue(),'双标签页的未暂存输入');
+  stage='forward';
+  await main.evaluate(async()=>{const registration=await navigator.serviceWorker.getRegistration();await registration.update()});
+  await main.locator('#app-update[data-state="ready"]').waitFor();
+  await busy.locator('#app-update[data-state="waiting"]').waitFor();
+  assert.equal(await busy.locator('#app-update button').isDisabled(),true);
+  await main.locator('#app-update button').click();
+  await main.waitForFunction(()=>document.querySelector('#app-update')?.textContent.includes('关闭其他数学打卡页面'));
+  assert.equal(await busy.locator('[data-answer="0"]').inputValue(),'双标签页的未暂存输入');
+  await busy.locator('#save-home').click();await busy.locator('.confirm-overlay #confirm').click();
+  await busy.locator('#start').waitFor();
+  const beforeForward=await snapshot(main);
+  assert.ok(beforeForward.answers.some(answer=>answer.currentInputs?.includes('双标签页的未暂存输入')));
+  await busy.close();
+  await main.locator('#app-update button').click();
+  await main.waitForFunction(()=>globalThis.MATH_PWA_VERSION?.cacheVersion==='grade7-math-v36'&&document.querySelector('#start'));
+  assert.deepEqual(await snapshot(main),beforeForward);
+  await updateContext.setOffline(true);
+  await main.reload();await main.locator('#start').waitFor();
+  assert.equal(await main.evaluate(()=>globalThis.MATH_PWA_VERSION.cacheVersion),'grade7-math-v36');
+  await updateContext.setOffline(false);
+
+  // Advance through native submit/correction UI with an update in waiting.
+  await main.evaluate(async()=>{
+    const db=await import('/js/db.js'),engine=await import('/js/questionEngine.js'),policy=await import('/js/scoringPolicy.js');
+    const task=await engine.getOrCreateToday(),questions=await engine.questionsFor(task);
+    for(const [index,question] of questions.entries()){
+      const currentInputs=index?(Array.isArray(question.answer)?question.answer:[question.answer]):[];
+      await db.put('answers',{key:task.date+':'+question.id,date:task.date,questionId:question.id,
+        currentInputs,gaveUp:!index,draftSaved:true,...policy.freezeAttemptScoringPolicy(task,question.id)});
+    }
+  });
+  await main.reload();await main.locator('#start').click();await main.locator('#final-submit').waitFor();
+  stage='correction';
+  await main.evaluate(async()=>{const registration=await navigator.serviceWorker.getRegistration();await registration.update()});
+  await main.locator('#app-update[data-state="waiting"]').waitFor();
+  await main.locator('#final-submit').click();await main.locator('#correct').click();
+  await main.locator('[data-answer="0"]').fill('订正草稿');
+  assert.equal(await main.locator('#app-update button').isDisabled(),true);
+  assert.equal(await main.locator('[data-answer="0"]').inputValue(),'订正草稿');
+  await main.locator('#correction-home').click();await main.locator('.confirm-overlay #confirm').click();
+  await main.locator('#app-update[data-state="ready"]').waitFor();
+  assert.ok((await snapshot(main)).answers.some(answer=>answer.correctionInputs?.includes('订正草稿')));
+  await updateContext.close();
+  report.forwardUpdate={failedDownloadOldVersionUsable:true,multipleTabsNoForcedReload:true,draftAndTaskPreserved:true,explicitUpdate:true,offlineBoot:true,submittingAndCorrectingProtected:true};
   assert.deepEqual(errors,[],'不能存在JS运行时错误');report.pageErrors=errors;report.result='PASS';
-  const folder=path.join(root,'reports/pdf_candidates_20261023');fs.mkdirSync(folder,{recursive:true});fs.writeFileSync(path.join(folder,'browser-results.json'),JSON.stringify(report,null,2)+'\n');
-  console.log('PWA browser release PASS: real v33->v34 update; importQuestions/merge yields368; old learning data + task preserved; offline reopened/scored/saved; policy-v2 and real-bank unseen regression.');
+  if(process.env.PWA_TEST_REPORT)fs.writeFileSync(process.env.PWA_TEST_REPORT,JSON.stringify(report,null,2)+'\n');
+  console.log('PWA browser release PASS: authentic v34 -> v35, protected input, unchanged learning data and scope, read-only preview, offline practice, and real carryover UI.');
 }finally{if(browser)await browser.close();await new Promise(resolve=>server.close(resolve));}

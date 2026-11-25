@@ -1,3 +1,4 @@
+import {connectLearningTransaction} from './helpers/learning-transaction.js';
 import {release} from './helpers/current-bank.js';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -14,8 +15,8 @@ const read=p=>fs.readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const bank=JSON.parse(read('data/questions.json'));assert.equal(bank.length,release.expectedCount);
 const selectorBaseline=JSON.parse(read('tests/fixtures/carryover-selector-baseline.json'));
 const engineSource=read('js/questionEngine.js').replace(/\r\n/g,'\n');
-assert.equal(engineSource.slice(engineSource.indexOf('export function buildAdaptiveTask('),engineSource.indexOf('\nasync function recordHistory(')),selectorBaseline.selector,'每日基础10题的选题算法逐字冻结');
-assert.match(read('js/app.js'),/date=today\(\);workload=await getDailyWorkload\(\);task=await getOrCreateToday\(\)/,'先按日期补生成欠题，再读取当天组，避免历史顺序倒置');
+assert.equal(engineSource.slice(engineSource.indexOf('export function buildAdaptiveTask('),engineSource.indexOf('\n\nfunction completeSparseTask(')),selectorBaseline.selector,'每日基础10题的选题算法逐字冻结');
+assert.match(read('js/app.js'),/date=today\(\);\s*workload=await getDailyWorkload\(\);[\s\S]*?task=await getOrCreateToday\(\)/,'先按日期补生成欠题，再读取当天组，避免历史顺序倒置');
 let clock;const setDate=s=>clock=new Date(s+'T12:00:00').valueOf();setDate('2026-10-22');
 class TestDate extends Date{constructor(...args){super(...(args.length?args:[clock]))}static now(){return clock}}
 const state=new Map,writes=[],effects={stats:[],wrong:[],review:[]};
@@ -24,7 +25,7 @@ const seed=(store,rows)=>state.set(store,new Map(rows.map(r=>[key(store,r),struc
 const put=async(store,row)=>{if(!state.has(store))state.set(store,new Map);state.get(store).set(key(store,row),structuredClone(row));writes.push({store,row:structuredClone(row)})};
 const db={all:async store=>structuredClone([...(state.get(store)?.values()||[])]),get:async(s,k)=>get(s,k),put,setting:async(k,f)=>get('settings',k)?.value??f,saveSetting:(k,value)=>put('settings',{key:k,value})};
 // The independent browser suite covers the migration transaction itself.
-db.ensurePolynomialDivisionScope=async fallback=>db.setting('enabledKnowledgePoints',fallback);
+connectLearningTransaction(db,(store,key)=>state.get(store)?.delete(key));
 const context=vm.createContext({console,Date:TestDate,Math,structuredClone});
 const synthetic=exports=>new vm.SyntheticModule(Object.keys(exports),function(){for(const[k,v]of Object.entries(exports))this.setExport(k,v)},{context});
 const dependencies={'./db.js':db,'./statistics.js':statistics,'./knowledgePoints.js':points,'./scoringPolicy.js':policy};
@@ -64,7 +65,7 @@ reset();work=await readWorkload();await drafts(work.batches[0].task,10);work=awa
 // one real completion day and retain original date:questionId answer identities.
 const elements=new Map;context.document={querySelector:s=>{if(!elements.has(s))elements.set(s,{innerHTML:'',addEventListener(){}});return elements.get(s)},querySelectorAll:()=>[]};context.clearInterval=()=>{};context.setInterval=()=>0;
 const appDeps={...dependencies,'./questionEngine.js':Object.fromEntries(Object.keys(engine).map(k=>[k,engine[k]])),
-  './db.js':{...db,openDB:async()=>{},importQuestions:async()=>{},runQuestionBankFixMigration:async()=>{}},
+  './db.js':{...db,LEARNING_SESSION_LOCK:'isolated-carryover',openDB:async()=>{},importQuestions:async()=>{},runQuestionBankFixMigration:async()=>{}},
   './scoring.js':scoring,'./attemptPolicy.js':attempts,'./formatMath.js':format,
   './statistics.js':{...statistics,updateKnowledge:async(q,date,correct)=>effects.stats.push({id:q.id,date,correct})},
   './wrongQuestions.js':{recordWrong:async(id,date)=>effects.wrong.push({id,date}),recordReviewCorrect:async id=>effects.review.push(id)},'./updateManager.js':{initPwaUpdates(){}}};

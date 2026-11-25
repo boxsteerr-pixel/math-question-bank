@@ -1,0 +1,48 @@
+{
+  "baselineRef": "918f5d24bf97a9ddf4ef7611983fe2b8b1b2472b",
+  "previousCache": "grade7-math-v34",
+  "cache": "grade7-math-v35",
+  "appVersion": "0.5.3",
+  "files": {
+    "js/app.js": {
+      "before": "be64ff12975ced9d21079f370e001f73ae5b62c90abf22bfdf7c7fff90a85ac5",
+      "after": "8f02c18d9ea781a25060112c91ea411d2019d5ec9aae934eec95f3ed1a0e6d24"
+    },
+    "js/backup.js": {
+      "before": "5724243876328b77201c5b39602f8af8227461cf83b935da7e9a31a35ba7088c",
+      "after": "2ebec264804f0e625367d0de8333e544fc774bac6bb7a48c2f00e4605d8098bf"
+    },
+    "js/db.js": {
+      "before": "2f464c2b243e5851672bf7df6a6490cffca70ea1bb27cbf99f55c69c6e0dda65",
+      "after": "1a4c6b89acefa9c2daa982630f6e4b4bfbfddba6263170536ea759239810c38b"
+    },
+    "js/parentDashboard.js": {
+      "before": "1b085c234306f5f3d18aa2647e0495f127d4e807ea2de871ce1c209c7f27d2c6",
+      "after": "a960b1c32ab0515db84be154a54e0271496751242d157e7bfee085a3f36b9f3f"
+    },
+    "js/questionEngine.js": {
+      "before": "5e0c2aad0acc1e8a9104b69eadebd2f0f5196d5d4d0e1f437cb32a617cf66efc",
+      "after": "be7dfe0e80c77facddacc744513d83ecebf126d2587fb9e3c8cbfb67c871dba0"
+    },
+    "js/questionPreview.js": {
+      "before": "c030b359a2f28e1f0f068e915d7a8a340eaf707ad8cd0e3ca3bb595966652f00",
+      "after": "b8fcdde71d50685103bdf6731799db33709e98e6402eaea1245914c508286341"
+    },
+    "js/updateManager.js": {
+      "before": "a01c941b1e756dd6c45fd5cd2ee158860e8a319d2383871f3a2c84c066360294",
+      "after": "f89c51f65758640fbe70875585f98123c639c458f1636645547aa71e9378b081"
+    },
+    "js/version.js": {
+      "before": "4e98e0f09205729d64c9a2171de6866a41a3a6fd1182e71ee335694d0fcb4f5a",
+      "after": "20c1ede8395d3ed4f77448f97d5e5543eb25f66871199f84fb5df2605614592f"
+    },
+    "question-preview.html": {
+      "before": "f7569a3af07aa01c420379ceba9eb86ba9939a097405fc2481f0bb90a4c6618e",
+      "after": "8cfa7829c4b365140d2f4929e08156102cef15a6871addeada96fe598020b6d8"
+    },
+    "service-worker.js": {
+      "before": "23e46c4db07ad7411b628cff5b60c818e48ba19bf473a1065fd9b81e6b0b76db",
+      "after": "839d18cf75def3b3a6e868695e62ec375039416895db580c3d14c8953a6fbf35"
+    }
+  }
+}
