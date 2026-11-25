@@ -87,7 +87,7 @@ for(const entry of manifest.entries){
     assert.equal(scoreForFrozenPolicy(q,[q.answer],task).correct,true);
   }
 }
-assert.equal(QUESTION_BANK_FIX_VERSION,2);assert.equal(DB_VERSION,3);
+assert.equal(QUESTION_BANK_FIX_VERSION,2);assert.equal(DB_VERSION,4);
 assert.deepEqual(KEY_PATHS,{questions:'id',dailyTasks:'date',answers:'key',wrongQuestions:'questionId',knowledgeStats:'questionId',questionHistory:'questionId',checkins:'date',settings:'key'});
 assert.deepEqual(pending,frozenPending);assert.deepEqual(bank,frozenBank,'隔离测试不得更改正式数据');
 console.log('DOCX promotion PASS: 88/88 preflight; old199 frozen; formal287; constraints67; real-bank zero-sample 5/4/0 weakness boundaries, wrong reviews, policy-v2/legacy, metadata merge and schema compatibility.');

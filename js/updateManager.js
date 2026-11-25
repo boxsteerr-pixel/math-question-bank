@@ -104,8 +104,8 @@ export function initPwaUpdates({ getBlockReason = () => '' } = {}) {
     try {
       const reply = await askWorker(worker, 'APPLY_SAFE_UPDATE');
       if (approval?.request !== request || reloading) return;
-      if (reply?.status === 'blocked') {
-        finishApproval('请保存其他页面的练习，关闭其他数学打卡页面后重试');
+      if (reply?.status === 'blocked' || reply?.status === 'waiting') {
+        finishApproval('请保存所有页面的练习，关闭所有数学打卡页面后重新打开');
       } else if (reply?.status === 'activating') {
         activationTimeout = setTimeout(() => finishApproval(retryMessage), messageTimeout);
       } else {

@@ -46,5 +46,5 @@ for(const powerBoost of [false,true]){
   assert.deepEqual(task.items.filter(i=>i.sourceType==='wrong_review').map(i=>i.questionId),added.slice(0,2).map(q=>q.id));
 }
 assert.equal(buildAdaptiveTask({date:'2026-10-24',questions:added,enabled:KNOWLEDGE_POINTS}).questionIds.length,10);
-assert.equal(DB_VERSION,3);assert.equal(QUESTION_BANK_FIX_VERSION,2);
+assert.equal(DB_VERSION,4);assert.equal(QUESTION_BANK_FIX_VERSION,2);
 console.log('PDF integer promotion PASS: old350 frozen; explicit10 append; independent10/10; score/render/5+3+2/review compatibility; idempotent guarded builder.');

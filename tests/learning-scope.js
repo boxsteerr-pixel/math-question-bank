@@ -9,8 +9,10 @@ class MemoryDb{
   constructor(){this.tail=Promise.resolve()}
   reset(stores){
     this.data=Object.fromEntries(Object.keys(KEY_PATHS).map(name=>[name,structuredClone(stores[name]||[])]));
+    this.data.learningMetadata=[{key:'learningDataGeneration',value:0}];
     this.failStore=null;
   }
+  close(){}
   transaction(names,mode){
     const scope=new Set(Array.isArray(names)?names:[names]);
     const requests=[];
@@ -27,7 +29,7 @@ class MemoryDb{
           requests.push(snapshot=>pending({handle,action},snapshot));
           return handle;
         };
-        const key=KEY_PATHS[name];
+        const key=KEY_PATHS[name]||'key';
         return {
           get:id=>request(rows=>rows.find(row=>row[key]===id)),
           getAll:()=>request(rows=>rows),
@@ -92,6 +94,12 @@ const reset=(stores={})=>db.reset({questions:[...questions,elsewhere],settings:[
 const asTask=(date,questionIds,extra={})=>({date,questionIds,...extra});
 const rejectScope=operation=>assert.rejects(operation,error=>error.code==='INSUFFICIENT_LEARNING_SCOPE');
 const rejectProtected=operation=>assert.rejects(operation,error=>error.code==='PROTECTED_INCOMPLETE_TASK'&&error.date===date);
+
+reset({questions:questions.slice(0,9)});
+const beforeFailedActivation=structuredClone(db.data);
+await rejectScope(()=>engine.getDailyWorkload(date));
+await rejectScope(()=>engine.getDailyWorkload(date));
+assert.deepEqual(db.data,beforeFailedActivation,'failed workload initialization must not persist carryover or selection history');
 
 reset({questions:questions.slice(0,9)});
 await rejectScope(()=>engine.getOrCreateDailyTask(date));

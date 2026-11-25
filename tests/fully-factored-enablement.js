@@ -78,7 +78,7 @@ for(const row of audit){
   }
 }
 assert.equal(variantCount,264);
-assert.equal(QUESTION_BANK_FIX_VERSION,2);assert.equal(DB_VERSION,3);
+assert.equal(QUESTION_BANK_FIX_VERSION,2);assert.equal(DB_VERSION,4);
 assert.deepEqual(KEY_PATHS,{questions:'id',dailyTasks:'date',answers:'key',wrongQuestions:'questionId',knowledgeStats:'questionId',questionHistory:'questionId',checkins:'date',settings:'key'});
 
 const factorPoints=[...new Set(formal.slice(162,179).map(q=>q.knowledgePoint))];

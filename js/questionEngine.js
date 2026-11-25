@@ -164,12 +164,18 @@ function reconcilePreviousHistory(previous,tasks,history){
 }
 
 const TASK_STORES=['questions','dailyTasks','questionHistory','answers','checkins','settings','wrongQuestions','knowledgeStats'];
-export async function getOrCreateDailyTask(date){
+export async function getOrCreateDailyTask(date,{initializeCarryover=false}={}){
   if(!validDate(date))throw Error('无效任务日期');
   return writeTransaction(TASK_STORES,async transaction=>{
     const store=name=>transaction.objectStore(name);
     const [questions,existing]=await Promise.all([readRequest(store('questions').getAll()),readRequest(store('dailyTasks').get(date))]);
-    if(hasCompleteQuestions(existing,new Map(questions.map(question=>[question.id,question]))))return existing;
+    if(hasCompleteQuestions(existing,new Map(questions.map(question=>[question.id,question])))){
+      if(initializeCarryover){
+        const settings=store('settings'),saved=await readRequest(settings.get(CARRYOVER_START_SETTING));
+        if(!validDate(saved?.value))settings.put({key:CARRYOVER_START_SETTING,value:date});
+      }
+      return existing;
+    }
     const [checkins,answers]=await Promise.all([readRequest(store('checkins').getAll()),readRequest(store('answers').getAll())]);
     if(hasLearningActivity(existing,date,answers,checkins)){
       throw new LearningScopeError('PROTECTED_INCOMPLETE_TASK',`${date} 的任务不完整，相关学习记录已保留。请在家长模式导出完整备份后联系维护者核查。`,{date});
@@ -189,6 +195,10 @@ export async function getOrCreateDailyTask(date){
     const selected=buildAdaptiveTask({date,questions:eligible,enabled:scope.points,checkins,stats,wrongQuestions:wrongs,history:[...history.values()],answers,powerBoost:powerBoostActive(checkins.length,boostStart)});
     const task=completeSparseTask(selected,eligible,history);
     if(!hasCompleteQuestions(task,pool))throw Error('任务完整性校验失败，原学习记录已保留。');
+    if(initializeCarryover){
+      const currentStart=await readRequest(settings.get(CARRYOVER_START_SETTING));
+      if(!validDate(currentStart?.value))settings.put({key:CARRYOVER_START_SETTING,value:date});
+    }
     store('dailyTasks').put(task);
     for(const questionId of task.questionIds){
       const old=history.get(questionId);
@@ -229,7 +239,8 @@ export async function getDailyWorkload(date=today()){
   if(workloadInFlight?.date===date)return workloadInFlight.promise;
   const promise=(async()=>{
     let start=await setting(CARRYOVER_START_SETTING,null);
-    if(!validDate(start)){start=date;await saveSetting(CARRYOVER_START_SETTING,start)}
+    const initializeCarryover=!validDate(start);
+    if(initializeCarryover)start=date;
     // A device-clock rollback must neither reset activation nor invent arrears.
     if(start>date)throw Error('设备日期早于规则启用日期，请检查设备日期设置');
     const [existing,questions,receipts]=await Promise.all([all('dailyTasks'),all('questions'),all('checkins')]);
@@ -258,8 +269,9 @@ export async function getDailyWorkload(date=today()){
       }
     }
     for(let cursor=start;cursor<=date;cursor=nextCalendarDate(cursor)){
-      if(!existingDates.has(cursor)&&!completed.has(cursor))tasks.set(cursor,await getOrCreateDailyTask(cursor));
+      if(!existingDates.has(cursor)&&!completed.has(cursor))tasks.set(cursor,await getOrCreateDailyTask(cursor,{initializeCarryover:initializeCarryover&&cursor===date}));
     }
+    if(initializeCarryover&&tasks.has(date))tasks.set(date,await getOrCreateDailyTask(date,{initializeCarryover:true}));
     const workload=summarizeDailyWorkload(date,start,[...tasks.values()],await all('answers'));
     return {...workload,anomalies,needsSubmission:workload.needsSubmission||anomalies.some(item=>item.blocksCheckin)};
   })();

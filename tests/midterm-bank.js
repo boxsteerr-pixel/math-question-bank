@@ -69,5 +69,5 @@ for(const q of additions){
 }
 const newOnly=buildAdaptiveTask({date:'2026-10-19',questions:additions,enabled:KNOWLEDGE_POINTS,stats:[],checkins:[],wrongQuestions:[]});
 assert.equal(newOnly.questionIds.length,10);assert.ok(newOnly.questionIds.every(id=>additions.some(q=>q.id===id)));
-assert.equal(DB_VERSION,3);assert.equal(QUESTION_BANK_FIX_VERSION,2);
+assert.equal(DB_VERSION,4);assert.equal(QUESTION_BANK_FIX_VERSION,2);
 console.log(`Midterm bank PASS: original287 byte-for-field frozen; 63 additions; independent68/68; alpha/AST dedupe; 17 fully-factored references + ${variants} variants; 5+3+2, new-task pool, D+1/D+4/D+7 and mastered3 unchanged.`);

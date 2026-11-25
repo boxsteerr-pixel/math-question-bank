@@ -19,6 +19,7 @@ const read=p=>fs.readFileSync(path.join(root,p));
 const baseline=JSON.parse(read('tests/fixtures/pwa-release-368-baseline.json'));
 // Pin the actual v34 release; the candidate is always read from the worktree.
 const safety=JSON.parse(read('tests/fixtures/pwa-stability-approved-changes.json'));
+const fencing=JSON.parse(read('tests/fixtures/pwa-fencing-approved-changes.json'));
 const legacyRef=safety.baselineRef,bankCount=baseline.expectedCount;
 const tracked=new Set(execFileSync('git',['ls-tree','-r','--name-only',legacyRef],{cwd:root,encoding:'utf8'}).split(/\r?\n/));
 const oldFiles=new Map;
@@ -35,8 +36,8 @@ const server=http.createServer((req,res)=>{
   let content=stage==='old'?oldFiles.get(name):fs.existsSync(file)&&fs.statSync(file).isFile()?fs.readFileSync(file):null;
   if(stage==='broken'&&name==='js/app.js'){res.writeHead(503);res.end('simulated release download failure');return;}
   if(['broken','forward','correction'].includes(stage)&&name==='js/version.js'){
-    const next=stage==='correction'?['0.5.5','grade7-math-v37']:['0.5.4','grade7-math-v36'];
-    content=String(content).replace(safety.appVersion,next[0]).replace(safety.cache,next[1]);
+    const next=stage==='correction'?['0.5.5','grade7-math-v38']:['0.5.4','grade7-math-v37'];
+    content=String(content).replace(fencing.appVersion,next[0]).replace(fencing.cache,next[1]);
   }
   if(!content){res.writeHead(404);res.end('not found');return;}
   res.setHeader('Cache-Control','no-store');res.setHeader('Service-Worker-Allowed','/');
@@ -44,7 +45,7 @@ const server=http.createServer((req,res)=>{
 });
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const origin=`http://127.0.0.1:${server.address().port}`;
-let browser;const errors=[];const report={environment:'isolated Chromium; real IndexedDB and Cache Storage; not iPad hardware',origin,oldCache:safety.previousCache,newCache:safety.cache};
+let browser;const errors=[];const report={environment:'isolated Chromium; real IndexedDB and Cache Storage; not iPad hardware',origin,oldCache:safety.previousCache,newCache:fencing.cache};
 const track=page=>page.on('pageerror',error=>errors.push(error.message));
 async function snapshot(page){return page.evaluate(async()=>{
   const db=await import('/js/db.js'),out={};for(const store of ['dailyTasks','answers','wrongQuestions','knowledgeStats','checkins','questionHistory','settings'])out[store]=await db.all(store);return out;
@@ -91,7 +92,7 @@ try{
   // v34 has no safe activation handshake. Its last client must release control.
   await new Promise(resolve=>setTimeout(resolve,800));
   page=await context.newPage();track(page);await page.goto(origin+'/');
-  await page.waitForFunction(cache=>globalThis.MATH_PWA_VERSION?.cacheVersion===cache&&Boolean(document.querySelector('#start')),safety.cache,{timeout:30000});
+  await page.waitForFunction(cache=>globalThis.MATH_PWA_VERSION?.cacheVersion===cache&&Boolean(document.querySelector('#start')),fencing.cache,{timeout:30000});
   assert.ok(await page.evaluate(cache=>caches.has(cache),safety.previousCache));
   const after=await snapshot(page);
   for(const store of ['dailyTasks','answers','wrongQuestions','knowledgeStats','checkins','questionHistory'])assert.deepEqual(after[store],before[store],'升级必须保留 '+store);
@@ -117,7 +118,7 @@ try{
   const runtime=await page.evaluate(async()=>{
     const db=await import('/js/db.js'),qs=await db.all('questions');return {count:qs.length,ids:qs.map(q=>q.id),constraints:qs.filter(q=>q.answerConstraint==='fully_factored').length,schema:db.DB_VERSION,fix:await db.setting('questionBankFixVersion',0),keys:await caches.keys()};
   });
-  assert.equal(runtime.count,bankCount);assert.equal(runtime.constraints,baseline.expectedFullyFactored);assert.equal(runtime.schema,3);assert.equal(runtime.fix,2);
+  assert.equal(runtime.count,bankCount);assert.equal(runtime.constraints,baseline.expectedFullyFactored);assert.equal(runtime.schema,fencing.dbVersion);assert.equal(runtime.fix,2);
   assert.deepEqual(runtime.ids,Array.from({length:bankCount},(_,i)=>`Q${String(i+1).padStart(4,'0')}`));
   const currentQuestions=await page.evaluate(async()=>(await(await import('/js/db.js')).all('questions')));
   assert.deepEqual(currentQuestions.slice(0,bankCount),beforeQuestions,'旧350条questions也逐字段不变');
@@ -149,7 +150,7 @@ try{
   assert.deepEqual(await snapshot(page),beforePreview,'浏览题库后每个学习表的完整数据必须不变');
   for(const asset of releaseAssets){
     const name=asset==='./'?'index.html':asset.slice(2);
-    const text=await page.evaluate(async ({asset,cache})=>{const response=await(await caches.open(cache)).match(asset);return response?response.text():null},{asset,cache:safety.cache});
+    const text=await page.evaluate(async ({asset,cache})=>{const response=await(await caches.open(cache)).match(asset);return response?response.text():null},{asset,cache:fencing.cache});
     assert.equal(text,read(name).toString(),asset+'必须缓存当前文件，不能混用旧资源');
   }
   Object.assign(report,{runtimeLoad:runtime,sameDayTaskPreserved:true,oldLearningStoresPreserved:true,localStoragePreserved:true,precacheEntries:releaseAssets.length});
@@ -163,7 +164,7 @@ try{
   // Close the online page, turn networking off, and reopen the PWA. No API mocks.
   await context.setOffline(true);await page.close();page=await context.newPage();track(page);
   await page.goto(origin+'/',{waitUntil:'load'});await page.locator('#start').waitFor();
-  assert.equal(await page.evaluate(()=>globalThis.MATH_PWA_VERSION.cacheVersion),safety.cache);
+  assert.equal(await page.evaluate(()=>globalThis.MATH_PWA_VERSION.cacheVersion),fencing.cache);
   assert.equal(await page.evaluate(async()=>(await(await import('/js/db.js')).all('questions')).length),bankCount);
   const preservedRange=await page.evaluate(async()=>{const db=await import('/js/db.js'),engine=await import('/js/questionEngine.js');return {enabled:await engine.enabledPoints(),saved:await db.setting('enabledKnowledgePoints'),done:await db.setting('integratedPolynomialMulDivScopeIntroduced',false)}});
   assert.deepEqual(preservedRange.enabled,['相反数','绝对值']);assert.deepEqual(preservedRange.saved,preservedRange.enabled);assert.equal(preservedRange.done,true);
@@ -320,16 +321,17 @@ try{
   await main.evaluate(async()=>{const db=await import('/js/db.js');await db.saveSetting('browser-regression-marker','before restore')});
   const beforeRestore=await snapshot(main);
   const backupUpload={name:'fixture-backup.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(backupData))};
-  const blockedRestore=parent.waitForEvent('dialog').then(dialog=>{assert.match(dialog.message(),/关闭其他数学打卡练习页/);return dialog.accept()});
-  await parent.locator('#backup-file').setInputFiles(backupUpload);
-  await parent.locator('#confirm-restore').click();await blockedRestore;
-  assert.deepEqual(await snapshot(main),beforeRestore);
-  await main.close();
   const recoveryDialog=parent.waitForEvent('dialog').then(dialog=>{assert.match(dialog.message(),/已恢复并核验/);return dialog.accept()});
   await parent.locator('#backup-file').setInputFiles(backupUpload);
   await parent.locator('#confirm-restore').click();await recoveryDialog;
   await parent.locator('#restore-point').waitFor();
   assert.deepEqual(await snapshot(parent),backupData.stores);
+  const staleWrite=await main.evaluate(async()=>{
+    try{await(await import('/js/db.js')).saveSetting('stale-write','must not persist');return false}catch{return true}
+  });
+  assert.equal(staleWrite,true);
+  await main.locator('#learning-data-stale').waitFor();
+  await main.close();
   const rollbackDialog=parent.waitForEvent('dialog').then(dialog=>{assert.match(dialog.message(),/已恢复并核验/);return dialog.accept()});
   await parent.locator('#restore-point').click();await parent.locator('#confirm-restore').click();await rollbackDialog;
   await parent.locator('#export-point').waitFor();
@@ -337,7 +339,7 @@ try{
   main=await updateContext.newPage();track(main);
   await main.goto(origin+'/');await main.locator('#start').waitFor();
   await parent.close();
-  report.nativeBackup={export:true,restore:true,rollbackExactContents:true,activePracticeTabBlocksRestore:true};
+  report.nativeBackup={export:true,restore:true,rollbackExactContents:true,activePracticeTabStaleWriteRejected:true};
 
   // Real update: failed precache, two active tabs, then a safe explicit update.
   const busy=await updateContext.newPage();track(busy);
@@ -352,7 +354,7 @@ try{
     },{once:true}));
     await registration.update();await failure;
   });
-  assert.equal(await main.evaluate(()=>globalThis.MATH_PWA_VERSION.cacheVersion),safety.cache);
+  assert.equal(await main.evaluate(()=>globalThis.MATH_PWA_VERSION.cacheVersion),fencing.cache);
   assert.equal(await busy.locator('[data-answer="0"]').inputValue(),'双标签页的未暂存输入');
   stage='forward';
   await main.evaluate(async()=>{const registration=await navigator.serviceWorker.getRegistration();await registration.update()});
@@ -360,7 +362,7 @@ try{
   await busy.locator('#app-update[data-state="waiting"]').waitFor();
   assert.equal(await busy.locator('#app-update button').isDisabled(),true);
   await main.locator('#app-update button').click();
-  await main.waitForFunction(()=>document.querySelector('#app-update')?.textContent.includes('关闭其他数学打卡页面'));
+  await main.waitForFunction(()=>document.querySelector('#app-update')?.textContent.includes('关闭所有数学打卡页面'));
   assert.equal(await busy.locator('[data-answer="0"]').inputValue(),'双标签页的未暂存输入');
   await busy.locator('#save-home').click();await busy.locator('.confirm-overlay #confirm').click();
   await busy.locator('#start').waitFor();
@@ -368,11 +370,15 @@ try{
   assert.ok(beforeForward.answers.some(answer=>answer.currentInputs?.includes('双标签页的未暂存输入')));
   await busy.close();
   await main.locator('#app-update button').click();
-  await main.waitForFunction(()=>globalThis.MATH_PWA_VERSION?.cacheVersion==='grade7-math-v36'&&document.querySelector('#start'));
+  assert.equal(await main.evaluate(()=>globalThis.MATH_PWA_VERSION.cacheVersion),fencing.cache);
+  await main.close();
+  await new Promise(resolve=>setTimeout(resolve,800));
+  main=await updateContext.newPage();track(main);await main.goto(origin+'/');
+  await main.waitForFunction(()=>globalThis.MATH_PWA_VERSION?.cacheVersion==='grade7-math-v37'&&document.querySelector('#start'));
   assert.deepEqual(await snapshot(main),beforeForward);
   await updateContext.setOffline(true);
   await main.reload();await main.locator('#start').waitFor();
-  assert.equal(await main.evaluate(()=>globalThis.MATH_PWA_VERSION.cacheVersion),'grade7-math-v36');
+  assert.equal(await main.evaluate(()=>globalThis.MATH_PWA_VERSION.cacheVersion),'grade7-math-v37');
   await updateContext.setOffline(false);
 
   // Advance through native submit/correction UI with an update in waiting.
@@ -397,8 +403,8 @@ try{
   await main.locator('#app-update[data-state="ready"]').waitFor();
   assert.ok((await snapshot(main)).answers.some(answer=>answer.correctionInputs?.includes('订正草稿')));
   await updateContext.close();
-  report.forwardUpdate={failedDownloadOldVersionUsable:true,multipleTabsNoForcedReload:true,draftAndTaskPreserved:true,explicitUpdate:true,offlineBoot:true,submittingAndCorrectingProtected:true};
+  report.forwardUpdate={failedDownloadOldVersionUsable:true,multipleTabsNoForcedReload:true,draftAndTaskPreserved:true,naturalActivationAfterClosingClients:true,offlineBoot:true,submittingAndCorrectingProtected:true};
   assert.deepEqual(errors,[],'不能存在JS运行时错误');report.pageErrors=errors;report.result='PASS';
   if(process.env.PWA_TEST_REPORT)fs.writeFileSync(process.env.PWA_TEST_REPORT,JSON.stringify(report,null,2)+'\n');
-  console.log('PWA browser release PASS: authentic v34 -> v35, protected input, unchanged learning data and scope, read-only preview, offline practice, and real carryover UI.');
+  console.log('PWA browser release PASS: authentic v34 -> v36, protected input, unchanged learning data and scope, read-only preview, offline practice, and real carryover UI.');
 }finally{if(browser)await browser.close();await new Promise(resolve=>server.close(resolve));}

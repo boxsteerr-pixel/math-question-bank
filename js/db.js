@@ -1,18 +1,89 @@
 import {applyQuestionBankFix,FIXED_QUESTION_IDS,QUESTION_BANK_FIX_VERSION} from './questionBankFix.js';
 /* IndexedDB migration contract: v1 created learning stores; v2 added questionHistory; v3 adds non-destructive migration checks. Normal releases must never delete, clear, or recreate this database. */
-const config=globalThis.MATH_PWA_VERSION||{dbVersion:3,questionBankVersion:'dev'};
+const config=globalThis.MATH_PWA_VERSION||{dbVersion:4,questionBankVersion:'dev'};
 const DB='grade7MathCheckin';export const DB_VERSION=config.dbVersion;
 export const KEY_PATHS={questions:'id',dailyTasks:'date',answers:'key',wrongQuestions:'questionId',knowledgeStats:'questionId',questionHistory:'questionId',checkins:'date',settings:'key'};
 const definitions=KEY_PATHS;
+const METADATA_STORE='learningMetadata', GENERATION_KEY='learningDataGeneration';
+export class StaleLearningDataError extends Error{
+  constructor(){super('学习数据已恢复或发生变化，请保存当前内容后重新打开页面。');this.name='StaleLearningDataError'}
+}
+let stale=false;
+function rejectStale(){
+  stale=true;
+  globalThis.dispatchEvent?.(new Event('learning-data-stale'));
+}
+function fencedDatabase(db,generation){
+  return new Proxy(db,{get(target,property){
+    if(property==='transaction')return (names,mode='readonly',options)=>{
+      if(stale&&mode==='readwrite')throw new StaleLearningDataError();
+      const stores=Array.isArray(names)?names:[names];
+      if(mode!=='readwrite')return target.transaction(names,mode,options);
+      const transaction=target.transaction([...new Set([...stores,METADATA_STORE])],mode,options);
+      const check=transaction.objectStore(METADATA_STORE).get(GENERATION_KEY);
+      check.onsuccess=()=>{
+        if(check.result?.value!==generation){transaction.abort();rejectStale()}
+      };
+      return transaction;
+    };
+    const item=Reflect.get(target,property,target);
+    return typeof item==='function'?item.bind(target):item;
+  }});
+}
 export const LEARNING_SESSION_LOCK='grade7-math-learning-session';
 export const LEARNING_STORES=['dailyTasks','answers','wrongQuestions','knowledgeStats','questionHistory','checkins','settings'];
 const CRITICAL_STORES=['dailyTasks','answers','wrongQuestions','knowledgeStats','questionHistory','checkins'];let instance;
 const value=request=>new Promise((resolve,reject)=>{request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error)});
 async function countStores(db,names){const existing=names.filter(name=>db.objectStoreNames.contains(name)),out={};if(!existing.length)return out;const transaction=db.transaction(existing,'readonly');await Promise.all(existing.map(async name=>{out[name]=await value(transaction.objectStore(name).count())}));return out}
 export function compareLearningCounts(before={},after={}){return Object.entries(before).filter(([name,count])=>count>0&&(after[name]??0)===0).map(([name])=>name)}
-async function writeSafetyRecord(db,record){const transaction=db.transaction('settings','readwrite');transaction.objectStore('settings').put({key:'migrationSafety',value:record});await new Promise((resolve,reject)=>{transaction.oncomplete=resolve;transaction.onerror=()=>reject(transaction.error)})}
-export function openDB(){if(instance)return instance;instance=new Promise((resolve,reject)=>{const request=indexedDB.open(DB,DB_VERSION);let beforeCounts=null,fromVersion=0;const fail=message=>{instance=null;reject(Error(message))};request.onupgradeneeded=event=>{fromVersion=event.oldVersion;const db=request.result,transaction=request.transaction;beforeCounts={};for(const name of CRITICAL_STORES)if(db.objectStoreNames.contains(name)){const count=transaction.objectStore(name).count();count.onsuccess=()=>{beforeCounts[name]=count.result}}for(const [name,keyPath] of Object.entries(definitions))if(!db.objectStoreNames.contains(name))db.createObjectStore(name,{keyPath});/* Future migrations may only add stores, indexes, or default fields. */};request.onblocked=()=>fail('数据库正在由旧版页面使用。请关闭其他练习页面后刷新。');request.onsuccess=async()=>{const db=request.result;db.onversionchange=()=>{db.close();instance=null};try{if(beforeCounts){const afterCounts=await countStores(db,CRITICAL_STORES),lost=compareLearningCounts(beforeCounts,afterCounts),record={ok:!lost.length,at:new Date().toISOString(),fromVersion,toVersion:DB_VERSION,beforeCounts,afterCounts,lostStores:lost};await writeSafetyRecord(db,record);if(lost.length){db.close();return fail(`数据库升级安全检查失败：${lost.join('、')} 数据异常，请勿继续操作。`)}}resolve(db)}catch(error){db.close();fail(`数据库升级安全检查失败：${error.message}`)}};request.onerror=()=>fail(request.error?.message||'无法打开学习数据')});return instance}
-async function tx(store,mode,fn){const db=await openDB();return new Promise((resolve,reject)=>{const transaction=db.transaction(store,mode),result=fn(transaction.objectStore(store));transaction.oncomplete=()=>resolve(result?.result);transaction.onerror=()=>reject(transaction.error)})}
+export function openDB(){
+  if(stale)return Promise.reject(new StaleLearningDataError());
+  if(instance)return instance;
+  instance=new Promise((resolve,reject)=>{
+    const request=indexedDB.open(DB,DB_VERSION);
+    let beforeCounts=null,abandoned=false;
+    const fail=message=>{abandoned=true;instance=null;reject(Error(message))};
+    request.onblocked=()=>fail('数据库正在由旧版页面使用。请关闭旧版页面后刷新。');
+    request.onupgradeneeded=event=>{
+      if(abandoned){request.transaction.abort();return}
+      const db=request.result,transaction=request.transaction;
+      beforeCounts={};
+      for(const name of CRITICAL_STORES)if(db.objectStoreNames.contains(name)){
+        const count=transaction.objectStore(name).count();
+        count.onsuccess=()=>{beforeCounts[name]=count.result};
+      }
+      for(const [name,keyPath] of Object.entries(definitions))if(!db.objectStoreNames.contains(name))db.createObjectStore(name,{keyPath});
+      if(!db.objectStoreNames.contains(METADATA_STORE))db.createObjectStore(METADATA_STORE,{keyPath:'key'}).add({key:GENERATION_KEY,value:0});
+    };
+    request.onsuccess=async()=>{
+      const db=request.result;
+      if(abandoned){db.close();return}
+      db.onversionchange=()=>{db.close();rejectStale()};
+      try{
+        if(beforeCounts){
+          const afterCounts=await countStores(db,CRITICAL_STORES),lost=compareLearningCounts(beforeCounts,afterCounts);
+          if(lost.length){db.close();fail('数据库升级安全检查失败：'+lost.join('、'));return}
+        }
+        const transaction=db.transaction(METADATA_STORE,'readonly');
+        const generation=await value(transaction.objectStore(METADATA_STORE).get(GENERATION_KEY));
+        if(!Number.isSafeInteger(generation?.value)||generation.value<0)throw Error('学习数据代际无效');
+        if(abandoned){db.close();return}
+        resolve(fencedDatabase(db,generation.value));
+      }catch(error){db.close();fail('数据库升级安全检查失败：'+error.message)}
+    };
+    request.onerror=()=>{if(!abandoned)fail(request.error?.message||'无法打开学习数据')};
+  });
+  return instance;
+}
+async function tx(store,mode,fn){
+  const db=await openDB();
+  return new Promise((resolve,reject)=>{
+    const transaction=db.transaction(store,mode),result=fn(transaction.objectStore(store));
+    transaction.oncomplete=()=>resolve(result?.result);
+    transaction.onerror=()=>reject(transaction.error||new StaleLearningDataError());
+    transaction.onabort=()=>reject(stale?new StaleLearningDataError():transaction.error||Error('学习数据事务中止'));
+  });
+}
 export const get=(store,key)=>tx(store,'readonly',objectStore=>objectStore.get(key));export const put=(store,item)=>tx(store,'readwrite',objectStore=>objectStore.put(item));export const all=store=>tx(store,'readonly',objectStore=>objectStore.getAll());export const setMany=(store,items)=>tx(store,'readwrite',objectStore=>{items.forEach(item=>objectStore.put(item))});
 export const setting=async(key,fallback)=>((await get('settings',key))?.value??fallback);export const saveSetting=(key,value)=>put('settings',{key,value});
 export const questionSignature=question=>JSON.stringify({question:question.question,answer:question.answer,answerType:question.answerType});
@@ -78,6 +149,12 @@ export function replaceStoresAtomically(db,snapshot,expectedOriginal){
       catch(error){failure=error;transaction.abort()}
     };
     const replace=()=>{
+      const metadata=transaction.objectStore(METADATA_STORE);
+      const generation=metadata.get(GENERATION_KEY);
+      generation.onsuccess=()=>attempt(()=>{
+        if(!Number.isSafeInteger(generation.result?.value)||generation.result.value>=Number.MAX_SAFE_INTEGER)throw Error('学习数据代际无效');
+        metadata.put({key:GENERATION_KEY,value:generation.result.value+1});
+      });
       for(const name of LEARNING_STORES){
         const store=transaction.objectStore(name);
         store.clear();

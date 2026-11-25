@@ -10,6 +10,18 @@ import {initPwaUpdates} from './updateManager.js';
 import {initialAttemptPolicy,currentFirstCorrect as firstAttemptState,summarizeFirstAttempts,nextAttemptCount} from './attemptPolicy.js';
 
 const app=document.querySelector('#app');let task,questions,date,workload,activeMathInput=null,lastMathSelection=0,timerId,actionBusy=false;
+globalThis.addEventListener?.('learning-data-stale',()=>{
+  if(document.querySelector('#learning-data-stale'))return;
+  const notice=document.createElement('section');
+  notice.id='learning-data-stale';
+  notice.setAttribute('role','alert');
+  notice.className='confirm-overlay';
+  notice.innerHTML='<div class="confirm-panel"><h2>学习数据已恢复或变更</h2><p>当前页面的旧内容不能再保存。请先复制需要保留的输入，再重新载入。</p><button type="button">重新载入</button></div>';
+  const inputs=[...document.querySelectorAll('[data-answer]')].map(input=>input.value).filter(Boolean);
+  if(inputs.length){const preserved=document.createElement('textarea');preserved.readOnly=true;preserved.value=inputs.join('\n');notice.firstElementChild.insertBefore(preserved,notice.querySelector('button'))}
+  notice.querySelector('button').onclick=()=>location.reload();
+  document.body.append(notice);
+});
 let homeDate=null,rolloverTimer=null,screen='loading',dirtyInput=false,operation='',refreshPwaUpdates;
 const updateBlockReason=()=>operation||(dirtyInput?'请先暂存正在输入的答案。':screen==='practice'?'请先返回任务首页。':screen==='correction'?'请先暂存并退出订正。':['home','recovery'].includes(screen)?'':'请先完成当前操作并返回首页。');
 function setScreen(value){screen=value;dirtyInput=false;refreshPwaUpdates?.()}

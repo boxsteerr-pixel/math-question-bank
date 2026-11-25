@@ -55,14 +55,9 @@ self.addEventListener('activate', event => {
 });
 
 async function applyUpdate(source, port) {
-  const pages = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
-  const inScope = pages.filter(page => page.url.startsWith(scope));
-  if (inScope.length !== 1 || inScope[0].id !== source.id) {
-    port.postMessage({ status: 'blocked' });
-    return;
-  }
-  await self.skipWaiting();
-  port.postMessage({ status: 'activating' });
+  // A new or suspended client can exist immediately after any enumeration.
+  // Leave activation to the browser after every old controlled client closes.
+  port.postMessage({ status: 'waiting' });
 }
 
 self.addEventListener('message', event => {

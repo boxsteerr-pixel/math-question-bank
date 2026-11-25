@@ -2,6 +2,14 @@ import {openDB,all,dataSafetyStatus,DB_VERSION,importQuestions} from './db.js';i
 import {KNOWLEDGE_POINTS} from './knowledgePoints.js';
 import {enabledPoints,inspectLearningScope,saveLearningScope} from './questionEngine.js';
 const app=document.querySelector('#app'),config=globalThis.MATH_PWA_VERSION||{appVersion:'dev',questionBankVersion:'dev'},points=KNOWLEDGE_POINTS,labels={insufficient_data:'样本不足',mastered:'已掌握',mostly_mastered:'基本掌握',weak:'需要加强',priority_weak:'重点加强'};
+globalThis.addEventListener('learning-data-stale',()=>{
+  protectUpdate('学习数据已发生变化，请重新载入。');
+  if(document.querySelector('#learning-data-stale'))return;
+  const notice=document.createElement('section');
+  notice.id='learning-data-stale';notice.className='confirm-overlay';notice.setAttribute('role','alert');
+  notice.innerHTML='<div class="confirm-panel"><h2>学习数据已恢复或变更</h2><p>当前页面不能继续保存旧数据，请重新载入。</p><button type="button">重新载入</button></div>';
+  notice.querySelector('button').onclick=()=>location.reload();document.body.append(notice);
+});
 let updateReason='正在读取家长模式数据。',refreshPwaUpdates;
 function protectUpdate(reason){updateReason=reason;refreshPwaUpdates?.()}
 const attempts=s=>(s.last20Attempts?.length?s.last20Attempts:(s.recentAttempts||[]).map(x=>typeof x==='boolean'?x:x.firstCorrect)).slice(-20),chart=s=>{const a=attempts(s),accuracy=Math.round(s.recentAccuracy||0);return `<div class="chart"><div class="chart-head"><span>最近正确率</span><b>${s.attempts?`${accuracy}%`:'—'}</b></div><div class="accuracy-track"><i style="width:${accuracy}%"></i></div><div class="chart-head small"><span>最近 ${a.length||0} 次首次作答</span><span>绿=正确 · 红=错误</span></div>${a.length?`<div class="attempt-dots">${a.map(v=>`<i class="${v?'correct':'wrong'}"></i>`).join('')}</div>`:'<div class="chart-empty">尚无作答数据</div>'}</div>`};
@@ -80,7 +88,7 @@ function renderPreview(meta,restore,label){
   confirm.onclick=async()=>{
     confirm.disabled=true;cancel.disabled=true;confirm.textContent='恢复中…';
     protectUpdate('正在恢复学习记录，请等待核验完成。');
-    try{await restore();alert('学习记录已恢复并核验。')}
+    try{await restore();alert('学习记录已恢复并核验，页面将重新载入。');location.reload();return}
     catch(error){alert(`恢复未能完成核验：${error.message}`)}
     await render();
   };

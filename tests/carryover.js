@@ -107,5 +107,5 @@ await app.namespace.home();app.namespace.initDailyRollover();app.namespace.initD
 for(const event of ['focus','pageshow','visibilitychange'])assert.equal(typeof listeners.get(event),'function');
 setDate('2026-10-24');context.document.hidden=true;await app.namespace.refreshHomeForNewDay();assert.match(elements.get('#app').innerHTML,/id="workload-remaining">10 题/);
 context.document.hidden=false;await app.namespace.refreshHomeForNewDay();assert.match(elements.get('#app').innerHTML,/id="workload-remaining">20 题/);
-assert.equal(DB_VERSION,3);assert.equal(QUESTION_BANK_FIX_VERSION,2);
+assert.equal(DB_VERSION,4);assert.equal(QUESTION_BANK_FIX_VERSION,2);
 console.log('Carryover PASS: 10/20/30, partial4=>16, unopened dates, frozen batches/answers/policies, no pre-activation arrears, repeat question keys, same-day stability, calendar/DST, real app resume/submission and one actual check-in day.');

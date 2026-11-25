@@ -19,7 +19,7 @@ assert.equal(protectedRecord.changed, false);
 assert.equal(protectedRecord.record.question, '1+1');
 assert.equal(mergeQuestionRecord({ ...old, id: 'Q0125' }, fixed).record.answer, '2x-5y', '仅已确认题目允许强制同步');
 assert.equal(warnings.length, 1);
-assert.equal(DB_VERSION, 3);
+assert.equal(DB_VERSION, 4);
 
 const source = fs.readFileSync(new URL('../service-worker.js', import.meta.url), 'utf8');
 const scope = 'https://example.invalid/math/';
@@ -48,6 +48,7 @@ const handlers = new Map();
 let windows = [];
 let claims = 0;
 let takeovers = 0;
+let enumerations = 0;
 let installError;
 const worker = {
   registration: { scope },
@@ -55,6 +56,7 @@ const worker = {
   clients: {
     claim: async () => { claims++; },
     matchAll: async options => {
+      enumerations++;
       assert.equal(options.includeUncontrolled, true);
       return windows;
     }
@@ -123,12 +125,17 @@ assert.equal(metadata.replies[0].appVersion, configured.appVersion);
 const apply = { data: { type: 'APPLY_SAFE_UPDATE' }, source: ready };
 windows = [ready, practice, unrelated];
 const rejected = await dispatch('message', apply);
-assert.equal(rejected.replies[0].status, 'blocked');
+assert.equal(rejected.replies[0].status, 'waiting');
 assert.equal(takeovers, 0, 'A second tab can still contain unsubmitted input');
 windows = [ready, unrelated];
 const accepted = await dispatch('message', apply);
-assert.equal(accepted.replies[0].status, 'activating');
-assert.equal(takeovers, 1);
+assert.equal(accepted.replies[0].status, 'waiting');
+assert.equal(takeovers, 0, 'A new page can open after enumeration; never force activation');
+assert.equal(enumerations, 0, 'No client-list snapshot can prove that takeover is safe');
+windows = [ready, practice, unrelated];
+const lateClient = await dispatch('message', apply);
+assert.equal(lateClient.replies[0].status, 'waiting');
+assert.equal(takeovers, 0, 'A client appearing during update never triggers forced takeover');
 
 await dispatch('activate');
 assert.equal(claims, 0, 'First install and natural migration cannot take over open pages');

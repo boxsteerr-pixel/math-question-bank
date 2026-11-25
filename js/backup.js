@@ -1,4 +1,4 @@
-import {all,saveSetting,LEARNING_STORES,KEY_PATHS,readLearningData,restoreLearningData,equalBackupValue,LEARNING_SESSION_LOCK} from './db.js';
+import {all,saveSetting,LEARNING_STORES,KEY_PATHS,readLearningData,restoreLearningData,equalBackupValue} from './db.js';
 
 export const BACKUP_VERSION=1;
 const SNAPSHOT_DB='grade7MathCheckinRestoreSnapshots',SNAPSHOT_STORE='snapshots';
@@ -181,16 +181,8 @@ export async function readRestoreSnapshot(){
 }
 
 async function restoreWithSnapshot(stores){
-  const restore=async()=>{
-    const original=await saveRestoreSnapshot(backupFile(await readLearningData()));
-    await restoreLearningData(stores,original.stores);
-  };
-  const locks=globalThis.navigator?.locks;
-  if(!locks)return restore();
-  return locks.request(LEARNING_SESSION_LOCK,{ifAvailable:true},lock=>{
-    if(!lock)throw Error('请先保存并关闭其他数学打卡练习页，再重试恢复。');
-    return restore();
-  });
+  const original=await saveRestoreSnapshot(backupFile(await readLearningData()));
+  await restoreLearningData(stores,original.stores);
 }
 
 async function verifyQuestionReferences(stores){

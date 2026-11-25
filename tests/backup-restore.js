@@ -1,8 +1,16 @@
 import assert from 'node:assert/strict';
-import * as backup from '../js/backup.js';
+import {readFileSync} from 'node:fs';
 import {KEY_PATHS,LEARNING_STORES,replaceStoresAtomically} from '../js/db.js';
 
 const clone=structuredClone;
+let moduleCounter=0;
+let backup;
+async function freshBackup(){
+  const dbUrl=new URL('../js/db.js',import.meta.url);
+  dbUrl.search='?backupTest='+(++moduleCounter);
+  const source=readFileSync(new URL('../js/backup.js',import.meta.url),'utf8').replace("'./db.js'",JSON.stringify(dbUrl.href));
+  return import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));
+}
 const dateFor=index=>new Date(Date.UTC(2026,0,index+1)).toISOString().slice(0,10);
 const questionFor=index=>'Q'+String(index+1).padStart(4,'0');
 function file(answerCount=10,prefix='incoming'){
@@ -31,7 +39,8 @@ const changed=(store,change)=>{
 class MemoryDb{
   constructor(data={},keys=KEY_PATHS){
     this.data=clone(data);
-    this.keys={...keys};
+    this.metadata=[{key:'learningDataGeneration',value:0}];
+    this.keys={...keys,learningMetadata:'key'};
     this.objectStoreNames={contains:name=>Object.hasOwn(this.data,name)};
     this.nextKey=1;
     this.calls=[];
@@ -43,6 +52,7 @@ class MemoryDb{
   close(){}
   transaction(names,mode){
     const db=this,staged=clone(db.data),requests=[];
+    staged.learningMetadata=clone(db.metadata);
     let aborted=false,completed=false;
     db.calls.push({names,mode});
     const enqueue=run=>{
@@ -99,7 +109,11 @@ class MemoryDb{
         if(!aborted)transaction.abort();
       }
       if(aborted)return;
-      if(mode==='readwrite')db.data=staged;
+      if(mode==='readwrite'){
+        db.metadata=staged.learningMetadata;
+        delete staged.learningMetadata;
+        db.data=staged;
+      }
       db.beforeComplete?.(names,mode);
       completed=true;
       transaction.oncomplete?.();
@@ -124,6 +138,17 @@ globalThis.indexedDB={open(name){
 const expectUnchanged=(actual,before)=>assert.deepEqual(actual,before,'所有学习 store 的完整内容必须保持一致');
 
 const tests=[
+  ['restore uses database isolation even when Web Locks is present',async()=>{
+    const descriptor=Object.getOwnPropertyDescriptor(globalThis,'navigator');
+    Object.defineProperty(globalThis,'navigator',{configurable:true,value:{locks:{request(){throw Error('Web Locks must not gate database fencing')}}}});
+    try{
+      await backup.importBackup(good);
+      expectUnchanged(db.data,good.stores);
+    }finally{
+      if(descriptor)Object.defineProperty(globalThis,'navigator',descriptor);
+      else delete globalThis.navigator;
+    }
+  }],
   ['export includes a consistent full snapshot and backup timestamp',async()=>{
     const result=await backup.exportBackup();
     assert.equal(backup.validateBackup(result).stats.answers,1000);
@@ -162,10 +187,12 @@ const tests=[
     target.failStore='wrongQuestions';
     await assert.rejects(()=>replaceStoresAtomically(target,good.stores),/simulated wrongQuestions failure/);
     expectUnchanged(target.data,before);
+    assert.equal(target.metadata[0].value,0,'failed transaction must roll back generation');
     target.failStore=null;
     target.abortStore='wrongQuestions';
     await assert.rejects(()=>replaceStoresAtomically(target,good.stores),/中止/);
     expectUnchanged(target.data,before);
+    assert.equal(target.metadata[0].value,0,'aborted transaction must roll back generation');
   }],
   ['equal-count altered writes are rejected before commit',async()=>{
     const target=new MemoryDb(current.stores),before=clone(target.data);
@@ -212,12 +239,20 @@ const tests=[
   }],
   ['successful import replaces all stores and local snapshot really rolls back',async()=>{
     const before=clone(db.data);
+    const oldDbUrl=new URL('../js/db.js',import.meta.url);
+    oldDbUrl.search='?backupTest='+moduleCounter;
+    const oldDb=await import(oldDbUrl.href);
     assert.equal((await backup.importBackup(good)).stats.answers,800);
+    expectUnchanged(db.data,good.stores);
+    assert.equal(db.metadata[0].value,1);
+    await assert.rejects(()=>oldDb.put('settings',{key:'lateWrite',value:true}),/变化|中止/);
     expectUnchanged(db.data,good.stores);
     const rollback=await backup.readRestoreSnapshot();
     expectUnchanged(rollback.stores,before);
+    backup=await freshBackup();
     await backup.rollbackRestoreSnapshot(rollback);
     expectUnchanged(db.data,before);
+    assert.equal(db.metadata[0].value,2,'rollback is another monotonic generation');
     expectUnchanged((await backup.readRestoreSnapshot()).stores,good.stores);
   }],
   ['legacy backup without modern metadata or optional fields still imports',async()=>{
@@ -233,7 +268,7 @@ const tests=[
 ];
 let failures=0;
 for(const [name,test] of tests){
-  try{db.data=clone(current.stores);db.officialQuestions=clone(formalQuestions);await test();console.log('PASS '+name)}
+  try{db.data=clone(current.stores);db.metadata=[{key:'learningDataGeneration',value:0}];db.officialQuestions=clone(formalQuestions);backup=await freshBackup();await test();console.log('PASS '+name)}
   catch(error){failures++;console.error('FAIL '+name);console.error(error)}
 }
 process.exitCode=Number(failures>0);
