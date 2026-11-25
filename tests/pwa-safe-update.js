@@ -69,8 +69,14 @@ vm.runInNewContext(source, {
   URL,
   Request,
   Response,
+  Headers, Blob,
   importScripts: () => { worker.MATH_PWA_VERSION = configured; },
-  fetch: async () => assert.fail('Known release assets cannot fall through to the live server'),
+  console,
+  fetch: async request => {
+    if (installError) throw installError;
+    assert.equal(request.cache, 'reload');
+    return {ok:true,type:'basic',url:request.url,redirected:false,status:200,statusText:'OK',headers:new Headers({'content-type':request.url.endsWith('/')||request.url.endsWith('.html')?'text/html':'application/octet-stream'}),blob:async()=>new Blob([request.url.endsWith('/parent.html')?'./js/parentDashboard.js':request.url.endsWith('/question-preview.html')?'./js/questionPreview.js':'./js/app.js'])};
+  },
   caches: {
     open: async name => {
       if (!entries.has(name)) entries.set(name, new Map());
@@ -84,7 +90,7 @@ vm.runInNewContext(source, {
           });
         },
         match: async request => cache.get(request),
-        put: async (request, response) => cache.set(request, response),
+        put: async (request, response) => cache.set(request, String(request).includes('/.pwa-client/') ? response : {release:name}),
         delete: async request => cache.delete(request)
       };
     },

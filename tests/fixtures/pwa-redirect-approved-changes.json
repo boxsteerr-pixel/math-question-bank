@@ -1,0 +1,17 @@
+{
+  "baselineRef": "e3612983ad66095f6e5b42dfc726860a09299836",
+  "previousCache": "grade7-math-v36",
+  "cache": "grade7-math-v37",
+  "appVersion": "0.5.3",
+  "dbVersion": 4,
+  "files": {
+    "js/version.js": {
+      "before": "928aab27c07e90dd3821b567fb3f4d562a96cb797f34a13fa2b7b97d6ec94be8",
+      "after": "5bbdaf0da40fb9db3893620929c9c45f5aebdfee4dda7606347a17176534583c"
+    },
+    "service-worker.js": {
+      "before": "019ac3980ea9756b6fba31228bf6bf3279f5dd81f311d6a5f9b926cc666b7899",
+      "after": "84d61bfbb0035829437d0ce93909e5d2628108e9f884800ab984bebca415c690"
+    }
+  }
+}

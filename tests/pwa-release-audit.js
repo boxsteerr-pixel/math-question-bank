@@ -12,6 +12,7 @@ const learningApproval=JSON.parse(read('tests/fixtures/learning-range-approved-c
 const displayApproval=JSON.parse(read('tests/fixtures/pwa-preview-title-287.json'));
 const safety=JSON.parse(read('tests/fixtures/pwa-stability-approved-changes.json'));
 const fencing=JSON.parse(read('tests/fixtures/pwa-fencing-approved-changes.json'));
+const redirect=JSON.parse(read('tests/fixtures/pwa-redirect-approved-changes.json'));
 const digest=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 const archived={...baseline.frozenFiles};
 for(const [file,approval] of Object.entries(learningApproval.files)){
@@ -30,19 +31,24 @@ for(const [file,approval] of Object.entries(fencing.files)){
   assert.equal(digest(previous),approval.before,'数据隔离修复必须基于已审核的候选提交 '+file);
   if(previousRelease[file])assert.equal(approval.before,previousRelease[file],'候选审批链必须连续 '+file);
 }
-for(const [file,hash] of Object.entries({...previousRelease,...Object.fromEntries(Object.entries(fencing.files).map(([name,value])=>[name,value.after]))})){
+const fencedRelease={...previousRelease,...Object.fromEntries(Object.entries(fencing.files).map(([name,value])=>[name,value.after]))};
+for(const [file,approval] of Object.entries(redirect.files)){
+  assert.equal(digest(execFileSync('git',['show',`${redirect.baselineRef}:${file}`],{cwd:root})),approval.before);
+  assert.equal(fencedRelease[file],approval.before);
+}
+for(const [file,hash] of Object.entries({...fencedRelease,...Object.fromEntries(Object.entries(redirect.files).map(([name,value])=>[name,value.after]))})){
   assert.equal(digest(fs.readFileSync(path.join(root,file))),hash,'生产文件必须匹配获准哈希 '+file);
 }
 assert.match(read('question-preview.html'),/id="preview-title">题库显示预览（加载中…）/);
 assert.doesNotMatch(read('question-preview.html'),/(162|179|199|287)\s*题/);
 assert.match(read('js/questionPreview.js'),/querySelector\('#preview-title'\)\.textContent=`\$\{bank\.length\} 题显示预览`/);
 const config=globalThis.MATH_PWA_VERSION;
-assert.equal(config.cacheVersion,fencing.cache);
+assert.equal(config.cacheVersion,redirect.cache);
 assert.equal(config.appVersion,fencing.appVersion);
 assert.equal(config.dbVersion,fencing.dbVersion);
 assert.equal(baseline.dbVersion,3,'旧版数据库版本必须保持已验证的基线');
 assert.equal(config.questionBankVersion,baseline.expectedQuestionBankVersion);
-assert.equal(Number(config.cacheVersion.split('-v')[1]),Number(fencing.previousCache.split('-v')[1])+1);
+assert.equal(Number(config.cacheVersion.split('-v')[1]),Number(redirect.previousCache.split('-v')[1])+1);
 const scope='https://example.test/math/',worker=read('service-worker.js');
 const self={MATH_PWA_VERSION:config,registration:{scope},addEventListener(){}};
 const context={self,URL,importScripts:p=>assert.equal(p,'./js/version.js')};
@@ -80,4 +86,4 @@ const bank=JSON.parse(read('data/questions.json'));
 assert.equal(digest(fs.readFileSync(path.join(root,'data/questions.json'))),baseline.expectedFormalSha256);
 assert.equal(bank.length,baseline.expectedCount);
 assert.equal(bank.filter(q=>q.answerConstraint==='fully_factored').length,baseline.expectedFullyFactored);
-console.log(`PWA release static PASS: v34 -> v36; ${releaseAssets.length} static entries; ${graph.size} dependency-graph nodes cached; preview read-only and bank bytes unchanged.`);
+console.log(`PWA release static PASS: v34 -> v37; ${releaseAssets.length} static entries; ${graph.size} dependency-graph nodes cached; preview read-only and bank bytes unchanged.`);

@@ -35,11 +35,39 @@ async function precedingCache() {
 }
 
 self.addEventListener('install', event => {
-  // Cache.addAll commits the shell as a unit. A failed download leaves the active
-  // worker and its complete offline shell in place.
-  event.waitUntil(caches.open(CACHE).then(cache => {
-    return cache.addAll(assets.map(url => new Request(url, { cache: 'reload' })));
-  }));
+  event.waitUntil((async () => {
+    const prepared = [];
+    for (const url of assets) {
+      const response = await fetch(new Request(url, { cache: 'reload' }));
+      const requested = new URL(url), final = new URL(response.url || url);
+      const html = requested.pathname.endsWith('.html') || requested.pathname.endsWith('/');
+      const canonical = requested.pathname.endsWith('.html')
+        ? requested.pathname.slice(0, -5) : requested.pathname;
+      const expectedPath = final.pathname === requested.pathname || (html && final.pathname === canonical);
+      const type = response.headers.get('content-type') || '';
+      if (!response.ok || response.type !== 'basic' || final.origin !== requested.origin ||
+          !expectedPath || (html && !/^text\/html(?:\s*;|$)/i.test(type)) ||
+          (!html && response.redirected)) {
+        throw Error('无法安全缓存资源：' + requested.pathname);
+      }
+      const body = await response.blob();
+      if (html) {
+        const script = requested.pathname.endsWith('/parent.html') ? './js/parentDashboard.js'
+          : requested.pathname.endsWith('/question-preview.html') ? './js/questionPreview.js' : './js/app.js';
+        if (!(await body.text()).includes(script)) throw Error('页面内容不匹配：' + requested.pathname);
+      }
+      // Reconstruct followed HTML responses so navigation can use redirect:manual.
+      const headers = new Headers(response.headers);
+      headers.delete('content-encoding');
+      headers.delete('content-length');
+      const safe = new Response(body, {
+        status: response.status, statusText: response.statusText, headers
+      });
+      prepared.push([url, safe]);
+    }
+    const cache = await caches.open(CACHE);
+    await Promise.all(prepared.map(([url, response]) => cache.put(url, response)));
+  })().catch(error => { console.error('离线资源缓存失败', error); throw error; }));
 });
 
 self.addEventListener('activate', event => {
@@ -82,7 +110,10 @@ async function serveStatic(event, url) {
     if (event.resultingClientId) {
       await ownCache.put(clientPin(event.resultingClientId), new Response(''));
     }
-    return await ownCache.match(url) ?? new Response('', { status: 503 });
+    const response = await ownCache.match(url);
+    // Older caches may contain followed redirects, which are invalid for navigation.
+    if (response?.redirected) return new Response(await response.blob(), {status: response.status, statusText: response.statusText, headers: response.headers});
+    return response ?? new Response('', { status: 503 });
   }
   if (event.clientId && !await ownCache.match(clientPin(event.clientId))) {
     const previous = await precedingCache();
