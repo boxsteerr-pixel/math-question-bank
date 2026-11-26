@@ -60,7 +60,7 @@ assert.deepEqual(JSON.parse(output.split(/\r?\n/)[0]),{candidates:68,independent
 const stats=KNOWLEDGE_POINTS.map(knowledgePoint=>({knowledgePoint,attempts:10,firstCorrect:6,recentAccuracy:60,consecutiveWrong:1,historicalWrong:4,last20Attempts:[true,false,true,false,true]}));
 const due=additions.slice(0,2).map(q=>afterWrong({questionId:q.id},'2026-10-18'));
 const task=buildAdaptiveTask({date:'2026-10-19',questions:bank,enabled:KNOWLEDGE_POINTS,stats,checkins:Array.from({length:5},(_,i)=>({date:`2026-10-0${i+1}`})),wrongQuestions:due});
-assert.equal(task.questionIds.length,10);assert.deepEqual(['weakness','review','wrong_review'].map(type=>task.items.filter(i=>i.sourceType===type).length),[5,3,2]);
+assert.equal(task.questionIds.length,10);assert.deepEqual(['weakness','review','wrong_review'].map(type=>task.items.filter(i=>i.sourceType===type).length),[4,4,2]);
 assert.deepEqual(task.items.filter(i=>i.sourceType==='wrong_review').map(i=>i.questionId),due.map(r=>r.questionId));
 for(const q of additions){
   let w=afterWrong({questionId:q.id},'2026-10-18');assert.equal(w.nextReviewDate,'2026-10-19');

@@ -19,7 +19,7 @@ const read=p=>fs.readFileSync(path.join(root,p));
 const baseline=JSON.parse(read('tests/fixtures/pwa-release-368-baseline.json'));
 // Pin the actual v34 release; the candidate is always read from the worktree.
 const safety=JSON.parse(read('tests/fixtures/pwa-stability-approved-changes.json'));
-const redirect=JSON.parse(read('tests/fixtures/pwa-redirect-approved-changes.json'));
+const redirect=JSON.parse(read('tests/fixtures/pwa-v054-approved-changes.json'));
 const fencing=JSON.parse(read('tests/fixtures/pwa-fencing-approved-changes.json'));
 const legacyRef=safety.baselineRef,bankCount=baseline.expectedCount;
 const tracked=new Set(execFileSync('git',['ls-tree','-r','--name-only',legacyRef],{cwd:root,encoding:'utf8'}).split(/\r?\n/));
@@ -37,7 +37,7 @@ const server=http.createServer((req,res)=>{
   let content=stage==='old'?oldFiles.get(name):fs.existsSync(file)&&fs.statSync(file).isFile()?fs.readFileSync(file):null;
   if(stage==='broken'&&name==='js/app.js'){res.writeHead(503);res.end('simulated release download failure');return;}
   if(['broken','forward','correction'].includes(stage)&&name==='js/version.js'){
-    const next=stage==='correction'?['0.5.5','grade7-math-v39']:['0.5.4','grade7-math-v38'];
+    const next=stage==='correction'?['0.5.6','grade7-math-v40']:['0.5.5','grade7-math-v39'];
     content=String(content).replace(redirect.appVersion,next[0]).replace(redirect.cache,next[1]);
   }
   if(!content){res.writeHead(404);res.end('not found');return;}
@@ -217,13 +217,13 @@ try{
     const oldPoints=KNOWLEDGE_POINTS.filter(p=>!newPoints.includes(p)),mature=knowledgePoint=>({knowledgePoint,attempts:10,firstCorrect:7,last20Attempts:[false,false,false,true,true,true,true,true,true,true],recentAccuracy:70,consecutiveWrong:0,historicalWrong:3});
     const zero=newPoints.map(knowledgePoint=>({knowledgePoint,attempts:0}));if(zero.some(s=>weaknessScore(s)!==0))throw Error('0样本被视为薄弱');
     const base={date:'2026-10-20',questions,enabled:KNOWLEDGE_POINTS,stats:[...oldPoints.map(mature),...zero],checkins:Array.from({length:5},(_,i)=>({date:`2026-10-0${i+1}`})),wrongQuestions:['Q0001','Q0002'].map(questionId=>afterWrong({questionId},'2026-10-19'))};
-    const task=engine.buildAdaptiveTask(base),exposure=task.items.filter(i=>i.selectionReason==='unseen_knowledge_exposure');
-    if(task.items.length!==10||exposure.length!==1||exposure[0].sourceType!=='review'||task.items.some(i=>i.sourceType==='weakness'&&newPoints.includes(i.targetKnowledgePoint))||task.items.filter(i=>i.sourceType==='wrong_review').length!==2)throw Error('真实题库零样本回归');
+    const task=engine.buildAdaptiveTask(base),exposure=task.items.filter(i=>i.selectionReason==='unseen_question_coverage');
+    if(task.items.length!==10||exposure.length!==2||exposure.some(i=>i.sourceType!=='review')||task.items.some(i=>i.sourceType==='weakness'&&newPoints.includes(i.targetKnowledgePoint))||task.items.filter(i=>i.sourceType==='wrong_review').length!==2)throw Error('真实题库零样本回归');
     const narrow=engine.buildAdaptiveTask({...base,enabled:['相反数',...newPoints],stats:[mature('相反数'),...zero]});
     if(narrow.items.length!==10||narrow.items.filter(i=>i.sourceType==='weakness').length!==4||narrow.items.filter(i=>i.sourceType==='review').length!==4)throw Error('weakness不足时补位错误');
     const point=exposure[0].targetKnowledgePoint,next=engine.buildAdaptiveTask({...base,stats:[...base.stats.filter(s=>s.knowledgePoint!==point),{knowledgePoint:point,attempts:1,firstCorrect:1,last20Attempts:[true],recentAccuracy:100}]});
-    if(next.items.some(i=>i.selectionReason==='unseen_knowledge_exposure'&&i.targetKnowledgePoint===point))throw Error('首样本后未退出unseen');
-    return {realQuestions:questions.length,weaknessEligible:false,maxOneExposure:true,learnedReviewFallback:true,firstSampleExits:true,wrongReviewPreserved:true};
+    if(next.items.some(i=>i.selectionReason==='unseen_question_coverage'&&i.targetKnowledgePoint===point))throw Error('零样本应优先于已有样本');
+    return {realQuestions:questions.length,weaknessEligible:false,twoNewQuestions:true,learnedReviewFallback:true,zeroSamplePriority:true,wrongReviewPreserved:true};
   });
   const history=await snapshot(page);
   assert.deepEqual(history.answers.find(r=>r.key===before.answers[0].key),before.answers[0],'历史attempt不重判');
@@ -375,11 +375,11 @@ try{
   await main.close();
   await new Promise(resolve=>setTimeout(resolve,800));
   main=await updateContext.newPage();track(main);await main.goto(origin+'/');
-  await main.waitForFunction(()=>globalThis.MATH_PWA_VERSION?.cacheVersion==='grade7-math-v38'&&document.querySelector('#start'));
+  await main.waitForFunction(()=>globalThis.MATH_PWA_VERSION?.cacheVersion==='grade7-math-v39'&&document.querySelector('#start'));
   assert.deepEqual(await snapshot(main),beforeForward);
   await updateContext.setOffline(true);
   await main.reload();await main.locator('#start').waitFor();
-  assert.equal(await main.evaluate(()=>globalThis.MATH_PWA_VERSION.cacheVersion),'grade7-math-v38');
+  assert.equal(await main.evaluate(()=>globalThis.MATH_PWA_VERSION.cacheVersion),'grade7-math-v39');
   await updateContext.setOffline(false);
 
   // Advance through native submit/correction UI with an update in waiting.
@@ -407,5 +407,5 @@ try{
   report.forwardUpdate={failedDownloadOldVersionUsable:true,multipleTabsNoForcedReload:true,draftAndTaskPreserved:true,naturalActivationAfterClosingClients:true,offlineBoot:true,submittingAndCorrectingProtected:true};
   assert.deepEqual(errors,[],'不能存在JS运行时错误');report.pageErrors=errors;report.result='PASS';
   if(process.env.PWA_TEST_REPORT)fs.writeFileSync(process.env.PWA_TEST_REPORT,JSON.stringify(report,null,2)+'\n');
-  console.log('PWA browser release PASS: authentic v34 -> v37, protected input, unchanged learning data and scope, read-only preview, offline practice, and real carryover UI.');
+  console.log('PWA browser release PASS: authentic v34 -> v38, protected input, unchanged learning data and scope, read-only preview, offline practice, and real carryover UI.');
 }finally{if(browser)await browser.close();await new Promise(resolve=>server.close(resolve));}

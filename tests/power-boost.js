@@ -17,7 +17,7 @@ let selected=task();
 assert.equal(selected.questionIds.length,10);
 assert.equal(boostItems(selected).length,3,'无错题回炉时应安排 3 道主动幂强化题');
 assert.equal(boostItems(selected).filter(item=>highIds.has(item.questionId)).length,2,'三道主动强化题中应优先安排两道高优先级综合题');
-assert.equal(selected.items.filter(item=>item.sourceType==='weakness').length,5,'强化不得改变 5 道弱项位');
+assert.equal(selected.items.filter(item=>item.sourceType==='weakness').length,4,'强化不得改变 4 道弱项位');
 
 selected=buildAdaptiveTask({date:'2026-10-10',questions:bank,enabled:points,checkins:[],stats,wrongQuestions:[],history:[],answers:[],powerBoost:true});
 assert.equal(boostItems(selected).length,3,'强化启用后的首个诊断打卡日也应安排 3 道强化题');
@@ -36,7 +36,7 @@ assert.equal(boostItems(selected).length,0,'已有至少 3 道到期幂运算错
 
 selected=task({wrongQuestions:[wrong('Q0001'),wrong('Q0002')]});
 assert.deepEqual(selected.items.filter(item=>item.sourceType==='wrong_review').map(item=>item.questionId),['Q0001','Q0002'],'其他知识点错题回炉不得被幂强化挤掉');
-assert.equal(boostItems(selected).length,3);
+assert.equal(boostItems(selected).length,2,'应为到期错题及两道新题保留位置');
 
 selected=task({history:[{questionId:'Q0183',shownCount:1,lastShownDate:'2026-10-09'}]});
 assert.equal(boostItems(selected).some(item=>item.questionId==='Q0183'),false,'昨天刚主动强化的题不得再次优先出现');

@@ -1,6 +1,23 @@
 const retryMessage = '暂时无法完成更新，仍可继续使用当前版本。可以稍后重试。';
 const messageTimeout = 5000;
 
+// Show success only when a previous installed shell is actually present.
+export async function showUpdateSuccess(){
+  try{
+    const version=globalThis.MATH_PWA_VERSION?.appVersion,key='grade7-math-update-notice-'+version;
+    if(!version||localStorage.getItem(key)||!navigator.serviceWorker?.controller||document.querySelector('#app-update-success'))return;
+    const cachesPresent=await caches.keys();
+    if(!cachesPresent.includes('grade7-math-v37')||!cachesPresent.includes(globalThis.MATH_PWA_VERSION.cacheVersion))return;
+    const prior=await caches.open('grade7-math-v37');
+    if(!await prior.match(new URL('./index.html',location.href).href))return;
+    const release=await askWorker(navigator.serviceWorker.controller,'GET_RELEASE');
+    if(release?.appVersion!==version)return;
+    const section=document.createElement('section');section.id='app-update-success';section.className='update-banner';section.setAttribute('role','status');
+    section.innerHTML=`<span>更新成功 · 当前版本 v${version}。学习数据读取正常。新增题库覆盖统计与未刷题目查询，优化每日练习和更新反馈。</span><button type="button">知道了</button>`;
+    section.querySelector('button').onclick=()=>{localStorage.setItem(key,'dismissed');section.remove()};document.body.append(section);
+  }catch(error){console.warn('更新提示暂不可用',error)}
+}
+
 function askWorker(worker, type) {
   return new Promise((resolve, reject) => {
     const channel = new MessageChannel();
@@ -34,10 +51,12 @@ export function initPwaUpdates({ getBlockReason = () => '' } = {}) {
   let banner;
   let reloading = false;
   let unlockPage;
+  let checking = Boolean(firstController);
+  let preparing = false;
 
   function refresh() {
     const update = pendingReload || candidate;
-    if (!update && !approval) {
+    if (!update && !approval && !checking && !preparing && !notice) {
       banner?.remove();
       banner = undefined;
       return;
@@ -56,11 +75,12 @@ export function initPwaUpdates({ getBlockReason = () => '' } = {}) {
     }
     const reason = getBlockReason();
     const version = update?.version ? ' v' + update.version : '';
-    banner.firstElementChild.textContent = ['发现新版本' + version, reason, notice].filter(Boolean).join('。');
+    const headline = pendingReload ? '新版已接管，准备重新载入' : candidate ? '发现新版本' + version + '，新版资源已准备完成' : preparing ? '正在准备新版资源' : checking ? '正在检查更新' : '';
+    banner.firstElementChild.textContent = [headline, reason, notice].filter(Boolean).join('。');
     const button = banner.lastElementChild;
-    button.disabled = Boolean(approval || reason || reloading);
-    button.textContent = approval ? '正在更新…' : '立即更新';
-    banner.dataset.state = approval ? 'applying' : reason ? 'waiting' : 'ready';
+    button.disabled = Boolean(approval || reason || reloading || checking || preparing);
+    button.textContent = approval ? '正在更新…' : !update ? '重试' : '立即更新';
+    banner.dataset.state = approval ? 'applying' : reason ? 'waiting' : preparing ? 'preparing' : checking ? 'checking' : !update ? 'retry' : 'ready';
   }
 
   function finishApproval(message = '') {
@@ -75,11 +95,18 @@ export function initPwaUpdates({ getBlockReason = () => '' } = {}) {
   function reloadWhenSafe() {
     if (reloading || getBlockReason()) return false;
     reloading = true;
+    notice = '正在重新载入';
+    refresh();
     location.reload();
     return true;
   }
 
   async function apply() {
+    if (!candidate && !pendingReload && registration && !approval && !getBlockReason()) {
+      notice='';checking=true;refresh();
+      try { await registration.update(); } catch { notice=retryMessage; }
+      checking=false;refresh();return;
+    }
     if ((!candidate && !pendingReload) || approval || reloading || getBlockReason()) return;
     if (pendingReload) {
       reloadWhenSafe();
@@ -137,7 +164,14 @@ export function initPwaUpdates({ getBlockReason = () => '' } = {}) {
   }
 
   function watchInstalling() {
-    registration.installing?.addEventListener('statechange', showWaiting);
+    const worker=registration.installing;
+    preparing=Boolean(firstController && worker && !['installed','activated','redundant'].includes(worker.state));
+    worker?.addEventListener('statechange',()=>{
+      preparing=Boolean(firstController && !['installed','activated','redundant'].includes(worker.state));
+      if(worker.state==='redundant'&&!registration.waiting)notice=retryMessage;
+      refresh();showWaiting();
+    });
+    refresh();
     showWaiting();
   }
 
@@ -163,8 +197,10 @@ export function initPwaUpdates({ getBlockReason = () => '' } = {}) {
     });
   }
 
-  workers.register('./service-worker.js', { updateViaCache: 'none' }).then(attach).catch(async error => {
+  refresh();
+  workers.register('./service-worker.js', { updateViaCache: 'none' }).then(found=>{checking=false;attach(found);refresh()}).catch(async error => {
     console.warn('离线更新检查失败，继续使用当前版本。', error);
+    checking=false;notice=retryMessage;refresh();
     try {
       attach(await workers.getRegistration());
     } catch {

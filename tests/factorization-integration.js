@@ -33,21 +33,21 @@ const oldPoints=[...new Set(bank.slice(0,162).map(question=>question.knowledgePo
 const matureStats=[...oldPoints.map(knowledgePoint=>({knowledgePoint,attempts:10,firstCorrect:9,last20Attempts:Array(10).fill(true),recentAccuracy:90,consecutiveWrong:0,historicalWrong:1})),...stats];
 const checkins=Array.from({length:5},(_,index)=>({date:`2026-09-${String(index+1).padStart(2,'0')}`}));
 const matureTask=buildAdaptiveTask({date:'2026-10-01',questions:bank,enabled:[...oldPoints,...points],checkins,stats:matureStats,wrongQuestions:[],history:[]});
-const exposures=matureTask.items.filter(item=>item.selectionReason==='unseen_knowledge_exposure');
-assert.equal(exposures.length,1,'有零样本知识点时，每日最多曝光 1 题');
-assert.equal(exposures[0].sourceType,'review');
-assert.ok(points.includes(exposures[0].targetKnowledgePoint));
+const exposures=matureTask.items.filter(item=>item.selectionReason==='unseen_question_coverage');
+assert.equal(exposures.length,2,'存在足够未刷题时应保障两道覆盖题');
+assert.ok(exposures.every(item=>item.sourceType==='review'));
+assert.ok(exposures.every(item=>points.includes(item.targetKnowledgePoint)));
 assert.equal(matureTask.items.filter(item=>item.sourceType==='weakness'&&points.includes(item.targetKnowledgePoint)).length,0,'零样本知识点不得被判为 weakness');
 
 const sampledStats=[...oldPoints.map(knowledgePoint=>({knowledgePoint,attempts:10,firstCorrect:9,last20Attempts:Array(10).fill(true),recentAccuracy:90,consecutiveWrong:0,historicalWrong:1})),...points.map((knowledgePoint,index)=>({knowledgePoint,attempts:index===0?1:0,firstCorrect:index===0?1:0,last20Attempts:index===0?[true]:[],recentAccuracy:index===0?100:0,consecutiveWrong:0,historicalWrong:0}))];
 const nextTask=buildAdaptiveTask({date:'2026-10-02',questions:bank,enabled:[...oldPoints,...points],checkins,stats:sampledStats,wrongQuestions:[],history:[]});
-assert.notEqual(nextTask.items.find(item=>item.selectionReason==='unseen_knowledge_exposure')?.targetKnowledgePoint,points[0],'已获得样本的知识点不得持续按 unseen 优先');
+assert.ok(nextTask.items.filter(item=>item.selectionReason==='unseen_question_coverage').every(item=>item.targetKnowledgePoint!==points[0]),'零样本知识点优先于已有样本知识点');
 
 const due=[afterWrong({questionId:'Q0001'},'2026-09-30'),afterWrong({questionId:'Q0002'},'2026-09-30')],coveredStats=[...oldPoints.map(knowledgePoint=>({knowledgePoint,attempts:10,firstCorrect:9,last20Attempts:Array(10).fill(true),recentAccuracy:90,consecutiveWrong:0,historicalWrong:1})),...points.map(knowledgePoint=>({knowledgePoint,attempts:1,firstCorrect:1,last20Attempts:[true],recentAccuracy:100,consecutiveWrong:0,historicalWrong:0}))],coveredTask=buildAdaptiveTask({date:'2026-10-02',questions:bank,enabled:[...oldPoints,...points],checkins,stats:coveredStats,wrongQuestions:due,history:[]});
 assert.equal(coveredTask.items.filter(item=>item.sourceType==='wrong_review').length,2,'wrong_review 两题逻辑不得改变');
-assert.equal(coveredTask.items.filter(item=>item.sourceType==='weakness').length,5,'weakness 五题逻辑不得改变');
-assert.equal(coveredTask.items.filter(item=>item.sourceType==='review').length,3,'没有零样本时必须保留三道普通 review');
-assert.equal(coveredTask.items.some(item=>item.selectionReason==='unseen_knowledge_exposure'),false,'没有零样本时不得触发 unseen exposure');
+assert.equal(coveredTask.items.filter(item=>item.sourceType==='weakness').length,4,'weakness 目标为四题');
+assert.equal(coveredTask.items.filter(item=>item.sourceType==='review').length,4,'覆盖与普通复习共四题');
+assert.equal(coveredTask.items.filter(item=>item.selectionReason==='unseen_question_coverage').length,2,'即使没有零样本仍需覆盖未刷题');
 assert.equal(coveredTask.questionIds.length,10);
 
 const wrong=afterWrong({questionId:'Q0163'},'2026-10-01');

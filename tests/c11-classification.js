@@ -61,21 +61,21 @@ const due=[afterWrong({questionId:'Q0001'},'2026-10-13'),afterWrong({questionId:
 const build=extra=>buildAdaptiveTask({date,questions,enabled,checkins,stats:originalPoints.map(mature),wrongQuestions:due,...extra});
 const task=build({});
 assert.equal(task.questionIds.length,10);assert.equal(new Set(task.questionIds).size,10);
-assert.equal(task.items.filter(x=>x.sourceType==='weakness').length,5);
-assert.equal(task.items.filter(x=>x.sourceType==='review').length,3);
+assert.equal(task.items.filter(x=>x.sourceType==='weakness').length,4);
+assert.equal(task.items.filter(x=>x.sourceType==='review').length,4);
 assert.equal(task.items.filter(x=>x.sourceType==='wrong_review').length,2);
-const exposure=task.items.filter(x=>x.selectionReason==='unseen_knowledge_exposure');
-assert.equal(exposure.length,1);assert.equal(exposure[0].sourceType,'review');
+const exposure=task.items.filter(x=>x.selectionReason==='unseen_question_coverage');
+assert.equal(exposure.length,2);assert.ok(exposure.every(x=>x.sourceType==='review'));
 assert.ok(expectedNewPoints.includes(exposure[0].targetKnowledgePoint));
 assert.equal(task.items.filter(x=>x.sourceType==='weakness'&&expectedNewPoints.includes(x.targetKnowledgePoint)).length,0);
 assert.deepEqual(task.items.filter(x=>x.sourceType==='wrong_review').map(x=>x.questionId),['Q0001','Q0002']);
 const sampled=build({stats:[...originalPoints.map(mature),{knowledgePoint:exposure[0].targetKnowledgePoint,attempts:1,firstCorrect:1,last20Attempts:[true],recentAccuracy:100}]});
-assert.ok(sampled.items.filter(x=>x.selectionReason==='unseen_knowledge_exposure').length<=1);
-assert.ok(!sampled.items.some(x=>x.selectionReason==='unseen_knowledge_exposure'&&x.targetKnowledgePoint===exposure[0].targetKnowledgePoint));
+assert.equal(sampled.items.filter(x=>x.selectionReason==='unseen_question_coverage').length,2);
+assert.ok(!sampled.items.some(x=>x.selectionReason==='unseen_question_coverage'&&x.targetKnowledgePoint===exposure[0].targetKnowledgePoint));
 const covered=build({stats:KNOWLEDGE_POINTS.map(mature)});
-assert.equal(covered.items.filter(x=>x.selectionReason==='unseen_knowledge_exposure').length,0);
-assert.equal(covered.items.filter(x=>x.sourceType==='weakness').length,5);
-assert.equal(covered.items.filter(x=>x.sourceType==='review').length,3);
+assert.equal(covered.items.filter(x=>x.selectionReason==='unseen_question_coverage').length,2);
+assert.equal(covered.items.filter(x=>x.sourceType==='weakness').length,4);
+assert.equal(covered.items.filter(x=>x.sourceType==='review').length,4);
 assert.equal(covered.items.filter(x=>x.sourceType==='wrong_review').length,2);
 console.log('C11 zero-sample states, one-slot exposure, first-sample exit and normal 5+3+2 scenarios passed.');
 
@@ -87,16 +87,16 @@ assert.equal(narrow.items.filter(x=>x.sourceType==='weakness').length,4);
 assert.equal(narrow.items.filter(x=>x.sourceType==='review').length,4);
 assert.equal(narrow.items.filter(x=>x.sourceType==='wrong_review').length,2);
 assert.equal(narrow.questionIds.length,10);
-assert.ok(narrow.items.filter(x=>x.selectionReason==='unseen_knowledge_exposure').length<=1);
-assert.ok(narrow.items.filter(x=>x.targetKnowledgePoint==='积的乘方').every(x=>x.selectionReason==='unseen_knowledge_exposure'),'零样本新知识点只能经unseen曝光');
+assert.equal(narrow.items.filter(x=>x.selectionReason==='unseen_question_coverage').length,2);
+assert.ok(narrow.items.filter(x=>x.targetKnowledgePoint==='积的乘方').every(x=>x.sourceType==='review'),'零样本知识点不得成为弱项');
 console.log('C11 narrow-range zero-sample regression passed.');
 
 const zeroStats=expectedNewPoints.map(knowledgePoint=>({knowledgePoint,attempts:0}));
 const assertSafe=task=>{
   assert.equal(task.questionIds.length,10);assert.equal(new Set(task.questionIds).size,10);
-  assert.ok(task.items.filter(x=>x.selectionReason==='unseen_knowledge_exposure').length<=1);
+  assert.equal(task.items.filter(x=>x.selectionReason==='unseen_question_coverage').length,2);
   for(const item of task.items.filter(x=>expectedNewPoints.includes(x.targetKnowledgePoint))){
-    assert.equal(item.sourceType,'review');assert.equal(item.selectionReason,'unseen_knowledge_exposure');
+    assert.equal(item.sourceType,'review');
   }
   assert.deepEqual(task.items.filter(x=>x.sourceType==='wrong_review').map(x=>x.questionId),['Q0001','Q0002']);
 };
@@ -118,11 +118,11 @@ assertSafe(zeroWithBoost);assert.equal(zeroWithBoost.items.filter(x=>x.sourceTyp
 // All-zero stable ranges cannot supply ten distinct legal questions under a
 // one-exposure limit: explicitly preserve that limit rather than fabricate data.
 const allZero=build({enabled:expectedNewPoints,stats:zeroStats,wrongQuestions:[]});
-assert.equal(allZero.items.length,1);assert.equal(allZero.items[0].sourceType,'review');
-assert.equal(allZero.items[0].selectionReason,'unseen_knowledge_exposure');
+assert.equal(allZero.items.length,10);assert.ok(allZero.items.every(item=>item.sourceType==='review'));
+assert.equal(allZero.items.filter(item=>item.selectionReason==='unseen_question_coverage').length,2);
 // Eligibility changes only on a real sample; weak classification still requires
 // the unchanged five-sample threshold and real accuracy history.
 const newlySampled=build({stats:[...originalPoints.map(mature),{knowledgePoint:exposure[0].targetKnowledgePoint,attempts:1,firstCorrect:0,last20Attempts:[false],recentAccuracy:0}]});
-assert.ok(!newlySampled.items.some(x=>x.selectionReason==='unseen_knowledge_exposure'&&x.targetKnowledgePoint===exposure[0].targetKnowledgePoint));
+assert.ok(!newlySampled.items.some(x=>x.selectionReason==='unseen_question_coverage'&&x.targetKnowledgePoint===exposure[0].targetKnowledgePoint));
 assert.ok(!newlySampled.items.some(x=>x.sourceType==='weakness'&&x.targetKnowledgePoint===exposure[0].targetKnowledgePoint));
 console.log('C11 four/zero-weakness boundaries, ten unseen topics, missing stats, boost exclusion and wrong-review preservation passed.');

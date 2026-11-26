@@ -9,7 +9,7 @@ const assets = [
   './css/style.css', './js/version.js', './js/app.js', './js/questionPreview.js',
   './js/db.js', './js/questionBankFix.js', './js/questionEngine.js', './js/scoring.js',
   './js/factorizedForm.js', './js/scoringPolicy.js', './js/attemptPolicy.js',
-  './js/knowledgePoints.js', './js/statistics.js', './js/wrongQuestions.js',
+  './js/knowledgePoints.js', './js/statistics.js', './js/wrongQuestions.js', './js/coverage.js',
   './js/parentDashboard.js', './js/backup.js', './js/formatMath.js', './js/updateManager.js',
   './data/questions.json', './icons/app-icon.svg'
 ].map(path => new URL(path, scope).href);

@@ -42,7 +42,7 @@ for(const q of added){
 const stats=KNOWLEDGE_POINTS.map(knowledgePoint=>({knowledgePoint,attempts:10,firstCorrect:6,recentAccuracy:60,consecutiveWrong:1,historicalWrong:4,last20Attempts:[true,false,true,false,true]}));
 for(const powerBoost of [false,true]){
   const task=buildAdaptiveTask({date:'2026-10-24',questions:bank,enabled:KNOWLEDGE_POINTS,stats,checkins:Array.from({length:5},(_,i)=>({date:`2026-10-0${i+1}`})),wrongQuestions:added.slice(0,2).map(q=>afterWrong({questionId:q.id},'2026-10-23')),powerBoost});
-  assert.equal(task.questionIds.length,10);assert.deepEqual(['weakness','review','wrong_review'].map(t=>task.items.filter(i=>i.sourceType===t).length),[5,3,2]);
+  assert.equal(task.questionIds.length,10);assert.deepEqual(['weakness','review','wrong_review'].map(t=>task.items.filter(i=>i.sourceType===t).length),[4,4,2]);
   assert.deepEqual(task.items.filter(i=>i.sourceType==='wrong_review').map(i=>i.questionId),added.slice(0,2).map(q=>q.id));
 }
 assert.equal(buildAdaptiveTask({date:'2026-10-24',questions:added,enabled:KNOWLEDGE_POINTS}).questionIds.length,10);

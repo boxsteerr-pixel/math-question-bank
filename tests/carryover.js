@@ -9,11 +9,12 @@ import * as policy from '../js/scoringPolicy.js';
 import * as scoring from '../js/scoring.js';
 import * as attempts from '../js/attemptPolicy.js';
 import * as format from '../js/formatMath.js';
+import * as coverage from '../js/coverage.js';
 import {KEY_PATHS,DB_VERSION} from '../js/db.js';
 import {QUESTION_BANK_FIX_VERSION} from '../js/questionBankFix.js';
 const read=p=>fs.readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const bank=JSON.parse(read('data/questions.json'));assert.equal(bank.length,release.expectedCount);
-const selectorBaseline=JSON.parse(read('tests/fixtures/carryover-selector-baseline.json'));
+const selectorBaseline=JSON.parse(read('tests/fixtures/carryover-selector-v054.json'));
 const engineSource=read('js/questionEngine.js').replace(/\r\n/g,'\n');
 assert.equal(engineSource.slice(engineSource.indexOf('export function buildAdaptiveTask('),engineSource.indexOf('\n\nfunction completeSparseTask(')),selectorBaseline.selector,'每日基础10题的选题算法逐字冻结');
 assert.match(read('js/app.js'),/date=today\(\);\s*workload=await getDailyWorkload\(\);[\s\S]*?task=await getOrCreateToday\(\)/,'先按日期补生成欠题，再读取当天组，避免历史顺序倒置');
@@ -24,11 +25,12 @@ const key=(store,row)=>row[KEY_PATHS[store]],get=(store,k)=>structuredClone(stat
 const seed=(store,rows)=>state.set(store,new Map(rows.map(r=>[key(store,r),structuredClone(r)])));
 const put=async(store,row)=>{if(!state.has(store))state.set(store,new Map);state.get(store).set(key(store,row),structuredClone(row));writes.push({store,row:structuredClone(row)})};
 const db={all:async store=>structuredClone([...(state.get(store)?.values()||[])]),get:async(s,k)=>get(s,k),put,setting:async(k,f)=>get('settings',k)?.value??f,saveSetting:(k,value)=>put('settings',{key:k,value})};
+db.dataSafetyStatus=async()=>({migration:{ok:true}});
 // The independent browser suite covers the migration transaction itself.
 connectLearningTransaction(db,(store,key)=>state.get(store)?.delete(key));
 const context=vm.createContext({console,Date:TestDate,Math,structuredClone});
 const synthetic=exports=>new vm.SyntheticModule(Object.keys(exports),function(){for(const[k,v]of Object.entries(exports))this.setExport(k,v)},{context});
-const dependencies={'./db.js':db,'./statistics.js':statistics,'./knowledgePoints.js':points,'./scoringPolicy.js':policy};
+const dependencies={'./db.js':db,'./statistics.js':statistics,'./knowledgePoints.js':points,'./scoringPolicy.js':policy,'./coverage.js':coverage};
 const mod=new vm.SourceTextModule(read('js/questionEngine.js'),{context});await mod.link(s=>synthetic(dependencies[s]));await mod.evaluate();
 const engine=mod.namespace,startKey=engine.CARRYOVER_START_SETTING;
 const readWorkload=async()=>structuredClone(await engine.getDailyWorkload());
@@ -68,7 +70,7 @@ const appDeps={...dependencies,'./questionEngine.js':Object.fromEntries(Object.k
   './db.js':{...db,LEARNING_SESSION_LOCK:'isolated-carryover',openDB:async()=>{},importQuestions:async()=>{},runQuestionBankFixMigration:async()=>{}},
   './scoring.js':scoring,'./attemptPolicy.js':attempts,'./formatMath.js':format,
   './statistics.js':{...statistics,updateKnowledge:async(q,date,correct)=>effects.stats.push({id:q.id,date,correct})},
-  './wrongQuestions.js':{recordWrong:async(id,date)=>effects.wrong.push({id,date}),recordReviewCorrect:async id=>effects.review.push(id)},'./updateManager.js':{initPwaUpdates(){}}};
+  './wrongQuestions.js':{recordWrong:async(id,date)=>effects.wrong.push({id,date}),recordReviewCorrect:async id=>effects.review.push(id)},'./updateManager.js':{initPwaUpdates(){},showUpdateSuccess:async()=>{}}};
 const app=new vm.SourceTextModule(read('js/app.js').replace(/boot\(\);\s*$/,'')+'\nexport {home,openBatch,finalSubmit,writeCheckin,refreshHomeForNewDay,initDailyRollover};',{context});await app.link(s=>synthetic(appDeps[s]));await app.evaluate();
 reset();work=await readWorkload();const first=work.batches[0].task;await drafts(first,4);const oldDrafts=await db.all('answers');
 setDate('2026-10-23');await app.namespace.home();assert.match(elements.get('#app').innerHTML,/id="workload-remaining">16 题/);

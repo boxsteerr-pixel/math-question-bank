@@ -2,6 +2,7 @@ import {all,get,openDB,setting,saveSetting} from './db.js';
 import {summarizeKnowledge} from './statistics.js';
 import {KNOWLEDGE_POINTS,includeNewKnowledgePoints} from './knowledgePoints.js';
 import {freezeTaskScoringPolicy} from './scoringPolicy.js';
+import {isFormalAttempt} from './coverage.js';
 const hash=s=>[...s].reduce((a,c)=>(a*31+c.charCodeAt(0))>>>0,2166136261);
 const daysAgo=(date,then)=>then?Math.max(0,Math.round((new Date(`${date}T00:00:00`)-new Date(`${then}T00:00:00`))/86400000)):9999;
 export const POWER_BOOST_DAYS=14;
@@ -86,27 +87,35 @@ function add(out,q,sourceType,reason,used){if(!q)return false;out.push({question
 function stateMap(enabled,stats){const raw=new Map(stats.map(s=>[s.knowledgePoint,s]));return enabled.map(k=>summarizeKnowledge(raw.get(k)||{knowledgePoint:k})).sort((a,b)=>b.weaknessScore-a.weaknessScore||a.knowledgePoint.localeCompare(b.knowledgePoint))}
 function selectAcross(out,questions,kps,count,sourceType,date,history,used,reasonFor,limit=3){const picked=new Map;for(const item of out)if(item.sourceType===sourceType)picked.set(item.targetKnowledgePoint,(picked.get(item.targetKnowledgePoint)||0)+1);let guard=0;while(out.length<count&&guard++<100){let added=false;for(const kp of kps){if(out.length===count)break;if((picked.get(kp.knowledgePoint)||0)>=limit)continue;const q=choose(questions.filter(x=>x.knowledgePoint===kp.knowledgePoint),used,date,history,`${sourceType}:${guard}:${kp.knowledgePoint}`);if(add(out,q,sourceType,reasonFor(kp,q),used)){picked.set(kp.knowledgePoint,(picked.get(kp.knowledgePoint)||0)+1);added=true}}if(!added)break}return out}
 function unseenExposure(out,questions,states,date,history,used){const unseen=states.filter(state=>state.attempts===0).sort((a,b)=>a.knowledgePoint.localeCompare(b.knowledgePoint));for(const state of unseen){const question=choose(questions.filter(item=>item.knowledgePoint===state.knowledgePoint),used,date,history,`unseen:${state.knowledgePoint}`);if(add(out,question,'review','unseen_knowledge_exposure',used))return state.knowledgePoint}return null}
-function normalFill(out,questions,kps,count,date,history,used){const start=out.length,preferred=kps.filter(x=>['mastered','mostly_mastered'].includes(x.state));const order=preferred.length?preferred:kps;let n=0;while(out.length<start+count&&n++<100){let added=false;for(const kp of order){if(out.length>=start+count)break;const q=choose(questions.filter(x=>x.knowledgePoint===kp.knowledgePoint),used,date,history,`review:${n}:${kp.knowledgePoint}`);if(q&&add(out,q,'review',`normal_review: ${kp.knowledgePoint} lastShown=${history.get(q.id)?.lastShownDate||'never'}`,used))added=true}if(!added)break}return out}
+function normalFill(out,questions,kps,count,date,history,used){const start=out.length;const last=point=>questions.filter(q=>q.knowledgePoint===point).map(q=>history.get(q.id)?.lastShownDate||'').sort().at(-1)||'';const order=kps.slice().sort((a,b)=>last(a.knowledgePoint).localeCompare(last(b.knowledgePoint))||a.knowledgePoint.localeCompare(b.knowledgePoint));let n=0;while(out.length<start+count&&n++<100){let added=false;for(const kp of order){if(out.length>=start+count)break;const q=choose(questions.filter(x=>x.knowledgePoint===kp.knowledgePoint),used,date,history,`review:${n}:${kp.knowledgePoint}`);if(q&&add(out,q,'review',`normal_review: ${kp.knowledgePoint} lastShown=${history.get(q.id)?.lastShownDate||'never'}`,used))added=true}if(!added)break}return out}
 function selectPowerBoost(out,questions,count,date,history,used,answers){let selected=0;const base=questions.filter(question=>POWER_BOOST_IDS.has(question.id)&&powerBoostStatus(question.id,answers)!=='excluded'),groupFor=question=>powerBoostStatus(question.id,answers)==='priority'&&POWER_BOOST_HIGH_IDS.has(question.id)?'high':'ordinary';for(let slot=0;slot<count;slot++){const groups=slot%3!==1?['high','ordinary']:['ordinary','high'];let question;for(const allowRecent of [false,true]){for(const group of groups){const pool=base.filter(item=>groupFor(item)===group&&!used.has(item.id)&&(allowRecent||daysAgo(date,history.get(item.id)?.lastShownDate)>2));question=ordered(pool,date,history,`power_boost:${slot}:${group}`).at(0);if(question)break}if(question)break}if(!question)break;const tier=POWER_BOOST_HIGH_IDS.has(question.id)&&powerBoostStatus(question.id,answers)==='priority'?'高优先级':'普通';if(add(out,question,'review',`power_boost: 幂运算14日强化（${tier}·${question.subKnowledgePoint}）`,used))selected++}return selected}
-export function buildAdaptiveTask({date,questions,enabled,checkins=[],stats=[],wrongQuestions=[],history=[],answers=[],powerBoost=false}){
+export function buildAdaptiveTask({date,questions,enabled,checkins=[],stats=[],wrongQuestions=[],history=[],answers=[],tasks=[],powerBoost=false}){
   const bank=questions.filter(q=>enabled.includes(q.knowledgePoint)),historyMap=new Map(history.map(x=>[x.questionId,x])),states=stateMap(enabled,stats),used=new Set,items=[],diagnostic=checkins.length<5;
+  const done=new Set(answers.filter(isFormalAttempt).map(r=>r.questionId));
+  const submitted=new Set(answers.filter(isFormalAttempt).map(r=>r.key||`${r.date}:${r.questionId}`));
+  const occupied=new Set();for(const task of tasks)if(task.date!==date)for(const id of task.questionIds||[])if(!submitted.has(`${task.date}:${id}`)&&!['complete','review','correction'].includes(task.phase))occupied.add(id);
+  const fresh=bank.filter(q=>!done.has(q.id)&&!occupied.has(q.id));
+  const low=states.filter(s=>s.attempts<5).sort((a,b)=>a.attempts-b.attempts||daysAgo(date,b.lastAttemptDate)-daysAgo(date,a.lastAttemptDate)||a.knowledgePoint.localeCompare(b.knowledgePoint));
+  function cover(){const sample=new Map(states.map(s=>[s.knowledgePoint,s.attempts]));const pool=ordered(fresh.filter(q=>!used.has(q.id)),date,historyMap,'coverage');pool.sort((a,b)=>Number(historyMap.has(a.id))-Number(historyMap.has(b.id))||Math.min(5,sample.get(a.knowledgePoint)||0)-Math.min(5,sample.get(b.knowledgePoint)||0));const points=new Set();for(const q of pool){if(items.filter(i=>i.selectionReason==='unseen_question_coverage').length>=Math.min(2,fresh.length))break;if(points.has(q.knowledgePoint)&&pool.some(x=>!used.has(x.id)&&!points.has(x.knowledgePoint)))continue;if(add(items,q,'review','unseen_question_coverage',used))points.add(q.knowledgePoint)}}
   if(diagnostic){
+    cover();
     if(powerBoost)selectPowerBoost(items,bank,3,date,historyMap,used,answers);
     let turn=0;
     while(items.length<10&&turn++<100){let added=false;for(const kp of states){if(items.length===10)break;const q=choose(bank.filter(x=>x.knowledgePoint===kp.knowledgePoint),used,date,historyMap,`diagnostic:${turn}:${kp.knowledgePoint}`);if(add(items,q,'review',`diagnostic: balanced coverage for ${kp.knowledgePoint}`,used))added=true}if(!added)break}
   }else{
     const due=wrongQuestions.filter(w=>!w.mastered&&w.nextReviewDate&&w.nextReviewDate<=date).map(w=>({w,q:bank.find(q=>q.id===w.questionId)})).filter(x=>x.q).sort((a,b)=>a.w.nextReviewDate.localeCompare(b.w.nextReviewDate)||b.w.wrongCount-a.wrongCount||b.w.lastWrongDate.localeCompare(a.w.lastWrongDate));
     for(const {w,q} of due.slice(0,2))add(items,q,'wrong_review',`wrong_review: reviewStage=${w.reviewStage}, due=${w.nextReviewDate}`,used);
+    cover();
     const sampled=states.filter(s=>s.attempts>0),sampledPoints=new Set(sampled.map(s=>s.knowledgePoint)),reviewBank=bank.filter(q=>sampledPoints.has(q.knowledgePoint));
-    const ranked=sampled.filter(s=>s.state!=='insufficient_data').sort((a,b)=>b.weaknessScore-a.weaknessScore),weak=ranked.filter(s=>['priority_weak','weak'].includes(s.state)),focus=weak.length?weak:ranked,cap=focus.length===1?4:3;
-    selectAcross(items,bank,focus,items.length+5,'weakness',date,historyMap,used,s=>`${s.state}: ${s.knowledgePoint} recentAccuracy=${Math.round(s.recentAccuracy)}%`,cap);
-    if(items.filter(x=>x.sourceType==='weakness').length<5)selectAcross(items,bank,ranked,items.length+(5-items.filter(x=>x.sourceType==='weakness').length),'weakness',date,historyMap,used,s=>`relative_lowest: ${s.knowledgePoint} recentAccuracy=${Math.round(s.recentAccuracy)}%`,cap);
+    const ranked=sampled.filter(s=>s.state!=='insufficient_data').sort((a,b)=>b.weaknessScore-a.weaknessScore),weak=ranked.filter(s=>['priority_weak','weak'].includes(s.state)),focus=weak.length?weak:ranked,cap=ranked.filter(s=>bank.some(q=>q.knowledgePoint===s.knowledgePoint&&!used.has(q.id))).length===1?4:3;
+    selectAcross(items,bank,focus,Math.min(10,items.length+4),'weakness',date,historyMap,used,s=>`${s.state}: ${s.knowledgePoint} recentAccuracy=${Math.round(s.recentAccuracy)}%`,cap);
+    if(items.filter(x=>x.sourceType==='weakness').length<4)selectAcross(items,bank,ranked,Math.min(10,items.length+(4-items.filter(x=>x.sourceType==='weakness').length)),'weakness',date,historyMap,used,s=>`relative_lowest: ${s.knowledgePoint} recentAccuracy=${Math.round(s.recentAccuracy)}%`,cap);
     const reviewCount=10-items.length,reviewStart=items.length,duePower=due.filter(item=>POWER_BOOST_IDS.has(item.q.id)).length,boostCount=powerBoost?Math.min(reviewCount,Math.max(0,3-Math.min(3,duePower))):0;
-    selectPowerBoost(items,reviewBank,boostCount,date,historyMap,used,answers);
-    if(reviewCount>(items.length-reviewStart))unseenExposure(items,bank,states,date,historyMap,used);
+    if(reviewCount>(items.length-reviewStart))selectAcross(items,bank.filter(q=>daysAgo(date,historyMap.get(q.id)?.lastShownDate)>1),low,Math.min(10,items.length+1),'review',date,historyMap,used,()=>`low_sample_coverage`,1);
+    selectPowerBoost(items,reviewBank,Math.min(boostCount,reviewCount-(items.length-reviewStart)),date,historyMap,used,answers);
     normalFill(items,reviewBank,sampled,reviewCount-(items.length-reviewStart),date,historyMap,used);
   }
-if(items.length<10){const sampledPoints=new Set(states.filter(s=>s.attempts>0).map(s=>s.knowledgePoint)),fallback=ordered(bank.filter(q=>!used.has(q.id)&&(diagnostic||sampledPoints.has(q.knowledgePoint))),date,historyMap,'fallback');for(const q of fallback){if(items.length===10)break;add(items,q,'review',`normal_review: fallback ${q.knowledgePoint}`,used)}}return freezeTaskScoringPolicy({date,questionIds:items.map(x=>x.questionId),items,createdAt:Date.now(),mode:diagnostic?'diagnosticPhase':'adaptive_5_3_2',selectionReason:Object.fromEntries(items.map(x=>[x.questionId,x.selectionReason]))},bank)}
+if(items.length<10){const fallback=ordered(bank.filter(q=>!used.has(q.id)),date,historyMap,'fallback');for(const q of fallback){if(items.length===10)break;add(items,q,'review',`normal_review: fallback ${q.knowledgePoint}`,used)}}return freezeTaskScoringPolicy({date,questionIds:items.map(x=>x.questionId),items,createdAt:Date.now(),mode:diagnostic?'diagnosticPhase':'adaptive_4_2_2_2',selectionReason:Object.fromEntries(items.map(x=>[x.questionId,x.selectionReason]))},bank)}
 
 function completeSparseTask(task,bank,history){
   if(task.questionIds.length===DAILY_QUESTION_COUNT)return task;
@@ -186,13 +195,13 @@ export async function getOrCreateDailyTask(date,{initializeCarryover=false}={}){
     const [stats,wrongs,historyRows,boostSetting,tasks]=await Promise.all([
       readRequest(store('knowledgeStats').getAll()),readRequest(store('wrongQuestions').getAll()),
       readRequest(store('questionHistory').getAll()),readRequest(settings.get(BOOST_KEY)),
-      existing?readRequest(store('dailyTasks').getAll()):[]
+      readRequest(store('dailyTasks').getAll())
     ]);
     const history=new Map(historyRows.map(row=>[row.questionId,row]));
     const changed=existing?reconcilePreviousHistory(existing,tasks,history):new Set();
     const boostStart=Number.isInteger(boostSetting?.value)?boostSetting.value:checkins.length;
     const pool=questionPool(questions,scope.points),eligible=[...pool.values()];
-    const selected=buildAdaptiveTask({date,questions:eligible,enabled:scope.points,checkins,stats,wrongQuestions:wrongs,history:[...history.values()],answers,powerBoost:powerBoostActive(checkins.length,boostStart)});
+    const selected=buildAdaptiveTask({date,questions:eligible,enabled:scope.points,checkins,stats,wrongQuestions:wrongs,history:[...history.values()],answers,tasks,powerBoost:powerBoostActive(checkins.length,boostStart)});
     const task=completeSparseTask(selected,eligible,history);
     if(!hasCompleteQuestions(task,pool))throw Error('任务完整性校验失败，原学习记录已保留。');
     if(initializeCarryover){

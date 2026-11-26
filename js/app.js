@@ -1,4 +1,4 @@
-import {importQuestions,get,put,all,openDB,setting,runQuestionBankFixMigration,LEARNING_SESSION_LOCK} from './db.js';
+import {importQuestions,get,put,all,openDB,setting,runQuestionBankFixMigration,LEARNING_SESSION_LOCK,dataSafetyStatus} from './db.js';
 import {today,getOrCreateToday,getDailyWorkload,CARRYOVER_START_SETTING,questionsFor,enabledPoints,inspectLearningScope,saveLearningScope} from './questionEngine.js';
 import {scoreForFrozenPolicy} from './scoring.js';
 import {freezeAttemptScoringPolicy} from './scoringPolicy.js';
@@ -6,7 +6,7 @@ import {recordWrong,recordReviewCorrect} from './wrongQuestions.js';
 import {KNOWLEDGE_POINTS} from './knowledgePoints.js';
 import {updateKnowledge} from './statistics.js';
 import {formatMath,normalizeMathInput,displayClass} from './formatMath.js';
-import {initPwaUpdates} from './updateManager.js';
+import {initPwaUpdates,showUpdateSuccess} from './updateManager.js';
 import {initialAttemptPolicy,currentFirstCorrect as firstAttemptState,summarizeFirstAttempts,nextAttemptCount} from './attemptPolicy.js';
 
 const app=document.querySelector('#app');let task,questions,date,workload,activeMathInput=null,lastMathSelection=0,timerId,actionBusy=false;
@@ -183,6 +183,7 @@ async function startPracticeApp(){
       await restoreSubmittedCheckin();
     }
     await home();
+    const safety=await dataSafetyStatus();if(safety.migration?.ok!==false)await showUpdateSuccess();
     initDailyRollover();
   }catch(error){showStartupError(error);console.error(error)}
   refreshPwaUpdates=initPwaUpdates({getBlockReason:updateBlockReason});

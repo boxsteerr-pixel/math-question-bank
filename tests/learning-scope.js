@@ -215,7 +215,7 @@ console.log('Learning scope, daily-task transactions, protected repair, and carr
 
 reset({checkins:Array.from({length:5},(_,i)=>({date:`2026-09-0${i+1}`}))});
 const sparseTask=await engine.getOrCreateDailyTask(date);
-assert.equal(sparseTask.mode,'adaptive_5_3_2');
+assert.equal(sparseTask.mode,'adaptive_4_2_2_2');
 assert.equal(new Set(sparseTask.questionIds).size,10,'a sufficient explicit range can fill a batch before statistics exist');
 assert.ok(sparseTask.items.every(item=>item.targetKnowledgePoint===point));
 assert.deepEqual(Object.keys(sparseTask.scoringQuestionPolicies).sort(),sparseTask.questionIds.slice().sort());

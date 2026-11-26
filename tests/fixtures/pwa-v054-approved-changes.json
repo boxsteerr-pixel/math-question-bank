@@ -1,0 +1,32 @@
+{
+  "baselineRef": "afb2189797f291c334ad31ada9e64d5be2f239bd",
+  "appVersion": "0.5.4",
+  "cache": "grade7-math-v38",
+  "previousCache": "grade7-math-v37",
+  "files": {
+    "js/app.js": {
+      "before": "22440ec0c057415c5d0a21bcf1ca35b891ee7a69c11220709a2596e3c680cd30",
+      "after": "e848837b7c7ccebd52982740fc6913811aa72551ddb4e631153baae885d5dd0c"
+    },
+    "js/parentDashboard.js": {
+      "before": "6ed21d92cc1127f738b448f1a57f9714e8178cc1fcfa6319b5e85cb127f05293",
+      "after": "93c423720da2bcf97bf6bbe4142fc2bdabc2a6a49481a85207cbaff555c55aee"
+    },
+    "js/questionEngine.js": {
+      "before": "c41363e86980c4edb140f1d23b44a8f905760768756e74109f498f67fcafe4c0",
+      "after": "70be6278a2c463e0a9045fc45bb2c6f76cb7c676799963b3c56b5375025883fd"
+    },
+    "js/updateManager.js": {
+      "before": "a517b2e4813740085c9b9e772095a89a231a0878135d82f069c2964257b349bd",
+      "after": "361db06c886298fdbda7a970ea8a0256e46002ef46db5d464931bef5e4945522"
+    },
+    "js/version.js": {
+      "before": "5bbdaf0da40fb9db3893620929c9c45f5aebdfee4dda7606347a17176534583c",
+      "after": "a95a72051fe61cfc26206e5f5bbfe07e704b9dfb5e38d2fab467401eda02c159"
+    },
+    "service-worker.js": {
+      "before": "84d61bfbb0035829437d0ce93909e5d2628108e9f884800ab984bebca415c690",
+      "after": "0342d20415c08b1aeb5ab7f8e832170e6e96125335c89a1cd8b91936a0fa97e2"
+    }
+  }
+}

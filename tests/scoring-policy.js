@@ -11,6 +11,7 @@ import * as scoringPolicy from '../js/scoringPolicy.js';
 import * as scoring from '../js/scoring.js';
 import * as attemptPolicy from '../js/attemptPolicy.js';
 import * as formatMath from '../js/formatMath.js';
+import * as coverage from '../js/coverage.js';
 const q={id:'ISO-Q',knowledgePoint:'相反数',question:'因式分解：x^2-4',answerType:'expression',answer:'(x-2)(x+2)',answerConstraint:'fully_factored',fullyFactored:true};
 const plain={...q};delete plain.answerConstraint;
 const oldTask={date:'2026-10-14',questionIds:[q.id],items:[{questionId:q.id,sourceType:'review'}]};
@@ -43,7 +44,8 @@ const db={all:async store=>structuredClone([...(state.get(store)?.values()||[])]
 connectLearningTransaction(db,(store,key)=>state.get(store)?.delete(key));
 const context=vm.createContext({console,Date,Math,structuredClone});
 const synthetic=exports=>new vm.SyntheticModule(Object.keys(exports),function(){for(const[name,value]of Object.entries(exports))this.setExport(name,value)},{context});
-const dependencies={'./db.js':db,'./statistics.js':statistics,'./knowledgePoints.js':points,'./scoringPolicy.js':scoringPolicy};
+db.dataSafetyStatus=async()=>({migration:{ok:true}});
+const dependencies={'./db.js':db,'./statistics.js':statistics,'./knowledgePoints.js':points,'./scoringPolicy.js':scoringPolicy,'./coverage.js':coverage};
 const source=fs.readFileSync(new URL('../js/questionEngine.js',import.meta.url),'utf8');
 const module=new vm.SourceTextModule(source,{context});
 await module.link(specifier=>synthetic(dependencies[specifier]));await module.evaluate();
@@ -70,7 +72,7 @@ const appDeps={...dependencies,'./scoring.js':scoring,'./attemptPolicy.js':attem
   './db.js':{...db,LEARNING_SESSION_LOCK:'isolated-scoring',openDB:async()=>{},importQuestions:async()=>{},runQuestionBankFixMigration:async()=>{}},
   './statistics.js':{...statistics,updateKnowledge:async(q,date,correct)=>effects.stats.push(correct)},
   './wrongQuestions.js':{recordWrong:async()=>effects.wrong.push(true),recordReviewCorrect:async()=>effects.review.push(true)},
-  './updateManager.js':{initPwaUpdates(){}}};
+  './updateManager.js':{initPwaUpdates(){},showUpdateSuccess:async()=>{}}};
 const appModule=new vm.SourceTextModule(app.replace(/boot\(\);\s*$/,'')+'\nexport {finalSubmit,correctionSubmit,currentFirstCorrect};export function fixtureContext(t,qs,d){task=t;questions=qs;date=d;}\n',{context});
 await appModule.link(specifier=>synthetic(appDeps[specifier]));await appModule.evaluate();
 async function submit(task,fields={}){
