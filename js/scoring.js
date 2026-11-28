@@ -1,4 +1,6 @@
 import {normalizeMathInput} from './formatMath.js';
+import {isSingleChoice,scoreChoice} from './choice.js';
+import {scoreRational,scoreConditions} from './rationalExpression.js';
 import {checkFullyFactoredForm} from './factorizedForm.js';
 import {CURRENT_SCORING_POLICY_VERSION,LEGACY_SCORING_POLICY_VERSION,supportedScoringPolicy,questionForFrozenPolicy} from './scoringPolicy.js';
 const clean=s=>normalizeMathInput(s).replace(/[\s，。；;]/g,'').replace(/[\[\{]/g,'(').replace(/[\]\}]/g,')');
@@ -10,6 +12,18 @@ function same(a,b){const x=poly(a),y=poly(b),keys=new Set([...x.keys(),...y.keys
 function one(input,answer,type){try{if(type==='number')return {correct:Math.abs(fraction(input)-fraction(answer))<1e-10};if(type==='ordered_terms')return {correct:clean(input)===clean(answer)};return {correct:same(input,answer)}}catch{return {manualCheck:true,correct:false}}}
 export function score(question,inputs,{scoringPolicyVersion=CURRENT_SCORING_POLICY_VERSION}={}){const type=question.answerType,ans=question.answer;
   if(!supportedScoringPolicy(scoringPolicyVersion))return {correct:false,manualCheck:true,reason:'unsupported_scoring_policy'};
+  if(isSingleChoice(question))return scoreChoice(question,inputs);
+  if(type==='rational_expression')return scoringPolicyVersion===3&&inputs.length===1?scoreRational(question,inputs[0]):{correct:false,manualCheck:true,reason:'unsupported_rational_policy'};
+  if(['rational_conditions','rational_solutions'].includes(type))return scoringPolicyVersion===3&&inputs.length===1?scoreConditions(question,inputs[0]):{correct:false,manualCheck:true,reason:'unsupported_rational_policy'};
+  if(type==='rational_multiple_blank'){
+    if(scoringPolicyVersion!==3||!Array.isArray(question.blankPolicies)||inputs.length!==question.blankPolicies.length)return {correct:false,manualCheck:true,reason:'unsupported_rational_policy'};
+    const results=question.blankPolicies.map((policy,index)=>score({...policy,answer:question.answer[index]},[inputs[index]],{scoringPolicyVersion}));
+    if(results.some(result=>!result.correct&&!result.manualCheck))return {correct:false};
+    const invalid=results.find(result=>result.manualCheck&&['ambiguous_division','character','syntax','bracket','zero_denominator','divide_by_zero','condition_syntax','not_numeric'].includes(result.reason));
+    if(invalid)return {correct:false,manualCheck:true,reason:invalid.reason};
+    if(results.some(result=>result.manualCheck))return {correct:false,manualCheck:true,reason:'blank_requires_review'};
+    return {correct:true};
+  }
   if(scoringPolicyVersion!==LEGACY_SCORING_POLICY_VERSION&&question.answerConstraint!=null){
     if(question.answerConstraint!=='fully_factored'||type!=='expression'||Array.isArray(ans)||inputs.length!==1)return {correct:false,manualCheck:true,reason:'unsupported_answer_constraint'};
     return checkFullyFactoredForm(inputs[0],ans,{fullyFactored:question.fullyFactored});

@@ -11521,5 +11521,6089 @@
     "answerConfidence": "high",
     "needsAnswerReview": false,
     "sourceExplanation": "(a-b)(a+b)=28，a+b=7，故a-b=4。"
+  },
+  {
+    "candidateId": "FINAL26-S01-010",
+    "status": "APPROVED",
+    "issues": [],
+    "stem": "计算 4m-9m",
+    "answer": "-5m",
+    "answerType": "expression",
+    "knowledgePoint": "合并同类项",
+    "difficulty": 2,
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          2
+        ]
+      },
+      {
+        "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          5
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S01-010/question-p02.png",
+        "rendered-pdf/S01-question/02.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathVerification": {
+      "candidateId": "FINAL26-S01-010",
+      "sourceReferences": [
+        {
+          "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（原卷版）.pdf",
+          "role": "question",
+          "pages": [
+            2
+          ]
+        },
+        {
+          "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（解析版）.pdf",
+          "role": "solution",
+          "pages": [
+            5
+          ]
+        }
+      ],
+      "result": "pass",
+      "method": "PDF题面目视转写、解析答案栏对照、SymPy精确式验算",
+      "normalizedDifference": "0",
+      "expression": "4m-9m",
+      "comparedAnswer": "-5m",
+      "assets": [
+        "evidence/FINAL26-S01-010/question-p02.png",
+        "rendered-pdf/S01-question/02.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false,
+      "domainConstraints": [],
+      "sourceAnswer": "-5m"
+    },
+    "scoringTests": [
+      {
+        "name": "standard",
+        "input": "-5m",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "equivalent",
+        "input": "(-5m)",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "wrong",
+        "input": "(-5m)+1",
+        "expect": "incorrect",
+        "result": {
+          "correct": false
+        }
+      },
+      {
+        "name": "incorrect",
+        "input": "@",
+        "expect": "manual",
+        "result": {
+          "manualCheck": true,
+          "correct": false
+        }
+      }
+    ],
+    "renderedQuestion": "计算 4m − 9m",
+    "duplicateScreen": {
+      "candidateAndFormalExactExpressionHits": [],
+      "historicalScreen": "沿用阶段一历史候选、待审及剔除库索引；语义近似仍有人工审核局限"
+    },
+    "reviewNotes": [
+      "沿用原卷题面视觉核验及独立数学推导",
+      "原解析答案与独立结果一致",
+      "题面经现有格式化模块生成",
+      "标准、等价、错误和非法输入通过初步判题测试"
+    ],
+    "originalKnowledgePoint": "合并同类项",
+    "question": "计算 4m-9m",
+    "provenanceStatus": "沿用既有 APPROVED；本轮检查知识点键和标准答案",
+    "id": "Q0369"
+  },
+  {
+    "candidateId": "FINAL26-S01-012",
+    "status": "APPROVED",
+    "issues": [],
+    "stem": "计算 ab+a-2ab+3a",
+    "answer": "-ab+4a",
+    "answerType": "expression",
+    "knowledgePoint": "合并同类项",
+    "difficulty": 2,
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          2
+        ]
+      },
+      {
+        "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          5
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S01-012/question-p02.png",
+        "rendered-pdf/S01-question/02.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathVerification": {
+      "candidateId": "FINAL26-S01-012",
+      "sourceReferences": [
+        {
+          "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（原卷版）.pdf",
+          "role": "question",
+          "pages": [
+            2
+          ]
+        },
+        {
+          "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（解析版）.pdf",
+          "role": "solution",
+          "pages": [
+            5
+          ]
+        }
+      ],
+      "result": "pass",
+      "method": "PDF题面目视转写、解析答案栏对照、SymPy精确式验算",
+      "normalizedDifference": "0",
+      "expression": "ab+a-2ab+3a",
+      "comparedAnswer": "-ab+4a",
+      "assets": [
+        "evidence/FINAL26-S01-012/question-p02.png",
+        "rendered-pdf/S01-question/02.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false,
+      "domainConstraints": [],
+      "sourceAnswer": "-ab+4a"
+    },
+    "scoringTests": [
+      {
+        "name": "standard",
+        "input": "-ab+4a",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "equivalent",
+        "input": "(-ab+4a)",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "wrong",
+        "input": "(-ab+4a)+1",
+        "expect": "incorrect",
+        "result": {
+          "correct": false
+        }
+      },
+      {
+        "name": "incorrect",
+        "input": "@",
+        "expect": "manual",
+        "result": {
+          "manualCheck": true,
+          "correct": false
+        }
+      }
+    ],
+    "renderedQuestion": "计算 ab + a − 2ab + 3a",
+    "duplicateScreen": {
+      "candidateAndFormalExactExpressionHits": [],
+      "historicalScreen": "沿用阶段一历史候选、待审及剔除库索引；语义近似仍有人工审核局限"
+    },
+    "reviewNotes": [
+      "沿用原卷题面视觉核验及独立数学推导",
+      "原解析答案与独立结果一致",
+      "题面经现有格式化模块生成",
+      "标准、等价、错误和非法输入通过初步判题测试"
+    ],
+    "originalKnowledgePoint": "合并同类项",
+    "question": "计算 ab+a-2ab+3a",
+    "provenanceStatus": "沿用既有 APPROVED；本轮检查知识点键和标准答案",
+    "id": "Q0370"
+  },
+  {
+    "candidateId": "FINAL26-S01-013",
+    "status": "APPROVED",
+    "issues": [],
+    "stem": "计算 a-(2a-b)+(3a-2b)",
+    "answer": "2a-b",
+    "answerType": "expression",
+    "knowledgePoint": "去括号",
+    "difficulty": 2,
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          2
+        ]
+      },
+      {
+        "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          5
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S01-013/question-p02.png",
+        "rendered-pdf/S01-question/02.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathVerification": {
+      "candidateId": "FINAL26-S01-013",
+      "sourceReferences": [
+        {
+          "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（原卷版）.pdf",
+          "role": "question",
+          "pages": [
+            2
+          ]
+        },
+        {
+          "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（解析版）.pdf",
+          "role": "solution",
+          "pages": [
+            5
+          ]
+        }
+      ],
+      "result": "pass",
+      "method": "PDF题面目视转写、解析答案栏对照、SymPy精确式验算",
+      "normalizedDifference": "0",
+      "expression": "a-(2a-b)+(3a-2b)",
+      "comparedAnswer": "2a-b",
+      "assets": [
+        "evidence/FINAL26-S01-013/question-p02.png",
+        "rendered-pdf/S01-question/02.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false,
+      "domainConstraints": [],
+      "sourceAnswer": "2a-b"
+    },
+    "scoringTests": [
+      {
+        "name": "standard",
+        "input": "2a-b",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "equivalent",
+        "input": "(2a-b)",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "wrong",
+        "input": "(2a-b)+1",
+        "expect": "incorrect",
+        "result": {
+          "correct": false
+        }
+      },
+      {
+        "name": "incorrect",
+        "input": "@",
+        "expect": "manual",
+        "result": {
+          "manualCheck": true,
+          "correct": false
+        }
+      }
+    ],
+    "renderedQuestion": "计算 a − (2a − b) + (3a − 2b)",
+    "duplicateScreen": {
+      "candidateAndFormalExactExpressionHits": [],
+      "historicalScreen": "沿用阶段一历史候选、待审及剔除库索引；语义近似仍有人工审核局限"
+    },
+    "reviewNotes": [
+      "沿用原卷题面视觉核验及独立数学推导",
+      "原解析答案与独立结果一致",
+      "题面经现有格式化模块生成",
+      "标准、等价、错误和非法输入通过初步判题测试"
+    ],
+    "originalKnowledgePoint": "去括号",
+    "question": "计算 a-(2a-b)+(3a-2b)",
+    "provenanceStatus": "沿用既有 APPROVED；本轮检查知识点键和标准答案",
+    "id": "Q0371"
+  },
+  {
+    "candidateId": "FINAL26-S01-014",
+    "status": "APPROVED",
+    "issues": [],
+    "stem": "计算 6a^2b-(2ab^2-ab)+2(ab^2-3a^2b)",
+    "answer": "ab",
+    "answerType": "expression",
+    "knowledgePoint": "整式加减综合",
+    "difficulty": 3,
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          2
+        ]
+      },
+      {
+        "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          5,
+          6
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S01-014/question-p02.png",
+        "rendered-pdf/S01-question/02.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathVerification": {
+      "candidateId": "FINAL26-S01-014",
+      "sourceReferences": [
+        {
+          "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（原卷版）.pdf",
+          "role": "question",
+          "pages": [
+            2
+          ]
+        },
+        {
+          "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（解析版）.pdf",
+          "role": "solution",
+          "pages": [
+            5,
+            6
+          ]
+        }
+      ],
+      "result": "pass",
+      "method": "PDF题面目视转写、解析答案栏对照、SymPy精确式验算",
+      "normalizedDifference": "0",
+      "expression": "6a^2b-(2ab^2-ab)+2(ab^2-3a^2b)",
+      "comparedAnswer": "ab",
+      "assets": [
+        "evidence/FINAL26-S01-014/question-p02.png",
+        "rendered-pdf/S01-question/02.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false,
+      "domainConstraints": [],
+      "sourceAnswer": "ab"
+    },
+    "scoringTests": [
+      {
+        "name": "standard",
+        "input": "ab",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "equivalent",
+        "input": "(ab)",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "wrong",
+        "input": "(ab)+1",
+        "expect": "incorrect",
+        "result": {
+          "correct": false
+        }
+      },
+      {
+        "name": "incorrect",
+        "input": "@",
+        "expect": "manual",
+        "result": {
+          "manualCheck": true,
+          "correct": false
+        }
+      }
+    ],
+    "renderedQuestion": "计算 6a<span class=\"power\">2</span>b − (2ab<span class=\"power\">2</span> − ab) + 2(ab<span class=\"power\">2</span> − 3a<span class=\"power\">2</span>b)",
+    "duplicateScreen": {
+      "candidateAndFormalExactExpressionHits": [],
+      "historicalScreen": "沿用阶段一历史候选、待审及剔除库索引；语义近似仍有人工审核局限"
+    },
+    "reviewNotes": [
+      "沿用原卷题面视觉核验及独立数学推导",
+      "原解析答案与独立结果一致",
+      "题面经现有格式化模块生成",
+      "标准、等价、错误和非法输入通过初步判题测试"
+    ],
+    "originalKnowledgePoint": "整式加减综合",
+    "question": "计算 6a^2b-(2ab^2-ab)+2(ab^2-3a^2b)",
+    "provenanceStatus": "沿用既有 APPROVED；本轮检查知识点键和标准答案",
+    "id": "Q0372"
+  },
+  {
+    "candidateId": "FINAL26-S01-017",
+    "status": "APPROVED",
+    "issues": [],
+    "stem": "计算 4a+(3-2a+a^2)-(2a^2+1)",
+    "answer": "-a^2+2a+2",
+    "answerType": "expression",
+    "knowledgePoint": "整式加减综合",
+    "difficulty": 2,
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          3
+        ]
+      },
+      {
+        "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          6,
+          7
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S01-017/question-p03.png",
+        "rendered-pdf/S01-question/03.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathVerification": {
+      "candidateId": "FINAL26-S01-017",
+      "sourceReferences": [
+        {
+          "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（原卷版）.pdf",
+          "role": "question",
+          "pages": [
+            3
+          ]
+        },
+        {
+          "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（解析版）.pdf",
+          "role": "solution",
+          "pages": [
+            6,
+            7
+          ]
+        }
+      ],
+      "result": "pass",
+      "method": "PDF题面目视转写、解析答案栏对照、SymPy精确式验算",
+      "normalizedDifference": "0",
+      "expression": "4a+(3-2a+a^2)-(2a^2+1)",
+      "comparedAnswer": "-a^2+2a+2",
+      "assets": [
+        "evidence/FINAL26-S01-017/question-p03.png",
+        "rendered-pdf/S01-question/03.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false,
+      "domainConstraints": [],
+      "sourceAnswer": "-a^2+2a+2"
+    },
+    "scoringTests": [
+      {
+        "name": "standard",
+        "input": "-a^2+2a+2",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "equivalent",
+        "input": "(-a^2+2a+2)",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "wrong",
+        "input": "(-a^2+2a+2)+1",
+        "expect": "incorrect",
+        "result": {
+          "correct": false
+        }
+      },
+      {
+        "name": "incorrect",
+        "input": "@",
+        "expect": "manual",
+        "result": {
+          "manualCheck": true,
+          "correct": false
+        }
+      }
+    ],
+    "renderedQuestion": "计算 4a + (3 − 2a + a<span class=\"power\">2</span>) − (2a<span class=\"power\">2</span> + 1)",
+    "duplicateScreen": {
+      "candidateAndFormalExactExpressionHits": [],
+      "historicalScreen": "沿用阶段一历史候选、待审及剔除库索引；语义近似仍有人工审核局限"
+    },
+    "reviewNotes": [
+      "沿用原卷题面视觉核验及独立数学推导",
+      "原解析答案与独立结果一致",
+      "题面经现有格式化模块生成",
+      "标准、等价、错误和非法输入通过初步判题测试"
+    ],
+    "originalKnowledgePoint": "整式加减综合",
+    "question": "计算 4a+(3-2a+a^2)-(2a^2+1)",
+    "provenanceStatus": "沿用既有 APPROVED；本轮检查知识点键和标准答案",
+    "id": "Q0373"
+  },
+  {
+    "candidateId": "FINAL26-S01-018",
+    "status": "APPROVED",
+    "issues": [],
+    "stem": "计算 2(x^2+4x+5)-(3x^2-7x+5)",
+    "answer": "-x^2+15x+5",
+    "answerType": "expression",
+    "knowledgePoint": "整式加减综合",
+    "difficulty": 3,
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          3
+        ]
+      },
+      {
+        "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          7
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S01-018/question-p03.png",
+        "rendered-pdf/S01-question/03.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathVerification": {
+      "candidateId": "FINAL26-S01-018",
+      "sourceReferences": [
+        {
+          "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（原卷版）.pdf",
+          "role": "question",
+          "pages": [
+            3
+          ]
+        },
+        {
+          "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（解析版）.pdf",
+          "role": "solution",
+          "pages": [
+            7
+          ]
+        }
+      ],
+      "result": "pass",
+      "method": "PDF题面目视转写、解析答案栏对照、SymPy精确式验算",
+      "normalizedDifference": "0",
+      "expression": "2(x^2+4x+5)-(3x^2-7x+5)",
+      "comparedAnswer": "-x^2+15x+5",
+      "assets": [
+        "evidence/FINAL26-S01-018/question-p03.png",
+        "rendered-pdf/S01-question/03.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false,
+      "domainConstraints": [],
+      "sourceAnswer": "-x^2+15x+5"
+    },
+    "scoringTests": [
+      {
+        "name": "standard",
+        "input": "-x^2+15x+5",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "equivalent",
+        "input": "(-x^2+15x+5)",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "wrong",
+        "input": "(-x^2+15x+5)+1",
+        "expect": "incorrect",
+        "result": {
+          "correct": false
+        }
+      },
+      {
+        "name": "incorrect",
+        "input": "@",
+        "expect": "manual",
+        "result": {
+          "manualCheck": true,
+          "correct": false
+        }
+      }
+    ],
+    "renderedQuestion": "计算 2(x<span class=\"power\">2</span> + 4x + 5) − (3x<span class=\"power\">2</span> − 7x + 5)",
+    "duplicateScreen": {
+      "candidateAndFormalExactExpressionHits": [],
+      "historicalScreen": "沿用阶段一历史候选、待审及剔除库索引；语义近似仍有人工审核局限"
+    },
+    "reviewNotes": [
+      "沿用原卷题面视觉核验及独立数学推导",
+      "原解析答案与独立结果一致",
+      "题面经现有格式化模块生成",
+      "标准、等价、错误和非法输入通过初步判题测试"
+    ],
+    "originalKnowledgePoint": "整式加减综合",
+    "question": "计算 2(x^2+4x+5)-(3x^2-7x+5)",
+    "provenanceStatus": "沿用既有 APPROVED；本轮检查知识点键和标准答案",
+    "id": "Q0374"
+  },
+  {
+    "candidateId": "FINAL26-S02-003",
+    "status": "APPROVED",
+    "issues": [],
+    "stem": "计算 a^2*(-a)^3",
+    "answer": "-a^5",
+    "answerType": "expression",
+    "knowledgePoint": "同底数幂乘法",
+    "difficulty": 2,
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          2
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [
+      {
+        "candidateId": "FINAL26-S02-016",
+        "duplicateOf": "FINAL26-S02-003",
+        "reason": "题面截图均为a²(−a)³，任务一致",
+        "sourceReferences": [
+          {
+            "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+            "role": "question",
+            "pages": [
+              2
+            ]
+          },
+          {
+            "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+            "role": "solution",
+            "pages": [
+              6,
+              7
+            ]
+          }
+        ],
+        "canonicalSourceReferences": [
+          {
+            "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+            "role": "question",
+            "pages": [
+              1
+            ]
+          },
+          {
+            "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+            "role": "solution",
+            "pages": [
+              2
+            ]
+          }
+        ]
+      }
+    ],
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S02-003/question-p01.png",
+        "rendered-pdf/S02-question/01.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathVerification": {
+      "candidateId": "FINAL26-S02-003",
+      "sourceReferences": [
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+          "role": "question",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+          "role": "solution",
+          "pages": [
+            2
+          ]
+        }
+      ],
+      "result": "pass",
+      "method": "PDF题面目视转写、解析答案栏对照、SymPy精确式验算",
+      "normalizedDifference": "0",
+      "expression": "a^2*(-a)^3",
+      "comparedAnswer": "-a^5",
+      "assets": [
+        "evidence/FINAL26-S02-003/question-p01.png",
+        "rendered-pdf/S02-question/01.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false,
+      "domainConstraints": [],
+      "sourceAnswer": "-a^5"
+    },
+    "scoringTests": [
+      {
+        "name": "standard",
+        "input": "-a^5",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "equivalent",
+        "input": "(-a^5)",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "wrong",
+        "input": "(-a^5)+1",
+        "expect": "incorrect",
+        "result": {
+          "correct": false
+        }
+      },
+      {
+        "name": "incorrect",
+        "input": "@",
+        "expect": "manual",
+        "result": {
+          "manualCheck": true,
+          "correct": false
+        }
+      }
+    ],
+    "renderedQuestion": "计算 a<span class=\"power\">2</span> × ( − a)<span class=\"power\">3</span>",
+    "duplicateScreen": {
+      "candidateAndFormalExactExpressionHits": [
+        "FINAL26-S02-016"
+      ],
+      "historicalScreen": "沿用阶段一历史候选、待审及剔除库索引；语义近似仍有人工审核局限"
+    },
+    "reviewNotes": [
+      "沿用原卷题面视觉核验及独立数学推导",
+      "原解析答案与独立结果一致",
+      "题面经现有格式化模块生成",
+      "标准、等价、错误和非法输入通过初步判题测试"
+    ],
+    "originalKnowledgePoint": "同底数幂的乘法",
+    "question": "计算 a^2*(-a)^3",
+    "provenanceStatus": "沿用既有 APPROVED；本轮检查知识点键和标准答案",
+    "id": "Q0375"
+  },
+  {
+    "candidateId": "FINAL26-S02-004",
+    "status": "APPROVED",
+    "issues": [],
+    "stem": "计算 a^2*(-2a^3)",
+    "answer": "-2a^5",
+    "answerType": "expression",
+    "knowledgePoint": "同底数幂乘法",
+    "difficulty": 2,
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          2
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S02-004/question-p01.png",
+        "rendered-pdf/S02-question/01.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathVerification": {
+      "candidateId": "FINAL26-S02-004",
+      "sourceReferences": [
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+          "role": "question",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+          "role": "solution",
+          "pages": [
+            2
+          ]
+        }
+      ],
+      "result": "pass",
+      "method": "PDF题面目视转写、解析答案栏对照、SymPy精确式验算",
+      "normalizedDifference": "0",
+      "expression": "a^2*(-2a^3)",
+      "comparedAnswer": "-2a^5",
+      "assets": [
+        "evidence/FINAL26-S02-004/question-p01.png",
+        "rendered-pdf/S02-question/01.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false,
+      "domainConstraints": [],
+      "sourceAnswer": "-2a^5"
+    },
+    "scoringTests": [
+      {
+        "name": "standard",
+        "input": "-2a^5",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "equivalent",
+        "input": "(-2a^5)",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "wrong",
+        "input": "(-2a^5)+1",
+        "expect": "incorrect",
+        "result": {
+          "correct": false
+        }
+      },
+      {
+        "name": "incorrect",
+        "input": "@",
+        "expect": "manual",
+        "result": {
+          "manualCheck": true,
+          "correct": false
+        }
+      }
+    ],
+    "renderedQuestion": "计算 a<span class=\"power\">2</span> × ( − 2a<span class=\"power\">3</span>)",
+    "duplicateScreen": {
+      "candidateAndFormalExactExpressionHits": [],
+      "historicalScreen": "沿用阶段一历史候选、待审及剔除库索引；语义近似仍有人工审核局限"
+    },
+    "reviewNotes": [
+      "沿用原卷题面视觉核验及独立数学推导",
+      "原解析答案与独立结果一致",
+      "题面经现有格式化模块生成",
+      "标准、等价、错误和非法输入通过初步判题测试"
+    ],
+    "originalKnowledgePoint": "同底数幂的乘法",
+    "question": "计算 a^2*(-2a^3)",
+    "provenanceStatus": "沿用既有 APPROVED；本轮检查知识点键和标准答案",
+    "id": "Q0376"
+  },
+  {
+    "candidateId": "FINAL26-S02-008",
+    "status": "APPROVED",
+    "issues": [],
+    "stem": "计算 -x^2*(-x^2)^3",
+    "answer": "x^8",
+    "answerType": "expression",
+    "knowledgePoint": "幂的乘方",
+    "difficulty": 2,
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          2
+        ]
+      },
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          4
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [
+      {
+        "candidateId": "FINAL26-S02-015",
+        "duplicateOf": "FINAL26-S02-008",
+        "reason": "题面截图均为−x²(−x²)³，任务一致",
+        "sourceReferences": [
+          {
+            "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+            "role": "question",
+            "pages": [
+              2
+            ]
+          },
+          {
+            "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+            "role": "solution",
+            "pages": [
+              6
+            ]
+          }
+        ],
+        "canonicalSourceReferences": [
+          {
+            "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+            "role": "question",
+            "pages": [
+              2
+            ]
+          },
+          {
+            "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+            "role": "solution",
+            "pages": [
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "candidateId": "FINAL26-D07-016",
+        "duplicateOf": "FINAL26-S02-008",
+        "reason": "同一 −x²·(−x²)³",
+        "sourceReferences": [
+          {
+            "path": "sources/专题03 整式的混合运算填空与计算题（期末真题汇编43题，上海专用）（解析版）.docx",
+            "role": "question",
+            "paragraphStart": 104,
+            "paragraphEnd": 104
+          },
+          {
+            "path": "sources/专题03 整式的混合运算填空与计算题（期末真题汇编43题，上海专用）（解析版）.docx",
+            "role": "solution",
+            "paragraphStart": 105,
+            "paragraphEnd": 109
+          }
+        ],
+        "canonicalSourceReferences": [
+          {
+            "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+            "role": "question",
+            "pages": [
+              2
+            ]
+          },
+          {
+            "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+            "role": "solution",
+            "pages": [
+              4
+            ]
+          }
+        ]
+      }
+    ],
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S02-008/question-p02.png",
+        "rendered-pdf/S02-question/02.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathVerification": {
+      "candidateId": "FINAL26-S02-008",
+      "sourceReferences": [
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+          "role": "question",
+          "pages": [
+            2
+          ]
+        },
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+          "role": "solution",
+          "pages": [
+            4
+          ]
+        }
+      ],
+      "result": "pass",
+      "method": "PDF题面目视转写、解析答案栏对照、SymPy精确式验算",
+      "normalizedDifference": "0",
+      "expression": "-x^2*(-x^2)^3",
+      "comparedAnswer": "x^8",
+      "assets": [
+        "evidence/FINAL26-S02-008/question-p02.png",
+        "rendered-pdf/S02-question/02.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false,
+      "domainConstraints": [],
+      "sourceAnswer": "x^8"
+    },
+    "scoringTests": [
+      {
+        "name": "standard",
+        "input": "x^8",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "equivalent",
+        "input": "(x^8)",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "wrong",
+        "input": "(x^8)+1",
+        "expect": "incorrect",
+        "result": {
+          "correct": false
+        }
+      },
+      {
+        "name": "incorrect",
+        "input": "@",
+        "expect": "manual",
+        "result": {
+          "manualCheck": true,
+          "correct": false
+        }
+      }
+    ],
+    "renderedQuestion": "计算 − x<span class=\"power\">2</span> × ( − x<span class=\"power\">2</span>)<span class=\"power\">3</span>",
+    "duplicateScreen": {
+      "candidateAndFormalExactExpressionHits": [
+        "FINAL26-S02-015"
+      ],
+      "historicalScreen": "沿用阶段一历史候选、待审及剔除库索引；语义近似仍有人工审核局限"
+    },
+    "reviewNotes": [
+      "沿用原卷题面视觉核验及独立数学推导",
+      "原解析答案与独立结果一致",
+      "题面经现有格式化模块生成",
+      "标准、等价、错误和非法输入通过初步判题测试"
+    ],
+    "originalKnowledgePoint": "幂的乘方",
+    "question": "计算 -x^2*(-x^2)^3",
+    "provenanceStatus": "沿用既有 APPROVED；本轮检查知识点键和标准答案",
+    "id": "Q0377"
+  },
+  {
+    "candidateId": "FINAL26-S02-022",
+    "status": "APPROVED",
+    "issues": [],
+    "stem": "计算 a^2*2a^3",
+    "answer": "2a^5",
+    "answerType": "expression",
+    "knowledgePoint": "单项式乘法",
+    "difficulty": 2,
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          3
+        ]
+      },
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          9
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S02-022/question-p03.png",
+        "rendered-pdf/S02-question/03.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathVerification": {
+      "candidateId": "FINAL26-S02-022",
+      "sourceReferences": [
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+          "role": "question",
+          "pages": [
+            3
+          ]
+        },
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+          "role": "solution",
+          "pages": [
+            9
+          ]
+        }
+      ],
+      "result": "pass",
+      "method": "PDF题面目视转写、解析答案栏对照、SymPy精确式验算",
+      "normalizedDifference": "0",
+      "expression": "a^2*2a^3",
+      "comparedAnswer": "2a^5",
+      "assets": [
+        "evidence/FINAL26-S02-022/question-p03.png",
+        "rendered-pdf/S02-question/03.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false,
+      "domainConstraints": [],
+      "sourceAnswer": "2a^5"
+    },
+    "scoringTests": [
+      {
+        "name": "standard",
+        "input": "2a^5",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "equivalent",
+        "input": "(2a^5)",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "wrong",
+        "input": "(2a^5)+1",
+        "expect": "incorrect",
+        "result": {
+          "correct": false
+        }
+      },
+      {
+        "name": "incorrect",
+        "input": "@",
+        "expect": "manual",
+        "result": {
+          "manualCheck": true,
+          "correct": false
+        }
+      }
+    ],
+    "renderedQuestion": "计算 a<span class=\"power\">2</span> × 2a<span class=\"power\">3</span>",
+    "duplicateScreen": {
+      "candidateAndFormalExactExpressionHits": [],
+      "historicalScreen": "沿用阶段一历史候选、待审及剔除库索引；语义近似仍有人工审核局限"
+    },
+    "reviewNotes": [
+      "沿用原卷题面视觉核验及独立数学推导",
+      "原解析答案与独立结果一致",
+      "题面经现有格式化模块生成",
+      "标准、等价、错误和非法输入通过初步判题测试"
+    ],
+    "originalKnowledgePoint": "单项式乘法",
+    "question": "计算 a^2*2a^3",
+    "provenanceStatus": "沿用既有 APPROVED；本轮检查知识点键和标准答案",
+    "id": "Q0378"
+  },
+  {
+    "candidateId": "FINAL26-S02-023",
+    "status": "APPROVED",
+    "issues": [],
+    "stem": "计算 (3/7)a^3*(-(21/11)a^8)",
+    "answer": "-(9/11)a^11",
+    "answerType": "expression",
+    "knowledgePoint": "单项式乘法",
+    "difficulty": 2,
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          3
+        ]
+      },
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          9
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S02-023/question-p03.png",
+        "rendered-pdf/S02-question/03.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathVerification": {
+      "candidateId": "FINAL26-S02-023",
+      "sourceReferences": [
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+          "role": "question",
+          "pages": [
+            3
+          ]
+        },
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+          "role": "solution",
+          "pages": [
+            9
+          ]
+        }
+      ],
+      "result": "pass",
+      "method": "PDF题面目视转写、解析答案栏对照、SymPy精确式验算",
+      "normalizedDifference": "0",
+      "expression": "(3/7)a^3*(-(21/11)a^8)",
+      "comparedAnswer": "-(9/11)a^11",
+      "assets": [
+        "evidence/FINAL26-S02-023/question-p03.png",
+        "rendered-pdf/S02-question/03.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false,
+      "domainConstraints": [],
+      "sourceAnswer": "-(9/11)a^11"
+    },
+    "scoringTests": [
+      {
+        "name": "standard",
+        "input": "-(9/11)a^11",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "equivalent",
+        "input": "(-(9/11)a^11)",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "wrong",
+        "input": "(-(9/11)a^11)+1",
+        "expect": "incorrect",
+        "result": {
+          "correct": false
+        }
+      },
+      {
+        "name": "incorrect",
+        "input": "@",
+        "expect": "manual",
+        "result": {
+          "manualCheck": true,
+          "correct": false
+        }
+      }
+    ],
+    "renderedQuestion": "计算 (<span class=\"frac\"><sup>3</sup><i></i><sub>7</sub></span>)a<span class=\"power\">3</span> × ( − (<span class=\"frac\"><sup>21</sup><i></i><sub>11</sub></span>)a<span class=\"power\">8</span>)",
+    "duplicateScreen": {
+      "candidateAndFormalExactExpressionHits": [],
+      "historicalScreen": "沿用阶段一历史候选、待审及剔除库索引；语义近似仍有人工审核局限"
+    },
+    "reviewNotes": [
+      "沿用原卷题面视觉核验及独立数学推导",
+      "原解析答案与独立结果一致",
+      "题面经现有格式化模块生成",
+      "标准、等价、错误和非法输入通过初步判题测试"
+    ],
+    "originalKnowledgePoint": "单项式乘法",
+    "question": "计算 (3/7)a^3*(-(21/11)a^8)",
+    "provenanceStatus": "沿用既有 APPROVED；本轮检查知识点键和标准答案",
+    "id": "Q0379"
+  },
+  {
+    "candidateId": "FINAL26-S02-024",
+    "status": "APPROVED",
+    "issues": [],
+    "stem": "计算 5x^5*x^3",
+    "answer": "5x^8",
+    "answerType": "expression",
+    "knowledgePoint": "单项式乘法",
+    "difficulty": 2,
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          3
+        ]
+      },
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          9,
+          10
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S02-024/question-p03.png",
+        "rendered-pdf/S02-question/03.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathVerification": {
+      "candidateId": "FINAL26-S02-024",
+      "sourceReferences": [
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+          "role": "question",
+          "pages": [
+            3
+          ]
+        },
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+          "role": "solution",
+          "pages": [
+            9,
+            10
+          ]
+        }
+      ],
+      "result": "pass",
+      "method": "PDF题面目视转写、解析答案栏对照、SymPy精确式验算",
+      "normalizedDifference": "0",
+      "expression": "5x^5*x^3",
+      "comparedAnswer": "5x^8",
+      "assets": [
+        "evidence/FINAL26-S02-024/question-p03.png",
+        "rendered-pdf/S02-question/03.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false,
+      "domainConstraints": [],
+      "sourceAnswer": "5x^8"
+    },
+    "scoringTests": [
+      {
+        "name": "standard",
+        "input": "5x^8",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "equivalent",
+        "input": "(5x^8)",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "wrong",
+        "input": "(5x^8)+1",
+        "expect": "incorrect",
+        "result": {
+          "correct": false
+        }
+      },
+      {
+        "name": "incorrect",
+        "input": "@",
+        "expect": "manual",
+        "result": {
+          "manualCheck": true,
+          "correct": false
+        }
+      }
+    ],
+    "renderedQuestion": "计算 5x<span class=\"power\">5</span> × x<span class=\"power\">3</span>",
+    "duplicateScreen": {
+      "candidateAndFormalExactExpressionHits": [],
+      "historicalScreen": "沿用阶段一历史候选、待审及剔除库索引；语义近似仍有人工审核局限"
+    },
+    "reviewNotes": [
+      "沿用原卷题面视觉核验及独立数学推导",
+      "原解析答案与独立结果一致",
+      "题面经现有格式化模块生成",
+      "标准、等价、错误和非法输入通过初步判题测试"
+    ],
+    "originalKnowledgePoint": "单项式乘法",
+    "question": "计算 5x^5*x^3",
+    "provenanceStatus": "沿用既有 APPROVED；本轮检查知识点键和标准答案",
+    "id": "Q0380"
+  },
+  {
+    "candidateId": "FINAL26-S02-026",
+    "status": "APPROVED",
+    "issues": [],
+    "stem": "计算 2x(2-3y)",
+    "answer": "4x-6xy",
+    "answerType": "expression",
+    "knowledgePoint": "整式乘法综合",
+    "difficulty": 2,
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          3
+        ]
+      },
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          10
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S02-026/question-p03.png",
+        "rendered-pdf/S02-question/03.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathVerification": {
+      "candidateId": "FINAL26-S02-026",
+      "sourceReferences": [
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+          "role": "question",
+          "pages": [
+            3
+          ]
+        },
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+          "role": "solution",
+          "pages": [
+            10
+          ]
+        }
+      ],
+      "result": "pass",
+      "method": "PDF题面目视转写、解析答案栏对照、SymPy精确式验算",
+      "normalizedDifference": "0",
+      "expression": "2x(2-3y)",
+      "comparedAnswer": "4x-6xy",
+      "assets": [
+        "evidence/FINAL26-S02-026/question-p03.png",
+        "rendered-pdf/S02-question/03.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false,
+      "domainConstraints": [],
+      "sourceAnswer": "4x-6xy"
+    },
+    "scoringTests": [
+      {
+        "name": "standard",
+        "input": "4x-6xy",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "equivalent",
+        "input": "(4x-6xy)",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "wrong",
+        "input": "(4x-6xy)+1",
+        "expect": "incorrect",
+        "result": {
+          "correct": false
+        }
+      },
+      {
+        "name": "incorrect",
+        "input": "@",
+        "expect": "manual",
+        "result": {
+          "manualCheck": true,
+          "correct": false
+        }
+      }
+    ],
+    "renderedQuestion": "计算 2x(2 − 3y)",
+    "duplicateScreen": {
+      "candidateAndFormalExactExpressionHits": [],
+      "historicalScreen": "沿用阶段一历史候选、待审及剔除库索引；语义近似仍有人工审核局限"
+    },
+    "reviewNotes": [
+      "沿用原卷题面视觉核验及独立数学推导",
+      "原解析答案与独立结果一致",
+      "题面经现有格式化模块生成",
+      "标准、等价、错误和非法输入通过初步判题测试"
+    ],
+    "originalKnowledgePoint": "整式乘法综合",
+    "question": "计算 2x(2-3y)",
+    "provenanceStatus": "沿用既有 APPROVED；本轮检查知识点键和标准答案",
+    "id": "Q0381"
+  },
+  {
+    "candidateId": "FINAL26-S02-027",
+    "status": "APPROVED",
+    "issues": [],
+    "stem": "计算 -2x(x^2-x/2+3)",
+    "answer": "-2x^3+x^2-6x",
+    "answerType": "expression",
+    "knowledgePoint": "整式乘法综合",
+    "difficulty": 3,
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          3
+        ]
+      },
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          10
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S02-027/question-p03.png",
+        "rendered-pdf/S02-question/03.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathVerification": {
+      "candidateId": "FINAL26-S02-027",
+      "sourceReferences": [
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+          "role": "question",
+          "pages": [
+            3
+          ]
+        },
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+          "role": "solution",
+          "pages": [
+            10
+          ]
+        }
+      ],
+      "result": "pass",
+      "method": "PDF题面目视转写、解析答案栏对照、SymPy精确式验算",
+      "normalizedDifference": "0",
+      "expression": "-2x(x^2-x/2+3)",
+      "comparedAnswer": "-2x^3+x^2-6x",
+      "assets": [
+        "evidence/FINAL26-S02-027/question-p03.png",
+        "rendered-pdf/S02-question/03.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false,
+      "domainConstraints": [],
+      "sourceAnswer": "-2x^3+x^2-6x"
+    },
+    "scoringTests": [
+      {
+        "name": "standard",
+        "input": "-2x^3+x^2-6x",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "equivalent",
+        "input": "(-2x^3+x^2-6x)",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "wrong",
+        "input": "(-2x^3+x^2-6x)+1",
+        "expect": "incorrect",
+        "result": {
+          "correct": false
+        }
+      },
+      {
+        "name": "incorrect",
+        "input": "@",
+        "expect": "manual",
+        "result": {
+          "manualCheck": true,
+          "correct": false
+        }
+      }
+    ],
+    "renderedQuestion": "计算 − 2x(x<span class=\"power\">2</span> − x/2 + 3)",
+    "duplicateScreen": {
+      "candidateAndFormalExactExpressionHits": [],
+      "historicalScreen": "沿用阶段一历史候选、待审及剔除库索引；语义近似仍有人工审核局限"
+    },
+    "reviewNotes": [
+      "沿用原卷题面视觉核验及独立数学推导",
+      "原解析答案与独立结果一致",
+      "题面经现有格式化模块生成",
+      "标准、等价、错误和非法输入通过初步判题测试"
+    ],
+    "originalKnowledgePoint": "整式乘法综合",
+    "question": "计算 -2x(x^2-x/2+3)",
+    "provenanceStatus": "沿用既有 APPROVED；本轮检查知识点键和标准答案",
+    "id": "Q0382"
+  },
+  {
+    "candidateId": "FINAL26-S02-029",
+    "status": "APPROVED",
+    "issues": [],
+    "stem": "计算 (2x-y)(x+y)",
+    "answer": "2x^2+xy-y^2",
+    "answerType": "expression",
+    "knowledgePoint": "多项式乘多项式",
+    "difficulty": 2,
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          3
+        ]
+      },
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          11
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [
+      {
+        "candidateId": "FINAL26-D06-030",
+        "duplicateOf": "FINAL26-S02-029",
+        "reason": "DOCX原件OMML与PDF题图均计算(2x−y)(x+y)",
+        "sourceReferences": [
+          {
+            "path": "sources/专题03 整式的乘法10大题型50题（期末专项训练）（解析版）.docx",
+            "role": "question",
+            "paragraphStart": 257,
+            "paragraphEnd": 257
+          },
+          {
+            "path": "sources/专题03 整式的乘法10大题型50题（期末专项训练）（解析版）.docx",
+            "role": "solution",
+            "paragraphStart": 258,
+            "paragraphEnd": 261
+          }
+        ],
+        "canonicalSourceReferences": [
+          {
+            "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+            "role": "question",
+            "pages": [
+              3
+            ]
+          },
+          {
+            "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+            "role": "solution",
+            "pages": [
+              11
+            ]
+          }
+        ]
+      }
+    ],
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S02-029/question-p03.png",
+        "rendered-pdf/S02-question/03.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathVerification": {
+      "candidateId": "FINAL26-S02-029",
+      "sourceReferences": [
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+          "role": "question",
+          "pages": [
+            3
+          ]
+        },
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+          "role": "solution",
+          "pages": [
+            11
+          ]
+        }
+      ],
+      "result": "pass",
+      "method": "PDF题面目视转写、解析答案栏对照、SymPy精确式验算",
+      "normalizedDifference": "0",
+      "expression": "(2x-y)(x+y)",
+      "comparedAnswer": "2x^2+xy-y^2",
+      "assets": [
+        "evidence/FINAL26-S02-029/question-p03.png",
+        "rendered-pdf/S02-question/03.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false,
+      "domainConstraints": [],
+      "sourceAnswer": "2x^2+xy-y^2"
+    },
+    "scoringTests": [
+      {
+        "name": "standard",
+        "input": "2x^2+xy-y^2",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "equivalent",
+        "input": "(2x^2+xy-y^2)",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "wrong",
+        "input": "(2x^2+xy-y^2)+1",
+        "expect": "incorrect",
+        "result": {
+          "correct": false
+        }
+      },
+      {
+        "name": "incorrect",
+        "input": "@",
+        "expect": "manual",
+        "result": {
+          "manualCheck": true,
+          "correct": false
+        }
+      }
+    ],
+    "renderedQuestion": "计算 (2x − y)(x + y)",
+    "duplicateScreen": {
+      "candidateAndFormalExactExpressionHits": [
+        "FINAL26-D06-030"
+      ],
+      "historicalScreen": "沿用阶段一历史候选、待审及剔除库索引；语义近似仍有人工审核局限"
+    },
+    "reviewNotes": [
+      "沿用原卷题面视觉核验及独立数学推导",
+      "原解析答案与独立结果一致",
+      "题面经现有格式化模块生成",
+      "标准、等价、错误和非法输入通过初步判题测试"
+    ],
+    "originalKnowledgePoint": "多项式乘多项式",
+    "question": "计算 (2x-y)(x+y)",
+    "provenanceStatus": "沿用既有 APPROVED；本轮检查知识点键和标准答案",
+    "id": "Q0383"
+  },
+  {
+    "candidateId": "FINAL26-S02-032",
+    "status": "APPROVED",
+    "issues": [],
+    "stem": "计算 (x/2+3)(9x-12)",
+    "answer": "9x^2/2+21x-36",
+    "answerType": "expression",
+    "knowledgePoint": "多项式乘多项式",
+    "difficulty": 3,
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          3
+        ]
+      },
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          12
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S02-032/question-p03.png",
+        "rendered-pdf/S02-question/03.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathVerification": {
+      "candidateId": "FINAL26-S02-032",
+      "sourceReferences": [
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+          "role": "question",
+          "pages": [
+            3
+          ]
+        },
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+          "role": "solution",
+          "pages": [
+            12
+          ]
+        }
+      ],
+      "result": "pass",
+      "method": "PDF题面目视转写、解析答案栏对照、SymPy精确式验算",
+      "normalizedDifference": "0",
+      "expression": "(x/2+3)(9x-12)",
+      "comparedAnswer": "9x^2/2+21x-36",
+      "assets": [
+        "evidence/FINAL26-S02-032/question-p03.png",
+        "rendered-pdf/S02-question/03.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false,
+      "domainConstraints": [],
+      "sourceAnswer": "9x^2/2+21x-36"
+    },
+    "scoringTests": [
+      {
+        "name": "standard",
+        "input": "9x^2/2+21x-36",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "equivalent",
+        "input": "(9x^2/2+21x-36)",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "wrong",
+        "input": "(9x^2/2+21x-36)+1",
+        "expect": "incorrect",
+        "result": {
+          "correct": false
+        }
+      },
+      {
+        "name": "incorrect",
+        "input": "@",
+        "expect": "manual",
+        "result": {
+          "manualCheck": true,
+          "correct": false
+        }
+      }
+    ],
+    "renderedQuestion": "计算 (x/2 + 3)(9x − 12)",
+    "duplicateScreen": {
+      "candidateAndFormalExactExpressionHits": [],
+      "historicalScreen": "沿用阶段一历史候选、待审及剔除库索引；语义近似仍有人工审核局限"
+    },
+    "reviewNotes": [
+      "沿用原卷题面视觉核验及独立数学推导",
+      "原解析答案与独立结果一致",
+      "题面经现有格式化模块生成",
+      "标准、等价、错误和非法输入通过初步判题测试"
+    ],
+    "originalKnowledgePoint": "多项式乘多项式",
+    "question": "计算 (x/2+3)(9x-12)",
+    "provenanceStatus": "沿用既有 APPROVED；本轮检查知识点键和标准答案",
+    "id": "Q0384"
+  },
+  {
+    "candidateId": "FINAL26-S02-036",
+    "status": "APPROVED",
+    "issues": [],
+    "stem": "计算 (-x-2y)(-x+2y)",
+    "answer": "x^2-4y^2",
+    "answerType": "expression",
+    "knowledgePoint": "乘法公式",
+    "difficulty": 2,
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          3
+        ]
+      },
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          13
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S02-036/question-p03.png",
+        "rendered-pdf/S02-question/03.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathVerification": {
+      "candidateId": "FINAL26-S02-036",
+      "sourceReferences": [
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+          "role": "question",
+          "pages": [
+            3
+          ]
+        },
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+          "role": "solution",
+          "pages": [
+            13
+          ]
+        }
+      ],
+      "result": "pass",
+      "method": "PDF题面目视转写、解析答案栏对照、SymPy精确式验算",
+      "normalizedDifference": "0",
+      "expression": "(-x-2y)(-x+2y)",
+      "comparedAnswer": "x^2-4y^2",
+      "assets": [
+        "evidence/FINAL26-S02-036/question-p03.png",
+        "rendered-pdf/S02-question/03.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false,
+      "domainConstraints": [],
+      "sourceAnswer": "x^2-4y^2"
+    },
+    "scoringTests": [
+      {
+        "name": "standard",
+        "input": "x^2-4y^2",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "equivalent",
+        "input": "(x^2-4y^2)",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "wrong",
+        "input": "(x^2-4y^2)+1",
+        "expect": "incorrect",
+        "result": {
+          "correct": false
+        }
+      },
+      {
+        "name": "incorrect",
+        "input": "@",
+        "expect": "manual",
+        "result": {
+          "manualCheck": true,
+          "correct": false
+        }
+      }
+    ],
+    "renderedQuestion": "计算 ( − x − 2y)( − x + 2y)",
+    "duplicateScreen": {
+      "candidateAndFormalExactExpressionHits": [],
+      "historicalScreen": "沿用阶段一历史候选、待审及剔除库索引；语义近似仍有人工审核局限"
+    },
+    "reviewNotes": [
+      "沿用原卷题面视觉核验及独立数学推导",
+      "原解析答案与独立结果一致",
+      "题面经现有格式化模块生成",
+      "标准、等价、错误和非法输入通过初步判题测试"
+    ],
+    "originalKnowledgePoint": "乘法公式",
+    "question": "计算 (-x-2y)(-x+2y)",
+    "provenanceStatus": "沿用既有 APPROVED；本轮检查知识点键和标准答案",
+    "id": "Q0385"
+  },
+  {
+    "candidateId": "FINAL26-S02-039",
+    "status": "APPROVED",
+    "issues": [],
+    "stem": "计算 (-x+2y)(-x-2y)-x(x-y)",
+    "answer": "xy-4y^2",
+    "answerType": "expression",
+    "knowledgePoint": "乘法公式",
+    "difficulty": 3,
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          4
+        ]
+      },
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          14
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [
+      {
+        "candidateId": "FINAL26-D06-039",
+        "duplicateOf": "FINAL26-S02-039",
+        "reason": "DOCX原件OMML与PDF题图的原式、顺序和计算任务一致",
+        "sourceReferences": [
+          {
+            "path": "sources/专题03 整式的乘法10大题型50题（期末专项训练）（解析版）.docx",
+            "role": "question",
+            "paragraphStart": 334,
+            "paragraphEnd": 334
+          },
+          {
+            "path": "sources/专题03 整式的乘法10大题型50题（期末专项训练）（解析版）.docx",
+            "role": "solution",
+            "paragraphStart": 335,
+            "paragraphEnd": 338
+          }
+        ],
+        "canonicalSourceReferences": [
+          {
+            "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+            "role": "question",
+            "pages": [
+              4
+            ]
+          },
+          {
+            "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+            "role": "solution",
+            "pages": [
+              14
+            ]
+          }
+        ]
+      },
+      {
+        "candidateId": "FINAL26-D07-040",
+        "duplicateOf": "FINAL26-S02-039",
+        "reason": "同一含 x、y 的平方差与单项式乘积作差",
+        "sourceReferences": [
+          {
+            "path": "sources/专题03 整式的混合运算填空与计算题（期末真题汇编43题，上海专用）（解析版）.docx",
+            "role": "question",
+            "paragraphStart": 285,
+            "paragraphEnd": 285
+          },
+          {
+            "path": "sources/专题03 整式的混合运算填空与计算题（期末真题汇编43题，上海专用）（解析版）.docx",
+            "role": "solution",
+            "paragraphStart": 286,
+            "paragraphEnd": 290
+          }
+        ],
+        "canonicalSourceReferences": [
+          {
+            "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+            "role": "question",
+            "pages": [
+              4
+            ]
+          },
+          {
+            "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+            "role": "solution",
+            "pages": [
+              14
+            ]
+          }
+        ]
+      }
+    ],
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S02-039/question-p04.png",
+        "rendered-pdf/S02-question/04.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathVerification": {
+      "candidateId": "FINAL26-S02-039",
+      "sourceReferences": [
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+          "role": "question",
+          "pages": [
+            4
+          ]
+        },
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+          "role": "solution",
+          "pages": [
+            14
+          ]
+        }
+      ],
+      "result": "pass",
+      "method": "PDF题面目视转写、解析答案栏对照、SymPy精确式验算",
+      "normalizedDifference": "0",
+      "expression": "(-x+2y)(-x-2y)-x(x-y)",
+      "comparedAnswer": "xy-4y^2",
+      "assets": [
+        "evidence/FINAL26-S02-039/question-p04.png",
+        "rendered-pdf/S02-question/04.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false,
+      "domainConstraints": [],
+      "sourceAnswer": "xy-4y^2"
+    },
+    "scoringTests": [
+      {
+        "name": "standard",
+        "input": "xy-4y^2",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "equivalent",
+        "input": "(xy-4y^2)",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "wrong",
+        "input": "(xy-4y^2)+1",
+        "expect": "incorrect",
+        "result": {
+          "correct": false
+        }
+      },
+      {
+        "name": "incorrect",
+        "input": "@",
+        "expect": "manual",
+        "result": {
+          "manualCheck": true,
+          "correct": false
+        }
+      }
+    ],
+    "renderedQuestion": "计算 ( − x + 2y)( − x − 2y) − x(x − y)",
+    "duplicateScreen": {
+      "candidateAndFormalExactExpressionHits": [
+        "FINAL26-D06-039"
+      ],
+      "historicalScreen": "沿用阶段一历史候选、待审及剔除库索引；语义近似仍有人工审核局限"
+    },
+    "reviewNotes": [
+      "沿用原卷题面视觉核验及独立数学推导",
+      "原解析答案与独立结果一致",
+      "题面经现有格式化模块生成",
+      "标准、等价、错误和非法输入通过初步判题测试"
+    ],
+    "originalKnowledgePoint": "乘法公式",
+    "question": "计算 (-x+2y)(-x-2y)-x(x-y)",
+    "provenanceStatus": "沿用既有 APPROVED；本轮检查知识点键和标准答案",
+    "id": "Q0386"
+  },
+  {
+    "candidateId": "FINAL26-S02-040",
+    "status": "APPROVED",
+    "issues": [],
+    "stem": "计算 (-x+1)(x+1)-(x-3)(3x+1)",
+    "answer": "-4x^2+8x+4",
+    "answerType": "expression",
+    "knowledgePoint": "乘法公式",
+    "difficulty": 3,
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          4
+        ]
+      },
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          14,
+          15
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S02-040/question-p04.png",
+        "rendered-pdf/S02-question/04.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathVerification": {
+      "candidateId": "FINAL26-S02-040",
+      "sourceReferences": [
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+          "role": "question",
+          "pages": [
+            4
+          ]
+        },
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+          "role": "solution",
+          "pages": [
+            14,
+            15
+          ]
+        }
+      ],
+      "result": "pass",
+      "method": "PDF题面目视转写、解析答案栏对照、SymPy精确式验算",
+      "normalizedDifference": "0",
+      "expression": "(-x+1)(x+1)-(x-3)(3x+1)",
+      "comparedAnswer": "-4x^2+8x+4",
+      "assets": [
+        "evidence/FINAL26-S02-040/question-p04.png",
+        "rendered-pdf/S02-question/04.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false,
+      "domainConstraints": [],
+      "sourceAnswer": "-4x^2+8x+4"
+    },
+    "scoringTests": [
+      {
+        "name": "standard",
+        "input": "-4x^2+8x+4",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "equivalent",
+        "input": "(-4x^2+8x+4)",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "wrong",
+        "input": "(-4x^2+8x+4)+1",
+        "expect": "incorrect",
+        "result": {
+          "correct": false
+        }
+      },
+      {
+        "name": "incorrect",
+        "input": "@",
+        "expect": "manual",
+        "result": {
+          "manualCheck": true,
+          "correct": false
+        }
+      }
+    ],
+    "renderedQuestion": "计算 ( − x + 1)(x + 1) − (x − 3)(3x + 1)",
+    "duplicateScreen": {
+      "candidateAndFormalExactExpressionHits": [],
+      "historicalScreen": "沿用阶段一历史候选、待审及剔除库索引；语义近似仍有人工审核局限"
+    },
+    "reviewNotes": [
+      "沿用原卷题面视觉核验及独立数学推导",
+      "原解析答案与独立结果一致",
+      "题面经现有格式化模块生成",
+      "标准、等价、错误和非法输入通过初步判题测试"
+    ],
+    "originalKnowledgePoint": "乘法公式",
+    "question": "计算 (-x+1)(x+1)-(x-3)(3x+1)",
+    "provenanceStatus": "沿用既有 APPROVED；本轮检查知识点键和标准答案",
+    "id": "Q0387"
+  },
+  {
+    "candidateId": "FINAL26-S02-021",
+    "status": "APPROVED",
+    "answer": "-27x^9-2x^6",
+    "answerType": "expression",
+    "knowledgePoint": "幂的运算综合",
+    "difficulty": 3,
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          2,
+          3
+        ]
+      },
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          8,
+          9
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S02-021/question-p02.png",
+        "evidence/FINAL26-S02-021/question-p03.png",
+        "rendered-pdf/S02-question/02.png",
+        "rendered-pdf/S02-question/03.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathVerification": {
+      "candidateId": "FINAL26-S02-021",
+      "sourceReferences": [
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+          "role": "question",
+          "pages": [
+            2,
+            3
+          ]
+        },
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+          "role": "solution",
+          "pages": [
+            8,
+            9
+          ]
+        }
+      ],
+      "result": "pass",
+      "method": "PDF题面目视转写、解析答案栏对照、SymPy精确式验算",
+      "normalizedDifference": "0",
+      "expression": "(-3x^3)^3-x^2*x^4-(x^2)^3",
+      "comparedAnswer": "-27x^9-2x^6",
+      "assets": [
+        "evidence/FINAL26-S02-021/question-p02.png",
+        "evidence/FINAL26-S02-021/question-p03.png",
+        "rendered-pdf/S02-question/02.png",
+        "rendered-pdf/S02-question/03.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false,
+      "domainConstraints": [],
+      "sourceAnswer": "-27x^9-2x^6"
+    },
+    "scoringTests": [
+      {
+        "name": "standard",
+        "input": "-27x^9-2x^6",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "equivalent",
+        "input": "(-27x^9-2x^6)",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "wrong",
+        "input": "(-27x^9-2x^6)+1",
+        "expect": "incorrect",
+        "result": {
+          "correct": false
+        }
+      },
+      {
+        "name": "incorrect",
+        "input": "@",
+        "expect": "manual",
+        "result": {
+          "manualCheck": true,
+          "correct": false
+        }
+      }
+    ],
+    "renderedQuestion": "计算 ( − 3x<span class=\"power\">3</span>)<span class=\"power\">3</span> − x<span class=\"power\">2</span> × x<span class=\"power\">4</span> − (x<span class=\"power\">2</span>)<span class=\"power\">3</span>",
+    "duplicateScreen": {
+      "candidateExactExpressionHits": [],
+      "historicalScreen": "沿用阶段一历史库索引及首批审核方法，语义近似仍有人工审核局限"
+    },
+    "reviewNotes": [
+      "原卷截图核对公式、指数和符号",
+      "复用原解析和独立数学验算",
+      "实际判题测试标准、等价、错误和非法输入"
+    ],
+    "originalKnowledgePoint": "幂的运算综合",
+    "provenanceStatus": "沿用既有 APPROVED；本轮检查知识点键和标准答案",
+    "id": "Q0388"
+  },
+  {
+    "candidateId": "FINAL26-S02-025",
+    "status": "APPROVED",
+    "answer": "-2a^3b^3",
+    "answerType": "expression",
+    "knowledgePoint": "单项式乘法",
+    "difficulty": 2,
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          3
+        ]
+      },
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          10
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S02-025/question-p03.png",
+        "rendered-pdf/S02-question/03.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathVerification": {
+      "candidateId": "FINAL26-S02-025",
+      "sourceReferences": [
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+          "role": "question",
+          "pages": [
+            3
+          ]
+        },
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+          "role": "solution",
+          "pages": [
+            10
+          ]
+        }
+      ],
+      "result": "pass",
+      "method": "PDF题面目视转写、解析答案栏对照、SymPy精确式验算",
+      "normalizedDifference": "0",
+      "expression": "(a^2b/3)*(-6ab^2)",
+      "comparedAnswer": "-2a^3b^3",
+      "assets": [
+        "evidence/FINAL26-S02-025/question-p03.png",
+        "rendered-pdf/S02-question/03.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false,
+      "domainConstraints": [],
+      "sourceAnswer": "-2a^3b^3"
+    },
+    "scoringTests": [
+      {
+        "name": "standard",
+        "input": "-2a^3b^3",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "equivalent",
+        "input": "(-2a^3b^3)",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "wrong",
+        "input": "(-2a^3b^3)+1",
+        "expect": "incorrect",
+        "result": {
+          "correct": false
+        }
+      },
+      {
+        "name": "incorrect",
+        "input": "@",
+        "expect": "manual",
+        "result": {
+          "manualCheck": true,
+          "correct": false
+        }
+      }
+    ],
+    "renderedQuestion": "计算 (a<span class=\"power\">2</span>b/3) × ( − 6ab<span class=\"power\">2</span>)",
+    "duplicateScreen": {
+      "candidateExactExpressionHits": [],
+      "historicalScreen": "沿用阶段一历史库索引及首批审核方法，语义近似仍有人工审核局限"
+    },
+    "reviewNotes": [
+      "原卷截图核对公式、指数和符号",
+      "复用原解析和独立数学验算",
+      "实际判题测试标准、等价、错误和非法输入"
+    ],
+    "originalKnowledgePoint": "单项式乘法",
+    "provenanceStatus": "沿用既有 APPROVED；本轮检查知识点键和标准答案",
+    "id": "Q0389"
+  },
+  {
+    "candidateId": "FINAL26-S02-031",
+    "status": "APPROVED",
+    "answer": "6x^2+x-2",
+    "answerType": "expression",
+    "knowledgePoint": "多项式乘多项式",
+    "difficulty": 2,
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          3
+        ]
+      },
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          11,
+          12
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S02-031/question-p03.png",
+        "rendered-pdf/S02-question/03.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathVerification": {
+      "candidateId": "FINAL26-S02-031",
+      "sourceReferences": [
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+          "role": "question",
+          "pages": [
+            3
+          ]
+        },
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+          "role": "solution",
+          "pages": [
+            11,
+            12
+          ]
+        }
+      ],
+      "result": "pass",
+      "method": "PDF题面目视转写、解析答案栏对照、SymPy精确式验算",
+      "normalizedDifference": "0",
+      "expression": "(2x-1)(3x+2)",
+      "comparedAnswer": "6x^2+x-2",
+      "assets": [
+        "evidence/FINAL26-S02-031/question-p03.png",
+        "rendered-pdf/S02-question/03.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false,
+      "domainConstraints": [],
+      "sourceAnswer": "6x^2+x-2"
+    },
+    "scoringTests": [
+      {
+        "name": "standard",
+        "input": "6x^2+x-2",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "equivalent",
+        "input": "(6x^2+x-2)",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "wrong",
+        "input": "(6x^2+x-2)+1",
+        "expect": "incorrect",
+        "result": {
+          "correct": false
+        }
+      },
+      {
+        "name": "incorrect",
+        "input": "@",
+        "expect": "manual",
+        "result": {
+          "manualCheck": true,
+          "correct": false
+        }
+      }
+    ],
+    "renderedQuestion": "计算 (2x − 1)(3x + 2)",
+    "duplicateScreen": {
+      "candidateExactExpressionHits": [],
+      "historicalScreen": "沿用阶段一历史库索引及首批审核方法，语义近似仍有人工审核局限"
+    },
+    "reviewNotes": [
+      "原卷截图核对公式、指数和符号",
+      "复用原解析和独立数学验算",
+      "实际判题测试标准、等价、错误和非法输入"
+    ],
+    "originalKnowledgePoint": "多项式乘多项式",
+    "provenanceStatus": "沿用既有 APPROVED；本轮检查知识点键和标准答案",
+    "id": "Q0390"
+  },
+  {
+    "candidateId": "FINAL26-S02-041",
+    "status": "APPROVED",
+    "answer": "3x^2-2x-16",
+    "answerType": "expression",
+    "knowledgePoint": "乘法公式",
+    "difficulty": 3,
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          4
+        ]
+      },
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          15
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S02-041/question-p04.png",
+        "rendered-pdf/S02-question/04.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathVerification": {
+      "candidateId": "FINAL26-S02-041",
+      "sourceReferences": [
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+          "role": "question",
+          "pages": [
+            4
+          ]
+        },
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+          "role": "solution",
+          "pages": [
+            15
+          ]
+        }
+      ],
+      "result": "pass",
+      "method": "PDF题面目视转写、解析答案栏对照、SymPy精确式验算",
+      "normalizedDifference": "0",
+      "expression": "(x-2)(x+2)-2(3-x)(2+x)",
+      "comparedAnswer": "3x^2-2x-16",
+      "assets": [
+        "evidence/FINAL26-S02-041/question-p04.png",
+        "rendered-pdf/S02-question/04.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false,
+      "domainConstraints": [],
+      "sourceAnswer": "3x^2-2x-16"
+    },
+    "scoringTests": [
+      {
+        "name": "standard",
+        "input": "3x^2-2x-16",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "equivalent",
+        "input": "(3x^2-2x-16)",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "wrong",
+        "input": "(3x^2-2x-16)+1",
+        "expect": "incorrect",
+        "result": {
+          "correct": false
+        }
+      },
+      {
+        "name": "incorrect",
+        "input": "@",
+        "expect": "manual",
+        "result": {
+          "manualCheck": true,
+          "correct": false
+        }
+      }
+    ],
+    "renderedQuestion": "计算 (x − 2)(x + 2) − 2(3 − x)(2 + x)",
+    "duplicateScreen": {
+      "candidateExactExpressionHits": [],
+      "historicalScreen": "沿用阶段一历史库索引及首批审核方法，语义近似仍有人工审核局限"
+    },
+    "reviewNotes": [
+      "原卷截图核对公式、指数和符号",
+      "复用原解析和独立数学验算",
+      "实际判题测试标准、等价、错误和非法输入"
+    ],
+    "originalKnowledgePoint": "乘法公式",
+    "provenanceStatus": "沿用既有 APPROVED；本轮检查知识点键和标准答案",
+    "id": "Q0391"
+  },
+  {
+    "candidateId": "FINAL26-S02-044",
+    "status": "APPROVED",
+    "answer": "a^2-2ab+b^2+2ac-2bc+c^2",
+    "answerType": "expression",
+    "knowledgePoint": "乘法公式",
+    "difficulty": 3,
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          5
+        ]
+      },
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          16,
+          17
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S02-044/question-p05.png",
+        "rendered-pdf/S02-question/05.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathVerification": {
+      "candidateId": "FINAL26-S02-044",
+      "sourceReferences": [
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+          "role": "question",
+          "pages": [
+            5
+          ]
+        },
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+          "role": "solution",
+          "pages": [
+            16,
+            17
+          ]
+        }
+      ],
+      "result": "pass",
+      "method": "PDF题面目视转写、解析答案栏对照、SymPy精确式验算",
+      "normalizedDifference": "0",
+      "expression": "(a-b+c)^2",
+      "comparedAnswer": "a^2-2ab+b^2+2ac-2bc+c^2",
+      "assets": [
+        "evidence/FINAL26-S02-044/question-p05.png",
+        "rendered-pdf/S02-question/05.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false,
+      "domainConstraints": [],
+      "sourceAnswer": "a^2-2ab+b^2+2ac-2bc+c^2"
+    },
+    "scoringTests": [
+      {
+        "name": "standard",
+        "input": "a^2-2ab+b^2+2ac-2bc+c^2",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "equivalent",
+        "input": "(a^2-2ab+b^2+2ac-2bc+c^2)",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "wrong",
+        "input": "(a^2-2ab+b^2+2ac-2bc+c^2)+1",
+        "expect": "incorrect",
+        "result": {
+          "correct": false
+        }
+      },
+      {
+        "name": "incorrect",
+        "input": "@",
+        "expect": "manual",
+        "result": {
+          "manualCheck": true,
+          "correct": false
+        }
+      }
+    ],
+    "renderedQuestion": "计算 (a − b + c)<span class=\"power\">2</span>",
+    "duplicateScreen": {
+      "candidateExactExpressionHits": [],
+      "historicalScreen": "沿用阶段一历史库索引及首批审核方法，语义近似仍有人工审核局限"
+    },
+    "reviewNotes": [
+      "原卷截图核对公式、指数和符号",
+      "复用原解析和独立数学验算",
+      "实际判题测试标准、等价、错误和非法输入"
+    ],
+    "originalKnowledgePoint": "乘法公式",
+    "provenanceStatus": "沿用既有 APPROVED；本轮检查知识点键和标准答案",
+    "id": "Q0392"
+  },
+  {
+    "candidateId": "FINAL26-S02-065",
+    "status": "APPROVED",
+    "answer": "3a^2+ab+1",
+    "answerType": "expression",
+    "knowledgePoint": "整式乘除综合",
+    "difficulty": 3,
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          9,
+          10
+        ]
+      },
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          27
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [
+      {
+        "candidateId": "FINAL26-D07-041",
+        "duplicateOf": "FINAL26-S02-065",
+        "reason": "同一原式且除以3ab后均加3ab",
+        "sourceReferences": [
+          {
+            "path": "sources/专题03 整式的混合运算填空与计算题（期末真题汇编43题，上海专用）（解析版）.docx",
+            "role": "question",
+            "paragraphStart": 291,
+            "paragraphEnd": 291
+          },
+          {
+            "path": "sources/专题03 整式的混合运算填空与计算题（期末真题汇编43题，上海专用）（解析版）.docx",
+            "role": "solution",
+            "paragraphStart": 292,
+            "paragraphEnd": 295
+          }
+        ],
+        "canonicalSourceReferences": [
+          {
+            "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+            "role": "question",
+            "pages": [
+              9,
+              10
+            ]
+          },
+          {
+            "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+            "role": "solution",
+            "pages": [
+              27
+            ]
+          }
+        ]
+      }
+    ],
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S02-065/question-p09.png",
+        "evidence/FINAL26-S02-065/question-p10.png",
+        "rendered-pdf/S02-question/09.png",
+        "rendered-pdf/S02-question/10.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathVerification": {
+      "candidateId": "FINAL26-S02-065",
+      "sourceReferences": [
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+          "role": "question",
+          "pages": [
+            9,
+            10
+          ]
+        },
+        {
+          "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+          "role": "solution",
+          "pages": [
+            27
+          ]
+        }
+      ],
+      "result": "pass",
+      "method": "PDF题面目视转写、解析答案栏对照、SymPy精确式验算",
+      "normalizedDifference": "0",
+      "domainDerivation": "原式除式不得为零，负整数指数幂要求底数非零",
+      "expression": "(9a^3b-6a^2b^2+3ab)/(3ab)+3ab",
+      "comparedAnswer": "3a^2+ab+1",
+      "assets": [
+        "evidence/FINAL26-S02-065/question-p09.png",
+        "evidence/FINAL26-S02-065/question-p10.png",
+        "rendered-pdf/S02-question/09.png",
+        "rendered-pdf/S02-question/10.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false,
+      "domainConstraints": [
+        "a≠0, b≠0"
+      ],
+      "sourceAnswer": "3a^2+ab+1"
+    },
+    "scoringTests": [
+      {
+        "name": "standard",
+        "input": "3a^2+ab+1",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "equivalent",
+        "input": "(3a^2+ab+1)",
+        "expect": "correct",
+        "result": {
+          "correct": true
+        }
+      },
+      {
+        "name": "wrong",
+        "input": "(3a^2+ab+1)+1",
+        "expect": "incorrect",
+        "result": {
+          "correct": false
+        }
+      },
+      {
+        "name": "incorrect",
+        "input": "@",
+        "expect": "manual",
+        "result": {
+          "manualCheck": true,
+          "correct": false
+        }
+      }
+    ],
+    "renderedQuestion": "计算 (9a<span class=\"power\">3</span>b − 6a<span class=\"power\">2</span>b<span class=\"power\">2</span> + 3ab)/(3ab) + 3ab",
+    "duplicateScreen": {
+      "candidateExactExpressionHits": [],
+      "historicalScreen": "沿用阶段一历史库索引及首批审核方法，语义近似仍有人工审核局限"
+    },
+    "reviewNotes": [
+      "原卷截图核对公式、指数和符号",
+      "复用原解析和独立数学验算",
+      "实际判题测试标准、等价、错误和非法输入"
+    ],
+    "originalKnowledgePoint": "整式乘除综合",
+    "provenanceStatus": "沿用既有 APPROVED；本轮检查知识点键和标准答案",
+    "id": "Q0393"
+  },
+  {
+    "candidateId": "FINAL26-S01-001",
+    "status": "APPROVED",
+    "chapter": "第10章 整式的加减",
+    "knowledgePoint": "整式加减综合",
+    "sourceKnowledgePoint": "整式辨析",
+    "question": "单项式 (2a³bc²)/7 的次数是（　）",
+    "displayQuestion": "单项式 (2a³bc²)/7 的次数是（　）",
+    "answer": "B",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "5"
+      },
+      {
+        "id": "B",
+        "text": "6"
+      },
+      {
+        "id": "C",
+        "text": "7"
+      },
+      {
+        "id": "D",
+        "text": "8"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "difficulty": 1,
+    "explanation": "次数为3+1+2=6。A的5、C的7、D的8均不等于6。",
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          1
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "sourceQuestionNumber": 1,
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S01-001/question-p01.png",
+        "rendered-pdf/S01-question/01.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathEvidence": [
+      "次数为3+1+2=6。A的5、C的7、D的8均不等于6。"
+    ],
+    "duplicateScreen": {
+      "exactText": [],
+      "registeredRelations": [],
+      "scope": "正式 368、历史待审 280、联合候选 496 的文本精确匹配及已有 88 条重复关联；公式对象和语义改写仍有盲区",
+      "targetedComparisons": []
+    },
+    "variants": [],
+    "orderPolicy": "保留原选项顺序",
+    "shuffleOptions": false,
+    "reviewReason": "原题图与四个选项核对，沿用独立逐项数学验算；现有选择题评分器验证正确项和全部干扰项。",
+    "reviewEvidence": [
+      "evidence/FINAL26-S01-001/question-p01.png",
+      "rendered-pdf/S01-question/01.png"
+    ],
+    "id": "Q0394"
+  },
+  {
+    "candidateId": "FINAL26-S01-002",
+    "status": "APPROVED",
+    "chapter": "第10章 整式的加减",
+    "knowledgePoint": "整式加减综合",
+    "sourceKnowledgePoint": "整式辨析",
+    "question": "下列说法正确的是（　）",
+    "displayQuestion": "下列说法正确的是（　）",
+    "answer": "C",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "2x²y 的次数是2"
+      },
+      {
+        "id": "B",
+        "text": "(x−3)/2 的系数是1"
+      },
+      {
+        "id": "C",
+        "text": "x²−2x−3 是二次三项式"
+      },
+      {
+        "id": "D",
+        "text": "x²−2x−3 的一次项是2x"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "difficulty": 1,
+    "explanation": "A次数为3。B是二项式，x项系数1/2。C最高2次且有3项。D一次项为−2x。",
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          1,
+          2
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [
+      {
+        "path": "sources/专题01 整式的加减（期末真题汇编45题，上海专用）（解析版）.docx",
+        "role": "question",
+        "paragraphStart": 193,
+        "paragraphEnd": 195
+      },
+      {
+        "path": "sources/专题01 整式的加减（期末真题汇编45题，上海专用）（解析版）.docx",
+        "role": "solution",
+        "paragraphStart": 196,
+        "paragraphEnd": 202
+      }
+    ],
+    "sourceQuestionNumber": 2,
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S01-002/question-p01.png",
+        "rendered-pdf/S01-question/01.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathEvidence": [
+      "A次数为3。B是二项式，x项系数1/2。C最高2次且有3项。D一次项为−2x。"
+    ],
+    "duplicateScreen": {
+      "exactText": [],
+      "registeredRelations": [
+        {
+          "candidateId": "FINAL26-D02-022",
+          "duplicateOf": "FINAL26-S01-002",
+          "reason": "选择题四选项及目标一致",
+          "sourceReferences": [
+            {
+              "path": "sources/专题01 整式的加减（期末真题汇编45题，上海专用）（解析版）.docx",
+              "role": "question",
+              "paragraphStart": 193,
+              "paragraphEnd": 195
+            },
+            {
+              "path": "sources/专题01 整式的加减（期末真题汇编45题，上海专用）（解析版）.docx",
+              "role": "solution",
+              "paragraphStart": 196,
+              "paragraphEnd": 202
+            }
+          ],
+          "canonicalSourceReferences": [
+            {
+              "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（原卷版）.pdf",
+              "role": "question",
+              "pages": [
+                1
+              ]
+            },
+            {
+              "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（解析版）.pdf",
+              "role": "solution",
+              "pages": [
+                1,
+                2
+              ]
+            }
+          ]
+        }
+      ],
+      "scope": "正式 368、历史待审 280、联合候选 496 的文本精确匹配及已有 88 条重复关联；公式对象和语义改写仍有盲区",
+      "targetedComparisons": [
+        {
+          "id": "FINAL26-S02-006、FINAL26-S02-012",
+          "result": "相似仅在通用题干；本题考察整式概念，后两题考察幂运算。"
+        }
+      ]
+    },
+    "variants": [],
+    "orderPolicy": "保留原选项顺序",
+    "shuffleOptions": false,
+    "reviewReason": "原题图与四个选项核对，沿用独立逐项数学验算；现有选择题评分器验证正确项和全部干扰项。",
+    "reviewEvidence": [
+      "evidence/FINAL26-S01-002/question-p01.png",
+      "rendered-pdf/S01-question/01.png"
+    ],
+    "id": "Q0395"
+  },
+  {
+    "candidateId": "FINAL26-S01-003",
+    "status": "APPROVED",
+    "chapter": "第10章 整式的加减",
+    "knowledgePoint": "整式加减综合",
+    "sourceKnowledgePoint": "整式辨析",
+    "question": "下列叙述中正确的是（　）",
+    "displayQuestion": "下列叙述中正确的是（　）",
+    "answer": "A",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "0是单项式"
+      },
+      {
+        "id": "B",
+        "text": "单项式 2³xy 的次数是5"
+      },
+      {
+        "id": "C",
+        "text": "单项式 −(2x²y)/5 的系数为−2"
+      },
+      {
+        "id": "D",
+        "text": "多项式 3a³b+2a² 是六次二项式"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "difficulty": 1,
+    "explanation": "常数0是单项式。B中2³是数值因子，次数2。C系数−2/5。D最高次数4。",
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          2
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "sourceQuestionNumber": 3,
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S01-003/question-p01.png",
+        "rendered-pdf/S01-question/01.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathEvidence": [
+      "常数0是单项式。B中2³是数值因子，次数2。C系数−2/5。D最高次数4。"
+    ],
+    "duplicateScreen": {
+      "exactText": [],
+      "registeredRelations": [],
+      "scope": "正式 368、历史待审 280、联合候选 496 的文本精确匹配及已有 88 条重复关联；公式对象和语义改写仍有盲区",
+      "targetedComparisons": []
+    },
+    "variants": [],
+    "orderPolicy": "保留原选项顺序",
+    "shuffleOptions": false,
+    "reviewReason": "原题图与四个选项核对，沿用独立逐项数学验算；现有选择题评分器验证正确项和全部干扰项。",
+    "reviewEvidence": [
+      "evidence/FINAL26-S01-003/question-p01.png",
+      "rendered-pdf/S01-question/01.png"
+    ],
+    "id": "Q0396"
+  },
+  {
+    "candidateId": "FINAL26-S01-004",
+    "status": "APPROVED",
+    "chapter": "第10章 整式的加减",
+    "knowledgePoint": "整式加减综合",
+    "sourceKnowledgePoint": "整式辨析",
+    "question": "在 −(3/2)x、4/(x−y)、x+y、(x²+2)/π、9/8 中，整式有（　）",
+    "displayQuestion": "在 −(3/2)x、4/(x−y)、x+y、(x²+2)/π、9/8 中，整式有（　）",
+    "answer": "D",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "1个"
+      },
+      {
+        "id": "B",
+        "text": "2个"
+      },
+      {
+        "id": "C",
+        "text": "3个"
+      },
+      {
+        "id": "D",
+        "text": "4个"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "difficulty": 1,
+    "explanation": "五式中只有4/(x−y)的分母含字母。其余四式均可写为整式。",
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          2,
+          3
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "sourceQuestionNumber": 4,
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S01-004/question-p01.png",
+        "rendered-pdf/S01-question/01.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathEvidence": [
+      "五式中只有4/(x−y)的分母含字母。其余四式均可写为整式。"
+    ],
+    "duplicateScreen": {
+      "exactText": [],
+      "registeredRelations": [],
+      "scope": "正式 368、历史待审 280、联合候选 496 的文本精确匹配及已有 88 条重复关联；公式对象和语义改写仍有盲区",
+      "targetedComparisons": []
+    },
+    "variants": [
+      {
+        "candidateId": "FINAL26-S01-005",
+        "classification": "同模板变式",
+        "reason": "两题均辨识整式，给出的表达式、条件及干扰项不同。"
+      }
+    ],
+    "orderPolicy": "保留原选项顺序",
+    "shuffleOptions": false,
+    "reviewReason": "原题图与四个选项核对，沿用独立逐项数学验算；现有选择题评分器验证正确项和全部干扰项。",
+    "reviewEvidence": [
+      "evidence/FINAL26-S01-004/question-p01.png",
+      "rendered-pdf/S01-question/01.png"
+    ],
+    "id": "Q0397"
+  },
+  {
+    "candidateId": "FINAL26-S01-005",
+    "status": "APPROVED",
+    "chapter": "第10章 整式的加减",
+    "knowledgePoint": "整式加减综合",
+    "sourceKnowledgePoint": "整式辨析",
+    "question": "在 −xy、(3m−7n)/6、S=πr²、1/x、a²−2a+5、(y−5)/π 中，整式的个数有（　）",
+    "displayQuestion": "在 −xy、(3m−7n)/6、S=πr²、1/x、a²−2a+5、(y−5)/π 中，整式的个数有（　）",
+    "answer": "B",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "3个"
+      },
+      {
+        "id": "B",
+        "text": "4个"
+      },
+      {
+        "id": "C",
+        "text": "5个"
+      },
+      {
+        "id": "D",
+        "text": "6个"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "difficulty": 1,
+    "explanation": "第(3)式是等式而第(4)式分母为x。第(1)(2)(5)(6)式均为整式，共4个。",
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          3
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "sourceQuestionNumber": 5,
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S01-005/question-p01.png",
+        "rendered-pdf/S01-question/01.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathEvidence": [
+      "第(3)式是等式而第(4)式分母为x。第(1)(2)(5)(6)式均为整式，共4个。"
+    ],
+    "duplicateScreen": {
+      "exactText": [],
+      "registeredRelations": [],
+      "scope": "正式 368、历史待审 280、联合候选 496 的文本精确匹配及已有 88 条重复关联；公式对象和语义改写仍有盲区",
+      "targetedComparisons": []
+    },
+    "variants": [
+      {
+        "candidateId": "FINAL26-S01-004",
+        "classification": "同模板变式",
+        "reason": "两题均辨识整式，给出的表达式、条件及干扰项不同。"
+      }
+    ],
+    "orderPolicy": "保留原选项顺序",
+    "shuffleOptions": false,
+    "reviewReason": "原题图与四个选项核对，沿用独立逐项数学验算；现有选择题评分器验证正确项和全部干扰项。",
+    "reviewEvidence": [
+      "evidence/FINAL26-S01-005/question-p01.png",
+      "rendered-pdf/S01-question/01.png"
+    ],
+    "id": "Q0398"
+  },
+  {
+    "candidateId": "FINAL26-S01-008",
+    "status": "APPROVED",
+    "chapter": "第10章 整式的加减",
+    "knowledgePoint": "合并同类项",
+    "sourceKnowledgePoint": "合并同类项",
+    "question": "化简 m+n+(m−n) 的结果是（　）",
+    "displayQuestion": "化简 m+n+(m−n) 的结果是（　）",
+    "answer": "A",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "2m"
+      },
+      {
+        "id": "B",
+        "text": "−2m"
+      },
+      {
+        "id": "C",
+        "text": "−2n"
+      },
+      {
+        "id": "D",
+        "text": "2n"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "difficulty": 2,
+    "explanation": "展开得m+n+m−n=2m，其余三个选项都并非等式。",
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          2
+        ]
+      },
+      {
+        "path": "sources/7上数学专题01整式的加减（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          4
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "sourceQuestionNumber": 8,
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S01-008/question-p02.png",
+        "rendered-pdf/S01-question/02.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathEvidence": [
+      "展开得m+n+m−n=2m，其余三个选项都并非等式。"
+    ],
+    "duplicateScreen": {
+      "exactText": [],
+      "registeredRelations": [],
+      "scope": "正式 368、历史待审 280、联合候选 496 的文本精确匹配及已有 88 条重复关联；公式对象和语义改写仍有盲区",
+      "targetedComparisons": []
+    },
+    "variants": [],
+    "orderPolicy": "保留原选项顺序",
+    "shuffleOptions": false,
+    "reviewReason": "原题图与四个选项核对，沿用独立逐项数学验算；现有选择题评分器验证正确项和全部干扰项。",
+    "reviewEvidence": [
+      "evidence/FINAL26-S01-008/question-p02.png",
+      "rendered-pdf/S01-question/02.png"
+    ],
+    "id": "Q0399"
+  },
+  {
+    "candidateId": "FINAL26-S02-006",
+    "status": "APPROVED",
+    "chapter": "第11章 整式的乘除",
+    "knowledgePoint": "同底数幂乘法",
+    "sourceKnowledgePoint": "幂的乘方",
+    "question": "下列计算正确的是（　）",
+    "displayQuestion": "下列计算正确的是（　）",
+    "answer": "B",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "x²+x³=x⁵"
+      },
+      {
+        "id": "B",
+        "text": "x²×x³=x⁵"
+      },
+      {
+        "id": "C",
+        "text": "x²×x³=x⁶"
+      },
+      {
+        "id": "D",
+        "text": "(x²)³=x⁵"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "difficulty": 2,
+    "explanation": "A不能合并相异次项。B指数相加得5。C指数不是6。D指数应为6。",
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          3
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "sourceQuestionNumber": 6,
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S02-006/question-p01.png",
+        "rendered-pdf/S02-question/01.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathEvidence": [
+      "A不能合并相异次项。B指数相加得5。C指数不是6。D指数应为6。"
+    ],
+    "duplicateScreen": {
+      "exactText": [],
+      "registeredRelations": [],
+      "scope": "正式 368、历史待审 280、联合候选 496 的文本精确匹配及已有 88 条重复关联；公式对象和语义改写仍有盲区",
+      "targetedComparisons": [
+        {
+          "id": "FINAL26-S02-012",
+          "result": "相同通用题干和正确恒等式，错误选项不同；只准入 S02-006。"
+        },
+        {
+          "id": "FINAL26-S02-051",
+          "result": "通用题干相似，051 的选项考察分式除法及其他运算，题目条件不同。"
+        }
+      ]
+    },
+    "variants": [
+      {
+        "candidateId": "FINAL26-S02-012",
+        "classification": "同模板变式",
+        "reason": "同一正确恒等式，错误选项及要求辨析的错误形式不同；本批仅选入 S02-006。"
+      }
+    ],
+    "orderPolicy": "保留原选项顺序",
+    "shuffleOptions": false,
+    "reviewReason": "原题图与四个选项核对，沿用独立逐项数学验算；现有选择题评分器验证正确项和全部干扰项。",
+    "reviewEvidence": [
+      "evidence/FINAL26-S02-006/question-p01.png",
+      "rendered-pdf/S02-question/01.png"
+    ],
+    "id": "Q0400"
+  },
+  {
+    "candidateId": "FINAL26-S02-035",
+    "status": "APPROVED",
+    "chapter": "第11章 整式的乘除",
+    "knowledgePoint": "乘法公式",
+    "sourceKnowledgePoint": "平方差公式",
+    "question": "下列各式中，可以用平方差公式进行计算的是（　）",
+    "displayQuestion": "下列各式中，可以用平方差公式进行计算的是（　）",
+    "answer": "B",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "(a−2b)(2a−b)"
+      },
+      {
+        "id": "B",
+        "text": "(−a+2b)(−a−2b)"
+      },
+      {
+        "id": "C",
+        "text": "(a+2b)(−2a+b)"
+      },
+      {
+        "id": "D",
+        "text": "(2a−b)(−2a+b)"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "difficulty": 2,
+    "explanation": "B是共同项−a与相反项±2b。A、C因子既不同也不互为相反项。D两因子互为相反数，适用负完全平方。",
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          3
+        ]
+      },
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          13
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "sourceQuestionNumber": 35,
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S02-035/question-p03.png",
+        "rendered-pdf/S02-question/03.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathEvidence": [
+      "B是共同项−a与相反项±2b。A、C因子既不同也不互为相反项。D两因子互为相反数，适用负完全平方。"
+    ],
+    "duplicateScreen": {
+      "exactText": [],
+      "registeredRelations": [],
+      "scope": "正式 368、历史待审 280、联合候选 496 的文本精确匹配及已有 88 条重复关联；公式对象和语义改写仍有盲区",
+      "targetedComparisons": [
+        {
+          "id": "FINAL26-S02-042",
+          "result": "题干相似，035 考查平方差，042 考查完全平方，选项不同。"
+        }
+      ]
+    },
+    "variants": [],
+    "orderPolicy": "保留原选项顺序",
+    "shuffleOptions": false,
+    "reviewReason": "原题图与四个选项核对，沿用独立逐项数学验算；现有选择题评分器验证正确项和全部干扰项。",
+    "reviewEvidence": [
+      "evidence/FINAL26-S02-035/question-p03.png",
+      "rendered-pdf/S02-question/03.png"
+    ],
+    "id": "Q0401"
+  },
+  {
+    "candidateId": "FINAL26-S02-042",
+    "status": "APPROVED",
+    "chapter": "第11章 整式的乘除",
+    "knowledgePoint": "乘法公式",
+    "sourceKnowledgePoint": "完全平方公式",
+    "question": "下列各式中，可用完全平方公式计算的是（　）",
+    "displayQuestion": "下列各式中，可用完全平方公式计算的是（　）",
+    "answer": "D",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "(1+x)(1−x)"
+      },
+      {
+        "id": "B",
+        "text": "(−x−1)(−1+x)"
+      },
+      {
+        "id": "C",
+        "text": "(x−1)(1+x)"
+      },
+      {
+        "id": "D",
+        "text": "(−x+1)(1−x)"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "difficulty": 2,
+    "explanation": "D两因子都是1−x。A、B、C都可整理为平方差型，其中B可把Y=x−1写为−(1−x)。",
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          4,
+          5
+        ]
+      },
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          15,
+          16
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "sourceQuestionNumber": 42,
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S02-042/question-p04.png",
+        "evidence/FINAL26-S02-042/question-p05.png",
+        "rendered-pdf/S02-question/04.png",
+        "rendered-pdf/S02-question/05.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathEvidence": [
+      "D两因子都是1−x。A、B、C都可整理为平方差型，其中B可把Y=x−1写为−(1−x)。"
+    ],
+    "duplicateScreen": {
+      "exactText": [],
+      "registeredRelations": [],
+      "scope": "正式 368、历史待审 280、联合候选 496 的文本精确匹配及已有 88 条重复关联；公式对象和语义改写仍有盲区",
+      "targetedComparisons": [
+        {
+          "id": "FINAL26-S02-035",
+          "result": "考查完全平方与平方差的不同识别目标。"
+        },
+        {
+          "id": "FINAL26-S02-062",
+          "result": "同为完全平方识别，042 的正确项为相同因式，062 的正确项需先提取负号；本批仅纳入 042。"
+        }
+      ]
+    },
+    "variants": [],
+    "orderPolicy": "保留原选项顺序",
+    "shuffleOptions": false,
+    "reviewReason": "原题图与四个选项核对，沿用独立逐项数学验算；现有选择题评分器验证正确项和全部干扰项。",
+    "reviewEvidence": [
+      "evidence/FINAL26-S02-042/question-p04.png",
+      "evidence/FINAL26-S02-042/question-p05.png",
+      "rendered-pdf/S02-question/04.png",
+      "rendered-pdf/S02-question/05.png"
+    ],
+    "id": "Q0402"
+  },
+  {
+    "candidateId": "FINAL26-S02-050",
+    "status": "APPROVED",
+    "chapter": "第11章 整式的乘除",
+    "knowledgePoint": "幂的运算综合",
+    "sourceKnowledgePoint": "同底数幂的除法",
+    "question": "下列运算结果正确的是（　）",
+    "displayQuestion": "下列运算结果正确的是（　）",
+    "answer": "C",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "x³+x³=2x⁶"
+      },
+      {
+        "id": "B",
+        "text": "−x²−x⁴=−x⁶"
+      },
+      {
+        "id": "C",
+        "text": "(2x)³=8x³"
+      },
+      {
+        "id": "D",
+        "text": "x⁶÷x²=x³"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "difficulty": 2,
+    "explanation": "A为2x³。B不可合并。C系数2³=8。D为x^4且x≠0。",
+    "sourceReferences": [
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（原卷版）.pdf",
+        "role": "question",
+        "pages": [
+          6,
+          7
+        ]
+      },
+      {
+        "path": "sources/7上数学专题02  整式的乘除（期末复习专项训练）（解析版）.pdf",
+        "role": "solution",
+        "pages": [
+          21
+        ]
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "sourceQuestionNumber": 50,
+    "visualEvidence": {
+      "assets": [
+        "evidence/FINAL26-S02-050/question-p06.png",
+        "evidence/FINAL26-S02-050/question-p07.png",
+        "rendered-pdf/S02-question/06.png",
+        "rendered-pdf/S02-question/07.png"
+      ],
+      "pdfVisualUsed": true,
+      "wordVisualUsed": false
+    },
+    "mathEvidence": [
+      "A为2x³。B不可合并。C系数2³=8。D为x^4且x≠0。"
+    ],
+    "duplicateScreen": {
+      "exactText": [],
+      "registeredRelations": [],
+      "scope": "正式 368、历史待审 280、联合候选 496 的文本精确匹配及已有 88 条重复关联；公式对象和语义改写仍有盲区",
+      "targetedComparisons": [
+        {
+          "id": "FINAL26-S02-051",
+          "result": "通用题干相似，050 正确项为积的乘方，051 的正确项为代数式除法，选项不同。"
+        }
+      ]
+    },
+    "variants": [],
+    "orderPolicy": "保留原选项顺序",
+    "shuffleOptions": false,
+    "reviewReason": "原题图与四个选项核对，沿用独立逐项数学验算；现有选择题评分器验证正确项和全部干扰项。",
+    "reviewEvidence": [
+      "evidence/FINAL26-S02-050/question-p06.png",
+      "evidence/FINAL26-S02-050/question-p07.png",
+      "rendered-pdf/S02-question/06.png",
+      "rendered-pdf/S02-question/07.png"
+    ],
+    "id": "Q0403"
+  },
+  {
+    "candidateId": "FINAL26-D06-028",
+    "status": "APPROVED",
+    "chapter": "第12章 因式分解",
+    "knowledgePoint": "因式分解·综合方法",
+    "sourceKnowledgePoint": "含参因式分解",
+    "question": "多项式 x²-ax-10 分解因式为 (x+m)(x+n)，其中 a、m、n 为整数，则 a 的取值有多少个？",
+    "displayQuestion": "多项式 x²-ax-10 分解因式为 (x+m)(x+n)，其中 a、m、n 为整数，则 a 的取值有多少个？",
+    "answer": "D",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "1 个"
+      },
+      {
+        "id": "B",
+        "text": "2 个"
+      },
+      {
+        "id": "C",
+        "text": "3 个"
+      },
+      {
+        "id": "D",
+        "text": "4 个"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "difficulty": 2,
+    "explanation": "整数因子对mn=−10无序为(1,−10)、(−1,10)、(2,−5)、(−2,5)，m+n值四种。",
+    "sourceReferences": [
+      {
+        "path": "sources/专题03 整式的乘法10大题型50题（期末专项训练）（解析版）.docx",
+        "role": "question",
+        "paragraphStart": 240,
+        "paragraphEnd": 241
+      },
+      {
+        "path": "sources/专题03 整式的乘法10大题型50题（期末专项训练）（解析版）.docx",
+        "role": "solution",
+        "paragraphStart": 242,
+        "paragraphEnd": 253
+      }
+    ],
+    "additionalDuplicateSources": [],
+    "sourceQuestionNumber": 28,
+    "visualEvidence": {
+      "assets": [
+        "word-evidence/FINAL26-D06-028-question.png",
+        "word-evidence/FINAL26-D06-028-solution.png"
+      ],
+      "wordVisualUsed": true
+    },
+    "mathEvidence": [
+      "整数因子对mn=−10无序为(1,−10)、(−1,10)、(2,−5)、(−2,5)，m+n值四种。"
+    ],
+    "duplicateScreen": {
+      "exactText": [],
+      "registeredRelations": [],
+      "scope": "正式 368、历史待审 280、联合候选 496 的文本精确匹配及已有 88 条重复关联；公式对象和语义改写仍有盲区",
+      "targetedComparisons": []
+    },
+    "variants": [],
+    "orderPolicy": "保留原选项顺序",
+    "shuffleOptions": false,
+    "reviewReason": "原题图与四个选项核对，沿用独立逐项数学验算；现有选择题评分器验证正确项和全部干扰项。",
+    "reviewEvidence": [
+      "word-evidence/FINAL26-D06-028-question.png",
+      "word-evidence/FINAL26-D06-028-solution.png"
+    ],
+    "id": "Q0404"
+  },
+  {
+    "candidateId": "FINAL26-D01-004",
+    "status": "APPROVED",
+    "chapter": 13,
+    "question": "表中 x=-2 时 y=0，x=-1 时 y 无意义，x=0、1、2 的位置标记为 *。y 可能是哪一个分式？",
+    "answer": "B",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "knowledgePoint": "F13_CONDITIONS",
+    "options": [
+      {
+        "id": "A",
+        "text": "(x-2)/(x+1)"
+      },
+      {
+        "id": "B",
+        "text": "(x+2)/(x+1)"
+      },
+      {
+        "id": "C",
+        "text": "(x+2)/(x-1)"
+      },
+      {
+        "id": "D",
+        "text": "(x-2)/(x-1)"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "shuffleOptions": false,
+    "explanation": "只有 B 同时满足 x=-2 时分子为零且 x=-1 时分母为零。",
+    "domainConstraints": [
+      "按各选项分母确定"
+    ],
+    "difficulty": 2,
+    "sourceReferences": [
+      {
+        "path": "sources/七年级数学第三次月考卷（全解全析）.docx",
+        "role": "question",
+        "paragraphStart": 32,
+        "paragraphEnd": 49
+      },
+      {
+        "path": "sources/七年级数学第三次月考卷（全解全析）.docx",
+        "role": "solution",
+        "paragraphStart": 50,
+        "paragraphEnd": 57
+      }
+    ],
+    "sourceQuestionNumber": 4,
+    "visualEvidence": {
+      "assets": [
+        "objects/929d10c70181b7cf.wmf",
+        "objects/16e3e1d2e70d7355.bin",
+        "objects/85b23b53b1cf5d3a.wmf",
+        "objects/bfa8606995319184.bin",
+        "objects/8f4975a114b486ae.wmf",
+        "objects/3db11107f8fdc26c.bin",
+        "objects/ea86dbebe21f2378.wmf",
+        "objects/25f11845edc329de.bin",
+        "objects/cfcd25631d6ca84a.wmf",
+        "objects/71a5e5832feaf111.bin",
+        "objects/0afdec44f1c00a55.wmf",
+        "objects/0b3ab224f0e6ee22.bin",
+        "objects/6b894905e92a0374.wmf",
+        "objects/c3e512403dda2e3e.bin",
+        "objects/929d10c70181b7cf.wmf",
+        "objects/16e3e1d2e70d7355.bin",
+        "objects/cfcd25631d6ca84a.wmf",
+        "objects/71a5e5832feaf111.bin",
+        "objects/1527dec67d6c7835.wmf",
+        "objects/e8205d6fcc22cee6.bin",
+        "objects/dc2c6d53b3fdc82b.wmf",
+        "objects/0a1ead540e0ed88b.bin",
+        "objects/375b1b0d60551360.wmf",
+        "objects/f673ad2585d22b60.bin",
+        "objects/0b06dc82707ca4dc.wmf",
+        "objects/331454b8bac90a7d.bin"
+      ],
+      "pdfVisualUsed": false,
+      "wordVisualUsed": true
+    },
+    "mathEvidence": [
+      "表中 x=−2 时 y=0，x=−1 时 y无意义。A在−2时非0。C和D在−1处有意义。B符合两条。"
+    ],
+    "duplicateScreen": {
+      "exactText": [],
+      "registeredRelations": [],
+      "scope": "正式 368、历史待审 280、联合候选 496 的文本精确匹配及已有 88 条重复关联；公式对象和语义改写仍有盲区",
+      "sharedFormulaObjects": [
+        {
+          "candidateId": "FINAL26-D01-010",
+          "hashes": [
+            "85b23b53b1cf5d3a"
+          ]
+        },
+        {
+          "candidateId": "FINAL26-D01-016",
+          "hashes": [
+            "85b23b53b1cf5d3a"
+          ]
+        },
+        {
+          "candidateId": "FINAL26-D01-023",
+          "hashes": [
+            "ea86dbebe21f2378"
+          ]
+        },
+        {
+          "candidateId": "FINAL26-D01-026",
+          "hashes": [
+            "929d10c70181b7cf",
+            "85b23b53b1cf5d3a"
+          ]
+        },
+        {
+          "candidateId": "FINAL26-D01-027",
+          "hashes": [
+            "929d10c70181b7cf",
+            "85b23b53b1cf5d3a"
+          ]
+        },
+        {
+          "candidateId": "FINAL26-D01-028",
+          "hashes": [
+            "85b23b53b1cf5d3a"
+          ]
+        }
+      ],
+      "targetedComparison": "逐图对照 D01-010、016、023、026、027、028，命中为通用字母或局部公式对象；任务、条件和题型均不同。"
+    },
+    "scoringTests": [
+      {
+        "correct": true
+      },
+      {
+        "correct": false
+      }
+    ],
+    "reviewReason": "原题和解析已按题面证据核对；标准与反例通过现有评分器。非方程题。",
+    "reviewEvidence": [
+      "objects/929d10c70181b7cf.wmf",
+      "objects/16e3e1d2e70d7355.bin",
+      "objects/85b23b53b1cf5d3a.wmf",
+      "objects/bfa8606995319184.bin",
+      "objects/8f4975a114b486ae.wmf",
+      "objects/3db11107f8fdc26c.bin",
+      "objects/ea86dbebe21f2378.wmf",
+      "objects/25f11845edc329de.bin",
+      "objects/cfcd25631d6ca84a.wmf",
+      "objects/71a5e5832feaf111.bin",
+      "objects/0afdec44f1c00a55.wmf",
+      "objects/0b3ab224f0e6ee22.bin",
+      "objects/6b894905e92a0374.wmf",
+      "objects/c3e512403dda2e3e.bin",
+      "objects/929d10c70181b7cf.wmf",
+      "objects/16e3e1d2e70d7355.bin",
+      "objects/cfcd25631d6ca84a.wmf",
+      "objects/71a5e5832feaf111.bin",
+      "objects/1527dec67d6c7835.wmf",
+      "objects/e8205d6fcc22cee6.bin",
+      "objects/dc2c6d53b3fdc82b.wmf",
+      "objects/0a1ead540e0ed88b.bin",
+      "objects/375b1b0d60551360.wmf",
+      "objects/f673ad2585d22b60.bin",
+      "objects/0b06dc82707ca4dc.wmf",
+      "objects/331454b8bac90a7d.bin"
+    ],
+    "id": "Q0405"
+  },
+  {
+    "candidateId": "FINAL26-D01-012",
+    "status": "APPROVED",
+    "chapter": 13,
+    "question": "若分式 (|x|-1)/((x-2)(x+1)) 的值为 0，求 x。",
+    "answer": "1",
+    "answerType": "number",
+    "knowledgePoint": "F13_CONDITIONS",
+    "explanation": "分子为零得 x=±1，分母排除 x=2 和 x=-1，故 x=1。",
+    "domainConstraints": [
+      "x≠2",
+      "x≠-1"
+    ],
+    "difficulty": 2,
+    "sourceReferences": [
+      {
+        "path": "sources/七年级数学第三次月考卷（全解全析）.docx",
+        "role": "question",
+        "paragraphStart": 113,
+        "paragraphEnd": 113
+      },
+      {
+        "path": "sources/七年级数学第三次月考卷（全解全析）.docx",
+        "role": "solution",
+        "paragraphStart": 114,
+        "paragraphEnd": 118
+      }
+    ],
+    "sourceQuestionNumber": 12,
+    "visualEvidence": {
+      "assets": [
+        "objects/f3c1d4c29541951e.wmf",
+        "objects/02a98497cbf03213.bin"
+      ],
+      "pdfVisualUsed": false,
+      "wordVisualUsed": true
+    },
+    "mathEvidence": [
+      "分子给x=±1。分母排除x=2与−1，保留1。"
+    ],
+    "duplicateScreen": {
+      "exactText": [],
+      "registeredRelations": [],
+      "scope": "正式 368、历史待审 280、联合候选 496 的文本精确匹配及已有 88 条重复关联；公式对象和语义改写仍有盲区"
+    },
+    "scoringTests": [
+      {
+        "correct": true
+      },
+      {
+        "correct": false
+      }
+    ],
+    "reviewReason": "原题和解析已按题面证据核对；标准与反例通过现有评分器。非方程题。",
+    "reviewEvidence": [
+      "objects/f3c1d4c29541951e.wmf",
+      "objects/02a98497cbf03213.bin"
+    ],
+    "id": "Q0406"
+  },
+  {
+    "candidateId": "FINAL26-D01-017",
+    "status": "APPROVED",
+    "chapter": 13,
+    "question": "已知 a²-3a+1=0，求 4a²-9a-2+9/(1+a²) 的值。",
+    "answer": "3",
+    "answerType": "number",
+    "knowledgePoint": "F13_MIXED",
+    "explanation": "a 非零且 a+1/a=3，由 a²+1=3a 化简原式得到 3。",
+    "domainConstraints": [
+      "a≠0"
+    ],
+    "difficulty": 2,
+    "sourceReferences": [
+      {
+        "path": "sources/七年级数学第三次月考卷（全解全析）.docx",
+        "role": "question",
+        "paragraphStart": 156,
+        "paragraphEnd": 156
+      },
+      {
+        "path": "sources/七年级数学第三次月考卷（全解全析）.docx",
+        "role": "solution",
+        "paragraphStart": 157,
+        "paragraphEnd": 168
+      }
+    ],
+    "sourceQuestionNumber": 17,
+    "visualEvidence": {
+      "assets": [
+        "objects/382bef2bee855cd5.wmf",
+        "objects/abaee0cbbe00cb3b.bin",
+        "objects/01966d00834a8362.wmf",
+        "objects/eff7e2bc68d58cb3.bin"
+      ],
+      "pdfVisualUsed": false,
+      "wordVisualUsed": true
+    },
+    "mathEvidence": [
+      "1+a²=3a 且a≠0。9/(1+a²)=3/a=9−3a，代入得4a²−12a+7=3。"
+    ],
+    "duplicateScreen": {
+      "exactText": [],
+      "registeredRelations": [],
+      "scope": "正式 368、历史待审 280、联合候选 496 的文本精确匹配及已有 88 条重复关联；公式对象和语义改写仍有盲区"
+    },
+    "scoringTests": [
+      {
+        "correct": true
+      },
+      {
+        "correct": false
+      }
+    ],
+    "reviewReason": "原题和解析已按题面证据核对；标准与反例通过现有评分器。非方程题。",
+    "reviewEvidence": [
+      "objects/382bef2bee855cd5.wmf",
+      "objects/abaee0cbbe00cb3b.bin",
+      "objects/01966d00834a8362.wmf",
+      "objects/eff7e2bc68d58cb3.bin"
+    ],
+    "id": "Q0407"
+  },
+  {
+    "candidateId": "FINAL26-D01-018",
+    "status": "APPROVED",
+    "chapter": 13,
+    "question": "若 (x+3)/((x-2)(x+2))=A/(x-2)+B/(x+2)，其中 A、B 为常数，求 A+B。",
+    "answer": "1",
+    "answerType": "number",
+    "knowledgePoint": "F13_ADD_SUBTRACT",
+    "explanation": "在 x≠±2 时同乘公分母，比较 x 的系数得到 A+B=1。",
+    "domainConstraints": [
+      "x≠2",
+      "x≠-2"
+    ],
+    "difficulty": 2,
+    "sourceReferences": [
+      {
+        "path": "sources/七年级数学第三次月考卷（全解全析）.docx",
+        "role": "question",
+        "paragraphStart": 169,
+        "paragraphEnd": 169
+      },
+      {
+        "path": "sources/七年级数学第三次月考卷（全解全析）.docx",
+        "role": "solution",
+        "paragraphStart": 170,
+        "paragraphEnd": 176
+      }
+    ],
+    "sourceQuestionNumber": 18,
+    "visualEvidence": {
+      "assets": [
+        "objects/8eb8ea4eeb84bb7b.wmf",
+        "objects/5455ca58edd0f568.bin",
+        "objects/e6c882d93e739cf6.wmf",
+        "objects/64b6c077a781d009.bin",
+        "objects/5b61e14e4ce329ea.wmf",
+        "objects/8ce5ef6c7c41e790.bin",
+        "objects/a9eeea67bebf5f7a.wmf",
+        "objects/9d7781f6c4a635b1.bin"
+      ],
+      "pdfVisualUsed": false,
+      "wordVisualUsed": true
+    },
+    "mathEvidence": [
+      "在x≠±2时同乘公分母，得到x+3=A(x+2)+B(x−2)，比较x系数。"
+    ],
+    "duplicateScreen": {
+      "exactText": [],
+      "registeredRelations": [],
+      "scope": "正式 368、历史待审 280、联合候选 496 的文本精确匹配及已有 88 条重复关联；公式对象和语义改写仍有盲区",
+      "sharedFormulaObjects": [
+        {
+          "candidateId": "FINAL26-D01-027",
+          "hashes": [
+            "e6c882d93e739cf6",
+            "5b61e14e4ce329ea"
+          ]
+        },
+        {
+          "candidateId": "FINAL26-D01-028",
+          "hashes": [
+            "5b61e14e4ce329ea"
+          ]
+        }
+      ],
+      "targetedComparison": "逐图对照 D01-027、028，命中为通用 A、B 对象；两题分别讨论比较大小和关联分式，任务条件不同。"
+    },
+    "scoringTests": [
+      {
+        "correct": true
+      },
+      {
+        "correct": false
+      }
+    ],
+    "reviewReason": "原题和解析已按题面证据核对；标准与反例通过现有评分器。非方程题。",
+    "reviewEvidence": [
+      "objects/8eb8ea4eeb84bb7b.wmf",
+      "objects/5455ca58edd0f568.bin",
+      "objects/e6c882d93e739cf6.wmf",
+      "objects/64b6c077a781d009.bin",
+      "objects/5b61e14e4ce329ea.wmf",
+      "objects/8ce5ef6c7c41e790.bin",
+      "objects/a9eeea67bebf5f7a.wmf",
+      "objects/9d7781f6c4a635b1.bin"
+    ],
+    "id": "Q0408"
+  },
+  {
+    "candidateId": "FINAL26-D03-034",
+    "status": "APPROVED",
+    "chapter": 13,
+    "question": "已知 x²-6x+2=0，求 x²+4/x² 的值。",
+    "answer": "32",
+    "answerType": "number",
+    "knowledgePoint": "F13_MIXED",
+    "explanation": "x 不为零，原式两边除以 x 得 x+2/x=6，平方后减去 4 得 32。",
+    "domainConstraints": [
+      "x≠0"
+    ],
+    "difficulty": 2,
+    "sourceReferences": [
+      {
+        "path": "sources/专题01 整式的概念与合并同类项9大题型50题（期末专项训练）（解析版）.docx",
+        "role": "question",
+        "paragraphStart": 307,
+        "paragraphEnd": 307
+      },
+      {
+        "path": "sources/专题01 整式的概念与合并同类项9大题型50题（期末专项训练）（解析版）.docx",
+        "role": "solution",
+        "paragraphStart": 308,
+        "paragraphEnd": 315
+      }
+    ],
+    "sourceQuestionNumber": 34,
+    "visualEvidence": {
+      "assets": [],
+      "pdfVisualUsed": false,
+      "wordVisualUsed": false
+    },
+    "mathEvidence": [
+      "原方程两边除以非零x得x+2/x=6，再平方减4。"
+    ],
+    "duplicateScreen": {
+      "exactText": [],
+      "registeredRelations": [],
+      "scope": "正式 368、历史待审 280、联合候选 496 的文本精确匹配及已有 88 条重复关联；公式对象和语义改写仍有盲区"
+    },
+    "scoringTests": [
+      {
+        "correct": true
+      },
+      {
+        "correct": false
+      }
+    ],
+    "reviewReason": "原题和解析已按题面证据核对；标准与反例通过现有评分器。非方程题。",
+    "reviewEvidence": [],
+    "id": "Q0409"
+  },
+  {
+    "candidateId": "FINAL26-D03-040",
+    "status": "APPROVED",
+    "chapter": 13,
+    "question": "先化简 (1-2/(a+1))÷((a²-2a+1)/(a+1))，再代入 a=-1/2 求值。",
+    "answer": [
+      "1/(a-1)",
+      "-2/3"
+    ],
+    "answerType": "rational_multiple_blank",
+    "knowledgePoint": "F13_MIXED",
+    "explanation": "原式要求 a≠±1，化简得 1/(a-1)，当 a=-1/2 时得 -2/3。",
+    "domainConstraints": [
+      "a≠1",
+      "a≠-1"
+    ],
+    "blankPolicies": [
+      {
+        "answerType": "rational_expression",
+        "originalExpression": "(1-2/(a+1))/((a^2-2*a+1)/(a+1))",
+        "answerConstraint": "simplest_fraction"
+      },
+      {
+        "answerType": "rational_expression",
+        "originalExpression": "-2/3",
+        "answerConstraint": "simplest_fraction"
+      }
+    ],
+    "difficulty": 2,
+    "sourceReferences": [
+      {
+        "path": "sources/专题01 整式的概念与合并同类项9大题型50题（期末专项训练）（解析版）.docx",
+        "role": "question",
+        "paragraphStart": 384,
+        "paragraphEnd": 384
+      },
+      {
+        "path": "sources/专题01 整式的概念与合并同类项9大题型50题（期末专项训练）（解析版）.docx",
+        "role": "solution",
+        "paragraphStart": 385,
+        "paragraphEnd": 389
+      }
+    ],
+    "sourceQuestionNumber": 40,
+    "visualEvidence": {
+      "assets": [],
+      "pdfVisualUsed": false,
+      "wordVisualUsed": false
+    },
+    "mathEvidence": [
+      "被除式=(a−1)/(a+1)，除式=(a−1)²/(a+1)，排除±1后约得1/(a−1)。"
+    ],
+    "duplicateScreen": {
+      "exactText": [],
+      "registeredRelations": [],
+      "scope": "正式 368、历史待审 280、联合候选 496 的文本精确匹配及已有 88 条重复关联；公式对象和语义改写仍有盲区"
+    },
+    "scoringTests": [
+      {
+        "correct": true
+      },
+      {
+        "correct": false
+      }
+    ],
+    "reviewReason": "原题和解析已按题面证据核对；标准与反例通过现有评分器。非方程题。",
+    "reviewEvidence": [],
+    "id": "Q0410"
+  },
+  {
+    "candidateId": "FINAL26-D08-047",
+    "status": "APPROVED",
+    "chapter": 13,
+    "question": "已知 m²-6m-1=0，求 3m²-12m+1/m² 的值。",
+    "answer": "40",
+    "answerType": "number",
+    "knowledgePoint": "F13_MIXED",
+    "explanation": "m 非零，m-1/m=6，因此 m²+1/m²=38，目标式再加 2(m²-6m)=2，结果为 40。",
+    "domainConstraints": [
+      "m≠0"
+    ],
+    "difficulty": 2,
+    "sourceReferences": [
+      {
+        "path": "sources/专题04 乘法公式8大题型50题（期末专项训练）（解析版）.docx",
+        "role": "question",
+        "paragraphStart": 558,
+        "paragraphEnd": 558
+      },
+      {
+        "path": "sources/专题04 乘法公式8大题型50题（期末专项训练）（解析版）.docx",
+        "role": "solution",
+        "paragraphStart": 559,
+        "paragraphEnd": 569
+      }
+    ],
+    "sourceQuestionNumber": 47,
+    "visualEvidence": {
+      "assets": [],
+      "pdfVisualUsed": false,
+      "wordVisualUsed": false
+    },
+    "mathEvidence": [
+      "m−1/m=6，平方得m²+1/m²=38。目标为38+2(m²−6m)=40。"
+    ],
+    "duplicateScreen": {
+      "exactText": [],
+      "registeredRelations": [],
+      "scope": "正式 368、历史待审 280、联合候选 496 的文本精确匹配及已有 88 条重复关联；公式对象和语义改写仍有盲区"
+    },
+    "scoringTests": [
+      {
+        "correct": true
+      },
+      {
+        "correct": false
+      }
+    ],
+    "reviewReason": "原题和解析已按题面证据核对；标准与反例通过现有评分器。非方程题。",
+    "reviewEvidence": [],
+    "id": "Q0411"
+  },
+  {
+    "candidateId": "FINAL26-D01-013",
+    "status": "APPROVED",
+    "chapter": 13,
+    "question": "若 2x/(2x+3) 表示一个整数，则整数 x 可取的个数有多少个？",
+    "displayQuestion": "若 2x/(2x+3) 表示一个整数，则整数 x 可取的个数有多少个？",
+    "answer": "4",
+    "answerType": "number",
+    "knowledgePoint": "F13_MIXED",
+    "difficulty": 2,
+    "explanation": "2x/(2x+3)=1-3/(2x+3)，故 2x+3 为 3 的整数因数 ±1、±3，分别得到 x=-2、-1、0、-3，共 4 个。",
+    "domainConstraints": [
+      "x为整数",
+      "2x+3≠0"
+    ],
+    "sourceReferences": [
+      {
+        "path": "sources/七年级数学第三次月考卷（全解全析）.docx",
+        "role": "question",
+        "paragraphStart": 119,
+        "paragraphEnd": 119
+      },
+      {
+        "path": "sources/七年级数学第三次月考卷（全解全析）.docx",
+        "role": "solution",
+        "paragraphStart": 120,
+        "paragraphEnd": 128
+      }
+    ],
+    "sourceQuestionNumber": 13,
+    "visualEvidence": {
+      "wordVisualUsed": true,
+      "assets": [
+        "word-evidence/FINAL26-D01-013-question.png",
+        "word-evidence/FINAL26-D01-013-solution.png"
+      ]
+    },
+    "mathEvidence": [
+      "2x/(2x+3)=1−3/(2x+3)。分母须是3的整数因数±1、±3，各得一个整数x。"
+    ],
+    "duplicateScreen": {
+      "hits": [],
+      "relations": [],
+      "scope": "正式368、历史待审280、联合候选496与既有准入的题干精确比对；复核既有重复关联；未覆盖全部公式对象和语义改写"
+    },
+    "reviewReason": "原题、答案和解析图已逐项对照；独立复算；数字答案和反例通过现有评分器。",
+    "testWrong": "3",
+    "id": "Q0412"
+  },
+  {
+    "candidateId": "FINAL26-D01-015",
+    "status": "APPROVED",
+    "chapter": 13,
+    "question": "已知 x+1/x=3，求 x²+1/x² 的值。",
+    "displayQuestion": "已知 x+1/x=3，求 x²+1/x² 的值。",
+    "answer": "7",
+    "answerType": "number",
+    "knowledgePoint": "F13_MIXED",
+    "difficulty": 2,
+    "explanation": "x≠0，两边平方得 x²+2+1/x²=9，所以所求为 7。",
+    "domainConstraints": [
+      "x≠0"
+    ],
+    "sourceReferences": [
+      {
+        "path": "sources/七年级数学第三次月考卷（全解全析）.docx",
+        "role": "question",
+        "paragraphStart": 142,
+        "paragraphEnd": 142
+      },
+      {
+        "path": "sources/七年级数学第三次月考卷（全解全析）.docx",
+        "role": "solution",
+        "paragraphStart": 143,
+        "paragraphEnd": 147
+      }
+    ],
+    "sourceQuestionNumber": 15,
+    "visualEvidence": {
+      "wordVisualUsed": true,
+      "assets": [
+        "word-evidence/FINAL26-D01-015-question.png",
+        "word-evidence/FINAL26-D01-015-solution.png"
+      ]
+    },
+    "mathEvidence": [
+      "平方已知等式，减去交叉项2，得9−2=7。"
+    ],
+    "duplicateScreen": {
+      "hits": [],
+      "relations": [],
+      "scope": "正式368、历史待审280、联合候选496与既有准入的题干精确比对；复核既有重复关联；未覆盖全部公式对象和语义改写"
+    },
+    "reviewReason": "原题、答案和解析图已逐项对照；独立复算；数字答案和反例通过现有评分器。",
+    "testWrong": "9",
+    "id": "Q0413"
+  },
+  {
+    "candidateId": "ORIG-F13-001",
+    "status": "APPROVED",
+    "originKind": "original_practice",
+    "chapter": 13,
+    "knowledgePoint": "F13_PROPERTIES",
+    "question": "若 b≠0，下列与 a/b 恒等的式子是（　）",
+    "displayQuestion": "若 b≠0，下列与 a/b 恒等的式子是（　）",
+    "answer": "A",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "2*a/(2*b)"
+      },
+      {
+        "id": "B",
+        "text": "(a+2)/(b+2)"
+      },
+      {
+        "id": "C",
+        "text": "2*a/b"
+      },
+      {
+        "id": "D",
+        "text": "a/(2*b)"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "difficulty": 1,
+    "shuffleOptions": false,
+    "explanation": "分子分母同乘非零数 2。",
+    "mathEvidence": [
+      "分子分母同乘非零数 2。"
+    ],
+    "sourceReferences": [
+      {
+        "path": "tests/stage3b1-candidates.mjs",
+        "role": "original_authoring"
+      }
+    ],
+    "independentExpression": "a/b",
+    "independentOptions": [
+      "2*a/(2*b)",
+      "(a+2)/(b+2)",
+      "2*a/b",
+      "a/(2*b)"
+    ],
+    "reviewReason": "原创基础训练；依据分式定义及代数运算法则核对答案与全部干扰项。",
+    "duplicateScreen": {
+      "hits": [],
+      "relations": [],
+      "scope": "正式368、历史待审280、联合候选496与既有准入的题干精确比对；复核既有重复关联；未覆盖全部公式对象和语义改写"
+    },
+    "id": "Q0414"
+  },
+  {
+    "candidateId": "ORIG-F13-002",
+    "status": "APPROVED",
+    "originKind": "original_practice",
+    "chapter": 13,
+    "knowledgePoint": "F13_PROPERTIES",
+    "question": "若 b≠0，下列与 3a/3b 恒等的式子是（　）",
+    "displayQuestion": "若 b≠0，下列与 3a/3b 恒等的式子是（　）",
+    "answer": "C",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "3*a/b"
+      },
+      {
+        "id": "B",
+        "text": "a/(3*b)"
+      },
+      {
+        "id": "C",
+        "text": "a/b"
+      },
+      {
+        "id": "D",
+        "text": "(a+3)/(b+3)"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "difficulty": 1,
+    "shuffleOptions": false,
+    "explanation": "分子分母同除以 3。",
+    "mathEvidence": [
+      "分子分母同除以 3。"
+    ],
+    "sourceReferences": [
+      {
+        "path": "tests/stage3b1-candidates.mjs",
+        "role": "original_authoring"
+      }
+    ],
+    "independentExpression": "3*a/(3*b)",
+    "independentOptions": [
+      "3*a/b",
+      "a/(3*b)",
+      "a/b",
+      "(a+3)/(b+3)"
+    ],
+    "reviewReason": "原创基础训练；依据分式定义及代数运算法则核对答案与全部干扰项。",
+    "duplicateScreen": {
+      "hits": [],
+      "relations": [],
+      "scope": "正式368、历史待审280、联合候选496与既有准入的题干精确比对；复核既有重复关联；未覆盖全部公式对象和语义改写"
+    },
+    "id": "Q0415"
+  },
+  {
+    "candidateId": "ORIG-F13-003",
+    "status": "APPROVED",
+    "originKind": "original_practice",
+    "chapter": 13,
+    "knowledgePoint": "F13_PROPERTIES",
+    "question": "若 b≠0，下列与 -a/b 恒等的式子是（　）",
+    "displayQuestion": "若 b≠0，下列与 -a/b 恒等的式子是（　）",
+    "answer": "B",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "a/b"
+      },
+      {
+        "id": "B",
+        "text": "a/(-b)"
+      },
+      {
+        "id": "C",
+        "text": "(-a)/(-b)"
+      },
+      {
+        "id": "D",
+        "text": "b/a"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "difficulty": 1,
+    "shuffleOptions": false,
+    "explanation": "负号可移到分母。",
+    "mathEvidence": [
+      "负号可移到分母。"
+    ],
+    "sourceReferences": [
+      {
+        "path": "tests/stage3b1-candidates.mjs",
+        "role": "original_authoring"
+      }
+    ],
+    "independentExpression": "-a/b",
+    "independentOptions": [
+      "a/b",
+      "a/(-b)",
+      "(-a)/(-b)",
+      "b/a"
+    ],
+    "reviewReason": "原创基础训练；依据分式定义及代数运算法则核对答案与全部干扰项。",
+    "duplicateScreen": {
+      "hits": [],
+      "relations": [],
+      "scope": "正式368、历史待审280、联合候选496与既有准入的题干精确比对；复核既有重复关联；未覆盖全部公式对象和语义改写"
+    },
+    "id": "Q0416"
+  },
+  {
+    "candidateId": "ORIG-F13-004",
+    "status": "APPROVED",
+    "originKind": "original_practice",
+    "chapter": 13,
+    "knowledgePoint": "F13_PROPERTIES",
+    "question": "若 b≠0，a/b 通分成分母 5b 后为（　）",
+    "displayQuestion": "若 b≠0，a/b 通分成分母 5b 后为（　）",
+    "answer": "C",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "a/(5*b)"
+      },
+      {
+        "id": "B",
+        "text": "5*a/b"
+      },
+      {
+        "id": "C",
+        "text": "5*a/(5*b)"
+      },
+      {
+        "id": "D",
+        "text": "(a+5)/(b+5)"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "difficulty": 1,
+    "shuffleOptions": false,
+    "explanation": "分子分母同乘 5。",
+    "mathEvidence": [
+      "分子分母同乘 5。"
+    ],
+    "sourceReferences": [
+      {
+        "path": "tests/stage3b1-candidates.mjs",
+        "role": "original_authoring"
+      }
+    ],
+    "independentExpression": "a/b",
+    "independentOptions": [
+      "a/(5*b)",
+      "5*a/b",
+      "5*a/(5*b)",
+      "(a+5)/(b+5)"
+    ],
+    "reviewReason": "原创基础训练；依据分式定义及代数运算法则核对答案与全部干扰项。",
+    "duplicateScreen": {
+      "hits": [],
+      "relations": [],
+      "scope": "正式368、历史待审280、联合候选496与既有准入的题干精确比对；复核既有重复关联；未覆盖全部公式对象和语义改写"
+    },
+    "id": "Q0417"
+  },
+  {
+    "candidateId": "ORIG-F13-005",
+    "status": "APPROVED",
+    "originKind": "original_practice",
+    "chapter": 13,
+    "knowledgePoint": "F13_SIMPLIFY",
+    "question": "约分 6a/(9b)，其中 b≠0，结果是（　）",
+    "displayQuestion": "约分 6a/(9b)，其中 b≠0，结果是（　）",
+    "answer": "A",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "2*a/(3*b)"
+      },
+      {
+        "id": "B",
+        "text": "3*a/(2*b)"
+      },
+      {
+        "id": "C",
+        "text": "2*a/b"
+      },
+      {
+        "id": "D",
+        "text": "a/(3*b)"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "difficulty": 1,
+    "shuffleOptions": false,
+    "explanation": "6 与 9 的最大公因数为 3。",
+    "mathEvidence": [
+      "6 与 9 的最大公因数为 3。"
+    ],
+    "sourceReferences": [
+      {
+        "path": "tests/stage3b1-candidates.mjs",
+        "role": "original_authoring"
+      }
+    ],
+    "independentExpression": "6*a/(9*b)",
+    "independentOptions": [
+      "2*a/(3*b)",
+      "3*a/(2*b)",
+      "2*a/b",
+      "a/(3*b)"
+    ],
+    "reviewReason": "原创基础训练；依据分式定义及代数运算法则核对答案与全部干扰项。",
+    "duplicateScreen": {
+      "hits": [],
+      "relations": [],
+      "scope": "正式368、历史待审280、联合候选496与既有准入的题干精确比对；复核既有重复关联；未覆盖全部公式对象和语义改写"
+    },
+    "id": "Q0418"
+  },
+  {
+    "candidateId": "ORIG-F13-006",
+    "status": "APPROVED",
+    "originKind": "original_practice",
+    "chapter": 13,
+    "knowledgePoint": "F13_SIMPLIFY",
+    "question": "约分 8a²/(12a)，其中 a≠0，结果是（　）",
+    "displayQuestion": "约分 8a²/(12a)，其中 a≠0，结果是（　）",
+    "answer": "B",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "2/(3*a)"
+      },
+      {
+        "id": "B",
+        "text": "2*a/3"
+      },
+      {
+        "id": "C",
+        "text": "2*a^2/3"
+      },
+      {
+        "id": "D",
+        "text": "3*a/2"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "difficulty": 1,
+    "shuffleOptions": false,
+    "explanation": "分子分母同除以 4a。",
+    "mathEvidence": [
+      "分子分母同除以 4a。"
+    ],
+    "sourceReferences": [
+      {
+        "path": "tests/stage3b1-candidates.mjs",
+        "role": "original_authoring"
+      }
+    ],
+    "independentExpression": "8*a**2/(12*a)",
+    "independentOptions": [
+      "2/(3*a)",
+      "2*a/3",
+      "2*a**2/3",
+      "3*a/2"
+    ],
+    "reviewReason": "原创基础训练；依据分式定义及代数运算法则核对答案与全部干扰项。",
+    "duplicateScreen": {
+      "hits": [],
+      "relations": [],
+      "scope": "正式368、历史待审280、联合候选496与既有准入的题干精确比对；复核既有重复关联；未覆盖全部公式对象和语义改写"
+    },
+    "id": "Q0419"
+  },
+  {
+    "candidateId": "ORIG-F13-007",
+    "status": "APPROVED",
+    "originKind": "original_practice",
+    "chapter": 13,
+    "knowledgePoint": "F13_SIMPLIFY",
+    "question": "约分 (a²-b²)/(a-b)，其中 a≠b，结果是（　）",
+    "displayQuestion": "约分 (a²-b²)/(a-b)，其中 a≠b，结果是（　）",
+    "answer": "B",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "a-b"
+      },
+      {
+        "id": "B",
+        "text": "a+b"
+      },
+      {
+        "id": "C",
+        "text": "a^2+b^2"
+      },
+      {
+        "id": "D",
+        "text": "1"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "difficulty": 1,
+    "shuffleOptions": false,
+    "explanation": "平方差分解为 (a-b)(a+b)。",
+    "mathEvidence": [
+      "平方差分解为 (a-b)(a+b)。"
+    ],
+    "sourceReferences": [
+      {
+        "path": "tests/stage3b1-candidates.mjs",
+        "role": "original_authoring"
+      }
+    ],
+    "independentExpression": "(a**2-b**2)/(a-b)",
+    "independentOptions": [
+      "a-b",
+      "a+b",
+      "a**2+b**2",
+      "1"
+    ],
+    "reviewReason": "原创基础训练；依据分式定义及代数运算法则核对答案与全部干扰项。",
+    "duplicateScreen": {
+      "hits": [],
+      "relations": [],
+      "scope": "正式368、历史待审280、联合候选496与既有准入的题干精确比对；复核既有重复关联；未覆盖全部公式对象和语义改写"
+    },
+    "id": "Q0420"
+  },
+  {
+    "candidateId": "ORIG-F13-008",
+    "status": "APPROVED",
+    "originKind": "original_practice",
+    "chapter": 13,
+    "knowledgePoint": "F13_SIMPLIFY",
+    "question": "约分 (a²+2a+1)/(a+1)，其中 a≠-1，结果是（　）",
+    "displayQuestion": "约分 (a²+2a+1)/(a+1)，其中 a≠-1，结果是（　）",
+    "answer": "B",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "a-1"
+      },
+      {
+        "id": "B",
+        "text": "a+1"
+      },
+      {
+        "id": "C",
+        "text": "a^2+1"
+      },
+      {
+        "id": "D",
+        "text": "1"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "difficulty": 1,
+    "shuffleOptions": false,
+    "explanation": "分子为 (a+1)²。",
+    "mathEvidence": [
+      "分子为 (a+1)²。"
+    ],
+    "sourceReferences": [
+      {
+        "path": "tests/stage3b1-candidates.mjs",
+        "role": "original_authoring"
+      }
+    ],
+    "independentExpression": "(a**2+2*a+1)/(a+1)",
+    "independentOptions": [
+      "a-1",
+      "a+1",
+      "a**2+1",
+      "1"
+    ],
+    "reviewReason": "原创基础训练；依据分式定义及代数运算法则核对答案与全部干扰项。",
+    "duplicateScreen": {
+      "hits": [],
+      "relations": [],
+      "scope": "正式368、历史待审280、联合候选496与既有准入的题干精确比对；复核既有重复关联；未覆盖全部公式对象和语义改写"
+    },
+    "id": "Q0421"
+  },
+  {
+    "candidateId": "ORIG-F13-009",
+    "status": "APPROVED",
+    "originKind": "original_practice",
+    "chapter": 13,
+    "knowledgePoint": "F13_MULTIPLY_DIVIDE",
+    "question": "计算 a/b × 2b/3，其中 b≠0，结果是（　）",
+    "displayQuestion": "计算 a/b × 2b/3，其中 b≠0，结果是（　）",
+    "answer": "A",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "2*a/3"
+      },
+      {
+        "id": "B",
+        "text": "a/3"
+      },
+      {
+        "id": "C",
+        "text": "2*a/(3*b)"
+      },
+      {
+        "id": "D",
+        "text": "3*a/2"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "difficulty": 1,
+    "shuffleOptions": false,
+    "explanation": "分子分母相乘并约去非零因子 b。",
+    "mathEvidence": [
+      "分子分母相乘并约去非零因子 b。"
+    ],
+    "sourceReferences": [
+      {
+        "path": "tests/stage3b1-candidates.mjs",
+        "role": "original_authoring"
+      }
+    ],
+    "independentExpression": "(a/b)*(2*b/3)",
+    "independentOptions": [
+      "2*a/3",
+      "a/3",
+      "2*a/(3*b)",
+      "3*a/2"
+    ],
+    "reviewReason": "原创基础训练；依据分式定义及代数运算法则核对答案与全部干扰项。",
+    "duplicateScreen": {
+      "hits": [],
+      "relations": [],
+      "scope": "正式368、历史待审280、联合候选496与既有准入的题干精确比对；复核既有重复关联；未覆盖全部公式对象和语义改写"
+    },
+    "id": "Q0422"
+  },
+  {
+    "candidateId": "ORIG-F13-010",
+    "status": "APPROVED",
+    "originKind": "original_practice",
+    "chapter": 13,
+    "knowledgePoint": "F13_MULTIPLY_DIVIDE",
+    "question": "计算 (a/b) ÷ (2a/3b)，其中 a、b 均不为 0，结果是（　）",
+    "displayQuestion": "计算 (a/b) ÷ (2a/3b)，其中 a、b 均不为 0，结果是（　）",
+    "answer": "B",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "2/3"
+      },
+      {
+        "id": "B",
+        "text": "3/2"
+      },
+      {
+        "id": "C",
+        "text": "3*a/(2*b)"
+      },
+      {
+        "id": "D",
+        "text": "2*a/(3*b)"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "difficulty": 1,
+    "shuffleOptions": false,
+    "explanation": "除以分式等于乘倒数，约去 a、b。",
+    "mathEvidence": [
+      "除以分式等于乘倒数，约去 a、b。"
+    ],
+    "sourceReferences": [
+      {
+        "path": "tests/stage3b1-candidates.mjs",
+        "role": "original_authoring"
+      }
+    ],
+    "independentExpression": "(a/b)/(2*a/(3*b))",
+    "independentOptions": [
+      "2/3",
+      "3/2",
+      "3*a/(2*b)",
+      "2*a/(3*b)"
+    ],
+    "reviewReason": "原创基础训练；依据分式定义及代数运算法则核对答案与全部干扰项。",
+    "duplicateScreen": {
+      "hits": [],
+      "relations": [],
+      "scope": "正式368、历史待审280、联合候选496与既有准入的题干精确比对；复核既有重复关联；未覆盖全部公式对象和语义改写"
+    },
+    "id": "Q0423"
+  },
+  {
+    "candidateId": "ORIG-F13-011",
+    "status": "APPROVED",
+    "originKind": "original_practice",
+    "chapter": 13,
+    "knowledgePoint": "F13_MULTIPLY_DIVIDE",
+    "question": "计算 (2a/b)²，其中 b≠0，结果是（　）",
+    "displayQuestion": "计算 (2a/b)²，其中 b≠0，结果是（　）",
+    "answer": "C",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "2*a^2/b^2"
+      },
+      {
+        "id": "B",
+        "text": "4*a^2/b"
+      },
+      {
+        "id": "C",
+        "text": "4*a^2/b^2"
+      },
+      {
+        "id": "D",
+        "text": "4*a/b^2"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "difficulty": 1,
+    "shuffleOptions": false,
+    "explanation": "分子和分母分别平方。",
+    "mathEvidence": [
+      "分子和分母分别平方。"
+    ],
+    "sourceReferences": [
+      {
+        "path": "tests/stage3b1-candidates.mjs",
+        "role": "original_authoring"
+      }
+    ],
+    "independentExpression": "(2*a/b)**2",
+    "independentOptions": [
+      "2*a**2/b**2",
+      "4*a**2/b",
+      "4*a**2/b**2",
+      "4*a/b**2"
+    ],
+    "reviewReason": "原创基础训练；依据分式定义及代数运算法则核对答案与全部干扰项。",
+    "duplicateScreen": {
+      "hits": [],
+      "relations": [],
+      "scope": "正式368、历史待审280、联合候选496与既有准入的题干精确比对；复核既有重复关联；未覆盖全部公式对象和语义改写"
+    },
+    "id": "Q0424"
+  },
+  {
+    "candidateId": "ORIG-F13-012",
+    "status": "APPROVED",
+    "originKind": "original_practice",
+    "chapter": 13,
+    "knowledgePoint": "F13_MULTIPLY_DIVIDE",
+    "question": "计算 (a/b) × (b²/a)，其中 a、b 均不为 0，结果是（　）",
+    "displayQuestion": "计算 (a/b) × (b²/a)，其中 a、b 均不为 0，结果是（　）",
+    "answer": "B",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "a"
+      },
+      {
+        "id": "B",
+        "text": "b"
+      },
+      {
+        "id": "C",
+        "text": "a*b"
+      },
+      {
+        "id": "D",
+        "text": "b^2"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "difficulty": 1,
+    "shuffleOptions": false,
+    "explanation": "约去 a 和一个 b。",
+    "mathEvidence": [
+      "约去 a 和一个 b。"
+    ],
+    "sourceReferences": [
+      {
+        "path": "tests/stage3b1-candidates.mjs",
+        "role": "original_authoring"
+      }
+    ],
+    "independentExpression": "(a/b)*(b**2/a)",
+    "independentOptions": [
+      "a",
+      "b",
+      "a*b",
+      "b**2"
+    ],
+    "reviewReason": "原创基础训练；依据分式定义及代数运算法则核对答案与全部干扰项。",
+    "duplicateScreen": {
+      "hits": [],
+      "relations": [],
+      "scope": "正式368、历史待审280、联合候选496与既有准入的题干精确比对；复核既有重复关联；未覆盖全部公式对象和语义改写"
+    },
+    "id": "Q0425"
+  },
+  {
+    "candidateId": "ORIG-F13-013",
+    "status": "APPROVED",
+    "originKind": "original_practice",
+    "chapter": 13,
+    "knowledgePoint": "F13_ADD_SUBTRACT",
+    "question": "计算 1/a + 2/a，其中 a≠0，结果是（　）",
+    "displayQuestion": "计算 1/a + 2/a，其中 a≠0，结果是（　）",
+    "answer": "A",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "3/a"
+      },
+      {
+        "id": "B",
+        "text": "3/(2*a)"
+      },
+      {
+        "id": "C",
+        "text": "2/a^2"
+      },
+      {
+        "id": "D",
+        "text": "1/a^2"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "difficulty": 1,
+    "shuffleOptions": false,
+    "explanation": "同分母相加，分母不变，分子相加。",
+    "mathEvidence": [
+      "同分母相加，分母不变，分子相加。"
+    ],
+    "sourceReferences": [
+      {
+        "path": "tests/stage3b1-candidates.mjs",
+        "role": "original_authoring"
+      }
+    ],
+    "independentExpression": "1/a+2/a",
+    "independentOptions": [
+      "3/a",
+      "3/(2*a)",
+      "2/a**2",
+      "1/a**2"
+    ],
+    "reviewReason": "原创基础训练；依据分式定义及代数运算法则核对答案与全部干扰项。",
+    "duplicateScreen": {
+      "hits": [],
+      "relations": [],
+      "scope": "正式368、历史待审280、联合候选496与既有准入的题干精确比对；复核既有重复关联；未覆盖全部公式对象和语义改写"
+    },
+    "id": "Q0426"
+  },
+  {
+    "candidateId": "ORIG-F13-014",
+    "status": "APPROVED",
+    "originKind": "original_practice",
+    "chapter": 13,
+    "knowledgePoint": "F13_ADD_SUBTRACT",
+    "question": "计算 3/a - 1/a，其中 a≠0，结果是（　）",
+    "displayQuestion": "计算 3/a - 1/a，其中 a≠0，结果是（　）",
+    "answer": "A",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "2/a"
+      },
+      {
+        "id": "B",
+        "text": "2"
+      },
+      {
+        "id": "C",
+        "text": "2/a^2"
+      },
+      {
+        "id": "D",
+        "text": "4/a"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "difficulty": 1,
+    "shuffleOptions": false,
+    "explanation": "同分母相减，分母不变，分子相减。",
+    "mathEvidence": [
+      "同分母相减，分母不变，分子相减。"
+    ],
+    "sourceReferences": [
+      {
+        "path": "tests/stage3b1-candidates.mjs",
+        "role": "original_authoring"
+      }
+    ],
+    "independentExpression": "3/a-1/a",
+    "independentOptions": [
+      "2/a",
+      "2",
+      "2/a**2",
+      "4/a"
+    ],
+    "reviewReason": "原创基础训练；依据分式定义及代数运算法则核对答案与全部干扰项。",
+    "duplicateScreen": {
+      "hits": [],
+      "relations": [],
+      "scope": "正式368、历史待审280、联合候选496与既有准入的题干精确比对；复核既有重复关联；未覆盖全部公式对象和语义改写"
+    },
+    "id": "Q0427"
+  },
+  {
+    "candidateId": "ORIG-F13-015",
+    "status": "APPROVED",
+    "originKind": "original_practice",
+    "chapter": 13,
+    "knowledgePoint": "F13_ADD_SUBTRACT",
+    "question": "计算 1/a + 1/b，其中 a、b 均不为 0，结果是（　）",
+    "displayQuestion": "计算 1/a + 1/b，其中 a、b 均不为 0，结果是（　）",
+    "answer": "B",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "1/(a+b)"
+      },
+      {
+        "id": "B",
+        "text": "(a+b)/(a*b)"
+      },
+      {
+        "id": "C",
+        "text": "2/(a*b)"
+      },
+      {
+        "id": "D",
+        "text": "(a-b)/(a*b)"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "difficulty": 1,
+    "shuffleOptions": false,
+    "explanation": "通分至 ab 后，分子为 b+a。",
+    "mathEvidence": [
+      "通分至 ab 后，分子为 b+a。"
+    ],
+    "sourceReferences": [
+      {
+        "path": "tests/stage3b1-candidates.mjs",
+        "role": "original_authoring"
+      }
+    ],
+    "independentExpression": "1/a+1/b",
+    "independentOptions": [
+      "1/(a+b)",
+      "(a+b)/(a*b)",
+      "2/(a*b)",
+      "(a-b)/(a*b)"
+    ],
+    "reviewReason": "原创基础训练；依据分式定义及代数运算法则核对答案与全部干扰项。",
+    "duplicateScreen": {
+      "hits": [],
+      "relations": [],
+      "scope": "正式368、历史待审280、联合候选496与既有准入的题干精确比对；复核既有重复关联；未覆盖全部公式对象和语义改写"
+    },
+    "id": "Q0428"
+  },
+  {
+    "candidateId": "ORIG-F13-016",
+    "status": "APPROVED",
+    "originKind": "original_practice",
+    "chapter": 13,
+    "knowledgePoint": "F13_ADD_SUBTRACT",
+    "question": "计算 1/a - 1/b，其中 a、b 均不为 0，结果是（　）",
+    "displayQuestion": "计算 1/a - 1/b，其中 a、b 均不为 0，结果是（　）",
+    "answer": "B",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "(a-b)/(a*b)"
+      },
+      {
+        "id": "B",
+        "text": "(b-a)/(a*b)"
+      },
+      {
+        "id": "C",
+        "text": "1/(a-b)"
+      },
+      {
+        "id": "D",
+        "text": "(a+b)/(a*b)"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "difficulty": 1,
+    "shuffleOptions": false,
+    "explanation": "通分至 ab 后，分子为 b-a。",
+    "mathEvidence": [
+      "通分至 ab 后，分子为 b-a。"
+    ],
+    "sourceReferences": [
+      {
+        "path": "tests/stage3b1-candidates.mjs",
+        "role": "original_authoring"
+      }
+    ],
+    "independentExpression": "1/a-1/b",
+    "independentOptions": [
+      "(a-b)/(a*b)",
+      "(b-a)/(a*b)",
+      "1/(a-b)",
+      "(a+b)/(a*b)"
+    ],
+    "reviewReason": "原创基础训练；依据分式定义及代数运算法则核对答案与全部干扰项。",
+    "duplicateScreen": {
+      "hits": [],
+      "relations": [],
+      "scope": "正式368、历史待审280、联合候选496与既有准入的题干精确比对；复核既有重复关联；未覆盖全部公式对象和语义改写"
+    },
+    "id": "Q0429"
+  },
+  {
+    "candidateId": "ORIG-F13-017",
+    "status": "APPROVED",
+    "originKind": "original_practice",
+    "chapter": 13,
+    "knowledgePoint": "F13_CONCEPT",
+    "question": "下列各式中，是分式的是（　）",
+    "displayQuestion": "下列各式中，是分式的是（　）",
+    "answer": "A",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "3/(x+1)"
+      },
+      {
+        "id": "B",
+        "text": "x/2"
+      },
+      {
+        "id": "C",
+        "text": "x+1"
+      },
+      {
+        "id": "D",
+        "text": "1/3"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "difficulty": 1,
+    "shuffleOptions": false,
+    "explanation": "分式的分母须含字母；其余分母均为常数或没有分母。",
+    "mathEvidence": [
+      "分式的分母须含字母；其余分母均为常数或没有分母。"
+    ],
+    "sourceReferences": [
+      {
+        "path": "tests/stage3b1-candidates.mjs",
+        "role": "original_authoring"
+      }
+    ],
+    "reviewReason": "原创基础训练；依据分式定义及代数运算法则核对答案与全部干扰项。",
+    "duplicateScreen": {
+      "hits": [],
+      "relations": [],
+      "scope": "正式368、历史待审280、联合候选496与既有准入的题干精确比对；复核既有重复关联；未覆盖全部公式对象和语义改写"
+    },
+    "id": "Q0430"
+  },
+  {
+    "candidateId": "ORIG-F13-018",
+    "status": "APPROVED",
+    "originKind": "original_practice",
+    "chapter": 13,
+    "knowledgePoint": "F13_CONCEPT",
+    "question": "下列各式中，不是分式的是（　）",
+    "displayQuestion": "下列各式中，不是分式的是（　）",
+    "answer": "C",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "1/x"
+      },
+      {
+        "id": "B",
+        "text": "(x+1)/(x-1)"
+      },
+      {
+        "id": "C",
+        "text": "x/3"
+      },
+      {
+        "id": "D",
+        "text": "2/(x+3)"
+      }
+    ],
+    "correctOptionIds": [
+      "C"
+    ],
+    "difficulty": 1,
+    "shuffleOptions": false,
+    "explanation": "x/3 的分母是常数，其他三个式子的分母含字母。",
+    "mathEvidence": [
+      "x/3 的分母是常数，其他三个式子的分母含字母。"
+    ],
+    "sourceReferences": [
+      {
+        "path": "tests/stage3b1-candidates.mjs",
+        "role": "original_authoring"
+      }
+    ],
+    "reviewReason": "原创基础训练；依据分式定义及代数运算法则核对答案与全部干扰项。",
+    "duplicateScreen": {
+      "hits": [],
+      "relations": [],
+      "scope": "正式368、历史待审280、联合候选496与既有准入的题干精确比对；复核既有重复关联；未覆盖全部公式对象和语义改写"
+    },
+    "id": "Q0431"
+  },
+  {
+    "candidateId": "ORIG-F13-019",
+    "status": "APPROVED",
+    "originKind": "original_practice",
+    "chapter": 13,
+    "knowledgePoint": "F13_CONDITIONS",
+    "question": "分式 1/(x-2) 有意义的条件是（　）",
+    "displayQuestion": "分式 1/(x-2) 有意义的条件是（　）",
+    "answer": "A",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "x≠2"
+      },
+      {
+        "id": "B",
+        "text": "x=2"
+      },
+      {
+        "id": "C",
+        "text": "x≠-2"
+      },
+      {
+        "id": "D",
+        "text": "x>2"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "difficulty": 1,
+    "shuffleOptions": false,
+    "explanation": "分母 x-2 非零，故 x≠2。",
+    "mathEvidence": [
+      "分母 x-2 非零，故 x≠2。"
+    ],
+    "sourceReferences": [
+      {
+        "path": "tests/stage3b1-candidates.mjs",
+        "role": "original_authoring"
+      }
+    ],
+    "reviewReason": "原创基础训练；依据分式定义及代数运算法则核对答案与全部干扰项。",
+    "duplicateScreen": {
+      "hits": [],
+      "relations": [],
+      "scope": "正式368、历史待审280、联合候选496与既有准入的题干精确比对；复核既有重复关联；未覆盖全部公式对象和语义改写"
+    },
+    "id": "Q0432"
+  },
+  {
+    "candidateId": "ORIG-F13-020",
+    "status": "APPROVED",
+    "originKind": "original_practice",
+    "chapter": 13,
+    "knowledgePoint": "F13_CONDITIONS",
+    "question": "分式 (x-3)/(x+1) 的值为零时，x 等于（　）",
+    "displayQuestion": "分式 (x-3)/(x+1) 的值为零时，x 等于（　）",
+    "answer": "D",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "-1"
+      },
+      {
+        "id": "B",
+        "text": "0"
+      },
+      {
+        "id": "C",
+        "text": "1"
+      },
+      {
+        "id": "D",
+        "text": "3"
+      }
+    ],
+    "correctOptionIds": [
+      "D"
+    ],
+    "difficulty": 1,
+    "shuffleOptions": false,
+    "explanation": "分子为零得 x=3，此时分母为 4，不为零。",
+    "mathEvidence": [
+      "分子为零得 x=3，此时分母为 4，不为零。"
+    ],
+    "sourceReferences": [
+      {
+        "path": "tests/stage3b1-candidates.mjs",
+        "role": "original_authoring"
+      }
+    ],
+    "reviewReason": "原创基础训练；依据分式定义及代数运算法则核对答案与全部干扰项。",
+    "duplicateScreen": {
+      "hits": [],
+      "relations": [],
+      "scope": "正式368、历史待审280、联合候选496与既有准入的题干精确比对；复核既有重复关联；未覆盖全部公式对象和语义改写"
+    },
+    "id": "Q0433"
+  },
+  {
+    "candidateId": "ORIG-F13-021",
+    "status": "APPROVED",
+    "originKind": "original_practice",
+    "chapter": 13,
+    "knowledgePoint": "F13_CONCEPT",
+    "question": "分式 2a/(a²+1) 的分母是（　）",
+    "displayQuestion": "分式 2a/(a²+1) 的分母是（　）",
+    "answer": "B",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "2a"
+      },
+      {
+        "id": "B",
+        "text": "a²+1"
+      },
+      {
+        "id": "C",
+        "text": "a"
+      },
+      {
+        "id": "D",
+        "text": "2"
+      }
+    ],
+    "correctOptionIds": [
+      "B"
+    ],
+    "difficulty": 1,
+    "shuffleOptions": false,
+    "explanation": "分式线下的整个式子 a²+1 是分母。",
+    "mathEvidence": [
+      "分式线下的整个式子 a²+1 是分母。"
+    ],
+    "sourceReferences": [
+      {
+        "path": "tests/stage3b1-candidates.mjs",
+        "role": "original_authoring"
+      }
+    ],
+    "reviewReason": "原创基础训练；依据分式定义及代数运算法则核对答案与全部干扰项。",
+    "duplicateScreen": {
+      "hits": [],
+      "relations": [],
+      "scope": "正式368、历史待审280、联合候选496与既有准入的题干精确比对；复核既有重复关联；未覆盖全部公式对象和语义改写"
+    },
+    "id": "Q0434"
+  },
+  {
+    "candidateId": "ORIG-F13-022",
+    "status": "APPROVED",
+    "originKind": "original_practice",
+    "chapter": 13,
+    "knowledgePoint": "F13_CONDITIONS",
+    "question": "在实数范围内，分式 1/(x²+1) 有意义时，x 可以是（　）",
+    "displayQuestion": "在实数范围内，分式 1/(x²+1) 有意义时，x 可以是（　）",
+    "answer": "A",
+    "answerType": "number",
+    "questionType": "single_choice",
+    "options": [
+      {
+        "id": "A",
+        "text": "任意实数"
+      },
+      {
+        "id": "B",
+        "text": "除 0 以外的实数"
+      },
+      {
+        "id": "C",
+        "text": "正实数"
+      },
+      {
+        "id": "D",
+        "text": "非负实数"
+      }
+    ],
+    "correctOptionIds": [
+      "A"
+    ],
+    "difficulty": 1,
+    "shuffleOptions": false,
+    "explanation": "实数的平方不小于 0，因此 x²+1 始终大于 0。",
+    "mathEvidence": [
+      "实数的平方不小于 0，因此 x²+1 始终大于 0。"
+    ],
+    "sourceReferences": [
+      {
+        "path": "tests/stage3b1-candidates.mjs",
+        "role": "original_authoring"
+      }
+    ],
+    "reviewReason": "原创基础训练；依据分式定义及代数运算法则核对答案与全部干扰项。",
+    "duplicateScreen": {
+      "hits": [],
+      "relations": [],
+      "scope": "正式368、历史待审280、联合候选496与既有准入的题干精确比对；复核既有重复关联；未覆盖全部公式对象和语义改写"
+    },
+    "id": "Q0435"
   }
 ]

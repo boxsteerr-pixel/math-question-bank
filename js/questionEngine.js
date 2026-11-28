@@ -1,6 +1,6 @@
 import {all,get,openDB,setting,saveSetting} from './db.js';
 import {summarizeKnowledge} from './statistics.js';
-import {KNOWLEDGE_POINTS,includeNewKnowledgePoints} from './knowledgePoints.js';
+import {KNOWLEDGE_POINTS,ALL_KNOWLEDGE_POINTS,includeNewKnowledgePoints} from './knowledgePoints.js';
 import {freezeTaskScoringPolicy} from './scoringPolicy.js';
 import {isFormalAttempt} from './coverage.js';
 const hash=s=>[...s].reduce((a,c)=>(a*31+c.charCodeAt(0))>>>0,2166136261);
@@ -14,7 +14,13 @@ export const today=()=>new Date().toLocaleDateString('en-CA');
 const DAILY_QUESTION_COUNT=10;
 const SCOPE_KEY='enabledKnowledgePoints';
 const BOOST_KEY='powerBoostStartCheckinCount';
-const selectedPoints=points=>includeNewKnowledgePoints(Array.isArray(points)?points:[]).filter(point=>KNOWLEDGE_POINTS.includes(point));
+export const QUESTION_TYPE_MIX_SETTING='questionTypeMix';
+export const DEFAULT_QUESTION_TYPE_MIX=Object.freeze({choice:2});
+export const questionTrainingType=q=>q?.questionType==='single_choice'?'choice':'input';
+export function normalizeQuestionTypeMix(value){const choice=Number(value?.choice);return {choice:Number.isInteger(choice)&&choice>=0&&choice<=10?choice:2};}
+export async function getQuestionTypeMix(){return normalizeQuestionTypeMix(await setting(QUESTION_TYPE_MIX_SETTING,DEFAULT_QUESTION_TYPE_MIX));}
+export async function saveQuestionTypeMix(value){const choice=Number(value?.choice);if(!Number.isInteger(choice)||choice<0||choice>10)throw Error('选择题目标须为 0 至 10 的整数');await saveSetting(QUESTION_TYPE_MIX_SETTING,{choice});return {choice};}
+const selectedPoints=points=>includeNewKnowledgePoints(Array.isArray(points)?points:[]).filter(point=>ALL_KNOWLEDGE_POINTS.includes(point));
 export async function enabledPoints(){
   const saved=await get('settings',SCOPE_KEY);
   return selectedPoints(saved===undefined?KNOWLEDGE_POINTS:saved.value);
@@ -89,6 +95,34 @@ function selectAcross(out,questions,kps,count,sourceType,date,history,used,reaso
 function unseenExposure(out,questions,states,date,history,used){const unseen=states.filter(state=>state.attempts===0).sort((a,b)=>a.knowledgePoint.localeCompare(b.knowledgePoint));for(const state of unseen){const question=choose(questions.filter(item=>item.knowledgePoint===state.knowledgePoint),used,date,history,`unseen:${state.knowledgePoint}`);if(add(out,question,'review','unseen_knowledge_exposure',used))return state.knowledgePoint}return null}
 function normalFill(out,questions,kps,count,date,history,used){const start=out.length;const last=point=>questions.filter(q=>q.knowledgePoint===point).map(q=>history.get(q.id)?.lastShownDate||'').sort().at(-1)||'';const order=kps.slice().sort((a,b)=>last(a.knowledgePoint).localeCompare(last(b.knowledgePoint))||a.knowledgePoint.localeCompare(b.knowledgePoint));let n=0;while(out.length<start+count&&n++<100){let added=false;for(const kp of order){if(out.length>=start+count)break;const q=choose(questions.filter(x=>x.knowledgePoint===kp.knowledgePoint),used,date,history,`review:${n}:${kp.knowledgePoint}`);if(q&&add(out,q,'review',`normal_review: ${kp.knowledgePoint} lastShown=${history.get(q.id)?.lastShownDate||'never'}`,used))added=true}if(!added)break}return out}
 function selectPowerBoost(out,questions,count,date,history,used,answers){let selected=0;const base=questions.filter(question=>POWER_BOOST_IDS.has(question.id)&&powerBoostStatus(question.id,answers)!=='excluded'),groupFor=question=>powerBoostStatus(question.id,answers)==='priority'&&POWER_BOOST_HIGH_IDS.has(question.id)?'high':'ordinary';for(let slot=0;slot<count;slot++){const groups=slot%3!==1?['high','ordinary']:['ordinary','high'];let question;for(const allowRecent of [false,true]){for(const group of groups){const pool=base.filter(item=>groupFor(item)===group&&!used.has(item.id)&&(allowRecent||daysAgo(date,history.get(item.id)?.lastShownDate)>2));question=ordered(pool,date,history,`power_boost:${slot}:${group}`).at(0);if(question)break}if(question)break}if(!question)break;const tier=POWER_BOOST_HIGH_IDS.has(question.id)&&powerBoostStatus(question.id,answers)==='priority'?'高优先级':'普通';if(add(out,question,'review',`power_boost: 幂运算14日强化（${tier}·${question.subKnowledgePoint}）`,used))selected++}return selected}
+// Only exchange interchangeable questions in the same knowledge point and
+// exposure state. Required wrong reviews and every original allocation remain.
+export function applyQuestionTypeMix(task,{questions,history=[],answers=[],tasks=[],choice=2}={}){
+  const target=normalizeQuestionTypeMix({choice}).choice,byId=new Map(questions.map(q=>[q.id,q]));
+  const used=new Set(task.questionIds),seen=new Set(answers.filter(isFormalAttempt).map(r=>r.questionId));
+  const hist=new Map(history.map(r=>[r.questionId,r])),occupied=new Set();
+  const submitted=new Set(answers.filter(isFormalAttempt).map(r=>r.key||`${r.date}:${r.questionId}`));
+  for(const t of tasks)if(t.date!==task.date&&!['complete','review','correction'].includes(t.phase))for(const id of t.questionIds||[])if(!submitted.has(`${t.date}:${id}`))occupied.add(id);
+  const items=task.items.map(item=>({...item}));let count=items.filter(i=>questionTrainingType(byId.get(i.questionId))==='choice').length;
+  for(const item of items){
+    if(count===target)break;
+    if(item.sourceType==='wrong_review'||item.selectionReason?.startsWith('power_boost:'))continue;
+    const old=byId.get(item.questionId),want=count<target?'choice':'input';
+    if(!old||questionTrainingType(old)===want)continue;
+    const state=q=>{const h=hist.get(q.id);return JSON.stringify([seen.has(q.id),occupied.has(q.id),h?.lastShownDate||null,h?.shownCount||0,q.difficulty??null]);};
+    const replacement=questions.filter(q=>!used.has(q.id)&&q.knowledgePoint===old.knowledgePoint&&questionTrainingType(q)===want&&state(q)===state(old))
+      .sort((a,b)=>a.id.localeCompare(b.id))[0];
+    if(!replacement)continue;
+    used.delete(old.id);used.add(replacement.id);item.questionId=replacement.id;
+    item.selectionReason+=`; 题型同条件补位 ${old.id}→${replacement.id}`;
+    count+=want==='choice'?1:-1;
+  }
+  const questionIds=items.map(i=>i.questionId);
+  return freezeTaskScoringPolicy({...task,questionIds,items,selectionReason:Object.fromEntries(items.map(i=>[i.questionId,i.selectionReason])),
+    questionTypeMix:{targetChoice:target,actualChoice:count,reason:count===target?'达到目标':'相同知识点、复习与覆盖条件下库存不足，保留原选题'}},questions);
+}
+
+
 export function buildAdaptiveTask({date,questions,enabled,checkins=[],stats=[],wrongQuestions=[],history=[],answers=[],tasks=[],powerBoost=false}){
   const bank=questions.filter(q=>enabled.includes(q.knowledgePoint)),historyMap=new Map(history.map(x=>[x.questionId,x])),states=stateMap(enabled,stats),used=new Set,items=[],diagnostic=checkins.length<5;
   const done=new Set(answers.filter(isFormalAttempt).map(r=>r.questionId));
@@ -192,17 +226,17 @@ export async function getOrCreateDailyTask(date,{initializeCarryover=false}={}){
     const settings=store('settings');
     const savedScope=await readRequest(settings.get(SCOPE_KEY));
     const scope=requireValidScope(questions,savedScope===undefined?KNOWLEDGE_POINTS:savedScope.value,date);
-    const [stats,wrongs,historyRows,boostSetting,tasks]=await Promise.all([
+    const [stats,wrongs,historyRows,boostSetting,tasks,mixSetting]=await Promise.all([
       readRequest(store('knowledgeStats').getAll()),readRequest(store('wrongQuestions').getAll()),
       readRequest(store('questionHistory').getAll()),readRequest(settings.get(BOOST_KEY)),
-      readRequest(store('dailyTasks').getAll())
+      readRequest(store('dailyTasks').getAll()),readRequest(settings.get(QUESTION_TYPE_MIX_SETTING))
     ]);
     const history=new Map(historyRows.map(row=>[row.questionId,row]));
     const changed=existing?reconcilePreviousHistory(existing,tasks,history):new Set();
     const boostStart=Number.isInteger(boostSetting?.value)?boostSetting.value:checkins.length;
     const pool=questionPool(questions,scope.points),eligible=[...pool.values()];
     const selected=buildAdaptiveTask({date,questions:eligible,enabled:scope.points,checkins,stats,wrongQuestions:wrongs,history:[...history.values()],answers,tasks,powerBoost:powerBoostActive(checkins.length,boostStart)});
-    const task=completeSparseTask(selected,eligible,history);
+    const task=applyQuestionTypeMix(completeSparseTask(selected,eligible,history),{questions:eligible,history:[...history.values()],answers,tasks,choice:normalizeQuestionTypeMix(mixSetting?.value).choice});
     if(!hasCompleteQuestions(task,pool))throw Error('任务完整性校验失败，原学习记录已保留。');
     if(initializeCarryover){
       const currentStart=await readRequest(settings.get(CARRYOVER_START_SETTING));
@@ -237,7 +271,7 @@ export function summarizeDailyWorkload(date,startDate,tasks,answers){
     const records=task.questionIds.map(id=>byKey.get(`${task.date}:${id}`));
     const submitted=['review','correction','complete'].includes(task.phase)||records.length>0&&records.every(initiallySubmitted);
     const remainingIndices=records.flatMap((r,i)=>!r?.draftSaved&&!initiallySubmitted(r)?[i]:[]);
-    return {task,date:task.date,total:task.questionIds.length,remaining:submitted?0:remainingIndices.length,remainingIndices,submitted,needsSubmission:!submitted,isOverdue:task.date<date,corrections:records.filter(r=>initiallySubmitted(r)&&(r.firstAttemptCorrect===null||r.firstAttemptCorrect===false&&!r.resolved)).length};
+    return {task,date:task.date,total:task.questionIds.length,remaining:submitted?0:remainingIndices.length,remainingIndices,submitted,needsSubmission:!submitted,isOverdue:task.date<date,corrections:records.filter(r=>initiallySubmitted(r)&&(r.firstAttemptCorrect===null&&!r.unanswered&&!r.invalidInput&&!r.manualResolved||r.firstAttemptCorrect===false&&!r.resolved)).length};
   });
   const pending=batches.filter(b=>b.needsSubmission);
   return {date,startDate,batches,remaining:pending.reduce((n,b)=>n+b.remaining,0),carryRemaining:pending.filter(b=>b.isOverdue).reduce((n,b)=>n+b.remaining,0),newRemaining:pending.filter(b=>!b.isOverdue).reduce((n,b)=>n+b.remaining,0),needsSubmission:pending.length>0};

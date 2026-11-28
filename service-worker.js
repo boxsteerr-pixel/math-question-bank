@@ -8,9 +8,9 @@ const assets = [
   './', './index.html', './parent.html', './question-preview.html', './manifest.json',
   './css/style.css', './js/version.js', './js/app.js', './js/questionPreview.js',
   './js/db.js', './js/questionBankFix.js', './js/questionEngine.js', './js/scoring.js',
-  './js/factorizedForm.js', './js/scoringPolicy.js', './js/attemptPolicy.js',
+  './js/factorizedForm.js', './js/rationalExpression.js', './js/scoringPolicy.js', './js/attemptPolicy.js',
   './js/knowledgePoints.js', './js/statistics.js', './js/wrongQuestions.js', './js/coverage.js',
-  './js/parentDashboard.js', './js/backup.js', './js/formatMath.js', './js/updateManager.js',
+  './js/parentDashboard.js', './js/backup.js', './js/formatMath.js', './js/choice.js', './js/updateManager.js',
   './data/questions.json', './icons/app-icon.svg'
 ].map(path => new URL(path, scope).href);
 const assetSet = new Set(assets);

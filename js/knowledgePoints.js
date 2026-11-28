@@ -24,6 +24,19 @@ export const KNOWLEDGE_POINTS=Object.freeze([
 
 export const FACTORIZATION_POINTS=Object.freeze(KNOWLEDGE_POINTS.filter(point=>point.startsWith('因式分解·')));
 
+export const FRACTION_KNOWLEDGE_POINTS=Object.freeze([
+  {id:'F13_CONCEPT',name:'分式概念与意义',chapter:13},
+  {id:'F13_CONDITIONS',name:'分式有意义、无意义及值为零的条件',chapter:13},
+  {id:'F13_PROPERTIES',name:'分式基本性质与通分',chapter:13},
+  {id:'F13_SIMPLIFY',name:'分式约分与最简分式',chapter:13},
+  {id:'F13_MULTIPLY_DIVIDE',name:'分式乘除与乘方',chapter:13},
+  {id:'F13_ADD_SUBTRACT',name:'分式加减',chapter:13},
+  {id:'F13_MIXED',name:'分式混合运算与化简求值',chapter:13},
+  {id:'F13_EQUATION',name:'分式方程、增根与应用',chapter:13},
+]);
+export const ALL_KNOWLEDGE_POINTS=Object.freeze([...KNOWLEDGE_POINTS,...FRACTION_KNOWLEDGE_POINTS.map(point=>point.id)]);
+export const knowledgePointName=id=>FRACTION_KNOWLEDGE_POINTS.find(point=>point.id===id)?.name||id;
+
 // Historical selections are authoritative. An absent setting is initialized
 // from KNOWLEDGE_POINTS by the caller; explicit selections are never expanded.
 export const includeNewKnowledgePoints=selected=>[...new Set(selected||[])];
