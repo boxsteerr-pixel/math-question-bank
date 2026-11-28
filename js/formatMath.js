@@ -60,4 +60,5 @@ export function formatMath(value){
   }
   return (output+escapeHtml(source.slice(offset))).replace(/\s+/g,' ').trim();
 }
+export const questionText=q=>q?.displayQuestion||q?.question||(typeof q?.mathVerification?.expression==='string'?'计算 '+q.mathVerification.expression:'题目内容暂不可用，请联系家长');
 export const displayClass=s=>s.length>92?'math-long':s.length>48?'math-medium':'math-short';
