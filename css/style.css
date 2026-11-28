@@ -18,3 +18,5 @@
 .math-denominator { padding:.08em .2em 0; }
 .math-exponent { font-size:.7em; }
 .math-fallback-label { font-size:.55em; color:#475569; white-space:nowrap; }
+
+.parent-disclosure>summary{cursor:pointer;min-height:44px;display:list-item;font-size:22px;font-weight:700;padding:6px 0}.parent-disclosure[open]>summary{margin-bottom:12px}.parent-disclosure>summary:focus-visible{outline:3px solid #b8d4ff;outline-offset:3px;border-radius:6px}
